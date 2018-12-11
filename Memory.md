@@ -4,20 +4,6 @@
 ### Own:
 ------------------------------------
 
-
-登录了： 
-阿里巴巴iCon
-
-Mac终端小工具开发：http://www.cocoachina.com/ios/20181115/25478.html
-
-
-* 进行自定义方法的重新整理。
-
-* 如果VC中出现UIScrollView，push进入下级页面，也会出现自动偏移 --> 控制器UIVieController下移，UIView当然也会下移动，直接在"viewDidLoad" self.extendedLayoutIncludesOpaqueBars = YES;
-
-* 如果出现push页面卡顿，在push的下一级页面“self.view.backgroundColor = YES”是渲染的原因。
-
-
 * 证书发包流程 -- https://www.cnblogs.com/sunfuyou/p/5900592.html
 * 发布流程 --  https://www.jianshu.com/p/817686897ec1?open_source=weibo_search
 
@@ -59,11 +45,13 @@ leave:
 
 
 整理知识点：
-12.11 
 
-1. SEL @selector 使用 --> 各个方法整理
+12. 12
 
-
+1. 继续进行视频播放器的处理。
+2. 进行Github项目的OpenGL ES项目的处理，视频处理相关。
+3. 进行iOS支付的相关问题，开始。
+4. 继续整理`AHZX`,以及加密方法查看使用和其它工具类的使用处理。
 
 
 
