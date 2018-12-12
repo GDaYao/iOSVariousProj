@@ -15,6 +15,7 @@
 
 @property (nonatomic,strong)AVPlayerView *avPlayerV;
 
+@property (nonatomic ,strong)  id avPlayTimeObser;
 @property (assign, nonatomic)BOOL isReadToPlay;     //用来判断当前视频是否准备好播放。
 @property (nonatomic,assign)BOOL isRotate; // set screen rotate.
 
@@ -35,18 +36,23 @@
     
     self.isRotate = NO;
 }
-
+// you must use `viewWillDisappear`
 - (void)viewWillDisappear:(BOOL)animated{
-    [super viewDidDisappear:animated];
+    [super viewWillDisappear:animated];
     
-    [self.avPlayerV.avLayer removeFromSuperlayer];
-    self.avPlayerV.avLayer = nil;
-    self.avPlayerV.avPlayer = nil;
-
-    [self.avPlayerV.playItem cancelPendingSeeks];
-    [self.avPlayerV.playItem.asset cancelLoading];
-//    [self.avPlayerV.avPlayer.currentItem cancelPendingSeeks];
-//    [self.avPlayerV.avPlayer.currentItem.asset cancelLoading];
+    if (self.avPlayerV) {
+        [self.avPlayerV.avPlayer removeTimeObserver:self.avPlayTimeObser];
+        
+        [self.avPlayerV.avLayer removeFromSuperlayer];
+        self.avPlayerV.avLayer = nil;
+        self.avPlayerV.avPlayer = nil;
+        
+        [self.avPlayerV.playItem cancelPendingSeeks];
+        [self.avPlayerV.playItem.asset cancelLoading];
+//        [self.avPlayerV.avPlayer.currentItem cancelPendingSeeks];
+//        [self.avPlayerV.avPlayer.currentItem.asset cancelLoading];
+        
+    }
     
     self.navigationController.navigationBar.hidden = NO;
     
@@ -131,6 +137,7 @@
 //        if (self.delegate && [self.delegate respondsToSelector:@selector(updateBufferProgress:)]) {
 //            [self.delegate updateBufferProgress:totalBuffer];
 //        }
+        [object removeObserver:self forKeyPath:@"loadedTimeRanges"];
     }
 }
 
@@ -175,7 +182,7 @@
 //监控时间进度
 - (void)observePlayerTimeChange{
     __weak typeof(self) weakSelf = self;
-    [self.avPlayerV.avPlayer addPeriodicTimeObserverForInterval:CMTimeMake(1, 1) queue:dispatch_get_main_queue() usingBlock:^(CMTime time) {
+    self.avPlayTimeObser = [self.avPlayerV.avPlayer addPeriodicTimeObserverForInterval:CMTimeMake(1, 1) queue:dispatch_get_main_queue() usingBlock:^(CMTime time) {
         __strong typeof(self) strongSelf = weakSelf;
         // 在这里将监听到的播放进度代理出去，对进度条进行设置
         float sliderValueTime = CMTimeGetSeconds(time);
@@ -205,16 +212,12 @@
 
 #pragma mark - 屏幕旋转
 - (BOOL)shouldAutorotate{
-    [super shouldAutorotate];
     return self.isRotate;
 }
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations{
-    [super supportedInterfaceOrientations];
-    
     return UIInterfaceOrientationMaskPortrait;
 }
 - (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation{
-    [super preferredInterfaceOrientationForPresentation];
     return UIInterfaceOrientationPortrait;
 }
 
@@ -223,6 +226,7 @@
 #pragma mark - dealloc
 - (void)dealloc{
     [[NSNotificationCenter defaultCenter]removeObserver:self];
+    //[self.avPlayerV.avPlayer removeTimeObserver:self.avPlayTimeObser];
     NSLog(@"log--dealloc");
 }
 
