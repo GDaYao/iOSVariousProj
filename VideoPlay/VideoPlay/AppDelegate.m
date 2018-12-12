@@ -26,6 +26,10 @@
     
     return YES;
 }
+//  support interface
+- (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window{
+    return UIInterfaceOrientationMaskAll;
+}
 
 
 - (void)applicationWillResignActive:(UIApplication *)application {
