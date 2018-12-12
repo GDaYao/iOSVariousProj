@@ -211,15 +211,15 @@
 }
 
 #pragma mark - 屏幕旋转
-- (BOOL)shouldAutorotate{
-    return self.isRotate;
-}
-- (UIInterfaceOrientationMask)supportedInterfaceOrientations{
-    return UIInterfaceOrientationMaskPortrait;
-}
-- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation{
-    return UIInterfaceOrientationPortrait;
-}
+//- (BOOL)shouldAutorotate{
+//    return self.isRotate;
+//}
+//- (UIInterfaceOrientationMask)supportedInterfaceOrientations{
+//    return UIInterfaceOrientationMaskPortrait;
+//}
+//- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation{
+//    return UIInterfaceOrientationPortrait;
+//}
 
 
 
