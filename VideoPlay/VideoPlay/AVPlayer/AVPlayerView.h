@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface AVPlayerView : UIView
 
+@property (nonatomic,strong)NSURL *videoURL;
 @property (nonatomic,strong)AVPlayerItem *playItem; // M
 @property (nonatomic,strong)AVPlayer *avPlayer; // C
 @property (nonatomic,strong)AVPlayerLayer *avLayer; // V

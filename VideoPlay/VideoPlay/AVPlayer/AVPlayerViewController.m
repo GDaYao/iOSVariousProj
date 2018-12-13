@@ -101,6 +101,9 @@
 //    self.avPlayerV.layer.borderColor = [UIColor redColor].CGColor;
 //    self.avPlayerV.layer.borderWidth = 1.0f;
     
+    NSString *audioPath = [[NSBundle mainBundle]pathForResource:@"play" ofType:@".mp4"];
+    NSURL *url = [NSURL fileURLWithPath:audioPath];
+    self.avPlayerV.videoURL = url;
     self.avPlayerV.viewFrame = CGRectMake(0, 0, kScreenW, 300);
     [self.avPlayerV configUI];
     
@@ -164,9 +167,9 @@
         float durationSeconds = CMTimeGetSeconds(timeRange.duration);
         //缓冲总长度
         NSTimeInterval totalBuffer = startSeconds + durationSeconds;
-        //NSLog(@"log--共缓冲：%.2f",totalBuffer);
+        NSLog(@"log--共缓冲：%.2f",totalBuffer);
 
-        [object removeObserver:self forKeyPath:@"loadedTimeRanges"];
+//        [object removeObserver:self forKeyPath:@"loadedTimeRanges"];
     }
 }
 
@@ -279,6 +282,7 @@
 #pragma mark - dealloc
 - (void)dealloc{
     [[NSNotificationCenter defaultCenter]removeObserver:self];
+    
     //[self.avPlayerV.avPlayer removeTimeObserver:self.avPlayTimeObser];
     NSLog(@"log--dealloc");
 }

@@ -78,10 +78,8 @@
 #pragma mark - config ui
 - (void)configUI{
     
-    // set top avoid other control cover.
-    NSString *audioPath = [[NSBundle mainBundle]pathForResource:@"play" ofType:@".mp4"];
-    NSURL *url = [NSURL fileURLWithPath:audioPath];
-    [self configVideoPlayWithURL:url layerFrame:CGRectMake(0,0,self.viewFrame.size.width, self.viewFrame.size.height)];
+    // set avLayer top avoid other control cover.
+    [self configVideoPlayWithURL:self.videoURL layerFrame:CGRectMake(0,0,self.viewFrame.size.width, self.viewFrame.size.height)];
     
     self.backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [self addSubview:self.backBtn];
@@ -119,9 +117,9 @@
 - (void)configVideoPlayWithURL:(NSURL *)videoURL layerFrame:(CGRect)playerFrame{
     
     //网络视频播放
-    //    NSString *playString = @"http://static.tripbe.com/videofiles/20121214/9533522808.f4v.mp4";
-    //    NSURL *url = [NSURL URLWithString:playString];
-    
+        //NSString *playString = @"http://static.tripbe.com/videofiles/20121214/9533522808.f4v.mp4";
+    //NSString *playString = @"http://wvideo.spriteapp.cn/video/2016/0328/56f8ec01d9bfe_wpd.mp4"; // can use
+    //NSURL *netUrl = [NSURL URLWithString:playString];
     // 1. 合法URL -- 本地视频播放
     //    NSString *audioPath = [[NSBundle mainBundle]pathForResource:@"play" ofType:@".mp4"];
     //    NSURL *url = [NSURL fileURLWithPath:audioPath];
