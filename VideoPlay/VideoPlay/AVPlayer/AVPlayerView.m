@@ -6,7 +6,7 @@
 #import "AVPlayerView.h"
 
 #import <Masonry/Masonry.h>
-
+#import <GDYSDK/UILabel+CustomLabInit.h>
 
 @implementation AVPlayerView
 
@@ -19,13 +19,69 @@
     return self;
 }
 
+- (void)layoutSubviews{
+    [super layoutSubviews];
+    
+    
+    NSLog(@"log--AVPlayerView--layoutSubviews");
+    // 重设 layer frame
+    self.avLayer.frame = CGRectMake(0, 0, self.viewFrame.size.width, self.viewFrame.size.height);
+   
+    [self.backBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self).offset(10);
+        make.left.equalTo(self).offset(8);
+        make.size.equalTo(@(CGSizeMake(25, 25)));
+    }];
+    [self.playBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self).offset(8);
+        make.bottom.equalTo(self).offset(-10);
+        make.size.equalTo(@(CGSizeMake(30, 30)));
+    }];
+    CGSize aleradyLabSize = [@"00:00:00/00:00:00" boundingRectWithSize:CGSizeMake(self.bounds.size.width, __FLT_MAX__) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType,NSFontAttributeName:[UIFont systemFontOfSize:12.0]} context:nil].size;
+    [self.aleradyTimeLab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.playBtn.mas_right).offset(10);
+        make.centerY.equalTo(self.playBtn.mas_centerY);
+        make.size.equalTo(@(CGSizeMake(aleradyLabSize.width, aleradyLabSize.height)));
+    }];
+    [self.playSlider mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.aleradyTimeLab.mas_right).offset(5);
+        //make.right.equalTo(self).offset(-90);
+        make.centerY.equalTo(self.aleradyTimeLab.mas_centerY);
+    }];
+    if(kScreenW<kScreenH){
+        self.fullScreenBtn.hidden = NO;
+        self.totalTimeLab.hidden = YES;
+        // 竖屏
+        [self.fullScreenBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.playSlider.mas_right).offset(30);
+            make.right.equalTo(self).offset(-10);
+            make.centerY.equalTo(self.playSlider.mas_centerY);
+            make.size.equalTo(@(CGSizeMake(30, 30)));
+        }];
+        
+    }else{
+        // 横屏
+        self.fullScreenBtn.hidden = YES;
+        self.totalTimeLab.hidden = NO;
+        
+          CGSize totalLabSize = [self.totalTimeLab.text boundingRectWithSize:CGSizeMake(self.bounds.size.width, __FLT_MAX__) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType,NSFontAttributeName:[UIFont systemFontOfSize:12.0]} context:nil].size;
+        [self.totalTimeLab mas_makeConstraints:^(MASConstraintMaker *make) {
+            //make.left.equalTo(self.playSlider.mas_right).offset(30);
+            make.right.equalTo(self).offset(-10);
+            make.centerY.equalTo(self.playSlider.mas_centerY);
+            make.size.equalTo(@(CGSizeMake(totalLabSize.width+15, totalLabSize.height)));
+        }];
+    }
+}
+
+
 #pragma mark - config ui
 - (void)configUI{
     
     // set top avoid other control cover.
     NSString *audioPath = [[NSBundle mainBundle]pathForResource:@"play" ofType:@".mp4"];
     NSURL *url = [NSURL fileURLWithPath:audioPath];
-    [self configVideoPlayWithURL:url layerFrame:CGRectMake(0,0,self.bounds.size.width, self.bounds.size.height)];
+    [self configVideoPlayWithURL:url layerFrame:CGRectMake(0,0,self.viewFrame.size.width, self.viewFrame.size.height)];
     
     self.backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [self addSubview:self.backBtn];
@@ -36,6 +92,11 @@
     [self.playBtn setBackgroundImage:[UIImage imageNamed:@"playBtnPlay"] forState:UIControlStateNormal];
     [self.playBtn setBackgroundImage:[UIImage imageNamed:@"playBtnPause"] forState:UIControlStateSelected];
     
+    self.aleradyTimeLab = [UILabel InitLabWithBGColor:nil textColor:[UIColor whiteColor] fontName:nil fontSize:12.0 labText:@"00:00" txAlignment:NSTextAlignmentCenter];
+    [self addSubview:self.aleradyTimeLab];
+    
+    
+    
     self.playSlider = [[UISlider alloc]init];
     [self addSubview:self.playSlider];
     self.playSlider.minimumTrackTintColor = [UIColor orangeColor];
@@ -43,31 +104,14 @@
     [self.playSlider setThumbImage:[UIImage imageNamed:@"playSliderThumb"] forState:UIControlStateNormal];
     [self.playSlider setThumbImage:[UIImage imageNamed:@"playSliderThumb"] forState:UIControlStateHighlighted];
     
+    self.totalTimeLab = [UILabel InitLabWithBGColor:nil textColor:[UIColor whiteColor] fontName:nil fontSize:12.0 labText:@"00:00" txAlignment:NSTextAlignmentLeft];
+    [self addSubview:self.totalTimeLab];
+   
     self.fullScreenBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [self addSubview:self.fullScreenBtn];
     [self.fullScreenBtn setBackgroundImage:[UIImage imageNamed:@"playFullScreen"] forState:UIControlStateNormal];
     
     // layout
-    [self.backBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self).offset(0);
-        make.left.equalTo(self).offset(8);
-        make.size.equalTo(@(CGSizeMake(25, 25)));
-    }];
-    [self.playBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self).offset(8);
-        make.bottom.equalTo(self).offset(-10);
-        make.size.equalTo(@(CGSizeMake(30, 30)));
-    }];
-    [self.playSlider mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.playBtn.mas_right).offset(20);
-        make.right.equalTo(self).offset(-90);
-        make.centerY.equalTo(self.playBtn.mas_centerY);
-    }];
-    [self.fullScreenBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.playSlider.mas_right).offset(30);
-        make.centerY.equalTo(self.playSlider.mas_centerY);
-        make.size.equalTo(@(CGSizeMake(30, 30)));
-    }];
 
 }
 

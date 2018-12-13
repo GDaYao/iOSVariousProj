@@ -8,7 +8,7 @@
 
 //#import <GDYSDK/GDYSDK.h>
 #import <Masonry/Masonry.h>
-
+#import <GDYSDK/ToolM.h>
 #import "AVPlayerView.h"
 
 @interface AVPlayerViewController ()
@@ -58,12 +58,41 @@
     
 }
 
-//#pragma mark - layout
-//- (void)viewWillLayoutSubviews{
-//    [super viewWillLayoutSubviews];
-//
-//}
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator{
+    NSLog(@"log-- viewWillTransitionToSize");
+    
+    if (kScreenW<kScreenH) {
+        self.isRotate = NO;
+        [self setNeedsStatusBarAppearanceUpdate];
+        float disY = [UIApplication sharedApplication].statusBarFrame.size.height;  //+self.navigationController.navigationBar.frame.size.height
+        // 竖屏
+        [self.avPlayerV mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.view).offset(disY+7);
+            make.left.right.equalTo(self.view);
+            make.height.equalTo(@300);
+        }];
+        self.avPlayerV.viewFrame = CGRectMake(0, 0, kScreenW, 300);
+    }else{
+        self.isRotate = YES;
+        [self setNeedsStatusBarAppearanceUpdate];
+        
+        // 横屏
+        [self.avPlayerV mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.view).offset(0);
+            make.left.right.equalTo(self.view);
+            make.bottom.equalTo(self.view).offset(0);
+        }];
+        self.avPlayerV.viewFrame = CGRectMake(0, 0, kScreenW,kScreenH);
+    }
+    
+    
+}
 
+- (BOOL)prefersStatusBarHidden
+{
+    NSLog(@"log--prefersStatusBarHidden");
+    return self.isRotate;  //隐藏为YES，显示为NO
+}
 
 #pragma mark - ui
 - (void)configUI{
@@ -72,17 +101,17 @@
 //    self.avPlayerV.layer.borderColor = [UIColor redColor].CGColor;
 //    self.avPlayerV.layer.borderWidth = 1.0f;
     
-
-    float disY = [UIApplication sharedApplication].statusBarFrame.size.height; //+self.navigationController.navigationBar.frame.size.height
-    [self.avPlayerV mas_makeConstraints:^(MASConstraintMaker *make) {
+    self.avPlayerV.viewFrame = CGRectMake(0, 0, kScreenW, 300);
+    [self.avPlayerV configUI];
+    
+    // layout
+    float disY = [UIApplication sharedApplication].statusBarFrame.size.height;  //+self.navigationController.navigationBar.frame.size.height
+    // 竖屏
+    [self.avPlayerV mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.view).offset(disY+7);
         make.left.right.equalTo(self.view);
         make.height.equalTo(@300);
     }];
-    [self.view layoutIfNeeded];
-    
-    [self.avPlayerV configUI];
-    
     
 // add target
     [self.avPlayerV.backBtn addTarget:self action:@selector(tapBackBtn) forControlEvents:UIControlEventTouchUpInside];
@@ -114,7 +143,9 @@
             case AVPlayerItemStatusReadyToPlay:
                 NSLog(@"准备好播放了");
                 self.isReadToPlay = YES;
-                self.avPlayerV.playSlider.maximumValue = self.avPlayerV.playItem.duration.value / self.avPlayerV.playItem.duration.timescale; // seconds
+                float totalTime = self.avPlayerV.playItem.duration.value / self.avPlayerV.playItem.duration.timescale; // seconds
+                self.avPlayerV.playSlider.maximumValue = totalTime;
+                self.avPlayerV.totalTimeLab.text = [NSString stringWithFormat:@"%@",[ToolM getDifferHourMintueSecondStringFromIntTime:totalTime]];
                 break;
             case AVPlayerItemStatusUnknown:
                 NSLog(@"视频资源出现未知错误");
@@ -133,10 +164,8 @@
         float durationSeconds = CMTimeGetSeconds(timeRange.duration);
         //缓冲总长度
         NSTimeInterval totalBuffer = startSeconds + durationSeconds;
-        NSLog(@"log--共缓冲：%.2f",totalBuffer);
-//        if (self.delegate && [self.delegate respondsToSelector:@selector(updateBufferProgress:)]) {
-//            [self.delegate updateBufferProgress:totalBuffer];
-//        }
+        //NSLog(@"log--共缓冲：%.2f",totalBuffer);
+
         [object removeObserver:self forKeyPath:@"loadedTimeRanges"];
     }
 }
@@ -164,8 +193,8 @@
         }
         
     }];
-    
 }
+
 
 - (void)playSliderAction{
     //slider的value值为视频的时间
@@ -183,11 +212,18 @@
 - (void)observePlayerTimeChange{
     __weak typeof(self) weakSelf = self;
     self.avPlayTimeObser = [self.avPlayerV.avPlayer addPeriodicTimeObserverForInterval:CMTimeMake(1, 1) queue:dispatch_get_main_queue() usingBlock:^(CMTime time) {
+        //NSLog(@"log--%f",sliderValueTime);
         __strong typeof(self) strongSelf = weakSelf;
         // 在这里将监听到的播放进度代理出去，对进度条进行设置
         float sliderValueTime = CMTimeGetSeconds(time);
         strongSelf.avPlayerV.playSlider.value = sliderValueTime;
-        NSLog(@"log--%f",sliderValueTime);
+        if (strongSelf.isRotate) {
+            strongSelf.avPlayerV.aleradyTimeLab.text = [NSString stringWithFormat:@"%@",[ToolM getDifferHourMintueSecondStringFromIntTime:sliderValueTime]];
+        }else{
+            // 下面不断改变的time导致一直调用viewDidLayout
+            strongSelf.avPlayerV.aleradyTimeLab.text = [NSString stringWithFormat:@"%@/%@",[ToolM getDifferHourMintueSecondStringFromIntTime:sliderValueTime],strongSelf.avPlayerV.totalTimeLab.text];
+        }
+        
     }];
 }
 // play finish --para:AVPlayerItem
@@ -197,11 +233,21 @@
 }
 
 - (void)tapBackBtn{
-    [self.navigationController popViewControllerAnimated:YES];
+    if (self.isRotate) {
+        self.isRotate = NO;
+       
+        NSNumber *value = [NSNumber numberWithInt:UIDeviceOrientationPortrait];
+        [[UIDevice currentDevice]setValue:value forKey:@"orientation"];
+        [UIViewController attemptRotationToDeviceOrientation];
+        
+        
+        
+    }else{
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 - (void)tapFullScreenBtn:(UIButton *)fullScreenBtn{
-//    [self.avPlayerV setNeedsLayout];
     
     self.isRotate = YES;
     NSNumber *value = [NSNumber numberWithInt:UIDeviceOrientationLandscapeLeft];
@@ -211,6 +257,13 @@
 }
 
 #pragma mark - 屏幕旋转
+// 在屏幕旋转后触发
+//- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator{
+//
+//}
+//- (void)viewDidLayoutSubviews {
+//}
+
 //- (BOOL)shouldAutorotate{
 //    return self.isRotate;
 //}
@@ -229,6 +282,8 @@
     //[self.avPlayerV.avPlayer removeTimeObserver:self.avPlayTimeObser];
     NSLog(@"log--dealloc");
 }
+
+
 
 
 

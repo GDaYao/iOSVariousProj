@@ -31,6 +31,8 @@
 #pragma mark - time
 // get time string from int time
 + (NSString *)getHourMintueSecondStringFromIntTime:(NSInteger)integerTime;
+// get differ time string from int time
++ (NSString *)getDifferHourMintueSecondStringFromIntTime:(NSInteger)integerTime;
 // get timestamp
 + (long)currentTimestamp;
 // get formatter time string

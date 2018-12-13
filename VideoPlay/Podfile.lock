@@ -19,9 +19,9 @@ PODS:
   - GDYSDK/Core (0.1.8):
     - AFNetworking (= 3.2.1)
   - Masonry (1.1.0)
-  - SDWebImage (4.4.2):
-    - SDWebImage/Core (= 4.4.2)
-  - SDWebImage/Core (4.4.2)
+  - SDWebImage (4.4.3):
+    - SDWebImage/Core (= 4.4.3)
+  - SDWebImage/Core (4.4.3)
 
 DEPENDENCIES:
   - "GDYSDK (from `git@github.com:GDaYao/GDYSDK.git`)"
@@ -40,14 +40,14 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   GDYSDK:
-    :commit: bbb85c4f91074115e92a6ae87c644a63d5b1ca81
+    :commit: 186fa69af52079cf62c4b69d9681fd7e00e0bafc
     :git: "git@github.com:GDaYao/GDYSDK.git"
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   GDYSDK: f3c002def455113446406bf3a9c99b8cb8ebf25d
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
-  SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
+  SDWebImage: c5594f1a19c48d526d321e548902b56b479cd508
 
 PODFILE CHECKSUM: e7d48b027fa1b472bdaef780fbc566ea38242e6f
 

@@ -20,6 +20,10 @@
     return CGRectMake(0, 0, bounds.size.width, bounds.size.height);
 }
 
+// redraw rect
+//- (CGRect)minimumValueImageRectForBounds:(CGRect)bounds;
+//- (CGRect)maximumValueImageRectForBounds:(CGRect)bounds;
+//- (CGRect)thumbRectForBounds:(CGRect)bounds trackRect:(CGRect)rect value:(float)value;
 
 
 @end
