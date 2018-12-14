@@ -1,0 +1,8 @@
+platform:ios, '8.0'
+target "PaymentRealization" do
+
+pod 'GDYSDK',:git=>'git@github.com:GDaYao/GDYSDK.git'
+pod 'Masonry'
+
+
+end
