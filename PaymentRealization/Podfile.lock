@@ -1,0 +1,48 @@
+PODS:
+  - AFNetworking (3.2.1):
+    - AFNetworking/NSURLSession (= 3.2.1)
+    - AFNetworking/Reachability (= 3.2.1)
+    - AFNetworking/Security (= 3.2.1)
+    - AFNetworking/Serialization (= 3.2.1)
+    - AFNetworking/UIKit (= 3.2.1)
+  - AFNetworking/NSURLSession (3.2.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.2.1)
+  - AFNetworking/Security (3.2.1)
+  - AFNetworking/Serialization (3.2.1)
+  - AFNetworking/UIKit (3.2.1):
+    - AFNetworking/NSURLSession
+  - GDYSDK (0.1.8):
+    - GDYSDK/Core (= 0.1.8)
+  - GDYSDK/Core (0.1.8):
+    - AFNetworking (= 3.2.1)
+  - Masonry (1.1.0)
+
+DEPENDENCIES:
+  - "GDYSDK (from `git@github.com:GDaYao/GDYSDK.git`)"
+  - Masonry
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - AFNetworking
+    - Masonry
+
+EXTERNAL SOURCES:
+  GDYSDK:
+    :git: "git@github.com:GDaYao/GDYSDK.git"
+
+CHECKOUT OPTIONS:
+  GDYSDK:
+    :commit: e4c5425c23c4791a3aa6738018e3b8a4e23983b7
+    :git: "git@github.com:GDaYao/GDYSDK.git"
+
+SPEC CHECKSUMS:
+  AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  GDYSDK: f3c002def455113446406bf3a9c99b8cb8ebf25d
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+
+PODFILE CHECKSUM: 73f3b2ac74d2e54c5e930b9f2eddd673da1c9ee3
+
+COCOAPODS: 1.5.3
