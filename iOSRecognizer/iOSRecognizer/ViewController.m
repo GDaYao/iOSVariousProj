@@ -223,7 +223,7 @@
 {
     UIScreenEdgePanGestureRecognizer *screenPan = [[UIScreenEdgePanGestureRecognizer alloc]initWithTarget:self action:@selector(screenPanAction:)];
     screenPan.edges = UIRectEdgeAll; // 手指从视图左边划入时
-    [_imageView addGestureRecognizer:screenPan];
+    [self.view addGestureRecognizer:screenPan];
 }
 -(void)screenPanAction:(UIScreenEdgePanGestureRecognizer *)screenPan
 {
