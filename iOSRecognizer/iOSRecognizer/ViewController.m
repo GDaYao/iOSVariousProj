@@ -33,11 +33,11 @@
     //1.创建轻拍手势
     [self tapGestureRecognizer];
     //2.创建轻扫手势
-//    [self swipeGestureRecognizer];
+    [self swipeGestureRecognizer];
     //3.创建长按手势
     [self longPressGestureRecognizer];
     //4.创建平移手势  -- 此处创建的平移手势会和轻扫冲突覆盖
-//    [self panGestureTecognizer];
+    [self panGestureTecognizer];
     //5.创建捏合手势
     [self pinchGestureRecognizer];
     //6.创建旋转手势
@@ -218,16 +218,16 @@
     rote.rotation = 0;
     
 }
-#pragma mark - 边缘手势
+#pragma mark - 边缘手势 -- 只能添加到 `self.view`上
 -(void)screenEdgePanGestureRecognizer
 {
     UIScreenEdgePanGestureRecognizer *screenPan = [[UIScreenEdgePanGestureRecognizer alloc]initWithTarget:self action:@selector(screenPanAction:)];
-    screenPan.edges = UIRectEdgeAll; // 手指从视图左边划入时
+    screenPan.edges = UIRectEdgeRight; // 右滑显示
     [self.view addGestureRecognizer:screenPan];
 }
 -(void)screenPanAction:(UIScreenEdgePanGestureRecognizer *)screenPan
 {
-    NSLog(@"边缘");
+    NSLog(@"log--边缘:%ld",(long)screenPan.state);
 }
 
 
