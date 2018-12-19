@@ -77,7 +77,7 @@
 }
 
 
-#pragma mark - 轻怕手势
+#pragma mark - 轻拍手势
 -(void)tapGestureRecognizer
 {
     //创建手势对象
@@ -108,8 +108,8 @@
 {
     UISwipeGestureRecognizer *swipe =[[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swipeAction:)];
     //配置属性
-    //一个清扫手势  只能有两个方向(上和下) 或者 (左或右)
-    //如果想支持上下左右清扫  那么一个手势不能实现  需要创建两个手势
+    //一个轻扫手势  只能有两个方向(上和下) 或者 (左或右)
+    //如果想支持上下左右轻扫  那么一个手势不能实现  需要创建两个手势
     swipe.direction =UISwipeGestureRecognizerDirectionLeft;
     [_imageView addGestureRecognizer:swipe];
    

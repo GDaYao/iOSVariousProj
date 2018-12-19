@@ -40,6 +40,8 @@ HACK net website: http://www.weixianmanbu.com/page_2.html
 *. 第三方整合使用，友盟或者Google统计，还有分享的使用。
 *. Apple 内置功能调用使用，SIM卡调用，通讯录调用，NFC调用。
 
+Interview question
+http://blog.cocoachina.com/article/73184
 
 leave:
 
@@ -65,26 +67,30 @@ before:
 
 // * KVC/KVO的使用
 //* iOS 手势
-* iOS 触摸事件 / iOS加速事件 / iOS远程控制事件
+
+// 整理KVC/KVO知识点教程
+
+12.19 周三
+
+* iOS 触摸事件 / iOS加速事件 / iOS远程控制事件 (比较多)
 
 UIView:
 `- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event;`
 
-整理KVC/KVO知识点教程
 
 
 
-12.19 周三
+12.20  周四
 
 * SQLite3使用
 * CoreData/归档使用
 
-12.20  周四
+
+12.21 周五
+
 
 * AFNetworkin原理/底层
 * SDWebImage原理
-
-12.21 周五
 
 * 处理网络视频播放/变下边播放/后台播放 ==> https://www.jianshu.com/p/93ce1748ea57
 * 音频
@@ -100,6 +106,8 @@ UIView:
 * 内购整理
 * GameCenter使用
 * 广告整合
+
+
 
 
 

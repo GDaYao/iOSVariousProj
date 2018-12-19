@@ -3,6 +3,8 @@
 //  iOSRecognizer
 //
 
+// func: iOS recognizer 
+
 
 #import <UIKit/UIKit.h>
 

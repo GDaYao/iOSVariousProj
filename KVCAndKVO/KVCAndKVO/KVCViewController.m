@@ -170,7 +170,6 @@
     NSLog(@"log--kvcStr:%@",getKVCStr);
     NSLog(@"log--kvcStrTwo:%@",getKVCStrTwo);
     NSLog(@"log--property:%@,%@",self.kvcStr,_kvcStrTwo); // KVC直接给对象赋值
-    
 }
 
 
@@ -343,7 +342,6 @@
     [model setValuesForKeysWithDictionary:propertyDictTwo];            //用key Value来修改Model的属性
     NSLog(@"log--reportCreateTime:%@  reportPath:%@ reportId:%@",model.reportCreateTime,model.reportPath,model.reportId);
     
-
 }
 
 
