@@ -40,33 +40,29 @@ HACK net website: http://www.weixianmanbu.com/page_2.html
 *. 第三方整合使用，友盟或者Google统计，还有分享的使用。
 *. Apple 内置功能调用使用，SIM卡调用，通讯录调用，NFC调用。
 
-Interview question
+Interview question:
 http://blog.cocoachina.com/article/73184
 
 leave:
 
-1. save `AHZX file`
-2. delete `other...`
+1. save `AHZX file`。
+2. delete `other...`。
+3. 记住把git信息变更。 -- 删除~/.gitconfig + ~/.ssh 需要可以给用户自动生成。
 
 -   -   -   -   -   -   -   -   -   -   
 
-
-
-12.20  周四
-* 继续学习整理iOS 触摸事件 / iOS加速事件 / iOS远程控制事件 (比较多)
-
-UIView:
-`- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event;`
+### 今日做
 
 * SQLite3使用
 * CoreData/归档使用
-
+* iOS 微信刷分:  https://www.cnblogs.com/dahe007/p/8250527.html?utm_source=debugrun&utm_medium=referral
 
 12.21 周五
 
 
 * AFNetworkin原理/底层
 * SDWebImage原理
+* Masonry原理底层
 
 * 处理网络视频播放/变下边播放/后台播放 ==> https://www.jianshu.com/p/93ce1748ea57
 * 音频
@@ -77,7 +73,12 @@ UIView:
 * 主要对前面知识整理/iOS基础教程
 
 
-12.24 周一 开始
+
+
+
+### 未完成
+* 对git内容进行整理
+
 * iCoud
 * 内购整理
 * GameCenter使用
@@ -85,9 +86,10 @@ UIView:
 
 
 
-* 微信/QQ/支付宝 + 登录支付 
-
 * instruments使用
+* 友盟统计加入 -- 埋点+推送
+* QQ/微信/支付宝 + 登录+支付
+
 * Shell 脚本学习
 * python学习
 
@@ -99,6 +101,23 @@ before:
 *  进行iOS `支付` 的相关问题，开始。 ==> 完成部分功能。
 * 进行iOS `地图` 功能加入
 * 继续整理`AHZX`,以及加密方法查看使用和其它工具类的使用处理。
+
+
+
+整理知识点：
+
+before:
+//*  继续进行视频播放器的处理。 --> 做出基本视频功能，具备全屏播放/自动旋转屏幕处理。
+
+*  进行Github项目的OpenGL ES项目的处理，视频处理相关 / 查看相关其它视频播放器的实现 / 抖音上下滑动效果的实现。
+*  进行iOS `支付` 的相关问题，开始。 ==> 完成部分功能。
+* 进行iOS `地图` 功能加入
+* 继续整理`AHZX`,以及加密方法查看使用和其它工具类的使用处理。
+
+
+### git知识学习:
+
+
 
 
 -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -  -   
