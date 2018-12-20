@@ -47,7 +47,7 @@ leave:
 
 1. save `AHZX file`。
 2. delete `other...`。
-3. 记住把git信息变更。
+3. 记住把git信息变更。 -- 删除~/.gitconfig + ~/.ssh 需要可以给用户自动生成。
 
 
 ### 今日做
@@ -76,7 +76,12 @@ UIView:
 * 主要对前面知识整理/iOS基础教程
 
 
-12.24 周一 开始
+
+
+
+### 未完成
+* 对git内容进行整理
+
 * iCoud
 * 内购整理
 * GameCenter使用
