@@ -48,39 +48,15 @@ leave:
 1. save `AHZX file`
 2. delete `other...`
 
-
-整理知识点：
-
-before:
-//*  继续进行视频播放器的处理。 --> 做出基本视频功能，具备全屏播放/自动旋转屏幕处理。
-
-
-
-*  进行Github项目的OpenGL ES项目的处理，视频处理相关 / 查看相关其它视频播放器的实现 / 抖音上下滑动效果的实现。
-*  进行iOS `支付` 的相关问题，开始。 ==> 完成部分功能。
-* 进行iOS `地图` 功能加入
-* 继续整理`AHZX`,以及加密方法查看使用和其它工具类的使用处理。
-
-
-
-12.18 周二
-
-// * KVC/KVO的使用
-//* iOS 手势
-
-// 整理KVC/KVO知识点教程
-
-12.19 周三
-
-* iOS 触摸事件 / iOS加速事件 / iOS远程控制事件 (比较多)
-
-UIView:
-`- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event;`
-
+-   -   -   -   -   -   -   -   -   -   
 
 
 
 12.20  周四
+* 继续学习整理iOS 触摸事件 / iOS加速事件 / iOS远程控制事件 (比较多)
+
+UIView:
+`- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event;`
 
 * SQLite3使用
 * CoreData/归档使用
@@ -109,11 +85,20 @@ UIView:
 
 
 
+* 微信/QQ/支付宝 + 登录支付 
 
-
+* instruments使用
 * Shell 脚本学习
 * python学习
 
+整理知识点：
+
+before:
+//*  继续进行视频播放器的处理。 --> 做出基本视频功能，具备全屏播放/自动旋转屏幕处理。
+*  进行Github项目的OpenGL ES项目的处理，视频处理相关 / 查看相关其它视频播放器的实现 / 抖音上下滑动效果的实现。
+*  进行iOS `支付` 的相关问题，开始。 ==> 完成部分功能。
+* 进行iOS `地图` 功能加入
+* 继续整理`AHZX`,以及加密方法查看使用和其它工具类的使用处理。
 
 
 -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -  -   
