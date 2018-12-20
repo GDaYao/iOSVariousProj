@@ -108,6 +108,24 @@ before:
 * 继续整理`AHZX`,以及加密方法查看使用和其它工具类的使用处理。
 
 
+### git知识学习:
+
+查看全局的 git配置，git cofnig 命令（在~/.gitconfig目录文件中存储的git global信息）
+$ git config --global --edit (直接修改文件即可修改git全局配置的相关信息)
+若需要直接从终端查看 user.name/user.email
+$ git config --global user.name     // 查看global user name
+$ git config --global user.email    // 查看global user eamil
+
+
+查看或配置当前项目git 的相关信息（包括user.name+user.email+Author）
+$ git show  //查看当前项目的相关信息
+$ git config user.name //查看当前项目的user name
+$ git config user.email //查看当前项目的user email
+$ git config user.name "GDayao" // 更改当前项目的 user name
+$ git config user.email "xxxx@xx.com" // 更改当前项目的 user email ==> 注意这里的邮箱若和github/gitlab的注册邮箱相同则在提交历史中会显示头像否则为github默认头像
+// 当前项目的config配置Author信息可以和全局配的config信息不相同。
+
+
 
 
 -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -  -   
