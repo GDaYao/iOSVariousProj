@@ -40,14 +40,14 @@ HACK net website: http://www.weixianmanbu.com/page_2.html
 *. 第三方整合使用，友盟或者Google统计，还有分享的使用。
 *. Apple 内置功能调用使用，SIM卡调用，通讯录调用，NFC调用。
 
-Interview question
+Interview question:
 http://blog.cocoachina.com/article/73184
 
 leave:
 
-1. save `AHZX file`
-2. delete `other...`
-
+1. save `AHZX file`。
+2. delete `other...`。
+3. 记住把git信息变更。
 
 
 12.20  周四
@@ -87,6 +87,8 @@ UIView:
 * QQ/微信/支付宝 + 登录+支付
 * Shell 脚本学习
 * python学习
+
+
 
 
 整理知识点：
