@@ -52,11 +52,6 @@ leave:
 
 ### 今日做
 
-
-* SQLite3使用
-* CoreData/归档使用
-* iOS 微信刷分:  https://www.cnblogs.com/dahe007/p/8250527.html?utm_source=debugrun&utm_medium=referral
-
 12.21 周五
 
 
@@ -64,20 +59,14 @@ leave:
 * SDWebImage原理
 * Masonry原理底层
 
+* CoreData/归档使用
 * 处理网络视频播放/变下边播放/后台播放 ==> https://www.jianshu.com/p/93ce1748ea57
 * 音频
 * 相机调用并处理/相册
 * 流媒体学习
 
-12.22 周六/12.23 周日
 * 主要对前面知识整理/iOS基础教程
 
-
-
-
-
-### 未完成
-* 对git内容进行整理
 
 * iCoud
 * 内购整理

@@ -1,0 +1,10 @@
+platform:ios, '8.0'
+
+target "SQLite" do
+
+pod "Masonry"
+pod "FMDB"
+
+
+
+end

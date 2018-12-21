@@ -14,9 +14,14 @@
 		0FC1405921CB88E400509D37 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FC1405721CB88E400509D37 /* LaunchScreen.storyboard */; };
 		0FC1405C21CB88E400509D37 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC1405B21CB88E400509D37 /* main.m */; };
 		0FC1406421CB8E7400509D37 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FC1406321CB8E7400509D37 /* libsqlite3.0.tbd */; };
+		0FE093CA21CC768E002371C4 /* FMDBMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE093C921CC768E002371C4 /* FMDBMgr.m */; };
+		0FE093CD21CC8A41002371C4 /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0FE093CB21CC8A41002371C4 /* CoreDataModel.xcdatamodeld */; };
+		0FE093DC21CC8D80002371C4 /* CoreDataMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE093DB21CC8D80002371C4 /* CoreDataMgr.m */; };
+		C31BBF8C639C1EB129CBC006 /* libPods-SQLite.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 350D32D255FC34A54F04650F /* libPods-SQLite.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0520FE986BC81436B4B309A0 /* Pods-SQLite.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SQLite.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SQLite/Pods-SQLite.debug.xcconfig"; sourceTree = "<group>"; };
 		0FC1404921CB88DA00509D37 /* SQLite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SQLite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FC1404C21CB88DA00509D37 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0FC1404D21CB88DA00509D37 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -28,6 +33,13 @@
 		0FC1405A21CB88E400509D37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0FC1405B21CB88E400509D37 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0FC1406321CB8E7400509D37 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		0FE093C821CC768E002371C4 /* FMDBMgr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FMDBMgr.h; sourceTree = "<group>"; };
+		0FE093C921CC768E002371C4 /* FMDBMgr.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMDBMgr.m; sourceTree = "<group>"; };
+		0FE093CC21CC8A41002371C4 /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
+		0FE093DA21CC8D80002371C4 /* CoreDataMgr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreDataMgr.h; sourceTree = "<group>"; };
+		0FE093DB21CC8D80002371C4 /* CoreDataMgr.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreDataMgr.m; sourceTree = "<group>"; };
+		350D32D255FC34A54F04650F /* libPods-SQLite.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SQLite.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A5D08EB7797370DD47BB50DB /* Pods-SQLite.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SQLite.release.xcconfig"; path = "Pods/Target Support Files/Pods-SQLite/Pods-SQLite.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +48,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0FC1406421CB8E7400509D37 /* libsqlite3.0.tbd in Frameworks */,
+				C31BBF8C639C1EB129CBC006 /* libPods-SQLite.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -48,6 +61,7 @@
 				0FC1404B21CB88DA00509D37 /* SQLite */,
 				0FC1404A21CB88DA00509D37 /* Products */,
 				0FC1406221CB8E7400509D37 /* Frameworks */,
+				9F6E920FF827696AB9B5B7EF /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -66,6 +80,11 @@
 				0FC1404D21CB88DA00509D37 /* AppDelegate.m */,
 				0FC1404F21CB88DA00509D37 /* ViewController.h */,
 				0FC1405021CB88DA00509D37 /* ViewController.m */,
+				0FE093C821CC768E002371C4 /* FMDBMgr.h */,
+				0FE093C921CC768E002371C4 /* FMDBMgr.m */,
+				0FE093DA21CC8D80002371C4 /* CoreDataMgr.h */,
+				0FE093DB21CC8D80002371C4 /* CoreDataMgr.m */,
+				0FE093CB21CC8A41002371C4 /* CoreDataModel.xcdatamodeld */,
 				0FC1405221CB88DA00509D37 /* Main.storyboard */,
 				0FC1405521CB88E400509D37 /* Assets.xcassets */,
 				0FC1405721CB88E400509D37 /* LaunchScreen.storyboard */,
@@ -79,8 +98,18 @@
 			isa = PBXGroup;
 			children = (
 				0FC1406321CB8E7400509D37 /* libsqlite3.0.tbd */,
+				350D32D255FC34A54F04650F /* libPods-SQLite.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9F6E920FF827696AB9B5B7EF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0520FE986BC81436B4B309A0 /* Pods-SQLite.debug.xcconfig */,
+				A5D08EB7797370DD47BB50DB /* Pods-SQLite.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -90,6 +119,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0FC1405F21CB88E400509D37 /* Build configuration list for PBXNativeTarget "SQLite" */;
 			buildPhases = (
+				14EB9C78A37190C456E6830A /* [CP] Check Pods Manifest.lock */,
 				0FC1404521CB88DA00509D37 /* Sources */,
 				0FC1404621CB88DA00509D37 /* Frameworks */,
 				0FC1404721CB88DA00509D37 /* Resources */,
@@ -148,14 +178,42 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		14EB9C78A37190C456E6830A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SQLite-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0FC1404521CB88DA00509D37 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				0FC1405121CB88DA00509D37 /* ViewController.m in Sources */,
+				0FE093DC21CC8D80002371C4 /* CoreDataMgr.m in Sources */,
+				0FE093CA21CC768E002371C4 /* FMDBMgr.m in Sources */,
 				0FC1405C21CB88E400509D37 /* main.m in Sources */,
 				0FC1404E21CB88DA00509D37 /* AppDelegate.m in Sources */,
+				0FE093CD21CC8A41002371C4 /* CoreDataModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,6 +353,7 @@
 		};
 		0FC1406021CB88E400509D37 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0520FE986BC81436B4B309A0 /* Pods-SQLite.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -311,6 +370,7 @@
 		};
 		0FC1406121CB88E400509D37 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A5D08EB7797370DD47BB50DB /* Pods-SQLite.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -347,6 +407,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		0FE093CB21CC8A41002371C4 /* CoreDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0FE093CC21CC8A41002371C4 /* CoreDataModel.xcdatamodel */,
+			);
+			currentVersion = 0FE093CC21CC8A41002371C4 /* CoreDataModel.xcdatamodel */;
+			path = CoreDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 0FC1404121CB88DA00509D37 /* Project object */;
 }
