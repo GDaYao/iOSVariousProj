@@ -49,17 +49,21 @@ leave:
 2. delete `other...`。
 3. 记住把git信息变更。 -- 删除~/.gitconfig + ~/.ssh 需要可以给用户自动生成。
 
+-   -   -   -   -   -   -   -   -   -   
 
-### 今日做
+### 12.21日 周五
 
-12.21 周五
 
+
+### unfinished
 
 * AFNetworkin原理/底层
+
 * SDWebImage原理
 * Masonry原理底层
 
 * CoreData/归档使用
+
 * 处理网络视频播放/变下边播放/后台播放 ==> https://www.jianshu.com/p/93ce1748ea57
 * 音频
 * 相机调用并处理/相册
@@ -75,11 +79,23 @@ leave:
 
 
 
+* instruments使用
 * 友盟统计加入 -- 埋点+推送
 * QQ/微信/支付宝 + 登录+支付
+
 * Shell 脚本学习
 * python学习
 
+
+
+整理知识点：
+
+before:
+//*  继续进行视频播放器的处理。 --> 做出基本视频功能，具备全屏播放/自动旋转屏幕处理。
+*  进行Github项目的OpenGL ES项目的处理，视频处理相关 / 查看相关其它视频播放器的实现 / 抖音上下滑动效果的实现。
+*  进行iOS `支付` 的相关问题，开始。 ==> 完成部分功能。
+* 进行iOS `地图` 功能加入
+* 继续整理`AHZX`,以及加密方法查看使用和其它工具类的使用处理。
 
 
 
@@ -95,21 +111,6 @@ before:
 
 
 ### git知识学习:
-
-// 注意: 所有的配置如果需要生效只有在配置更改信息后的下次变更时才会生效。
-查看全局的 git配置，git cofnig 命令（在~/.gitconfig目录文件中存储的git global信息）
-$ git config --global --edit (直接修改文件即可修改git全局配置的相关信息)
-若需要直接从终端查看 user.name/user.email
-$ git config --global user.name     // 查看global user name
-$ git config --global user.email    // 查看global user eamil
-
-查看或配置当前项目git 的相关信息（包括user.name+user.email+Author）
-$ git show  //查看当前项目的相关信息
-$ git config user.name //查看当前项目的user name
-$ git config user.email //查看当前项目的user email
-$ git config user.name "GDayao" // 更改当前项目的 user name
-$ git config user.email "xxxx@xx.com" // 更改当前项目的 user email ==> 注意这里的邮箱若和github/gitlab的注册邮箱相同则在提交历史中会显示头像否则为github默认头像
-// 当前项目的config配置Author信息可以和全局配的config信息不相同。所以在全局的config没有配置的情况下，也可以配置当前项目的某些信息内容。
 
 
 
