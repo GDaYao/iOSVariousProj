@@ -44,14 +44,24 @@ Interview question:
 http://blog.cocoachina.com/article/73184
 
 leave:
-
-1. save `AHZX file`。
-2. delete `other...`。
+1. save `AHZX file`
+2. delete `other...`
 3. 记住把git信息变更。 -- 删除~/.gitconfig + ~/.ssh 需要可以给用户自动生成。
 
 -   -   -   -   -   -   -   -   -   -   
 
-### 12.21日 周五
+### 12.24 周一
+* QQ/微信/ 微博 登录的实现。
+
+* 整理QQ登录、分享流程。
+* 开始微信登录和分享流程。
+
+
+### 12.25 周二
+* 微信和支付宝支付的再次确认实现。
+
+* CoreData使用
+
 
 
 
