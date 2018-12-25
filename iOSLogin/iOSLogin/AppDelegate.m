@@ -68,7 +68,7 @@
 /*  微博登录使用 -- 必须使用下面方法 */
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
-    if ([WeiboSDK handleOpenURL:url delegate:(id<WeiboSDKDelegate>)[WeiboSDKVCDelegate class]]) {
+    if ([WeiboSDK handleOpenURL:url delegate:[[WeiboSDKVCDelegate alloc]init]]) {
         return YES;
     }
  
