@@ -10,6 +10,14 @@
 #import <TencentOpenAPI/TencentOAuth.h>
 #import "QQApiShareEntry.h"
 
+/*  weibo   */
+
+// 1. import
+#import "WeiboSDK.h"
+#import "WeiboSDKVCDelegate.h"
+
+
+#define kSinaweiboAppKey @"596217426"
 
 @interface AppDelegate ()
 
@@ -26,6 +34,12 @@
     
     
     
+    /*   2. register  weibo   */
+    [WeiboSDK enableDebugMode:YES];
+    [WeiboSDK registerApp:kSinaweiboAppKey];
+    
+    
+    
     return YES;
 }
 
@@ -33,13 +47,15 @@
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options{
     NSLog(@"log-- xxx openURL:xxx");
     
-    
-    
+    if ([WeiboSDK handleOpenURL:url delegate:(id<WeiboSDKDelegate>)[WeiboSDKVCDelegate class]]) {
+        return YES;
+    }else
     
     /*  QQ登录和分享    */
-    [QQApiInterface handleOpenURL:url delegate:(id<QQApiInterfaceDelegate>)[QQApiShareEntry class]];
     if (YES == [TencentOAuth CanHandleOpenURL:url])
     {
+        [QQApiInterface handleOpenURL:url delegate:(id<QQApiInterfaceDelegate>)[QQApiShareEntry class]];
+        
         // 可以处理返回的URL请求 -- 和登录成功和分享成功没有关系
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Where from" message:url.description delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
         [alertView show];
@@ -47,32 +63,26 @@
     }
     return YES;
 }
-/*
+
+
+/*  微博登录使用 -- 必须使用下面方法 */
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
-    
-    [QQApiInterface handleOpenURL:url delegate:(id<QQApiInterfaceDelegate>)[QQApiShareEntry class]];
-    
-    if (YES == [TencentOAuth CanHandleOpenURL:url])
-    {
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Where from" message:url.description delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
-        [alertView show];
-        return [TencentOAuth HandleOpenURL:url];
+    if ([WeiboSDK handleOpenURL:url delegate:(id<WeiboSDKDelegate>)[WeiboSDKVCDelegate class]]) {
+        return YES;
     }
+ 
     return YES;
 }
 
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
 {
-    [QQApiInterface handleOpenURL:url delegate:(id<QQApiInterfaceDelegate>)[QQApiShareEntry class]];
-    
-    if (YES == [TencentOAuth CanHandleOpenURL:url])
-    {
-        return [TencentOAuth HandleOpenURL:url];
+    if ([WeiboSDK handleOpenURL:url delegate:(id<WeiboSDKDelegate>)[WeiboSDKVCDelegate class]]) {
+        return YES;
     }
     return YES;
 }
-*/
+
 
 
 

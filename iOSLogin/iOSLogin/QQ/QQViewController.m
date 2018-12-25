@@ -89,7 +89,7 @@
      在注册完成后应用未提交审核时也已经提供了一个AppId可以使用
      未经过测试不清楚是否是所有账号都可以实现登录
      */
-    NSString *appIDStr = @"1108067470";    //appID;
+    NSString *appIDStr = @"xxx";    //appID;
     TencentOAuth *loginOAuth = [[TencentOAuth alloc] initWithAppId:appID andDelegate:self];
     NSArray *permissions = @[kOPEN_PERMISSION_GET_SIMPLE_USER_INFO, kOPEN_PERMISSION_ADD_SHARE, kOPEN_PERMISSION_GET_INFO, kOPEN_PERMISSION_GET_USER_INFO];
     [loginOAuth authorize:permissions];

@@ -28,6 +28,22 @@
 				<string>tencent1108067470</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>weixin</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>com.weibo</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>wb596217426</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
@@ -55,6 +71,12 @@
 		<string>mqqopensdkgrouptribeshare</string>
 		<string>tencentapi.qq.reqContent</string>
 		<string>tencentapi.qzone.reqContent</string>
+		<string>weixin</string>
+		<string>wechat</string>
+		<string>sinaweibo</string>
+		<string>weibosdk</string>
+		<string>weibosdk2.5</string>
+		<string>sinaweibohd</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
