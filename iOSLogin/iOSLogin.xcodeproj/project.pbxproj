@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F6A685621D37CAA00A555DF /* image_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0F6A685421D37CAA00A555DF /* image_1.jpg */; };
+		0F6A685721D37CAA00A555DF /* image_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0F6A685521D37CAA00A555DF /* image_2.jpg */; };
+		0F6A685921D37CC600A555DF /* apm.mov in Resources */ = {isa = PBXBuildFile; fileRef = 0F6A685821D37CC600A555DF /* apm.mov */; };
 		0F7951F521D06C3C005E58C5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F7951F421D06C3C005E58C5 /* AppDelegate.m */; };
 		0F7951F821D06C3C005E58C5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F7951F721D06C3C005E58C5 /* ViewController.m */; };
 		0F7951FB21D06C3C005E58C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F7951F921D06C3C005E58C5 /* Main.storyboard */; };
@@ -40,6 +43,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0F6A685421D37CAA00A555DF /* image_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image_1.jpg; sourceTree = "<group>"; };
+		0F6A685521D37CAA00A555DF /* image_2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image_2.jpg; sourceTree = "<group>"; };
+		0F6A685821D37CC600A555DF /* apm.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = apm.mov; sourceTree = "<group>"; };
 		0F7951F021D06C3C005E58C5 /* iOSLogin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSLogin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F7951F321D06C3C005E58C5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0F7951F421D06C3C005E58C5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -147,6 +153,9 @@
 				0F79520121D06C46005E58C5 /* Info.plist */,
 				0F79520221D06C46005E58C5 /* main.m */,
 				0F79522621D0D87B005E58C5 /* QQTestImg.png */,
+				0F6A685821D37CC600A555DF /* apm.mov */,
+				0F6A685421D37CAA00A555DF /* image_1.jpg */,
+				0F6A685521D37CAA00A555DF /* image_2.jpg */,
 				0FD7240A21D1D6F400D57F9D /* libWeiboSDK */,
 				0FD723F621D1C02600D57F9D /* WeChatSDK1.8.3 */,
 				0F79521221D0908A005E58C5 /* TencentOpenAPI.framework */,
@@ -287,9 +296,12 @@
 			files = (
 				0F79520021D06C46005E58C5 /* LaunchScreen.storyboard in Resources */,
 				0F79522721D0D87B005E58C5 /* QQTestImg.png in Resources */,
+				0F6A685721D37CAA00A555DF /* image_2.jpg in Resources */,
 				0FD7240F21D1D6F400D57F9D /* WeiboSDK.bundle in Resources */,
 				0F7951FD21D06C46005E58C5 /* Assets.xcassets in Resources */,
+				0F6A685921D37CC600A555DF /* apm.mov in Resources */,
 				0F7951FB21D06C3C005E58C5 /* Main.storyboard in Resources */,
+				0F6A685621D37CAA00A555DF /* image_1.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

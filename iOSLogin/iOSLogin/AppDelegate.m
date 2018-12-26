@@ -17,7 +17,8 @@
 #import "WeiboSDKVCDelegate.h"
 
 
-#define kSinaweiboAppKey @"596217426"
+#define kSinaweiboAppKey @"596217426" // App secret: 5a58656b9c7d38f684cecfb00f282976
+//#define kSinaweiboAppKey @"2045436852"  //weibo Demo 测试
 
 @interface AppDelegate ()
 
@@ -64,7 +65,7 @@
     return YES;
 }
 
-
+#pragma mark - 微博登录
 /*  微博登录使用 -- 必须使用下面方法 */
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
@@ -77,7 +78,7 @@
 
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
 {
-    if ([WeiboSDK handleOpenURL:url delegate:(id<WeiboSDKDelegate>)[WeiboSDKVCDelegate class]]) {
+    if ([WeiboSDK handleOpenURL:url delegate:[[WeiboSDKVCDelegate alloc]init]]) {
         return YES;
     }
     return YES;
