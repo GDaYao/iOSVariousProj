@@ -1,0 +1,10 @@
+platform:ios,'8.0'
+
+target "iOSLogin" do
+
+
+pod 'AFNetworking'
+#pod 'MBProgressHud'
+
+
+end

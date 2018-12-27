@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F52DC2421D468D600EE5182 /* LinkToWeiboViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F52DC2321D468D600EE5182 /* LinkToWeiboViewController.m */; };
+		0F52DC2721D4B7F300EE5182 /* WeChatHandleURLDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F52DC2621D4B7F300EE5182 /* WeChatHandleURLDelegate.m */; };
 		0F6A685621D37CAA00A555DF /* image_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0F6A685421D37CAA00A555DF /* image_1.jpg */; };
 		0F6A685721D37CAA00A555DF /* image_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0F6A685521D37CAA00A555DF /* image_2.jpg */; };
 		0F6A685921D37CC600A555DF /* apm.mov in Resources */ = {isa = PBXBuildFile; fileRef = 0F6A685821D37CC600A555DF /* apm.mov */; };
@@ -40,9 +42,14 @@
 		0FD7241C21D205AA00D57F9D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FD7241B21D205AA00D57F9D /* CoreGraphics.framework */; };
 		0FD7241E21D2089800D57F9D /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FD7241D21D2089800D57F9D /* Photos.framework */; };
 		0FD7242121D21FDD00D57F9D /* WeiboSDKVCDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD7242021D21FDD00D57F9D /* WeiboSDKVCDelegate.m */; };
+		E781A3C2381049AD094E47A3 /* libPods-iOSLogin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B1F007FFFD01118BCAFF160 /* libPods-iOSLogin.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0F52DC2221D468D600EE5182 /* LinkToWeiboViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinkToWeiboViewController.h; sourceTree = "<group>"; };
+		0F52DC2321D468D600EE5182 /* LinkToWeiboViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinkToWeiboViewController.m; sourceTree = "<group>"; };
+		0F52DC2521D4B7F300EE5182 /* WeChatHandleURLDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeChatHandleURLDelegate.h; sourceTree = "<group>"; };
+		0F52DC2621D4B7F300EE5182 /* WeChatHandleURLDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeChatHandleURLDelegate.m; sourceTree = "<group>"; };
 		0F6A685421D37CAA00A555DF /* image_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image_1.jpg; sourceTree = "<group>"; };
 		0F6A685521D37CAA00A555DF /* image_2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image_2.jpg; sourceTree = "<group>"; };
 		0F6A685821D37CC600A555DF /* apm.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = apm.mov; sourceTree = "<group>"; };
@@ -90,6 +97,9 @@
 		0FD7241D21D2089800D57F9D /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		0FD7241F21D21FDD00D57F9D /* WeiboSDKVCDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeiboSDKVCDelegate.h; sourceTree = "<group>"; };
 		0FD7242021D21FDD00D57F9D /* WeiboSDKVCDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeiboSDKVCDelegate.m; sourceTree = "<group>"; };
+		4B1F007FFFD01118BCAFF160 /* libPods-iOSLogin.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iOSLogin.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D1D90966A86EAD6ED5907F88 /* Pods-iOSLogin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSLogin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOSLogin/Pods-iOSLogin.debug.xcconfig"; sourceTree = "<group>"; };
+		DEB3D8CE36B21F55AA89699D /* Pods-iOSLogin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSLogin.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOSLogin/Pods-iOSLogin.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,16 +114,17 @@
 				0FD7241621D2057C00D57F9D /* CoreText.framework in Frameworks */,
 				0FD7241421D2056000D57F9D /* ImageIO.framework in Frameworks */,
 				0FD7241221D2055300D57F9D /* QuartzCore.framework in Frameworks */,
+				0FD7241021D1D6F400D57F9D /* libWeiboSDK.a in Frameworks */,
+				0F79521321D0908A005E58C5 /* TencentOpenAPI.framework in Frameworks */,
+				0FD723FD21D1C02600D57F9D /* libWeChatSDK.a in Frameworks */,
 				0FD7240921D1C80A00D57F9D /* CFNetwork.framework in Frameworks */,
 				0FD7240721D1C7F900D57F9D /* CoreTelephony.framework in Frameworks */,
 				0FD7240521D1C7DF00D57F9D /* Security.framework in Frameworks */,
 				0FD7240321D1C75B00D57F9D /* libc++.tbd in Frameworks */,
 				0FD7240121D1C74000D57F9D /* libsqlite3.0.tbd in Frameworks */,
-				0FD7241021D1D6F400D57F9D /* libWeiboSDK.a in Frameworks */,
 				0FD723FF21D1C72A00D57F9D /* libz.tbd in Frameworks */,
 				0F79521621D091CE005E58C5 /* SystemConfiguration.framework in Frameworks */,
-				0F79521321D0908A005E58C5 /* TencentOpenAPI.framework in Frameworks */,
-				0FD723FD21D1C02600D57F9D /* libWeChatSDK.a in Frameworks */,
+				E781A3C2381049AD094E47A3 /* libPods-iOSLogin.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,6 +137,7 @@
 				0F7951F221D06C3C005E58C5 /* iOSLogin */,
 				0F7951F121D06C3C005E58C5 /* Products */,
 				0F79521421D091CD005E58C5 /* Frameworks */,
+				7EC6F39E2DCAB4D0B84CB14A /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -180,6 +192,7 @@
 				0FD7240021D1C74000D57F9D /* libsqlite3.0.tbd */,
 				0FD723FE21D1C72A00D57F9D /* libz.tbd */,
 				0F79521521D091CE005E58C5 /* SystemConfiguration.framework */,
+				4B1F007FFFD01118BCAFF160 /* libPods-iOSLogin.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -189,6 +202,8 @@
 			children = (
 				0F79520921D0758B005E58C5 /* WechatViewController.h */,
 				0F79520A21D0758B005E58C5 /* WechatViewController.m */,
+				0F52DC2521D4B7F300EE5182 /* WeChatHandleURLDelegate.h */,
+				0F52DC2621D4B7F300EE5182 /* WeChatHandleURLDelegate.m */,
 			);
 			path = Wechat;
 			sourceTree = "<group>";
@@ -209,6 +224,8 @@
 			children = (
 				0F79520F21D0759B005E58C5 /* WeiboViewController.h */,
 				0F79521021D0759B005E58C5 /* WeiboViewController.m */,
+				0F52DC2221D468D600EE5182 /* LinkToWeiboViewController.h */,
+				0F52DC2321D468D600EE5182 /* LinkToWeiboViewController.m */,
 				0FD7241F21D21FDD00D57F9D /* WeiboSDKVCDelegate.h */,
 				0FD7242021D21FDD00D57F9D /* WeiboSDKVCDelegate.m */,
 			);
@@ -237,6 +254,15 @@
 			path = libWeiboSDK;
 			sourceTree = "<group>";
 		};
+		7EC6F39E2DCAB4D0B84CB14A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D1D90966A86EAD6ED5907F88 /* Pods-iOSLogin.debug.xcconfig */,
+				DEB3D8CE36B21F55AA89699D /* Pods-iOSLogin.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -244,6 +270,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0F79520621D06C46005E58C5 /* Build configuration list for PBXNativeTarget "iOSLogin" */;
 			buildPhases = (
+				13C36F77A049B961E2AE2D4A /* [CP] Check Pods Manifest.lock */,
 				0F7951EC21D06C3C005E58C5 /* Sources */,
 				0F7951ED21D06C3C005E58C5 /* Frameworks */,
 				0F7951EE21D06C3C005E58C5 /* Resources */,
@@ -307,14 +334,41 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		13C36F77A049B961E2AE2D4A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-iOSLogin-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0F7951EC21D06C3C005E58C5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F52DC2421D468D600EE5182 /* LinkToWeiboViewController.m in Sources */,
 				0F79520B21D0758B005E58C5 /* WechatViewController.m in Sources */,
 				0F7951F821D06C3C005E58C5 /* ViewController.m in Sources */,
 				0F79520E21D07592005E58C5 /* QQViewController.m in Sources */,
+				0F52DC2721D4B7F300EE5182 /* WeChatHandleURLDelegate.m in Sources */,
 				0FD7242121D21FDD00D57F9D /* WeiboSDKVCDelegate.m in Sources */,
 				0F79521121D0759B005E58C5 /* WeiboViewController.m in Sources */,
 				0F79522521D0B8E2005E58C5 /* QQApiShareEntry.m in Sources */,
@@ -459,6 +513,7 @@
 		};
 		0F79520721D06C46005E58C5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D1D90966A86EAD6ED5907F88 /* Pods-iOSLogin.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -490,6 +545,7 @@
 		};
 		0F79520821D06C46005E58C5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DEB3D8CE36B21F55AA89699D /* Pods-iOSLogin.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

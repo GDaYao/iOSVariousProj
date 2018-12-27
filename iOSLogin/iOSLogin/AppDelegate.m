@@ -16,6 +16,10 @@
 #import "WeiboSDK.h"
 #import "WeiboSDKVCDelegate.h"
 
+/*  wechat    */
+#import "WXApi.h"
+#import "WeChatHandleURLDelegate.h"
+
 
 #define kSinaweiboAppKey @"596217426" // App secret: 5a58656b9c7d38f684cecfb00f282976
 //#define kSinaweiboAppKey @"2045436852"  //weibo Demo 测试
@@ -31,14 +35,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+
     
-    
-    
-    
-    /*   2. register  weibo   */
+    /*   register  weibo   */
     [WeiboSDK enableDebugMode:YES];
     [WeiboSDK registerApp:kSinaweiboAppKey];
     
+    /*   register  wechat   */
+    [WXApi registerApp:@"wxd930ea5d5a258f4f"];
     
     
     return YES;
@@ -48,14 +52,15 @@
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options{
     NSLog(@"log-- xxx openURL:xxx");
     
+    /*  微博登录和分享    */
     if ([WeiboSDK handleOpenURL:url delegate:(id<WeiboSDKDelegate>)[WeiboSDKVCDelegate class]]) {
         return YES;
-    }else
+    }
     
     /*  QQ登录和分享    */
     if (YES == [TencentOAuth CanHandleOpenURL:url])
     {
-        [QQApiInterface handleOpenURL:url delegate:(id<QQApiInterfaceDelegate>)[QQApiShareEntry class]];
+        [QQApiInterface handleOpenURL:url delegate:[[QQApiShareEntry alloc]init] ];  // (id<QQApiInterfaceDelegate>)[QQApiShareEntry class]
         
         // 可以处理返回的URL请求 -- 和登录成功和分享成功没有关系
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Where from" message:url.description delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
@@ -65,10 +70,19 @@
     return YES;
 }
 
-#pragma mark - 微博登录
+#pragma mark - 微博登录 + 微信登录 使用
 /*  微博登录使用 -- 必须使用下面方法 */
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
+    NSLog(@"log-- xxx openURL:xxx sourceApplication:xxx annotation:xxx");
+    
+    /*  微信登录和分享    */
+    if ([WXApi handleOpenURL:url delegate:[[WeChatHandleURLDelegate alloc]init]]) {
+        return YES;
+    }
+    
+    
+    /*  微博登录和分享    */
     if ([WeiboSDK handleOpenURL:url delegate:[[WeiboSDKVCDelegate alloc]init]]) {
         return YES;
     }
@@ -76,8 +90,15 @@
     return YES;
 }
 
-- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
-{
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
+    NSLog(@"log-- xxx handleOpenURL:xxx");
+    
+    /*  微信登录和分享    */
+    if ([WXApi handleOpenURL:url delegate:[[WeChatHandleURLDelegate alloc]init]]) {
+        return YES;
+    }
+    
+    /*  微博登录和分享    */
     if ([WeiboSDK handleOpenURL:url delegate:[[WeiboSDKVCDelegate alloc]init]]) {
         return YES;
     }
