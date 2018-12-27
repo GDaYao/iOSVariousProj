@@ -9,16 +9,16 @@
 @implementation QQApiShareEntry
 
 #pragma mark - QQAPIInterfaceDelegate
-- (void)onReq:(QQBaseReq *)req{
++ (void)onReq:(QQBaseReq *)req{
     NSLog(@"log--onReq:%@",req);
     
 }
 
-- (void)onResp:(QQBaseResp *)resp{
++ (void)onResp:(QQBaseResp *)resp{
     NSLog(@"log--onResp:%@",resp);
 }
 
-- (void)isOnlineResponse:(NSDictionary *)response{
++ (void)isOnlineResponse:(NSDictionary *)response{
     NSLog(@"log--isOnline:%@",response);
 }
 

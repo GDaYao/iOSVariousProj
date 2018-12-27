@@ -169,8 +169,6 @@
                          @"Other_Info_3": @{@"key1": @"obj1", @"key2": @"obj2"}};
     
     [WeiboSDK sendRequest:request];
-    
-    
 }
 
 
@@ -189,19 +187,13 @@
     
     // 赋值
     self.wbtoken = wbtoken;
-    
 }
 - (void)weiboWBSendMessageToWeiboResponse:(NSNotification *)userInfo{
     WBSendMessageToWeiboResponse *response = userInfo.object;
     
     NSString *accessToken = [response.authResponse accessToken];
     NSString *weCurrentUserID = [response.autoContentAccessingProxy userID];
-    
 }
-//分享的代理
-//- (void)weiboShareSuccessCode:(NSInteger)shareResultCode{
-//    NSLog(@"log--微博分享代理:%ld",(long)shareResultCode);
-//}
 
 #pragma mark - weibo sdk log out
 - (void)ssoOutButtonPressed
@@ -370,7 +362,6 @@
 #pragma mark - dealloc
 - (void)dealloc{
     [[NSNotificationCenter defaultCenter]removeObserver:self];
-    
 }
 
 

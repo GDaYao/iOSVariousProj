@@ -26,7 +26,6 @@
  @param request 具体的请求对象
  */
 - (void)didReceiveWeiboRequest:(WBBaseRequest *)request{ //向微博发送请求
-    
     NSLog(@" %@",request.class);
 }
 
@@ -77,8 +76,6 @@
         // 发送登录成功或者失败或者某种情况的通知
         [[NSNotificationCenter defaultCenter]postNotificationName:@"didReceiveWeiboResponseInWBAuthorizeResponse" object:response];
         
-        
-        
         //        NSString *title = NSLocalizedString(@"认证结果", nil);
         //
         //        // request/response string
@@ -91,7 +88,6 @@
 //                                              otherButtonTitles:nil];
 //
 //        [alert show];
-        
     }else{
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
                                                         message:@"出现错误"
@@ -100,8 +96,6 @@
                                               otherButtonTitles:nil];
         [alert show];
     }
-    
-    
 }
 
 
