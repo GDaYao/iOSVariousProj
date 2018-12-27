@@ -9,7 +9,7 @@
 
 #import "WeiboSDK.h"
 
-
+#import "LinkToWeiboViewController.h"
 
 @interface WeiboViewController () <WBHttpRequestDelegate,WBMediaTransferProtocol> // 登出, 分享消息
 
@@ -358,6 +358,18 @@
 {
     [_indicatorView stopAnimating];
 }
+
+#pragma mark - Link weibo
+
+- (void)linkToWeiboAPI
+{
+    LinkToWeiboViewController* linkToWeiboVC = [[LinkToWeiboViewController alloc] init];
+    [self presentViewController:linkToWeiboVC animated:YES completion:nil];
+    
+}
+
+
+
 
 #pragma mark - dealloc
 - (void)dealloc{
