@@ -27,6 +27,7 @@ static NSString *WXReturnFailedPayNotification = @"WXReturnFailedPayNotification
 #pragma mark - config ui
 - (void)configUI{
     
+    
 }
 
 #pragma mark - 微信支付封装请求
