@@ -63,14 +63,14 @@
 -(void) onResp:(BaseResp*)resp{
     NSLog(@"log--%@--onReq:%@",self,resp);
     
-    if([resp isKindOfClass:[SendMessageToWXResp class]])
-    {
+    // 回调在发送成功和取消发送时都会调用
+    if([resp isKindOfClass:[SendMessageToWXResp class]]){
         NSString *strTitle = [NSString stringWithFormat:@"发送媒体消息结果"];
         NSString *strMsg = [NSString stringWithFormat:@"errcode:%d", resp.errCode];
-        
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:strTitle message:strMsg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
+    
 }
 
 

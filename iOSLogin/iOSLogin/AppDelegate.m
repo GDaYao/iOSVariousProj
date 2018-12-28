@@ -52,6 +52,11 @@
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options{
     NSLog(@"log-- xxx openURL:xxx");
     
+    /*  微信登录和分享    */
+    if ([WXApi handleOpenURL:url delegate:[[WeChatHandleURLDelegate alloc]init]]) {
+        return YES;
+    }
+    
     /*  微博登录和分享    */
     if ([WeiboSDK handleOpenURL:url delegate:(id<WeiboSDKDelegate>)[WeiboSDKVCDelegate class]]) {
         return YES;

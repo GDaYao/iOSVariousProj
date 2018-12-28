@@ -52,17 +52,16 @@ http://blog.cocoachina.com/article/73184
 
 -   -   -   -   -   -   -   -   -   -   
 
-### 12.27 周四
-* 微信登录、分享
+### 12.28 周五
+
+* 从新整理下微信和支付宝支付。
+* 整理简书 + iOS基础教程。
 
 
 
 * 整理教程
 * 12月份工作内容。 
 
-
-### 晚上:
-* iOS基础教程记录 微博登录分享的实现
 
 ### unfinished
 
@@ -87,11 +86,10 @@ http://blog.cocoachina.com/article/73184
 * GameCenter使用
 * 广告整合
 
-
+技术储备:
 
 * instruments使用
 * 友盟统计加入 -- 埋点+推送
-* QQ/微信/支付宝 + 登录+支付
 
 * Shell 脚本学习
 * python学习
