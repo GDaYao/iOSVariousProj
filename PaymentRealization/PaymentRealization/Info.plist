@@ -23,12 +23,20 @@
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
 			<string>weixin</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>weixinsdkdemo</string>
+			</array>
 		</dict>
 		<dict>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
 			<string>alipay</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>alisdkdemo</string>
+			</array>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
@@ -37,9 +45,9 @@
 	<array>
 		<string>weixin</string>
 		<string>wechat</string>
-        <string>alipayauth</string>
-        <string>safepay</string>
-        <string>alipay</string>
+		<string>alipayauth</string>
+		<string>safepay</string>
+		<string>alipay</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>

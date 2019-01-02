@@ -43,6 +43,7 @@ HACK net website: http://www.weixianmanbu.com/page_2.html
 Interview question:
 http://blog.cocoachina.com/article/73184
 
+
 ** leave: **
 1. save `AHZX file`
 2. delete `other...`
@@ -56,14 +57,21 @@ http://blog.cocoachina.com/article/73184
 ### <font color=#8E236B> 简书已发布地址:  </font>
 
 
-### 12.28 周五 + 12.29 周六
+### 1.2 周三
 
-* 整理简书 + iOS基础教程 + UI控件（UI控件未整理完成）
+// * 再次处理支付问题 + 扫码支付功能（移动端支持生成二维码区分支付宝和微信商家）
 
+//* 整理简书 + iOS基础教程 + UI控件（UI控件未整理完成）
+
+
+
+
+### 1.3 周三
 * 多线程面试题
+
 * 查看面试题
 
-* 处理支付问题 + 扫码支付功能（移动端支持生成二维码区分支付宝和微信商家）
+* 整理简书 + iOS基础教程 + UI控件（UI控件未整理完成）
 
 
 

@@ -3,6 +3,8 @@
 //  QRCode
 //
 
+// func: 二维码多个功能增加使用，参考链接: https://github.com/TheLevelUp/ZXingObjC
+
 
 #import "ViewController.h"
 
