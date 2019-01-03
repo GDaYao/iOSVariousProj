@@ -110,6 +110,7 @@
     [self.fullScreenBtn setBackgroundImage:[UIImage imageNamed:@"playFullScreen"] forState:UIControlStateNormal];
     
     // layout
+    
 
 }
 
@@ -118,14 +119,14 @@
     
     //网络视频播放
         //NSString *playString = @"http://static.tripbe.com/videofiles/20121214/9533522808.f4v.mp4";
-    //NSString *playString = @"http://wvideo.spriteapp.cn/video/2016/0328/56f8ec01d9bfe_wpd.mp4"; // can use
-    //NSURL *netUrl = [NSURL URLWithString:playString];
+    // NSString *playString = @"http://wvideo.spriteapp.cn/video/2016/0328/56f8ec01d9bfe_wpd.mp4"; // can use
+    // NSURL *netUrl = [NSURL URLWithString:playString];
     // 1. 合法URL -- 本地视频播放
     //    NSString *audioPath = [[NSBundle mainBundle]pathForResource:@"play" ofType:@".mp4"];
     //    NSURL *url = [NSURL fileURLWithPath:audioPath];
     
     // 2. 播放单元 -- 设置播放的项目
-    self.playItem = [[AVPlayerItem alloc] initWithURL:videoURL];
+    self.playItem = [[AVPlayerItem alloc] initWithURL:videoURL];    // videoURL
     
     // 3. 初始化player对象
     self.avPlayer = [[AVPlayer alloc] initWithPlayerItem:self.playItem];

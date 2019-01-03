@@ -84,8 +84,6 @@
         }];
         self.avPlayerV.viewFrame = CGRectMake(0, 0, kScreenW,kScreenH);
     }
-    
-    
 }
 
 - (BOOL)prefersStatusBarHidden
@@ -198,7 +196,6 @@
     }];
 }
 
-
 - (void)playSliderAction{
     //slider的value值为视频的时间
     float seconds = self.avPlayerV.playSlider.value;
@@ -242,8 +239,6 @@
         NSNumber *value = [NSNumber numberWithInt:UIDeviceOrientationPortrait];
         [[UIDevice currentDevice]setValue:value forKey:@"orientation"];
         [UIViewController attemptRotationToDeviceOrientation];
-        
-        
         
     }else{
         [self.navigationController popViewControllerAnimated:YES];
