@@ -57,7 +57,7 @@ http://blog.cocoachina.com/article/73184
 ### <font color=#8E236B> 简书已发布地址:  </font>
 
 
-### 1.3 周四
+### 1.4 周五
 
 
 
@@ -72,8 +72,6 @@ http://blog.cocoachina.com/article/73184
 ++ 
 * 相机调用并处理/相册
 
-
-### 1.4 周五
 
 * 处理视频流媒体
 
