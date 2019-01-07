@@ -6,6 +6,10 @@
 
 #import "ViewController.h"
 
+// import AVFoundation to play in background mode.
+#import <AVFoundation/AVFoundation.h>
+
+
 @interface AppDelegate ()
 
 @end
@@ -23,12 +27,22 @@
     self.window.rootViewController = mainNav;
     [self.window makeKeyAndVisible];
     
+    /// TODO: 1-4 set background play mode + 设置 Info.plist + 设置 Capabilities 
+    AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+    [audioSession setCategory:AVAudioSessionCategoryPlayback error:nil];
+    [audioSession setActive:YES error:nil];
     
     return YES;
 }
 //  support interface
 - (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window{
     return UIInterfaceOrientationMaskAll;
+}
+
+
+#pragma mark - 2-4-remote control event
+- (void)remoteControlReceivedWithEvent:(UIEvent *)event{
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"RemoteControlReceivedEvent" object:nil userInfo:@{@"event":event}];
 }
 
 

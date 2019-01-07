@@ -11,13 +11,18 @@
 #import <GDYSDK/ToolM.h>
 #import "AVPlayerView.h"
 
+// for media lock screen
+#import <MediaPlayer/MPMediaItem.h>
+#import <MediaPlayer/MPNowPlayingInfoCenter.h>
+
+
 @interface AVPlayerViewController ()
 
 @property (nonatomic,strong)AVPlayerView *avPlayerV;
 
 @property (nonatomic ,strong)  id avPlayTimeObser;
 @property (assign, nonatomic)BOOL isReadToPlay;     //用来判断当前视频是否准备好播放。
-@property (nonatomic,assign)BOOL isRotate; // set screen rotate.
+@property (nonatomic,assign)BOOL isRotate;  // set screen rotate.
 
 
 @end
@@ -32,6 +37,12 @@
     
     self.navigationController.navigationBar.hidden = YES;
     
+    //TODO: 开启锁屏处理多媒体事件 + 多媒体监听
+    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(notificationRemoteControlReceivedEvent:) name:@"RemoteControlReceivedEvent" object:nil];
+    
+    
+    
     [self configUI];
     
     self.isRotate = NO;
@@ -39,20 +50,6 @@
 // you must use `viewWillDisappear`
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-    
-    if (self.avPlayerV) {
-        [self.avPlayerV.avPlayer removeTimeObserver:self.avPlayTimeObser];
-        
-        [self.avPlayerV.avLayer removeFromSuperlayer];
-        self.avPlayerV.avLayer = nil;
-        self.avPlayerV.avPlayer = nil;
-        
-        [self.avPlayerV.playItem cancelPendingSeeks];
-        [self.avPlayerV.playItem.asset cancelLoading];
-//        [self.avPlayerV.avPlayer.currentItem cancelPendingSeeks];
-//        [self.avPlayerV.avPlayer.currentItem.asset cancelLoading];
-        
-    }
     
     self.navigationController.navigationBar.hidden = NO;
     
@@ -212,7 +209,7 @@
 - (void)observePlayerTimeChange{
     __weak typeof(self) weakSelf = self;
     self.avPlayTimeObser = [self.avPlayerV.avPlayer addPeriodicTimeObserverForInterval:CMTimeMake(1, 1) queue:dispatch_get_main_queue() usingBlock:^(CMTime time) {
-        //NSLog(@"log--%f",sliderValueTime);
+        
         __strong typeof(self) strongSelf = weakSelf;
         // 在这里将监听到的播放进度代理出去，对进度条进行设置
         float sliderValueTime = CMTimeGetSeconds(time);
@@ -223,9 +220,14 @@
             // 下面不断改变的time导致一直调用viewDidLayout
             strongSelf.avPlayerV.aleradyTimeLab.text = [NSString stringWithFormat:@"%@/%@",[ToolM getDifferHourMintueSecondStringFromIntTime:sliderValueTime],strongSelf.avPlayerV.totalTimeLab.text];
         }
+        NSLog(@"log--observePlayerTimeChange--%f",sliderValueTime);
+        
+        // update lock screen slider duration -- from self get slider value
+        [strongSelf configAndUpdateLockScreenMediaInfo];
         
     }];
 }
+
 // play finish --para:AVPlayerItem
 - (void)avPlayFinisn{
     NSLog(@"log--play finish");
@@ -242,6 +244,9 @@
         
     }else{
         [self.navigationController popViewControllerAnimated:YES];
+        
+        [self clearAVPlayerView];
+        
     }
 }
 
@@ -253,6 +258,77 @@
     [UIViewController attemptRotationToDeviceOrientation];
     
 }
+
+
+#pragma mark - 3-4-NSNotificationCenter+锁屏和控制器的播放控制处理
+- (void)notificationRemoteControlReceivedEvent:(NSNotification *)notification{
+    NSLog(@"log--notificationRemoteControlReceive");
+    
+    UIEvent *receivedEvent = notification.userInfo[@"event"];
+    if (receivedEvent.type == UIEventTypeRemoteControl)
+    {
+        switch (receivedEvent.subtype)
+        {
+            case UIEventSubtypeRemoteControlTogglePlayPause:
+                // [ stop];
+                break;
+            case UIEventSubtypeRemoteControlPreviousTrack:
+                // 上一曲
+                break;
+            case UIEventSubtypeRemoteControlNextTrack:
+                // 下一曲
+                break;
+                
+            case UIEventSubtypeRemoteControlPlay:
+                if (self.avPlayerV.avPlayer) {
+                    [self.avPlayerV.avPlayer play];
+                }
+                break;
+                
+            case UIEventSubtypeRemoteControlPause:
+                //暂停歌曲时，如果有类似动画也要暂停
+                if (self.avPlayerV.avPlayer) {
+                    [self.avPlayerV.avPlayer pause];
+                }
+                
+                break;
+                
+            default:
+                break;
+        }
+    }
+}
+
+#pragma mark - 4-4-锁屏+控制中心信息处理
+// 配置锁屏信息 + 实时更新
+- (void)configAndUpdateLockScreenMediaInfo{
+    
+    if (NSClassFromString(@"MPNowPlayingInfoCenter")) {
+        
+        NSMutableDictionary * dict = [[NSMutableDictionary alloc] init];
+        // 设置 media 名称
+        [dict setObject:@"testName" forKey:MPMediaItemPropertyTitle];
+        // 播放时间
+        [dict setObject:@(self.avPlayerV.playSlider.value) forKey:MPNowPlayingInfoPropertyElapsedPlaybackTime];
+        //音乐的总时间
+        [dict setObject:@(self.avPlayerV.playSlider.maximumValue) forKey:MPMediaItemPropertyPlaybackDuration];
+        
+        // TODO:保持锁屏情况下持续播放，同时也为了保持到进度和播放器一致
+        if (@available(iOS 11.0 ,*)) {
+            NSLog(@"log--%ld",[MPNowPlayingInfoCenter defaultCenter].playbackState);
+            if ([MPNowPlayingInfoCenter defaultCenter].playbackState  == MPNowPlayingPlaybackStatePaused || [MPNowPlayingInfoCenter defaultCenter].playbackState  == 0) {
+                [[MPNowPlayingInfoCenter defaultCenter] setPlaybackState:MPNowPlayingPlaybackStatePlaying];
+            }
+        }
+        
+        [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:dict];
+        
+        NSLog(@"log--configAndUpdateLockScreenMediaInfo--%f,%f,%@",self.avPlayerV.playSlider.value,self.avPlayerV.playSlider.maximumValue,dict);
+    }
+    
+}
+
+
 
 #pragma mark - 屏幕旋转
 // 在屏幕旋转后触发
@@ -274,13 +350,34 @@
 
 
 
-#pragma mark - dealloc
+#pragma mark - dealloc + clear
+- (void)clearAVPlayerView{
+    
+    if (self.avPlayerV) {
+        [self.avPlayerV.avPlayer removeTimeObserver:self.avPlayTimeObser];
+        
+        [self.avPlayerV.avLayer removeFromSuperlayer];
+        self.avPlayerV.avLayer = nil;
+        self.avPlayerV.avPlayer = nil;
+        
+        [self.avPlayerV.playItem cancelPendingSeeks];
+        [self.avPlayerV.playItem.asset cancelLoading];
+        //        [self.avPlayerV.avPlayer.currentItem cancelPendingSeeks];
+        //        [self.avPlayerV.avPlayer.currentItem.asset cancelLoading];
+        
+    }
+}
+
+
 - (void)dealloc{
+    
     [[NSNotificationCenter defaultCenter]removeObserver:self];
     
     //[self.avPlayerV.avPlayer removeTimeObserver:self.avPlayTimeObser];
     NSLog(@"log--dealloc");
 }
+
+
 
 
 

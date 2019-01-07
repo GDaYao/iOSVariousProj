@@ -13,6 +13,8 @@
  
     1. 体验不是很好，如可能会出现缓存不播放或者播放出错等问题。
  
+ 参考链接: https://www.jianshu.com/p/71ab0e828c0a
+ 
  */
 
 #import <UIKit/UIKit.h>

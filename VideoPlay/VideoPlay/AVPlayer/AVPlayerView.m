@@ -120,6 +120,7 @@
     //网络视频播放
         //NSString *playString = @"http://static.tripbe.com/videofiles/20121214/9533522808.f4v.mp4";
     // NSString *playString = @"http://wvideo.spriteapp.cn/video/2016/0328/56f8ec01d9bfe_wpd.mp4"; // can use
+    // NSString *playString = @"https://91mjw.com/video/689.htm?Play=1";
     // NSURL *netUrl = [NSURL URLWithString:playString];
     // 1. 合法URL -- 本地视频播放
     //    NSString *audioPath = [[NSBundle mainBundle]pathForResource:@"play" ofType:@".mp4"];
