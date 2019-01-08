@@ -298,6 +298,7 @@
     [request setHTTPBody:bodyData]; //body 数据
     [request setValue:ticketStr forHTTPHeaderField:@"ticket"];
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];//请求头格式
+    // @"application/json;charset=UTF-8"
     
     [NSURLConnection sendAsynchronousRequest:request queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError)
      {

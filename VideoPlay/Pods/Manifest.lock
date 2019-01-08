@@ -14,16 +14,20 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
+  - FreeStreamer (3.8.3):
+    - Reachability (~> 3.0)
   - GDYSDK (0.1.8):
     - GDYSDK/Core (= 0.1.8)
   - GDYSDK/Core (0.1.8):
     - AFNetworking (= 3.2.1)
   - Masonry (1.1.0)
+  - Reachability (3.2)
   - SDWebImage (4.4.3):
     - SDWebImage/Core (= 4.4.3)
   - SDWebImage/Core (4.4.3)
 
 DEPENDENCIES:
+  - FreeStreamer
   - "GDYSDK (from `git@github.com:GDaYao/GDYSDK.git`)"
   - Masonry
   - SDWebImage
@@ -31,7 +35,9 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AFNetworking
+    - FreeStreamer
     - Masonry
+    - Reachability
     - SDWebImage
 
 EXTERNAL SOURCES:
@@ -45,10 +51,12 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  FreeStreamer: b205b0bf6a2e7855f935369145498f930eb27cac
   GDYSDK: f3c002def455113446406bf3a9c99b8cb8ebf25d
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   SDWebImage: c5594f1a19c48d526d321e548902b56b479cd508
 
-PODFILE CHECKSUM: e7d48b027fa1b472bdaef780fbc566ea38242e6f
+PODFILE CHECKSUM: 5be33c58910ecc88c8cc0f9559156d748e480704
 
 COCOAPODS: 1.5.3

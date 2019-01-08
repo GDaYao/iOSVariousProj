@@ -29,8 +29,12 @@
     
     /// TODO: 1-4 set background play mode + 设置 Info.plist + 设置 Capabilities 
     AVAudioSession *audioSession = [AVAudioSession sharedInstance];
-    [audioSession setCategory:AVAudioSessionCategoryPlayback error:nil];
-    [audioSession setActive:YES error:nil];
+    [audioSession setCategory:AVAudioSessionCategoryPlayback error:nil];  // AVAudioSessionCategoryPlayback 不可与其它App同时播放
+    [audioSession setActive:YES error:nil];         // 静音状态下播放
+    // 用于出现系统服务直接中断当前进程进行相应的程序处理。
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(appAVAudioPlayInterruptted:) name:@"AVAudioSessionInterruptionNotification" object:nil];
+    
+    
     
     return YES;
 }
@@ -40,10 +44,14 @@
 }
 
 
-#pragma mark - 2-4-remote control event
+#pragma mark - 2-4-remote control event -- 外部控制接收事件
 - (void)remoteControlReceivedWithEvent:(UIEvent *)event{
     [[NSNotificationCenter defaultCenter]postNotificationName:@"RemoteControlReceivedEvent" object:nil userInfo:@{@"event":event}];
 }
+- (void)appAVAudioPlayInterruptted:(NSNotification *)notification{
+//    UIEvent *event = notification.userInfo[@"xxx"];
+}
+
 
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -74,5 +82,11 @@
 
 
 
+
+
+
 @end
+
+
+
 

@@ -13,7 +13,10 @@
  
     1. 体验不是很好，如可能会出现缓存不播放或者播放出错等问题。
  
- 参考链接: https://www.jianshu.com/p/71ab0e828c0a
+ 参考链接:
+    https://www.cnblogs.com/v2m_/p/8575622.html -- 常用属性设置
+    http://msching.github.io/blog/2014/11/06/audio-in-ios-8/
+    http://www.samirchen.com/ios-avaudiosession-3/
  
  */
 

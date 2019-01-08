@@ -16,6 +16,10 @@
 #import <MediaPlayer/MPNowPlayingInfoCenter.h>
 
 
+// test
+#import <GDYSDK/NetworkMgr.h>
+#import <GDYSDK/ToolM.h>
+
 @interface AVPlayerViewController ()
 
 @property (nonatomic,strong)AVPlayerView *avPlayerV;
@@ -46,6 +50,7 @@
     [self configUI];
     
     self.isRotate = NO;
+
 }
 // you must use `viewWillDisappear`
 - (void)viewWillDisappear:(BOOL)animated{
@@ -299,6 +304,7 @@
     }
 }
 
+
 #pragma mark - 4-4-锁屏+控制中心信息处理
 // 配置锁屏信息 + 实时更新
 - (void)configAndUpdateLockScreenMediaInfo{
@@ -315,7 +321,12 @@
         
         // TODO:保持锁屏情况下持续播放，同时也为了保持到进度和播放器一致
         if (@available(iOS 11.0 ,*)) {
-            NSLog(@"log--%ld",[MPNowPlayingInfoCenter defaultCenter].playbackState);
+            NSLog(@"log--%lu",(unsigned long)[MPNowPlayingInfoCenter defaultCenter].playbackState);
+            
+            // 外部暂停在时间数值相等时
+            if(self.avPlayerV.playSlider.value == self.avPlayerV.playSlider.maximumValue){
+                [[MPNowPlayingInfoCenter defaultCenter]setPlaybackState:MPNowPlayingPlaybackStatePaused];
+            }else
             if ([MPNowPlayingInfoCenter defaultCenter].playbackState  == MPNowPlayingPlaybackStatePaused || [MPNowPlayingInfoCenter defaultCenter].playbackState  == 0) {
                 [[MPNowPlayingInfoCenter defaultCenter] setPlaybackState:MPNowPlayingPlaybackStatePlaying];
             }
@@ -328,6 +339,33 @@
     
 }
 
+#pragma mark - 后台播放控制
+- (void)autoPlayNext{
+    
+    //添加后台播放任务
+    UIBackgroundTaskIdentifier bgTask = 0;
+    if([UIApplication sharedApplication].applicationState== UIApplicationStateBackground) {
+        
+        NSLog(@"后台播放");
+        
+        UIApplication*app = [UIApplication sharedApplication];
+        
+        UIBackgroundTaskIdentifier newTask = [app beginBackgroundTaskWithExpirationHandler:nil];
+        
+        if(bgTask!= UIBackgroundTaskInvalid) {
+            
+            [app endBackgroundTask: bgTask];
+        }
+        
+        bgTask = newTask;
+        
+    }
+    else {
+        
+        NSLog(@"前台播放");
+        
+    }
+}
 
 
 #pragma mark - 屏幕旋转

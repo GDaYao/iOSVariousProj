@@ -50,7 +50,7 @@ http://blog.cocoachina.com/article/73184
 3. 记住把git信息变更。 -- 删除~/.gitconfig + ~/.ssh 需要可以给用户自动生成。
 4. 删除账号 -- 知乎  ++ github ++ 微博、微信开发者平台。
 5. 简书账号。
-6. 删除相应的软件。
+6. 删除相应的软件 -- Charles。
 
 -   -   -   -   -   -   -   -   -   -   
 
@@ -58,9 +58,10 @@ http://blog.cocoachina.com/article/73184
 
 
 
+
+
 ### 1.8 周二
 
->> 主要处理视频播放器相关内容，仿多种大型视频播放器。
 * 处理网络视频播放/变下边播放/后台播放 ==> https://www.jianshu.com/p/93ce1748ea57
 * 音频
 * 流媒体学习 --> 变下边播实现 --> 视频清晰度实现处理
@@ -70,7 +71,14 @@ http://blog.cocoachina.com/article/73184
 
 * 根据抓取链接，制作一个爱美剧播放器
 
+https://github.com/chenfengxiaoxixi/CFMusic
 
+* Hack :
+https://blog.csdn.net/maxushan001/article/details/79421134
+
+https://www.freebuf.com/
+
+ www.chtc.edu.cn
 
 
 ### 1.9 周三

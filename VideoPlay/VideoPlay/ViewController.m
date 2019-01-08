@@ -39,14 +39,14 @@
 
 - (NSArray *)dataArray{
     if (!_dataArray) {
-        _dataArray = @[@"AVPlayer",@"StreamingKit"];
+        _dataArray = @[@"AVPlayer",@"FreeStreamer"];
     }
     return _dataArray;
 }
 
 - (NSArray *)vcArray{
     if (!_vcArray) {
-        _vcArray = @[@"AVPlayerViewController",@"AVPlayerViewController"];
+        _vcArray = @[@"AVPlayerViewController",@"FreeStreamerViewController"];
     }
     return _vcArray;
 }
