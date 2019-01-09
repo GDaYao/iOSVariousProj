@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0FAA12B521B7AEE700B33C81 /* play.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 0FAA12B321B7A9B400B33C81 /* play.mp4 */; };
 		0FAA12B821B7AF7E00B33C81 /* AVPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FAA12B721B7AF7E00B33C81 /* AVPlayerViewController.m */; };
+		0FC6508E21E5D990003D36E5 /* FreeStreamerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC6508D21E5D990003D36E5 /* FreeStreamerView.m */; };
+		0FC6509421E5DF2B003D36E5 /* RotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC6509321E5DF2B003D36E5 /* RotationView.m */; };
 		0FD9A2EE21E4AA8800DAAB25 /* FreeStreamerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD9A2ED21E4AA8800DAAB25 /* FreeStreamerViewController.m */; };
 		0FDD4D4521B52DC500F93BD7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FDD4D4421B52DC500F93BD7 /* AppDelegate.m */; };
 		0FDD4D4821B52DC500F93BD7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FDD4D4721B52DC500F93BD7 /* ViewController.m */; };
@@ -24,6 +26,10 @@
 		0FAA12B321B7A9B400B33C81 /* play.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = play.mp4; sourceTree = "<group>"; };
 		0FAA12B621B7AF7E00B33C81 /* AVPlayerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AVPlayerViewController.h; sourceTree = "<group>"; };
 		0FAA12B721B7AF7E00B33C81 /* AVPlayerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AVPlayerViewController.m; sourceTree = "<group>"; };
+		0FC6508C21E5D990003D36E5 /* FreeStreamerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FreeStreamerView.h; sourceTree = "<group>"; };
+		0FC6508D21E5D990003D36E5 /* FreeStreamerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FreeStreamerView.m; sourceTree = "<group>"; };
+		0FC6509221E5DF2B003D36E5 /* RotationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RotationView.h; sourceTree = "<group>"; };
+		0FC6509321E5DF2B003D36E5 /* RotationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RotationView.m; sourceTree = "<group>"; };
 		0FD9A2EC21E4AA8800DAAB25 /* FreeStreamerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FreeStreamerViewController.h; sourceTree = "<group>"; };
 		0FD9A2ED21E4AA8800DAAB25 /* FreeStreamerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FreeStreamerViewController.m; sourceTree = "<group>"; };
 		0FDD4D4021B52DC500F93BD7 /* VideoPlay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideoPlay.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -68,6 +74,10 @@
 			children = (
 				0FD9A2EC21E4AA8800DAAB25 /* FreeStreamerViewController.h */,
 				0FD9A2ED21E4AA8800DAAB25 /* FreeStreamerViewController.m */,
+				0FC6508C21E5D990003D36E5 /* FreeStreamerView.h */,
+				0FC6508D21E5D990003D36E5 /* FreeStreamerView.m */,
+				0FC6509221E5DF2B003D36E5 /* RotationView.h */,
+				0FC6509321E5DF2B003D36E5 /* RotationView.m */,
 			);
 			path = FreeStreamer;
 			sourceTree = "<group>";
@@ -239,12 +249,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FC6508E21E5D990003D36E5 /* FreeStreamerView.m in Sources */,
 				0FDD4D4821B52DC500F93BD7 /* ViewController.m in Sources */,
 				0FDD4D5321B52DCC00F93BD7 /* main.m in Sources */,
 				0FAA12B821B7AF7E00B33C81 /* AVPlayerViewController.m in Sources */,
 				0FDD4D4521B52DC500F93BD7 /* AppDelegate.m in Sources */,
 				0FF1FDE921C0AB6A00E72B2B /* AVPlayerView.m in Sources */,
 				0FD9A2EE21E4AA8800DAAB25 /* FreeStreamerViewController.m in Sources */,
+				0FC6509421E5DF2B003D36E5 /* RotationView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

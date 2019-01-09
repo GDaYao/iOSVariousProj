@@ -59,29 +59,43 @@ http://blog.cocoachina.com/article/73184
 
 
 
+### 1.9 周三
 
-### 1.8 周二
 
-* 处理网络视频播放/变下边播放/后台播放 ==> https://www.jianshu.com/p/93ce1748ea57
-* 音频
-* 流媒体学习 --> 变下边播实现 --> 视频清晰度实现处理
+1. 音频播放器制作（具备下一首、上一首、播放、暂停和后台播放功能） --->
 
-* 视频直播
+2. 处理视频的流媒体学习以及框架
+
+3. 边下边播功能实现 -->  https://www.jianshu.com/p/93ce1748ea57
+
+4. 视频 标清、高清 功能实现
+
+5. 视频直播功能
+
+https://tieba.baidu.com/p/5883276530?pn=2
+
+>>>
+>>>
+>>>
+
+
 
 
 * 根据抓取链接，制作一个爱美剧播放器
 
-https://github.com/chenfengxiaoxixi/CFMusic
 
 * Hack :
 https://blog.csdn.net/maxushan001/article/details/79421134
 
 https://www.freebuf.com/
 
- www.chtc.edu.cn
+www.chtc.edu.cn
 
 
-### 1.9 周三
+
+self 和 _ 区别
+
+
 ++ 
 * 相机调用并处理/相册
 

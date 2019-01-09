@@ -116,6 +116,7 @@
         make.height.equalTo(@300);
     }];
     
+    
 // add target
     [self.avPlayerV.backBtn addTarget:self action:@selector(tapBackBtn) forControlEvents:UIControlEventTouchUpInside];
     [self.avPlayerV.playBtn addTarget:self action:@selector(playBtnAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -339,33 +340,33 @@
     
 }
 
-#pragma mark - 后台播放控制
-- (void)autoPlayNext{
-    
-    //添加后台播放任务
-    UIBackgroundTaskIdentifier bgTask = 0;
-    if([UIApplication sharedApplication].applicationState== UIApplicationStateBackground) {
-        
-        NSLog(@"后台播放");
-        
-        UIApplication*app = [UIApplication sharedApplication];
-        
-        UIBackgroundTaskIdentifier newTask = [app beginBackgroundTaskWithExpirationHandler:nil];
-        
-        if(bgTask!= UIBackgroundTaskInvalid) {
-            
-            [app endBackgroundTask: bgTask];
-        }
-        
-        bgTask = newTask;
-        
-    }
-    else {
-        
-        NSLog(@"前台播放");
-        
-    }
-}
+//#pragma mark - 后台播放控制
+//- (void)autoPlayNext{
+//
+//    //添加后台播放任务
+//    UIBackgroundTaskIdentifier bgTask = 0;
+//    if([UIApplication sharedApplication].applicationState== UIApplicationStateBackground) {
+//
+//        NSLog(@"后台播放");
+//
+//        UIApplication*app = [UIApplication sharedApplication];
+//
+//        UIBackgroundTaskIdentifier newTask = [app beginBackgroundTaskWithExpirationHandler:nil];
+//
+//        if(bgTask!= UIBackgroundTaskInvalid) {
+//
+//            [app endBackgroundTask: bgTask];
+//        }
+//
+//        bgTask = newTask;
+//
+//    }
+//    else {
+//
+//        NSLog(@"前台播放");
+//
+//    }
+//}
 
 
 #pragma mark - 屏幕旋转
