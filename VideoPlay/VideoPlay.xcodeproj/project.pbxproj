@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F4259CF21E6EA4700516BDF /* MusicSliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4259CE21E6EA4700516BDF /* MusicSliderView.m */; };
+		0F4259D621E740B500516BDF /* CustomVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4259D521E740B500516BDF /* CustomVideoViewController.m */; };
 		0FAA12B521B7AEE700B33C81 /* play.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 0FAA12B321B7A9B400B33C81 /* play.mp4 */; };
 		0FAA12B821B7AF7E00B33C81 /* AVPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FAA12B721B7AF7E00B33C81 /* AVPlayerViewController.m */; };
 		0FC6508E21E5D990003D36E5 /* FreeStreamerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC6508D21E5D990003D36E5 /* FreeStreamerView.m */; };
@@ -23,6 +25,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0F4259CD21E6EA4700516BDF /* MusicSliderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MusicSliderView.h; sourceTree = "<group>"; };
+		0F4259CE21E6EA4700516BDF /* MusicSliderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MusicSliderView.m; sourceTree = "<group>"; };
+		0F4259D421E740B500516BDF /* CustomVideoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomVideoViewController.h; sourceTree = "<group>"; };
+		0F4259D521E740B500516BDF /* CustomVideoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomVideoViewController.m; sourceTree = "<group>"; };
 		0FAA12B321B7A9B400B33C81 /* play.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = play.mp4; sourceTree = "<group>"; };
 		0FAA12B621B7AF7E00B33C81 /* AVPlayerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AVPlayerViewController.h; sourceTree = "<group>"; };
 		0FAA12B721B7AF7E00B33C81 /* AVPlayerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AVPlayerViewController.m; sourceTree = "<group>"; };
@@ -61,6 +67,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F4259D021E7406E00516BDF /* CustomVideoPlay */ = {
+			isa = PBXGroup;
+			children = (
+				0F4259D421E740B500516BDF /* CustomVideoViewController.h */,
+				0F4259D521E740B500516BDF /* CustomVideoViewController.m */,
+			);
+			path = CustomVideoPlay;
+			sourceTree = "<group>";
+		};
 		0FAA12B221B7A99D00B33C81 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
@@ -78,6 +93,8 @@
 				0FC6508D21E5D990003D36E5 /* FreeStreamerView.m */,
 				0FC6509221E5DF2B003D36E5 /* RotationView.h */,
 				0FC6509321E5DF2B003D36E5 /* RotationView.m */,
+				0F4259CD21E6EA4700516BDF /* MusicSliderView.h */,
+				0F4259CE21E6EA4700516BDF /* MusicSliderView.m */,
 			);
 			path = FreeStreamer;
 			sourceTree = "<group>";
@@ -107,6 +124,7 @@
 				0FDD4D4421B52DC500F93BD7 /* AppDelegate.m */,
 				0FDD4D4621B52DC500F93BD7 /* ViewController.h */,
 				0FDD4D4721B52DC500F93BD7 /* ViewController.m */,
+				0F4259D021E7406E00516BDF /* CustomVideoPlay */,
 				0FF1FDE621C0AB4900E72B2B /* AVPlayer */,
 				0FD9A2EB21E4AA5200DAAB25 /* FreeStreamer */,
 				0FDD4D4921B52DC500F93BD7 /* Main.storyboard */,
@@ -252,6 +270,8 @@
 				0FC6508E21E5D990003D36E5 /* FreeStreamerView.m in Sources */,
 				0FDD4D4821B52DC500F93BD7 /* ViewController.m in Sources */,
 				0FDD4D5321B52DCC00F93BD7 /* main.m in Sources */,
+				0F4259D621E740B500516BDF /* CustomVideoViewController.m in Sources */,
+				0F4259CF21E6EA4700516BDF /* MusicSliderView.m in Sources */,
 				0FAA12B821B7AF7E00B33C81 /* AVPlayerViewController.m in Sources */,
 				0FDD4D4521B52DC500F93BD7 /* AppDelegate.m in Sources */,
 				0FF1FDE921C0AB6A00E72B2B /* AVPlayerView.m in Sources */,

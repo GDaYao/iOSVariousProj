@@ -39,7 +39,7 @@
 
 - (NSArray *)dataArray{
     if (!_dataArray) {
-        _dataArray = @[@"AVPlayer",@"FreeStreamer"];
+        _dataArray = @[@"AVPlayer--系统音视频框架库",@"FreeStreamer--pod音频播放框架库"]; 
     }
     return _dataArray;
 }

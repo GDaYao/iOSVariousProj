@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (strong, nonatomic)  UIButton *btn;
 
-@property (strong, nonatomic)   UIImageView *CDimageView;
+@property (strong, nonatomic)   UIImageView *rotateIV;
 
 @property (nonatomic,strong) void(^playBlock)(BOOL isPlay);
 

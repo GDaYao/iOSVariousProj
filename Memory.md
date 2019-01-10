@@ -57,39 +57,23 @@ http://blog.cocoachina.com/article/73184
 ### <font color=#8E236B> 简书已发布地址:  </font>
 
 
+hack 如何攻破一个网站: https://blog.csdn.net/maxushan001/article/details/79421134
+FreeBuf网站: https://www.freebuf.com/
 
 
-### 1.9 周三
+### 1.11 周五
 
 
-1. 音频播放器制作（具备下一首、上一首、播放、暂停和后台播放功能） --->
+* 多看库的原理和实现原理（AFNetworkin原理/底层+Masonry原理底层+SDWebImage原理）
 
-2. 处理视频的流媒体学习以及框架
 
-3. 边下边播功能实现 -->  https://www.jianshu.com/p/93ce1748ea57
+* 打电话 + 发邮件 + 短信 + 通讯录
 
-4. 视频 标清、高清 功能实现
-
-5. 视频直播功能
-
-https://tieba.baidu.com/p/5883276530?pn=2
+* 远程推送的实现
 
 >>>
 >>>
 >>>
-
-
-
-
-* 根据抓取链接，制作一个爱美剧播放器
-
-
-* Hack :
-https://blog.csdn.net/maxushan001/article/details/79421134
-
-https://www.freebuf.com/
-
-www.chtc.edu.cn
 
 
 
@@ -104,19 +88,7 @@ self 和 _ 区别
 
 * 环信聊天接触了解 + 仿QQ实现
 
-### 1.10 周四
-
 * 蓝牙和底层硬件的互动实现 + 原理查看
-
-* 多看库的原理和实现原理（AFNetworkin原理/底层+Masonry原理底层+SDWebImage原理）
-
-### 1.11 周五
-
-* 打电话 + 发邮件 + 短信 + 通讯录
-
-* 远程推送的实现
-
-### 1.12 周六
 
 * 人脸识别 
 
@@ -127,6 +99,11 @@ self 和 _ 区别
 
 ### 对上述难点在过渡处理
 
+
+// 视频播放器功能制作进行封存后续进行慢慢处理操作
+1. 边下边播功能实现 -->  https://www.jianshu.com/p/93ce1748ea57
+2. 视频 标清、高清 功能实现
+3. 视频直播功能
 
 
 * 多线程面试题 + 网络编程面试题 + 查看面试题 （整理iOS基础教程）  ---> MD_iOS_Other_Save.md书写
