@@ -25,18 +25,17 @@
     self = [super initWithFrame:frame];
     if (self) {
         
-        _CDimageView = [[UIImageView alloc] initWithFrame:CGRectMake(self.width/2 - 65, self.height/2 - 65, 130, 130)];
-        //_CDimageView.image = IMAGE_WITH_NAME(@"cdImage");
-        [self addSubview:_CDimageView];
+        _rotateIV = [[UIImageView alloc] initWithFrame:CGRectMake(self.bounds.size.width/2 - 65, self.bounds.size.height/2 - 65, 130, 130)];
+        [self addSubview:_rotateIV];
         
-        _ro = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, ROTATION_WIDTH, ROTATION_WIDTH)];
-        _ro.image = IMAGE_WITH_NAME(@"diepian");
+        _ro = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, 300, 300)];
+        _ro.image = [UIImage imageNamed:@"rotateImg"];
         [self addSubview:_ro];
         
-        CGPoint center = CGPointMake(self.width / 2.0, self.height / 2.0);
+        CGPoint center = CGPointMake(self.bounds.size.width / 2.0, self.bounds.size.height / 2.0);
         
-        _onImage = [UIImage imageNamed:@"play_overCD"];
-        _offImage = [UIImage imageNamed:@"pause_overCD"];
+        _onImage = [UIImage imageNamed:@"play"];
+        _offImage = [UIImage imageNamed:@"stopPlay"];
         self.btn = [UIButton buttonWithType:UIButtonTypeCustom];
         self.btn.frame = CGRectMake(0,0,_onImage.size.width * 1.3, _onImage.size.height * 1.3);
         [self.btn setCenter:center];
