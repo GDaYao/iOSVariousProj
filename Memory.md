@@ -61,6 +61,7 @@ hack 如何攻破一个网站: https://blog.csdn.net/maxushan001/article/details
 FreeBuf网站: https://www.freebuf.com/
 FFmpeg介绍: https://www.jianshu.com/p/ecfbebadbe55
 
+密码学学习: http://www.cocoachina.com/blockchain/20190111/26109.html
 
 ### 重点知识学习
 
