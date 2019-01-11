@@ -15,6 +15,7 @@
 		0F66506821C3AC00006A5205 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F66506721C3AC00006A5205 /* main.m */; };
 		0F66507021C3B031006A5205 /* UIImage+QRCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F66506F21C3B031006A5205 /* UIImage+QRCode.m */; };
 		0F66507221C3B072006A5205 /* zy-30.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F66507121C3B072006A5205 /* zy-30.png */; };
+		0F98E0CA21E8343B008A186E /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F98E0C921E8343B008A186E /* logo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		0F66506E21C3B031006A5205 /* UIImage+QRCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+QRCode.h"; sourceTree = "<group>"; };
 		0F66506F21C3B031006A5205 /* UIImage+QRCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+QRCode.m"; sourceTree = "<group>"; };
 		0F66507121C3B072006A5205 /* zy-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zy-30.png"; sourceTree = "<group>"; };
+		0F98E0C921E8343B008A186E /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 			isa = PBXGroup;
 			children = (
 				0F66507121C3B072006A5205 /* zy-30.png */,
+				0F98E0C921E8343B008A186E /* logo.png */,
 				0F66506E21C3B031006A5205 /* UIImage+QRCode.h */,
 				0F66506F21C3B031006A5205 /* UIImage+QRCode.m */,
 				0F66505821C3ABF0006A5205 /* AppDelegate.h */,
@@ -137,6 +140,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F66506521C3AC00006A5205 /* LaunchScreen.storyboard in Resources */,
+				0F98E0CA21E8343B008A186E /* logo.png in Resources */,
 				0F66506221C3AC00006A5205 /* Assets.xcassets in Resources */,
 				0F66506021C3ABF0006A5205 /* Main.storyboard in Resources */,
 				0F66507221C3B072006A5205 /* zy-30.png in Resources */,
@@ -230,7 +234,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -283,7 +287,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -296,6 +300,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LT57D5LDNZ;
 				INFOPLIST_FILE = QRCode/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -312,6 +317,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LT57D5LDNZ;
 				INFOPLIST_FILE = QRCode/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
