@@ -1,6 +1,0 @@
-platform :ios, '8.0'
-target 'StudyProj' do
-pod 'AFNetworking'
-pod 'Masonry'
-pod 'MJRefresh'
-end

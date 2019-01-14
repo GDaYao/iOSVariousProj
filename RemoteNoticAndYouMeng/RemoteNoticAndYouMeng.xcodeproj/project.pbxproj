@@ -7,36 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0F66505A21C3ABF0006A5205 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F66505921C3ABF0006A5205 /* AppDelegate.m */; };
-		0F66505D21C3ABF0006A5205 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F66505C21C3ABF0006A5205 /* ViewController.m */; };
-		0F66506021C3ABF0006A5205 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F66505E21C3ABF0006A5205 /* Main.storyboard */; };
-		0F66506221C3AC00006A5205 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F66506121C3AC00006A5205 /* Assets.xcassets */; };
-		0F66506521C3AC00006A5205 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F66506321C3AC00006A5205 /* LaunchScreen.storyboard */; };
-		0F66506821C3AC00006A5205 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F66506721C3AC00006A5205 /* main.m */; };
-		0F66507021C3B031006A5205 /* UIImage+QRCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F66506F21C3B031006A5205 /* UIImage+QRCode.m */; };
-		0F66507221C3B072006A5205 /* zy-30.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F66507121C3B072006A5205 /* zy-30.png */; };
-		0F98E0CA21E8343B008A186E /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F98E0C921E8343B008A186E /* logo.png */; };
+		0F8FCFB721EC24F300509E9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F8FCFB621EC24F300509E9A /* AppDelegate.m */; };
+		0F8FCFBA21EC24F300509E9A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F8FCFB921EC24F300509E9A /* ViewController.m */; };
+		0F8FCFBD21EC24F300509E9A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F8FCFBB21EC24F300509E9A /* Main.storyboard */; };
+		0F8FCFBF21EC250000509E9A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F8FCFBE21EC250000509E9A /* Assets.xcassets */; };
+		0F8FCFC221EC250000509E9A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F8FCFC021EC250000509E9A /* LaunchScreen.storyboard */; };
+		0F8FCFC521EC250000509E9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F8FCFC421EC250000509E9A /* main.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0F66505521C3ABF0006A5205 /* QRCode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QRCode.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		0F66505821C3ABF0006A5205 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		0F66505921C3ABF0006A5205 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		0F66505B21C3ABF0006A5205 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		0F66505C21C3ABF0006A5205 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		0F66505F21C3ABF0006A5205 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		0F66506121C3AC00006A5205 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		0F66506421C3AC00006A5205 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		0F66506621C3AC00006A5205 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0F66506721C3AC00006A5205 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		0F66506E21C3B031006A5205 /* UIImage+QRCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+QRCode.h"; sourceTree = "<group>"; };
-		0F66506F21C3B031006A5205 /* UIImage+QRCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+QRCode.m"; sourceTree = "<group>"; };
-		0F66507121C3B072006A5205 /* zy-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zy-30.png"; sourceTree = "<group>"; };
-		0F98E0C921E8343B008A186E /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		0F8FCFB221EC24F300509E9A /* RemoteNoticAndYouMeng.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RemoteNoticAndYouMeng.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0F8FCFB521EC24F300509E9A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		0F8FCFB621EC24F300509E9A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		0F8FCFB821EC24F300509E9A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		0F8FCFB921EC24F300509E9A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		0F8FCFBC21EC24F300509E9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		0F8FCFBE21EC250000509E9A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0F8FCFC121EC250000509E9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		0F8FCFC321EC250000509E9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0F8FCFC421EC250000509E9A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		0F8FCFCB21EC373D00509E9A /* RemoteNoticAndYouMeng.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RemoteNoticAndYouMeng.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		0F66505221C3ABF0006A5205 /* Frameworks */ = {
+		0F8FCFAF21EC24F300509E9A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -46,77 +40,82 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0F66504C21C3ABF0006A5205 = {
+		0F8FCFA921EC24F300509E9A = {
 			isa = PBXGroup;
 			children = (
-				0F66505721C3ABF0006A5205 /* QRCode */,
-				0F66505621C3ABF0006A5205 /* Products */,
+				0F8FCFB421EC24F300509E9A /* RemoteNoticAndYouMeng */,
+				0F8FCFB321EC24F300509E9A /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		0F66505621C3ABF0006A5205 /* Products */ = {
+		0F8FCFB321EC24F300509E9A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0F66505521C3ABF0006A5205 /* QRCode.app */,
+				0F8FCFB221EC24F300509E9A /* RemoteNoticAndYouMeng.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		0F66505721C3ABF0006A5205 /* QRCode */ = {
+		0F8FCFB421EC24F300509E9A /* RemoteNoticAndYouMeng */ = {
 			isa = PBXGroup;
 			children = (
-				0F66507121C3B072006A5205 /* zy-30.png */,
-				0F98E0C921E8343B008A186E /* logo.png */,
-				0F66506E21C3B031006A5205 /* UIImage+QRCode.h */,
-				0F66506F21C3B031006A5205 /* UIImage+QRCode.m */,
-				0F66505821C3ABF0006A5205 /* AppDelegate.h */,
-				0F66505921C3ABF0006A5205 /* AppDelegate.m */,
-				0F66505B21C3ABF0006A5205 /* ViewController.h */,
-				0F66505C21C3ABF0006A5205 /* ViewController.m */,
-				0F66505E21C3ABF0006A5205 /* Main.storyboard */,
-				0F66506121C3AC00006A5205 /* Assets.xcassets */,
-				0F66506321C3AC00006A5205 /* LaunchScreen.storyboard */,
-				0F66506621C3AC00006A5205 /* Info.plist */,
-				0F66506721C3AC00006A5205 /* main.m */,
+				0F8FCFCB21EC373D00509E9A /* RemoteNoticAndYouMeng.entitlements */,
+				0F8FCFB521EC24F300509E9A /* AppDelegate.h */,
+				0F8FCFB621EC24F300509E9A /* AppDelegate.m */,
+				0F8FCFB821EC24F300509E9A /* ViewController.h */,
+				0F8FCFB921EC24F300509E9A /* ViewController.m */,
+				0F8FCFBB21EC24F300509E9A /* Main.storyboard */,
+				0F8FCFBE21EC250000509E9A /* Assets.xcassets */,
+				0F8FCFC021EC250000509E9A /* LaunchScreen.storyboard */,
+				0F8FCFC321EC250000509E9A /* Info.plist */,
+				0F8FCFC421EC250000509E9A /* main.m */,
 			);
-			path = QRCode;
+			path = RemoteNoticAndYouMeng;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0F66505421C3ABF0006A5205 /* QRCode */ = {
+		0F8FCFB121EC24F300509E9A /* RemoteNoticAndYouMeng */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0F66506B21C3AC00006A5205 /* Build configuration list for PBXNativeTarget "QRCode" */;
+			buildConfigurationList = 0F8FCFC821EC250000509E9A /* Build configuration list for PBXNativeTarget "RemoteNoticAndYouMeng" */;
 			buildPhases = (
-				0F66505121C3ABF0006A5205 /* Sources */,
-				0F66505221C3ABF0006A5205 /* Frameworks */,
-				0F66505321C3ABF0006A5205 /* Resources */,
+				0F8FCFAE21EC24F300509E9A /* Sources */,
+				0F8FCFAF21EC24F300509E9A /* Frameworks */,
+				0F8FCFB021EC24F300509E9A /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = QRCode;
-			productName = QRCode;
-			productReference = 0F66505521C3ABF0006A5205 /* QRCode.app */;
+			name = RemoteNoticAndYouMeng;
+			productName = RemoteNoticAndYouMeng;
+			productReference = 0F8FCFB221EC24F300509E9A /* RemoteNoticAndYouMeng.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		0F66504D21C3ABF0006A5205 /* Project object */ = {
+		0F8FCFAA21EC24F300509E9A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = Dayao;
 				TargetAttributes = {
-					0F66505421C3ABF0006A5205 = {
+					0F8FCFB121EC24F300509E9A = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
-			buildConfigurationList = 0F66505021C3ABF0006A5205 /* Build configuration list for PBXProject "QRCode" */;
+			buildConfigurationList = 0F8FCFAD21EC24F300509E9A /* Build configuration list for PBXProject "RemoteNoticAndYouMeng" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -124,58 +123,55 @@
 				en,
 				Base,
 			);
-			mainGroup = 0F66504C21C3ABF0006A5205;
-			productRefGroup = 0F66505621C3ABF0006A5205 /* Products */;
+			mainGroup = 0F8FCFA921EC24F300509E9A;
+			productRefGroup = 0F8FCFB321EC24F300509E9A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0F66505421C3ABF0006A5205 /* QRCode */,
+				0F8FCFB121EC24F300509E9A /* RemoteNoticAndYouMeng */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		0F66505321C3ABF0006A5205 /* Resources */ = {
+		0F8FCFB021EC24F300509E9A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0F66506521C3AC00006A5205 /* LaunchScreen.storyboard in Resources */,
-				0F98E0CA21E8343B008A186E /* logo.png in Resources */,
-				0F66506221C3AC00006A5205 /* Assets.xcassets in Resources */,
-				0F66506021C3ABF0006A5205 /* Main.storyboard in Resources */,
-				0F66507221C3B072006A5205 /* zy-30.png in Resources */,
+				0F8FCFC221EC250000509E9A /* LaunchScreen.storyboard in Resources */,
+				0F8FCFBF21EC250000509E9A /* Assets.xcassets in Resources */,
+				0F8FCFBD21EC24F300509E9A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		0F66505121C3ABF0006A5205 /* Sources */ = {
+		0F8FCFAE21EC24F300509E9A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0F66505D21C3ABF0006A5205 /* ViewController.m in Sources */,
-				0F66507021C3B031006A5205 /* UIImage+QRCode.m in Sources */,
-				0F66506821C3AC00006A5205 /* main.m in Sources */,
-				0F66505A21C3ABF0006A5205 /* AppDelegate.m in Sources */,
+				0F8FCFBA21EC24F300509E9A /* ViewController.m in Sources */,
+				0F8FCFC521EC250000509E9A /* main.m in Sources */,
+				0F8FCFB721EC24F300509E9A /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		0F66505E21C3ABF0006A5205 /* Main.storyboard */ = {
+		0F8FCFBB21EC24F300509E9A /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				0F66505F21C3ABF0006A5205 /* Base */,
+				0F8FCFBC21EC24F300509E9A /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		0F66506321C3AC00006A5205 /* LaunchScreen.storyboard */ = {
+		0F8FCFC021EC250000509E9A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				0F66506421C3AC00006A5205 /* Base */,
+				0F8FCFC121EC250000509E9A /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -183,7 +179,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		0F66506921C3AC00006A5205 /* Debug */ = {
+		0F8FCFC621EC250000509E9A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -242,7 +238,7 @@
 			};
 			name = Debug;
 		};
-		0F66506A21C3AC00006A5205 /* Release */ = {
+		0F8FCFC721EC250000509E9A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -295,35 +291,37 @@
 			};
 			name = Release;
 		};
-		0F66506C21C3AC00006A5205 /* Debug */ = {
+		0F8FCFC921EC250000509E9A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = RemoteNoticAndYouMeng/RemoteNoticAndYouMeng.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LT57D5LDNZ;
-				INFOPLIST_FILE = QRCode/Info.plist;
+				INFOPLIST_FILE = RemoteNoticAndYouMeng/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dayao.QRCode;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dayao.RemoteNoticAndYouMeng;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		0F66506D21C3AC00006A5205 /* Release */ = {
+		0F8FCFCA21EC250000509E9A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = RemoteNoticAndYouMeng/RemoteNoticAndYouMeng.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LT57D5LDNZ;
-				INFOPLIST_FILE = QRCode/Info.plist;
+				INFOPLIST_FILE = RemoteNoticAndYouMeng/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dayao.QRCode;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dayao.RemoteNoticAndYouMeng;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -332,25 +330,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0F66505021C3ABF0006A5205 /* Build configuration list for PBXProject "QRCode" */ = {
+		0F8FCFAD21EC24F300509E9A /* Build configuration list for PBXProject "RemoteNoticAndYouMeng" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0F66506921C3AC00006A5205 /* Debug */,
-				0F66506A21C3AC00006A5205 /* Release */,
+				0F8FCFC621EC250000509E9A /* Debug */,
+				0F8FCFC721EC250000509E9A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0F66506B21C3AC00006A5205 /* Build configuration list for PBXNativeTarget "QRCode" */ = {
+		0F8FCFC821EC250000509E9A /* Build configuration list for PBXNativeTarget "RemoteNoticAndYouMeng" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0F66506C21C3AC00006A5205 /* Debug */,
-				0F66506D21C3AC00006A5205 /* Release */,
+				0F8FCFC921EC250000509E9A /* Debug */,
+				0F8FCFCA21EC250000509E9A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 0F66504D21C3ABF0006A5205 /* Project object */;
+	rootObject = 0F8FCFAA21EC24F300509E9A /* Project object */;
 }

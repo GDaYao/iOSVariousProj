@@ -11,7 +11,10 @@
 
 @implementation UIImage (Category)
 
+#pragma mark - generate QR code with water image
 + (UIImage *)qrImgForString:(NSString *)string size:(CGSize)size waterImg:(UIImage *)waterImg {
+    
+    waterImg = [self changeImageSizeWithImg:waterImg];
     
     //创建名为"CIQRCodeGenerator"的CIFilter
     CIFilter *filter = [CIFilter filterWithName:@"CIQRCodeGenerator"];
@@ -42,6 +45,21 @@
         return [[[self alloc] init] getHDImgWithCIImage:outPutImage size:size waterImg:waterImg];;
     }
 }
+
+
+/**
+ 改变图片大小为统一大小
+ */
++ (UIImage *)changeImageSizeWithImg:(UIImage *)currentImg{
+    CGSize size = CGSizeMake(30, 30);
+    UIGraphicsBeginImageContext(size);
+    [currentImg drawInRect:CGRectMake(0.0f, 0.0f, size.width,size.height)];
+    currentImg = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return currentImg;
+}
+
+
 
 /**
  调整二维码清晰度
