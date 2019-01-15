@@ -13,7 +13,48 @@
 		0F8FCFBF21EC250000509E9A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F8FCFBE21EC250000509E9A /* Assets.xcassets */; };
 		0F8FCFC221EC250000509E9A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F8FCFC021EC250000509E9A /* LaunchScreen.storyboard */; };
 		0F8FCFC521EC250000509E9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F8FCFC421EC250000509E9A /* main.m */; };
+		0FD81A1B21ED809200A5E744 /* NotificationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD81A1A21ED809200A5E744 /* NotificationService.m */; };
+		0FD81A1F21ED809200A5E744 /* NotificationServiceTest.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 0FD81A1721ED809200A5E744 /* NotificationServiceTest.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		0FD81A2A21EDBD2B00A5E744 /* jpush-extension-ios-1.1.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FD81A2521EDBD2B00A5E744 /* jpush-extension-ios-1.1.1.a */; };
+		0FD81A2B21EDBD2B00A5E744 /* jpush-ios-3.1.2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FD81A2621EDBD2B00A5E744 /* jpush-ios-3.1.2.a */; };
+		0FD81A2C21EDBD2B00A5E744 /* jcore-ios-1.2.6.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FD81A2921EDBD2B00A5E744 /* jcore-ios-1.2.6.a */; };
+		0FD81A2F21EDBE3500A5E744 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FD81A2E21EDBE3500A5E744 /* CFNetwork.framework */; };
+		0FD81A3121EDBE3F00A5E744 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FD81A3021EDBE3F00A5E744 /* CoreFoundation.framework */; };
+		0FD81A3321EDBE4C00A5E744 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FD81A3221EDBE4C00A5E744 /* CoreTelephony.framework */; };
+		0FD81A3521EDBE5700A5E744 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FD81A3421EDBE5600A5E744 /* SystemConfiguration.framework */; };
+		0FD81A3721EDBE6500A5E744 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FD81A3621EDBE6500A5E744 /* CoreGraphics.framework */; };
+		0FD81A3921EDBE6F00A5E744 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FD81A3821EDBE6E00A5E744 /* Foundation.framework */; };
+		0FD81A3B21EDBE7900A5E744 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FD81A3A21EDBE7900A5E744 /* UIKit.framework */; };
+		0FD81A3D21EDBE8400A5E744 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FD81A3C21EDBE8400A5E744 /* Security.framework */; };
+		0FD81A3F21EDBE9600A5E744 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FD81A3E21EDBE9600A5E744 /* libz.tbd */; };
+		0FD81A4121EDBFC700A5E744 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FD81A4021EDBFC700A5E744 /* UserNotifications.framework */; };
+		0FD81A4321EDBFD900A5E744 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FD81A4221EDBFD900A5E744 /* libresolv.tbd */; };
+		0FD81A4621EDDFE600A5E744 /* UnionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD81A4521EDDFE600A5E744 /* UnionViewController.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0FD81A1D21ED809200A5E744 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0F8FCFAA21EC24F300509E9A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0FD81A1621ED809200A5E744;
+			remoteInfo = NotificationServiceTest;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0FD81A2321ED809200A5E744 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				0FD81A1F21ED809200A5E744 /* NotificationServiceTest.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0F8FCFB221EC24F300509E9A /* RemoteNoticAndYouMeng.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RemoteNoticAndYouMeng.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -27,10 +68,53 @@
 		0F8FCFC321EC250000509E9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F8FCFC421EC250000509E9A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0F8FCFCB21EC373D00509E9A /* RemoteNoticAndYouMeng.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RemoteNoticAndYouMeng.entitlements; sourceTree = "<group>"; };
+		0FD81A1721ED809200A5E744 /* NotificationServiceTest.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NotificationServiceTest.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		0FD81A1921ED809200A5E744 /* NotificationService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationService.h; sourceTree = "<group>"; };
+		0FD81A1A21ED809200A5E744 /* NotificationService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationService.m; sourceTree = "<group>"; };
+		0FD81A1C21ED809200A5E744 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0FD81A2521EDBD2B00A5E744 /* jpush-extension-ios-1.1.1.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-extension-ios-1.1.1.a"; sourceTree = "<group>"; };
+		0FD81A2621EDBD2B00A5E744 /* jpush-ios-3.1.2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-ios-3.1.2.a"; sourceTree = "<group>"; };
+		0FD81A2721EDBD2B00A5E744 /* JPushNotificationExtensionService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPushNotificationExtensionService.h; sourceTree = "<group>"; };
+		0FD81A2821EDBD2B00A5E744 /* JPUSHService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPUSHService.h; sourceTree = "<group>"; };
+		0FD81A2921EDBD2B00A5E744 /* jcore-ios-1.2.6.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jcore-ios-1.2.6.a"; sourceTree = "<group>"; };
+		0FD81A2E21EDBE3500A5E744 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		0FD81A3021EDBE3F00A5E744 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		0FD81A3221EDBE4C00A5E744 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		0FD81A3421EDBE5600A5E744 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		0FD81A3621EDBE6500A5E744 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		0FD81A3821EDBE6E00A5E744 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		0FD81A3A21EDBE7900A5E744 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		0FD81A3C21EDBE8400A5E744 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		0FD81A3E21EDBE9600A5E744 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		0FD81A4021EDBFC700A5E744 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		0FD81A4221EDBFD900A5E744 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
+		0FD81A4421EDDFE600A5E744 /* UnionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UnionViewController.h; sourceTree = "<group>"; };
+		0FD81A4521EDDFE600A5E744 /* UnionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UnionViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		0F8FCFAF21EC24F300509E9A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0FD81A4321EDBFD900A5E744 /* libresolv.tbd in Frameworks */,
+				0FD81A4121EDBFC700A5E744 /* UserNotifications.framework in Frameworks */,
+				0FD81A3F21EDBE9600A5E744 /* libz.tbd in Frameworks */,
+				0FD81A3D21EDBE8400A5E744 /* Security.framework in Frameworks */,
+				0FD81A3B21EDBE7900A5E744 /* UIKit.framework in Frameworks */,
+				0FD81A3921EDBE6F00A5E744 /* Foundation.framework in Frameworks */,
+				0FD81A3721EDBE6500A5E744 /* CoreGraphics.framework in Frameworks */,
+				0FD81A3521EDBE5700A5E744 /* SystemConfiguration.framework in Frameworks */,
+				0FD81A3321EDBE4C00A5E744 /* CoreTelephony.framework in Frameworks */,
+				0FD81A3121EDBE3F00A5E744 /* CoreFoundation.framework in Frameworks */,
+				0FD81A2F21EDBE3500A5E744 /* CFNetwork.framework in Frameworks */,
+				0FD81A2A21EDBD2B00A5E744 /* jpush-extension-ios-1.1.1.a in Frameworks */,
+				0FD81A2C21EDBD2B00A5E744 /* jcore-ios-1.2.6.a in Frameworks */,
+				0FD81A2B21EDBD2B00A5E744 /* jpush-ios-3.1.2.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0FD81A1421ED809200A5E744 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -44,7 +128,9 @@
 			isa = PBXGroup;
 			children = (
 				0F8FCFB421EC24F300509E9A /* RemoteNoticAndYouMeng */,
+				0FD81A1821ED809200A5E744 /* NotificationServiceTest */,
 				0F8FCFB321EC24F300509E9A /* Products */,
+				0FD81A2D21EDBE3400A5E744 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -52,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				0F8FCFB221EC24F300509E9A /* RemoteNoticAndYouMeng.app */,
+				0FD81A1721ED809200A5E744 /* NotificationServiceTest.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -64,13 +151,56 @@
 				0F8FCFB621EC24F300509E9A /* AppDelegate.m */,
 				0F8FCFB821EC24F300509E9A /* ViewController.h */,
 				0F8FCFB921EC24F300509E9A /* ViewController.m */,
+				0FD81A4421EDDFE600A5E744 /* UnionViewController.h */,
+				0FD81A4521EDDFE600A5E744 /* UnionViewController.m */,
 				0F8FCFBB21EC24F300509E9A /* Main.storyboard */,
 				0F8FCFBE21EC250000509E9A /* Assets.xcassets */,
 				0F8FCFC021EC250000509E9A /* LaunchScreen.storyboard */,
 				0F8FCFC321EC250000509E9A /* Info.plist */,
 				0F8FCFC421EC250000509E9A /* main.m */,
+				0FD81A2421EDBD2B00A5E744 /* Lib */,
 			);
 			path = RemoteNoticAndYouMeng;
+			sourceTree = "<group>";
+		};
+		0FD81A1821ED809200A5E744 /* NotificationServiceTest */ = {
+			isa = PBXGroup;
+			children = (
+				0FD81A1921ED809200A5E744 /* NotificationService.h */,
+				0FD81A1A21ED809200A5E744 /* NotificationService.m */,
+				0FD81A1C21ED809200A5E744 /* Info.plist */,
+			);
+			path = NotificationServiceTest;
+			sourceTree = "<group>";
+		};
+		0FD81A2421EDBD2B00A5E744 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				0FD81A2521EDBD2B00A5E744 /* jpush-extension-ios-1.1.1.a */,
+				0FD81A2621EDBD2B00A5E744 /* jpush-ios-3.1.2.a */,
+				0FD81A2721EDBD2B00A5E744 /* JPushNotificationExtensionService.h */,
+				0FD81A2821EDBD2B00A5E744 /* JPUSHService.h */,
+				0FD81A2921EDBD2B00A5E744 /* jcore-ios-1.2.6.a */,
+			);
+			path = Lib;
+			sourceTree = "<group>";
+		};
+		0FD81A2D21EDBE3400A5E744 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0FD81A4221EDBFD900A5E744 /* libresolv.tbd */,
+				0FD81A4021EDBFC700A5E744 /* UserNotifications.framework */,
+				0FD81A3E21EDBE9600A5E744 /* libz.tbd */,
+				0FD81A3C21EDBE8400A5E744 /* Security.framework */,
+				0FD81A3A21EDBE7900A5E744 /* UIKit.framework */,
+				0FD81A3821EDBE6E00A5E744 /* Foundation.framework */,
+				0FD81A3621EDBE6500A5E744 /* CoreGraphics.framework */,
+				0FD81A3421EDBE5600A5E744 /* SystemConfiguration.framework */,
+				0FD81A3221EDBE4C00A5E744 /* CoreTelephony.framework */,
+				0FD81A3021EDBE3F00A5E744 /* CoreFoundation.framework */,
+				0FD81A2E21EDBE3500A5E744 /* CFNetwork.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,15 +213,34 @@
 				0F8FCFAE21EC24F300509E9A /* Sources */,
 				0F8FCFAF21EC24F300509E9A /* Frameworks */,
 				0F8FCFB021EC24F300509E9A /* Resources */,
+				0FD81A2321ED809200A5E744 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				0FD81A1E21ED809200A5E744 /* PBXTargetDependency */,
 			);
 			name = RemoteNoticAndYouMeng;
 			productName = RemoteNoticAndYouMeng;
 			productReference = 0F8FCFB221EC24F300509E9A /* RemoteNoticAndYouMeng.app */;
 			productType = "com.apple.product-type.application";
+		};
+		0FD81A1621ED809200A5E744 /* NotificationServiceTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0FD81A2221ED809200A5E744 /* Build configuration list for PBXNativeTarget "NotificationServiceTest" */;
+			buildPhases = (
+				0FD81A1321ED809200A5E744 /* Sources */,
+				0FD81A1421ED809200A5E744 /* Frameworks */,
+				0FD81A1521ED809200A5E744 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NotificationServiceTest;
+			productName = NotificationServiceTest;
+			productReference = 0FD81A1721ED809200A5E744 /* NotificationServiceTest.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -113,6 +262,9 @@
 							};
 						};
 					};
+					0FD81A1621ED809200A5E744 = {
+						CreatedOnToolsVersion = 10.1;
+					};
 				};
 			};
 			buildConfigurationList = 0F8FCFAD21EC24F300509E9A /* Build configuration list for PBXProject "RemoteNoticAndYouMeng" */;
@@ -129,6 +281,7 @@
 			projectRoot = "";
 			targets = (
 				0F8FCFB121EC24F300509E9A /* RemoteNoticAndYouMeng */,
+				0FD81A1621ED809200A5E744 /* NotificationServiceTest */,
 			);
 		};
 /* End PBXProject section */
@@ -144,6 +297,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0FD81A1521ED809200A5E744 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -151,13 +311,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FD81A4621EDDFE600A5E744 /* UnionViewController.m in Sources */,
 				0F8FCFBA21EC24F300509E9A /* ViewController.m in Sources */,
 				0F8FCFC521EC250000509E9A /* main.m in Sources */,
 				0F8FCFB721EC24F300509E9A /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0FD81A1321ED809200A5E744 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0FD81A1B21ED809200A5E744 /* NotificationService.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0FD81A1E21ED809200A5E744 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0FD81A1621ED809200A5E744 /* NotificationServiceTest */;
+			targetProxy = 0FD81A1D21ED809200A5E744 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		0F8FCFBB21EC24F300509E9A /* Main.storyboard */ = {
@@ -298,10 +475,15 @@
 				CODE_SIGN_ENTITLEMENTS = RemoteNoticAndYouMeng/RemoteNoticAndYouMeng.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LT57D5LDNZ;
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/RemoteNoticAndYouMeng/Lib";
 				INFOPLIST_FILE = RemoteNoticAndYouMeng/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/RemoteNoticAndYouMeng/Lib",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.dayao.RemoteNoticAndYouMeng;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -316,13 +498,56 @@
 				CODE_SIGN_ENTITLEMENTS = RemoteNoticAndYouMeng/RemoteNoticAndYouMeng.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LT57D5LDNZ;
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/RemoteNoticAndYouMeng/Lib";
 				INFOPLIST_FILE = RemoteNoticAndYouMeng/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/RemoteNoticAndYouMeng/Lib",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.dayao.RemoteNoticAndYouMeng;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		0FD81A2021ED809200A5E744 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LT57D5LDNZ;
+				INFOPLIST_FILE = NotificationServiceTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.dayao.RemoteNoticAndYouMeng.NotificationServiceTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		0FD81A2121ED809200A5E744 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LT57D5LDNZ;
+				INFOPLIST_FILE = NotificationServiceTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.dayao.RemoteNoticAndYouMeng.NotificationServiceTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -344,6 +569,15 @@
 			buildConfigurations = (
 				0F8FCFC921EC250000509E9A /* Debug */,
 				0F8FCFCA21EC250000509E9A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0FD81A2221ED809200A5E744 /* Build configuration list for PBXNativeTarget "NotificationServiceTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0FD81A2021ED809200A5E744 /* Debug */,
+				0FD81A2121ED809200A5E744 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

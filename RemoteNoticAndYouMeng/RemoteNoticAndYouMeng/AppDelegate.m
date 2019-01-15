@@ -7,7 +7,38 @@
 
 #import <UserNotifications/UserNotifications.h>
 
-@interface AppDelegate ()
+
+// 极光推送
+
+// 引入 JPush 功能所需头文件
+#import "JPUSHService.h"
+// iOS10 注册 APNs 所需头文件
+#ifdef NSFoundationVersionNumber_iOS_9_x_Max
+#import <UserNotifications/UserNotifications.h>
+#endif
+
+/*
+ // 如果需要使用 idfa 功能所需要引入的头文件（可选）
+ */
+ #import <AdSupport/AdSupport.h>
+
+
+/// test config
+static NSString *appKey = @"192f62b7fcda8ad8de342db2";
+static NSString *channel = @"APP Store";
+
+#ifdef DEBUG
+// 开发 极光FALSE为开发环境
+static BOOL const  isProduction = FALSE;
+#else
+// 生产 极光TRUE为生产环境
+static BOOL const  isProduction = TRUE;
+#endif
+
+
+
+
+@interface AppDelegate () <JPUSHRegisterDelegate,JPUSHGeofenceDelegate>
 
 @end
 
@@ -19,8 +50,10 @@
 #pragma mark - didFinishLaunchingWithOptions
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    
-    /*   本地通知+远程通知-1-注册+处理杀死应用下的通知       */
+    NSLog(@"log--didFinishLaunchingWithOptions");
+
+
+    /*   本地通知+远程通知-1-注册+处理杀死应用下的通知
     if ([UIDevice currentDevice].systemVersion.doubleValue >= 8.0) {
         // 向服务器发请求，要注册推送功能，以此获取到服务器返回的deviceToken
         // type 用来说明 支持的通知形式
@@ -33,19 +66,62 @@
         // 进行通知的相应处理
         [self initNoticWithDic:launchOptions];
     }
+     */
     
+
+/*  极光推送    */
+    // 极光推送-1. 添加初始化 APNs 代码
+    //Required
+    //notice: 3.0.0 及以后版本注册可以这样写，也可以继续用之前的注册方式
+    JPUSHRegisterEntity * entity = [[JPUSHRegisterEntity alloc] init];
+    if (@available(iOS 12.0, *)) {
+        entity.types = JPAuthorizationOptionAlert|JPAuthorizationOptionBadge|JPAuthorizationOptionSound|JPAuthorizationOptionProvidesAppNotificationSettings;
+    } else {
+        entity.types = JPAuthorizationOptionAlert|JPAuthorizationOptionBadge|JPAuthorizationOptionSound;
+    }
+    if ([[UIDevice currentDevice].systemVersion floatValue] >= 8.0) {
+        //可以添加自定义categories
+        //    if ([[UIDevice currentDevice].systemVersion floatValue] >= 10.0) {
+        //      NSSet<UNNotificationCategory *> *categories;
+        //      entity.categories = categories;
+        //    }
+        //    else {
+        //      NSSet<UIUserNotificationCategory *> *categories;
+        //      entity.categories = categories;
+        //    }
+    }
+    // 设置代理
+    [JPUSHService registerForRemoteNotificationConfig:entity delegate:self];
+    [JPUSHService registerLbsGeofenceDelegate:self withLaunchOptions:launchOptions];
     
-    NSDictionary *userInfo = launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey];
-    UILabel *label = [[UILabel alloc]init];
-    label.frame = CGRectMake(0, 40, 300, 200);
-    label.numberOfLines = 0;
-    label.textColor = [UIColor whiteColor];
-    label.font = [UIFont systemFontOfSize:24];
-    label.backgroundColor = [UIColor blueColor];
-    label.text =[NSString stringWithFormat:@"%@",userInfo];
-    [self.window.rootViewController.view addSubview:label];
+    /** 极光推送-2. 添加初始化 JPush 代码
+     */
     
-    NSLog(@"log--didFinishLaunchingWithOptions");
+    // Optional
+    // 获取 IDFA
+    // 如需使用 IDFA 功能请添加此代码并在初始化方法的 advertisingIdentifier 参数中填写对应值
+    // 如不需要使用IDFA，advertisingIdentifier 可为nil
+    NSString *advertisingId = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
+    
+    // Required
+    // init Push
+    // notice: 2.1.5 版本的 SDK 新增的注册方法，改成可上报 IDFA，如果没有使用 IDFA 直接传 nil
+    // 如需继续使用 pushConfig.plist 文件声明 appKey 等配置内容，请依旧使用 [JPUSHService setupWithOption:launchOptions] 方式初始化。
+    [JPUSHService setupWithOption:launchOptions appKey:appKey
+                          channel:channel
+                 apsForProduction:isProduction
+            advertisingIdentifier:nil]; // advertisingId
+    //2.1.9版本新增获取registration id block接口。
+    [JPUSHService registrationIDCompletionHandler:^(int resCode, NSString *registrationID) {
+        if(resCode == 0){
+            NSLog(@"registrationID获取成功：%@",registrationID);
+            
+        }
+        else{
+            NSLog(@"registrationID获取失败，code：%d",resCode);
+        }
+    }];
+    
     
     return YES;
 }
@@ -104,31 +180,17 @@
 //  dcb06206 6c4f2df5 448a033f 21464cc7 0e3b17e5 0edfdad5 ee09b56c 7559c4b1
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     NSLog(@"log--didRegisterForRemoteNotificaionWith:%@",deviceToken);
+    
+    /* 极光推送-3  Required - 注册 DeviceToken*/
+    [JPUSHService registerDeviceToken:deviceToken];
+    
+    
 }
 
-
-/*
- 用户点击了通知，进入到应用程序中，需要捕获到这个时机
- 从而决定这一次的进入应用程序，到底要显示或执行什么动作，下面的方法就会在点击通知时自动调用
- */
-/*
- 1.应用程序在前台时：通知到，该方法自动执行
- 2.应用程序在后台且没有退出时：通知到，只有点击了通知查看时，该方法自动执行
- 3.应用程序退出：通知到，点击查看通知，不会执行下面的didReceive方法，而是只执行didFinishLauncing方法
- */
-- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
-    NSLog(@"log--didReceiveRemote:%@",userInfo);
-    
-    //为了测试在应用程序退出后，该方法是否执行
-    //所以往第一个界面上添加一个label，看标签是否会显示一些内容
-    UILabel *label = [[UILabel alloc]init];
-    label.frame = CGRectMake(0, 250, 300, 200);
-    label.numberOfLines = 0;
-    label.textColor = [UIColor whiteColor];
-    label.font = [UIFont systemFontOfSize:24];
-    label.backgroundColor = [UIColor grayColor];
-    label.text =[NSString stringWithFormat:@"%@",userInfo];
-    [self.window.rootViewController.view addSubview:label];
+// 实现注册 APNs 失败接口（可选)
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
+    //Optional
+    NSLog(@"log--did Fail To Register For Remote Notifications With Error: %@", error);
 }
 
 /*
@@ -145,20 +207,67 @@
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     NSLog(@"log--didReceiveRemoteNotification");
     
-    UILabel *label = [[UILabel alloc]init];
-    label.frame = CGRectMake(0, 250, 300, 200);
-    label.numberOfLines = 0;
-    label.textColor = [UIColor whiteColor];
-    label.font = [UIFont systemFontOfSize:24];
-    label.backgroundColor = [UIColor grayColor];
-    label.text =[NSString stringWithFormat:@"%@",userInfo];
-    [self.window.rootViewController.view addSubview:label];
-    //NewData就是使用新的数据 更新界面，响应点击通知这个动作
+    /*  极光推送-4  fetchCompletionHandler  */
+    [JPUSHService handleRemoteNotification:userInfo];
     completionHandler(UIBackgroundFetchResultNewData);
 }
 
 
+/*
+ 用户点击了通知，进入到应用程序中，需要捕获到这个时机
+ 从而决定这一次的进入应用程序，到底要显示或执行什么动作，下面的方法就会在点击通知时自动调用
+ */
+/*
+ 1.应用程序在前台时：通知到，该方法自动执行
+ 2.应用程序在后台且没有退出时：通知到，只有点击了通知查看时，该方法自动执行
+ 3.应用程序退出：通知到，点击查看通知，不会执行下面的didReceive方法，而是只执行didFinishLauncing方法
+ */
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    NSLog(@"log--didReceiveRemote:%@",userInfo);
+    
+    //为了测试在应用程序退出后，该方法是否执行
+    
+   /*   极光推送-5  Required, For systems with less than or equal to iOS 6   */
+    [JPUSHService handleRemoteNotification:userInfo];
+    
+}
 
+
+
+
+#pragma mark- JPUSHRegisterDelegate
+
+// iOS 12 Support
+- (void)jpushNotificationCenter:(UNUserNotificationCenter *)center openSettingsForNotification:(UNNotification *)notification{
+    if (notification && [notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
+        //从通知界面直接进入应用
+    }else{
+        //从通知设置界面进入应用
+    }
+}
+
+// iOS 10 Support
+- (void)jpushNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(NSInteger))completionHandler {
+    // Required
+    NSDictionary * userInfo = notification.request.content.userInfo;
+    if([notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
+        [JPUSHService handleRemoteNotification:userInfo];
+    }
+    completionHandler(UNNotificationPresentationOptionAlert); // 需要执行这个方法，选择是否提醒用户，有 Badge、Sound、Alert 三种类型可以选择设置
+}
+
+// iOS 10 Support
+- (void)jpushNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)())completionHandler {
+    // Required
+    NSDictionary * userInfo = response.notification.request.content.userInfo;
+    if([response.notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
+        [JPUSHService handleRemoteNotification:userInfo];
+    }
+    completionHandler();  // 系统要求执行这个方法
+}
+
+
+#pragma mark - Application life cycle
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
