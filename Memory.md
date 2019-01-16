@@ -48,7 +48,7 @@ http://blog.cocoachina.com/article/73184
 1. save `AHZX file`
 2. delete `other...`
 3. 记住把git信息变更。 -- 删除~/.gitconfig + ~/.ssh 需要可以给用户自动生成。
-4. 删除账号 -- 知乎  ++ github ++ 微博、微信开发者平台。
+4. 删除账号信息 -- 知乎  ++ github ++ 微博、微信开发者平台。
 5. 简书账号。
 6. 删除相应的软件 -- Charles。
 
@@ -67,12 +67,6 @@ FFmpeg介绍: https://www.jianshu.com/p/ecfbebadbe55
 
 
 
-
-
-###  1.15 周二
-
-
-* 友盟埋点+广告集成+远程推送实现
 
 
 ### 1.16 周三 + 1.17 周四

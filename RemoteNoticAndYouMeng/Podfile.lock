@@ -1,0 +1,35 @@
+PODS:
+  - UMCAnalytics (5.5.2):
+    - UMCCommon
+  - UMCCommon (1.5.3)
+  - UMCErrorCatch (1.0.0):
+    - UMCCommon
+  - UMCPush (3.2.3):
+    - UMCCommon
+  - UMCSecurityPlugins (1.0.6)
+
+DEPENDENCIES:
+  - UMCAnalytics
+  - UMCCommon
+  - UMCErrorCatch
+  - UMCPush
+  - UMCSecurityPlugins
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - UMCAnalytics
+    - UMCCommon
+    - UMCErrorCatch
+    - UMCPush
+    - UMCSecurityPlugins
+
+SPEC CHECKSUMS:
+  UMCAnalytics: 6654fd3c8201ff6da5c86a3ae29cd5c8436d3b7b
+  UMCCommon: 016af43c0f769feb1ae1861d65aaf2b23b89c9c7
+  UMCErrorCatch: 51f1b68f920233e90a3fa6d51f0456174507ec78
+  UMCPush: 628b5c61be5a5036cb31eb9b3a3ab8dce7521691
+  UMCSecurityPlugins: 0831a08f3988f3cea9f1d3a7626cd9bee4fef150
+
+PODFILE CHECKSUM: bf038ae273510a035416110e1e2ecc503e6aa2af
+
+COCOAPODS: 1.5.3

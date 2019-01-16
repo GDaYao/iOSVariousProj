@@ -8,7 +8,7 @@
 #import <UserNotifications/UserNotifications.h>
 
 
-// 极光推送
+/* 极光推送  */
 
 // 引入 JPush 功能所需头文件
 #import "JPUSHService.h"
@@ -16,12 +16,8 @@
 #ifdef NSFoundationVersionNumber_iOS_9_x_Max
 #import <UserNotifications/UserNotifications.h>
 #endif
-
-/*
- // 如果需要使用 idfa 功能所需要引入的头文件（可选）
- */
- #import <AdSupport/AdSupport.h>
-
+// 如果需要使用 idfa 功能所需要引入的头文件（可选）
+#import <AdSupport/AdSupport.h>
 
 /// test config
 static NSString *appKey = @"192f62b7fcda8ad8de342db2";
@@ -36,9 +32,19 @@ static BOOL const  isProduction = TRUE;
 #endif
 
 
+/*  UMeng 统计/推送    */
+#import <UMCommon/UMCommon.h>           // 公共组件是所有友盟产品的基础组件，必选
+#import <UMAnalytics/MobClick.h>        // 统计组件
+//分享Framework未加入  #import <UMShare/UMShare.h>    // 分享组件
+#import <UMPush/UMessage.h>             // Push组件
+#import <UserNotifications/UserNotifications.h>  // Push组件必须的系统库
+/*   开发者可根据功能需要引入相应组件头文件，并导入相应组件库   */
 
 
-@interface AppDelegate () <JPUSHRegisterDelegate,JPUSHGeofenceDelegate>
+
+
+
+@interface AppDelegate () <JPUSHRegisterDelegate,JPUSHGeofenceDelegate,UNUserNotificationCenterDelegate> // 极光推送 + 友盟推送 代理
 
 @end
 
@@ -123,8 +129,50 @@ static BOOL const  isProduction = TRUE;
     }];
     
     
+/*   友盟统计   */
+    // 配置友盟SDK产品并并统一初始化
+    // [UMConfigure setEncryptEnabled:YES]; // optional: 设置加密传输, 默认NO.
+#if DEBUG
+     [UMConfigure setLogEnabled:YES]; // 开发调试时可在 console 查看友盟日志显示，发布产品必须移除。
+#endif
+    /* appkey: 开发者在友盟后台申请的应用获得（可在统计后台的 “统计分析->设置->应用信息” 页面查看）*/
+    [UMConfigure initWithAppkey:@"Your appkey" channel:@"App Store"];
+    
+    
+    // 统计组件配置
+    [MobClick setScenarioType:E_UM_NORMAL];
+    // [MobClick setScenarioType:E_UM_GAME];  // optional: 游戏场景设置
+    
+    
+    // Push组件基本功能配置
+    if (@available(iOS 10.0,*)) {
+        [UNUserNotificationCenter currentNotificationCenter].delegate = self;
+    }
+    UMessageRegisterEntity * umEntity = [[UMessageRegisterEntity alloc] init];
+    //type是对推送的几个参数的选择，可以选择一个或者多个。默认是三个全部打开，即：声音，弹窗，角标等
+    umEntity.types = UMessageAuthorizationOptionBadge|UMessageAuthorizationOptionAlert;
+    [UMessage registerForRemoteNotificationsWithLaunchOptions:launchOptions Entity:umEntity completionHandler:^(BOOL granted, NSError * _Nullable error) {
+        if (granted) {
+            // 用户选择了接收Push消息
+        }else{
+            // 用户拒绝接收Push消息
+        }
+    }];
+    
+    
+    // 请参考「Share详细介绍-初始化第三方平台」
+    // 分享组件配置，因为share模块配置可选三方平台较多，代码基本跟原版一样，也可下载demo查看
+    //[self configUSharePlatforms];       // required: setting platforms on demand
+    
+    
+    
     return YES;
 }
+
+
+
+
+
 
 #pragma mark - 通知的初始化和 `点击通知` 的逻辑调用 --- 在程序被杀死的情况下调用否则未被杀死调用下面的方法
 - (void)initNoticWithDic:(NSDictionary *)launchOptions{
@@ -235,7 +283,7 @@ static BOOL const  isProduction = TRUE;
 
 
 
-#pragma mark- JPUSHRegisterDelegate
+#pragma mark- JPUSHRegisterDelegate--极光推送
 
 // iOS 12 Support
 - (void)jpushNotificationCenter:(UNUserNotificationCenter *)center openSettingsForNotification:(UNNotification *)notification{

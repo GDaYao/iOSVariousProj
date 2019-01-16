@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F4D9EED21EED37C00029E28 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F4D9EEC21EED37C00029E28 /* libsqlite3.tbd */; };
 		0F8FCFB721EC24F300509E9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F8FCFB621EC24F300509E9A /* AppDelegate.m */; };
 		0F8FCFBA21EC24F300509E9A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F8FCFB921EC24F300509E9A /* ViewController.m */; };
 		0F8FCFBD21EC24F300509E9A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F8FCFBB21EC24F300509E9A /* Main.storyboard */; };
@@ -30,6 +31,7 @@
 		0FD81A4121EDBFC700A5E744 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FD81A4021EDBFC700A5E744 /* UserNotifications.framework */; };
 		0FD81A4321EDBFD900A5E744 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FD81A4221EDBFD900A5E744 /* libresolv.tbd */; };
 		0FD81A4621EDDFE600A5E744 /* UnionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD81A4521EDDFE600A5E744 /* UnionViewController.m */; };
+		88FD08C7CFC97C32E142B9AB /* libPods-RemoteNoticAndYouMeng.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B50B34061D9AD494144BFC6F /* libPods-RemoteNoticAndYouMeng.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0F4D9EEC21EED37C00029E28 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		0F8FCFB221EC24F300509E9A /* RemoteNoticAndYouMeng.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RemoteNoticAndYouMeng.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F8FCFB521EC24F300509E9A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0F8FCFB621EC24F300509E9A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -90,6 +93,9 @@
 		0FD81A4221EDBFD900A5E744 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
 		0FD81A4421EDDFE600A5E744 /* UnionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UnionViewController.h; sourceTree = "<group>"; };
 		0FD81A4521EDDFE600A5E744 /* UnionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UnionViewController.m; sourceTree = "<group>"; };
+		22FB70FBAD48C891752FC6A7 /* Pods-RemoteNoticAndYouMeng.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RemoteNoticAndYouMeng.release.xcconfig"; path = "Pods/Target Support Files/Pods-RemoteNoticAndYouMeng/Pods-RemoteNoticAndYouMeng.release.xcconfig"; sourceTree = "<group>"; };
+		61EE55160CD151260896D750 /* Pods-RemoteNoticAndYouMeng.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RemoteNoticAndYouMeng.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RemoteNoticAndYouMeng/Pods-RemoteNoticAndYouMeng.debug.xcconfig"; sourceTree = "<group>"; };
+		B50B34061D9AD494144BFC6F /* libPods-RemoteNoticAndYouMeng.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RemoteNoticAndYouMeng.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,20 +103,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FD81A3521EDBE5700A5E744 /* SystemConfiguration.framework in Frameworks */,
+				0F4D9EED21EED37C00029E28 /* libsqlite3.tbd in Frameworks */,
+				0FD81A3F21EDBE9600A5E744 /* libz.tbd in Frameworks */,
+				0FD81A3321EDBE4C00A5E744 /* CoreTelephony.framework in Frameworks */,
 				0FD81A4321EDBFD900A5E744 /* libresolv.tbd in Frameworks */,
 				0FD81A4121EDBFC700A5E744 /* UserNotifications.framework in Frameworks */,
-				0FD81A3F21EDBE9600A5E744 /* libz.tbd in Frameworks */,
 				0FD81A3D21EDBE8400A5E744 /* Security.framework in Frameworks */,
 				0FD81A3B21EDBE7900A5E744 /* UIKit.framework in Frameworks */,
 				0FD81A3921EDBE6F00A5E744 /* Foundation.framework in Frameworks */,
 				0FD81A3721EDBE6500A5E744 /* CoreGraphics.framework in Frameworks */,
-				0FD81A3521EDBE5700A5E744 /* SystemConfiguration.framework in Frameworks */,
-				0FD81A3321EDBE4C00A5E744 /* CoreTelephony.framework in Frameworks */,
 				0FD81A3121EDBE3F00A5E744 /* CoreFoundation.framework in Frameworks */,
 				0FD81A2F21EDBE3500A5E744 /* CFNetwork.framework in Frameworks */,
 				0FD81A2A21EDBD2B00A5E744 /* jpush-extension-ios-1.1.1.a in Frameworks */,
 				0FD81A2C21EDBD2B00A5E744 /* jcore-ios-1.2.6.a in Frameworks */,
 				0FD81A2B21EDBD2B00A5E744 /* jpush-ios-3.1.2.a in Frameworks */,
+				88FD08C7CFC97C32E142B9AB /* libPods-RemoteNoticAndYouMeng.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,6 +139,7 @@
 				0FD81A1821ED809200A5E744 /* NotificationServiceTest */,
 				0F8FCFB321EC24F300509E9A /* Products */,
 				0FD81A2D21EDBE3400A5E744 /* Frameworks */,
+				65A98A927333D9781BEAE3FF /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -188,6 +197,7 @@
 		0FD81A2D21EDBE3400A5E744 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0F4D9EEC21EED37C00029E28 /* libsqlite3.tbd */,
 				0FD81A4221EDBFD900A5E744 /* libresolv.tbd */,
 				0FD81A4021EDBFC700A5E744 /* UserNotifications.framework */,
 				0FD81A3E21EDBE9600A5E744 /* libz.tbd */,
@@ -199,8 +209,18 @@
 				0FD81A3221EDBE4C00A5E744 /* CoreTelephony.framework */,
 				0FD81A3021EDBE3F00A5E744 /* CoreFoundation.framework */,
 				0FD81A2E21EDBE3500A5E744 /* CFNetwork.framework */,
+				B50B34061D9AD494144BFC6F /* libPods-RemoteNoticAndYouMeng.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		65A98A927333D9781BEAE3FF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				61EE55160CD151260896D750 /* Pods-RemoteNoticAndYouMeng.debug.xcconfig */,
+				22FB70FBAD48C891752FC6A7 /* Pods-RemoteNoticAndYouMeng.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,6 +230,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0F8FCFC821EC250000509E9A /* Build configuration list for PBXNativeTarget "RemoteNoticAndYouMeng" */;
 			buildPhases = (
+				6B376215095ADC9AB6BBDB36 /* [CP] Check Pods Manifest.lock */,
 				0F8FCFAE21EC24F300509E9A /* Sources */,
 				0F8FCFAF21EC24F300509E9A /* Frameworks */,
 				0F8FCFB021EC24F300509E9A /* Resources */,
@@ -305,6 +326,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6B376215095ADC9AB6BBDB36 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RemoteNoticAndYouMeng-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0F8FCFAE21EC24F300509E9A /* Sources */ = {
@@ -470,6 +516,7 @@
 		};
 		0F8FCFC921EC250000509E9A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 61EE55160CD151260896D750 /* Pods-RemoteNoticAndYouMeng.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = RemoteNoticAndYouMeng/RemoteNoticAndYouMeng.entitlements;
@@ -493,6 +540,7 @@
 		};
 		0F8FCFCA21EC250000509E9A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 22FB70FBAD48C891752FC6A7 /* Pods-RemoteNoticAndYouMeng.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = RemoteNoticAndYouMeng/RemoteNoticAndYouMeng.entitlements;

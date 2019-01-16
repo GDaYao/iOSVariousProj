@@ -1,0 +1,13 @@
+platform :ios,8.0
+target 'RemoteNoticAndYouMeng' do 
+
+pod 'UMCCommon'
+pod 'UMCSecurityPlugins'
+pod 'UMCAnalytics'
+pod 'UMCPush'
+pod 'UMCErrorCatch'
+
+
+
+
+end
