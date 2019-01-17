@@ -29,13 +29,13 @@
 #pragma mark - lazy load
 - (NSArray *)dataArr{
     if (!_dataArr) {
-        _dataArr = @[@"仿探探卡片滑动效果",@"上下滑动折叠动画",@"左右滑动动画"];
+        _dataArr = @[@"仿探探卡片滑动效果",@"3D折叠"];
     }
     return _dataArr;
 }
 - (NSArray *)vcArr{
     if (!_vcArr) {
-        _vcArr = @[@"ImtationTantanViewController",@"SlideUpDownViewController",@"SlideLeftRightViewController"];
+        _vcArr = @[@"ImtationTantanViewController",@"nil"];
     }
     return _vcArr;
 }

@@ -62,11 +62,27 @@
 				0F4D9F1D21EF0AE700029E28 /* AppDelegate.m */,
 				0F4D9F1F21EF0AE700029E28 /* ViewController.h */,
 				0F4D9F2021EF0AE700029E28 /* ViewController.m */,
+				0F6AADCE21F082BF00824113 /* DrawGraph */,
+				0F6AADCD21F082AF00824113 /* DrawBoard */,
 				0F4D9F2221EF0AE700029E28 /* Main.storyboard */,
 				0F4D9F2521EF0AE800029E28 /* Assets.xcassets */,
 				0F4D9F2721EF0AE800029E28 /* LaunchScreen.storyboard */,
 				0F4D9F2A21EF0AE800029E28 /* Info.plist */,
 				0F4D9F2B21EF0AE800029E28 /* main.m */,
+			);
+			path = DrawGraph;
+			sourceTree = "<group>";
+		};
+		0F6AADCD21F082AF00824113 /* DrawBoard */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DrawBoard;
+			sourceTree = "<group>";
+		};
+		0F6AADCE21F082BF00824113 /* DrawGraph */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			path = DrawGraph;
 			sourceTree = "<group>";

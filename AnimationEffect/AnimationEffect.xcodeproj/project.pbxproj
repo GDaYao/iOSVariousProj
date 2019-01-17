@@ -16,6 +16,10 @@
 		0F4D9F3521EF19D000029E28 /* ImtationTantanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4D9F3421EF19D000029E28 /* ImtationTantanViewController.m */; };
 		0F4D9F3821EF1B9900029E28 /* TanTanAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4D9F3721EF1B9900029E28 /* TanTanAnimationView.m */; };
 		0F4D9F3A21EF268A00029E28 /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F4D9F3921EF268A00029E28 /* test.png */; };
+		0F6AAD9521F0167400824113 /* test.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0F6AAD9421F0167400824113 /* test.jpg */; };
+		0F6AADBD21F06C2F00824113 /* SlideUpDownViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F6AADBC21F06C2F00824113 /* SlideUpDownViewController.m */; };
+		0F6AADC821F070CB00824113 /* SMSwipeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F6AADC721F070CB00824113 /* SMSwipeView.m */; };
+		0F6AADCB21F0712500824113 /* SlideLeftRightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F6AADCA21F0712500824113 /* SlideLeftRightViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +38,13 @@
 		0F4D9F3621EF1B9900029E28 /* TanTanAnimationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TanTanAnimationView.h; sourceTree = "<group>"; };
 		0F4D9F3721EF1B9900029E28 /* TanTanAnimationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TanTanAnimationView.m; sourceTree = "<group>"; };
 		0F4D9F3921EF268A00029E28 /* test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test.png; sourceTree = "<group>"; };
+		0F6AAD9421F0167400824113 /* test.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test.jpg; sourceTree = "<group>"; };
+		0F6AADBB21F06C2F00824113 /* SlideUpDownViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SlideUpDownViewController.h; sourceTree = "<group>"; };
+		0F6AADBC21F06C2F00824113 /* SlideUpDownViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SlideUpDownViewController.m; sourceTree = "<group>"; };
+		0F6AADC621F070CB00824113 /* SMSwipeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMSwipeView.h; sourceTree = "<group>"; };
+		0F6AADC721F070CB00824113 /* SMSwipeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMSwipeView.m; sourceTree = "<group>"; };
+		0F6AADC921F0712500824113 /* SlideLeftRightViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SlideLeftRightViewController.h; sourceTree = "<group>"; };
+		0F6AADCA21F0712500824113 /* SlideLeftRightViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SlideLeftRightViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,10 +81,12 @@
 				0F4D9EFB21EF094600029E28 /* AppDelegate.m */,
 				0F4D9EFD21EF094600029E28 /* ViewController.h */,
 				0F4D9EFE21EF094600029E28 /* ViewController.m */,
+				0F6AADB721F06A9900824113 /* OtherAnimation */,
 				0F4D9F3221EF197B00029E28 /* ImtationTanTanAnimation */,
 				0F4D9F0021EF094600029E28 /* Main.storyboard */,
 				0F4D9F0321EF095900029E28 /* Assets.xcassets */,
 				0F4D9F3921EF268A00029E28 /* test.png */,
+				0F6AAD9421F0167400824113 /* test.jpg */,
 				0F4D9F0521EF095900029E28 /* LaunchScreen.storyboard */,
 				0F4D9F0821EF095900029E28 /* Info.plist */,
 				0F4D9F0921EF095900029E28 /* main.m */,
@@ -90,6 +103,19 @@
 				0F4D9F3721EF1B9900029E28 /* TanTanAnimationView.m */,
 			);
 			path = ImtationTanTanAnimation;
+			sourceTree = "<group>";
+		};
+		0F6AADB721F06A9900824113 /* OtherAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				0F6AADBB21F06C2F00824113 /* SlideUpDownViewController.h */,
+				0F6AADBC21F06C2F00824113 /* SlideUpDownViewController.m */,
+				0F6AADC921F0712500824113 /* SlideLeftRightViewController.h */,
+				0F6AADCA21F0712500824113 /* SlideLeftRightViewController.m */,
+				0F6AADC621F070CB00824113 /* SMSwipeView.h */,
+				0F6AADC721F070CB00824113 /* SMSwipeView.m */,
+			);
+			path = OtherAnimation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,6 +176,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F4D9F0721EF095900029E28 /* LaunchScreen.storyboard in Resources */,
+				0F6AAD9521F0167400824113 /* test.jpg in Resources */,
 				0F4D9F0421EF095900029E28 /* Assets.xcassets in Resources */,
 				0F4D9F0221EF094600029E28 /* Main.storyboard in Resources */,
 				0F4D9F3A21EF268A00029E28 /* test.png in Resources */,
@@ -163,11 +190,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F6AADC821F070CB00824113 /* SMSwipeView.m in Sources */,
 				0F4D9EFF21EF094600029E28 /* ViewController.m in Sources */,
 				0F4D9F0A21EF095900029E28 /* main.m in Sources */,
 				0F4D9EFC21EF094600029E28 /* AppDelegate.m in Sources */,
 				0F4D9F3821EF1B9900029E28 /* TanTanAnimationView.m in Sources */,
 				0F4D9F3521EF19D000029E28 /* ImtationTantanViewController.m in Sources */,
+				0F6AADCB21F0712500824113 /* SlideLeftRightViewController.m in Sources */,
+				0F6AADBD21F06C2F00824113 /* SlideUpDownViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

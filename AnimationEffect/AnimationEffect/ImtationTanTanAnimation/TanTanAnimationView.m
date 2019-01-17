@@ -77,7 +77,7 @@
     UIImageView *iv = [[UIImageView alloc]init];
     [subview addSubview:iv];
     iv.frame = CGRectMake(0, 0, subview.bounds.size.width, subview.bounds.size.height-50);
-    iv.image = [UIImage imageNamed:@"test.png"];
+    iv.image = [UIImage imageNamed:@"test.jpg"];
     
     // 右上角和左上角分别留有icon位置
     
@@ -88,19 +88,27 @@
 - (void)panSlideView:(UIPanGestureRecognizer *)pan{
     
     // 操作图形拖动
-    CGPoint position = [pan translationInView:self.slideView];
+    CGPoint position = [pan translationInView:self.slideView]; // 偏移量计算
     self.slideView.transform = CGAffineTransformTranslate(self.slideView.transform, position.x, position.y);
     [pan setTranslation:CGPointZero inView:self.slideView];
     
     // 底部视图 放大缩小抖动，并且在出现 + 抖动条件
     float centerX = CGRectGetMaxX(self.slideView.bounds)/2;
-    float scale = (position.x+centerX)/centerX;
-    NSLog(@"log--scale:%f",scale);
-    //if (position.x > centerX) {
-    self.showSaveView.transform = CGAffineTransformMakeScale(scale, scale);
-    //self.showSaveView.transform = CGAffineTransformScale(self.showSaveView.transform, scale,scale);
+//    float scale = (position.x+centerX)/centerX;
+    NSLog(@"log--scale-position:%f",position.x);
     
-    //
+    [UIView animateWithDuration:1.0 animations:^{
+        if (5<position.x || position.x < -5) {
+            self.showSaveView.transform = CGAffineTransformMakeScale(1.05, 1.05);
+        }
+        
+    } completion:^(BOOL finished) {
+        self.showSaveView.transform = CGAffineTransformMakeScale(1.0, 1.0);
+        //CGAffineTransformIsIdentity(self.showSaveView.transform);
+    }];
+    
+    
+    
     
     
 }

@@ -32,13 +32,7 @@ HACK net website: http://www.weixianmanbu.com/page_2.html
 3. 相互学生的交流平台
 
 
-为基础和面试准备：
-//2. 基础知识解决后，在进行后续的 `视频播放器` 和 `地图` 、`蓝牙` `AR`  `摄像头` ，`支付`,`分享`甚至是聊天环信项目的Demo工程。
-//4. 二维码扫描和制作
-
-*. 看面试题目进行相关基础知识学习
-*. 第三方整合使用，友盟或者Google统计，还有分享的使用。
-*. Apple 内置功能调用使用，SIM卡调用，通讯录调用，NFC调用。
+-   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -  -   
 
 Interview question:
 http://blog.cocoachina.com/article/73184
@@ -52,7 +46,7 @@ http://blog.cocoachina.com/article/73184
 5. 简书账号。
 6. 删除相应的软件 -- Charles。
 
--   -   -   -   -   -   -   -   -   -   
+-   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -  -   
 
 ### <font color=#8E236B> 简书已发布地址:  </font>
 
@@ -62,28 +56,35 @@ FreeBuf网站: https://www.freebuf.com/
 FFmpeg介绍: https://www.jianshu.com/p/ecfbebadbe55
 
 密码学学习: http://www.cocoachina.com/blockchain/20190111/26109.html
+学习Mac开发: https://www.jianshu.com/p/feadeb1ae7ae
+
+
 
 ### 重点知识学习
 
 
+-   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -  -   
 
 
 
-### 1.16 周三 + 1.17 周四
 
-* 卡片式生成报告功能制作加入 --> 查看多个卡片动画效果
-
-* 根据数据生成相应的报表功能Demo制作 （图表和折线图）
 
 #### 1.18 周五 + 1.19-1.20
 
-* 打电话 + 发邮件 + 短信 + 通讯录
+* 打电话  + 短信 + 通讯录
+
+* 根据数据生成相应的报表功能Demo制作 （图表和折线图）
+
+
+
 
 
 
 >>>
 >>>
 >>>
+
+* 开始看百度云iOS的视频    --> 各个培训班的视频
 
 * 多看库的原理和实现原理（AFNetworkin原理/底层+Masonry原理底层+SDWebImage原理）
 
@@ -111,6 +112,8 @@ FFmpeg介绍: https://www.jianshu.com/p/ecfbebadbe55
 * 学习使用iOS自带的多线程去重新处理下 Pixel和Colorfy项目内容。
 
 
+-   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -  -   
+
 ### unfinished
 * 内存优化处理 ---> 优化内存软件使用
 * CoreData使用
@@ -129,6 +132,8 @@ FFmpeg介绍: https://www.jianshu.com/p/ecfbebadbe55
 * Shell 脚本学习
 * python学习
 
+
+-   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -  -   
 
 ### 读书
 
