@@ -13,6 +13,12 @@
 		0F4D9F2621EF0AE800029E28 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F4D9F2521EF0AE800029E28 /* Assets.xcassets */; };
 		0F4D9F2921EF0AE800029E28 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F4D9F2721EF0AE800029E28 /* LaunchScreen.storyboard */; };
 		0F4D9F2C21EF0AE800029E28 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4D9F2B21EF0AE800029E28 /* main.m */; };
+		0F62EFD221F556A10096B39F /* DrawGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F62EFD121F556A10096B39F /* DrawGraphView.m */; };
+		0F62EFD521F569100096B39F /* DrawGraphBezierPathView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F62EFD421F569100096B39F /* DrawGraphBezierPathView.m */; };
+		0F62EFD821F5A3630096B39F /* DrawProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F62EFD721F5A3630096B39F /* DrawProgressView.m */; };
+		0F62EFDB21F5A4CB0096B39F /* DrawProgressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F62EFDA21F5A4CB0096B39F /* DrawProgressViewController.m */; };
+		0F62EFDE21F5AE550096B39F /* DrawPieChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F62EFDD21F5AE550096B39F /* DrawPieChartView.m */; };
+		0F62EFE121F5C2730096B39F /* BarChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F62EFE021F5C2730096B39F /* BarChartView.m */; };
 		0F882B5021F15FBB0039E9F0 /* DrawBoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F882B4F21F15FBB0039E9F0 /* DrawBoardViewController.m */; };
 		0F882B5321F16F840039E9F0 /* DrawBoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F882B5221F16F830039E9F0 /* DrawBoardView.m */; };
 		0F882B5621F1D1E60039E9F0 /* DrawGraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F882B5521F1D1E60039E9F0 /* DrawGraphViewController.m */; };
@@ -29,6 +35,18 @@
 		0F4D9F2821EF0AE800029E28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0F4D9F2A21EF0AE800029E28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F4D9F2B21EF0AE800029E28 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		0F62EFD021F556A10096B39F /* DrawGraphView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrawGraphView.h; sourceTree = "<group>"; };
+		0F62EFD121F556A10096B39F /* DrawGraphView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrawGraphView.m; sourceTree = "<group>"; };
+		0F62EFD321F569100096B39F /* DrawGraphBezierPathView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrawGraphBezierPathView.h; sourceTree = "<group>"; };
+		0F62EFD421F569100096B39F /* DrawGraphBezierPathView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrawGraphBezierPathView.m; sourceTree = "<group>"; };
+		0F62EFD621F5A3630096B39F /* DrawProgressView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrawProgressView.h; sourceTree = "<group>"; };
+		0F62EFD721F5A3630096B39F /* DrawProgressView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrawProgressView.m; sourceTree = "<group>"; };
+		0F62EFD921F5A4CB0096B39F /* DrawProgressViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrawProgressViewController.h; sourceTree = "<group>"; };
+		0F62EFDA21F5A4CB0096B39F /* DrawProgressViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrawProgressViewController.m; sourceTree = "<group>"; };
+		0F62EFDC21F5AE550096B39F /* DrawPieChartView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrawPieChartView.h; sourceTree = "<group>"; };
+		0F62EFDD21F5AE550096B39F /* DrawPieChartView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrawPieChartView.m; sourceTree = "<group>"; };
+		0F62EFDF21F5C2730096B39F /* BarChartView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BarChartView.h; sourceTree = "<group>"; };
+		0F62EFE021F5C2730096B39F /* BarChartView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BarChartView.m; sourceTree = "<group>"; };
 		0F882B4E21F15FBB0039E9F0 /* DrawBoardViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrawBoardViewController.h; sourceTree = "<group>"; };
 		0F882B4F21F15FBB0039E9F0 /* DrawBoardViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrawBoardViewController.m; sourceTree = "<group>"; };
 		0F882B5121F16F830039E9F0 /* DrawBoardView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrawBoardView.h; sourceTree = "<group>"; };
@@ -98,6 +116,18 @@
 			children = (
 				0F882B5421F1D1E60039E9F0 /* DrawGraphViewController.h */,
 				0F882B5521F1D1E60039E9F0 /* DrawGraphViewController.m */,
+				0F62EFD021F556A10096B39F /* DrawGraphView.h */,
+				0F62EFD121F556A10096B39F /* DrawGraphView.m */,
+				0F62EFD321F569100096B39F /* DrawGraphBezierPathView.h */,
+				0F62EFD421F569100096B39F /* DrawGraphBezierPathView.m */,
+				0F62EFD921F5A4CB0096B39F /* DrawProgressViewController.h */,
+				0F62EFDA21F5A4CB0096B39F /* DrawProgressViewController.m */,
+				0F62EFD621F5A3630096B39F /* DrawProgressView.h */,
+				0F62EFD721F5A3630096B39F /* DrawProgressView.m */,
+				0F62EFDC21F5AE550096B39F /* DrawPieChartView.h */,
+				0F62EFDD21F5AE550096B39F /* DrawPieChartView.m */,
+				0F62EFDF21F5C2730096B39F /* BarChartView.h */,
+				0F62EFE021F5C2730096B39F /* BarChartView.m */,
 			);
 			path = DrawGraph;
 			sourceTree = "<group>";
@@ -175,9 +205,15 @@
 				0F4D9F2121EF0AE700029E28 /* ViewController.m in Sources */,
 				0F882B5021F15FBB0039E9F0 /* DrawBoardViewController.m in Sources */,
 				0F4D9F2C21EF0AE800029E28 /* main.m in Sources */,
+				0F62EFE121F5C2730096B39F /* BarChartView.m in Sources */,
+				0F62EFD221F556A10096B39F /* DrawGraphView.m in Sources */,
 				0F4D9F1E21EF0AE700029E28 /* AppDelegate.m in Sources */,
+				0F62EFD521F569100096B39F /* DrawGraphBezierPathView.m in Sources */,
+				0F62EFD821F5A3630096B39F /* DrawProgressView.m in Sources */,
+				0F62EFDB21F5A4CB0096B39F /* DrawProgressViewController.m in Sources */,
 				0F882B5321F16F840039E9F0 /* DrawBoardView.m in Sources */,
 				0F882B5621F1D1E60039E9F0 /* DrawGraphViewController.m in Sources */,
+				0F62EFDE21F5AE550096B39F /* DrawPieChartView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -3,6 +3,7 @@
 //  DrawGraph
 //
 
+// func: draw rect 方法进行相应的绘制
 
 #import <UIKit/UIKit.h>
 

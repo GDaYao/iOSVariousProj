@@ -28,7 +28,7 @@
 #pragma mark - lazy load
 - (NSArray *)dataArr{
     if (!_dataArr) {
-        _dataArr = @[@"画板制作",@"表格、柱状图制作"];
+        _dataArr = @[@"画板制作",@"图形制作"];
     }
     return _dataArr;
 }
@@ -77,6 +77,7 @@
     
     return cell;
 }
+
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
