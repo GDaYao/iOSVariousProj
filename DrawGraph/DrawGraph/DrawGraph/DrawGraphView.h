@@ -3,7 +3,7 @@
 //  DrawGraph
 //
 
-// func: 绘制线条 -- CG方式绘制图形
+// func: 绘制线条 -- CGContextRef方式绘制图形
 
 /**
  注: 重写 - (void)drawRect:(CGRect)rect 中实现。

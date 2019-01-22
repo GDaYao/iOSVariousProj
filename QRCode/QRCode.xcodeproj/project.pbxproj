@@ -16,6 +16,7 @@
 		0F66507021C3B031006A5205 /* UIImage+QRCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F66506F21C3B031006A5205 /* UIImage+QRCode.m */; };
 		0F66507221C3B072006A5205 /* zy-30.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F66507121C3B072006A5205 /* zy-30.png */; };
 		0F98E0CA21E8343B008A186E /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F98E0C921E8343B008A186E /* logo.png */; };
+		0FC778D021F719D5004D7D4B /* QRCodeImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC778CF21F719D5004D7D4B /* QRCodeImage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,8 @@
 		0F66506F21C3B031006A5205 /* UIImage+QRCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+QRCode.m"; sourceTree = "<group>"; };
 		0F66507121C3B072006A5205 /* zy-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zy-30.png"; sourceTree = "<group>"; };
 		0F98E0C921E8343B008A186E /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		0FC778CE21F719D5004D7D4B /* QRCodeImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeImage.h; sourceTree = "<group>"; };
+		0FC778CF21F719D5004D7D4B /* QRCodeImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeImage.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +70,8 @@
 			children = (
 				0F66507121C3B072006A5205 /* zy-30.png */,
 				0F98E0C921E8343B008A186E /* logo.png */,
+				0FC778CE21F719D5004D7D4B /* QRCodeImage.h */,
+				0FC778CF21F719D5004D7D4B /* QRCodeImage.m */,
 				0F66506E21C3B031006A5205 /* UIImage+QRCode.h */,
 				0F66506F21C3B031006A5205 /* UIImage+QRCode.m */,
 				0F66505821C3ABF0006A5205 /* AppDelegate.h */,
@@ -158,6 +163,7 @@
 				0F66507021C3B031006A5205 /* UIImage+QRCode.m in Sources */,
 				0F66506821C3AC00006A5205 /* main.m in Sources */,
 				0F66505A21C3ABF0006A5205 /* AppDelegate.m in Sources */,
+				0FC778D021F719D5004D7D4B /* QRCodeImage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

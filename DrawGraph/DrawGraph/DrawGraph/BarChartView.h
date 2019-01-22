@@ -4,6 +4,10 @@
 //
 
 
+// func:  柱状图效果实现 -- CGContextRef
+
+
+
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN

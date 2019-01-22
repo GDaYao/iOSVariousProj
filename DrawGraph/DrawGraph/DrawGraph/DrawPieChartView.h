@@ -2,7 +2,7 @@
 //  DrawPieChartView.h
 //  DrawGraph
 //
-// func: 绘制饼状图形
+// func: 绘制饼状图形 -- UIBezierPath
 
 #import <UIKit/UIKit.h>
 

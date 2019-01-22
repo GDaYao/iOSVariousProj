@@ -57,6 +57,7 @@ FFmpeg介绍: https://www.jianshu.com/p/ecfbebadbe55
 
 密码学学习: http://www.cocoachina.com/blockchain/20190111/26109.html
 学习Mac开发: https://www.jianshu.com/p/feadeb1ae7ae
+iOS博客学习: https://blog.csdn.net/u012265444 --- github: https://github.com/EmyWong?tab=followers 手势解锁。
 
 
 
@@ -69,16 +70,16 @@ FFmpeg介绍: https://www.jianshu.com/p/ecfbebadbe55
 
 
 
-#### 1.21 周一
-
-* iOS绘图的几种方式。
+#### 1.21 周一 + 1.22 周二
 
 * 根据数据生成相应的报表功能Demo制作 （图表和折线图）。
 
 * 打电话  + 短信 + 通讯录。
 
 
-#### 1.22 周二 + 1.24 周四
+#### 1.23 周三 + 1.24 周四
+
+
 
 * 友盟埋点从新查看
 * 相机调用并处理/相册

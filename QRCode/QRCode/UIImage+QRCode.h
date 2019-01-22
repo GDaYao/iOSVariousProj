@@ -1,10 +1,11 @@
 //
 //  UIImage+QRCode.h
-//  QRCodeDemo
+//  QRCode
 //
-//  Created by 张鹏 on 2017/12/14.
-//  Copyright © 2017年 zhangpeng. All rights reserved.
-//
+
+
+// func: 生成黑白二维码
+
 
 #import <UIKit/UIKit.h>
 

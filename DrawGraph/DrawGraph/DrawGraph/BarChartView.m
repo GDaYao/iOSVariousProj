@@ -33,22 +33,28 @@
 
 - (void)drawRect:(CGRect)rect {
     
-    // 可参考链接: https://blog.csdn.net/u012265444/article/details/52218716
-    
-    
-    
-    
     
     CGContextRef ctx = UIGraphicsGetCurrentContext();
     
-    float margin = 10;
-    float width =  (self.bounds.size.width-40) / (self.numsArr.count-1)*margin; //每个条形图宽度
+    float margin = 10; //
+    float width =  (self.bounds.size.width-40 - (self.numsArr.count-1)*margin ) /self.numsArr.count;    //每个柱状图宽度
     
 
     for (int i=0; i<self.numsArr.count; i++) {
+        // 倒放柱状图
+        //  CGRect chartRect = CGRectMake(20+i*(margin+width),  self.bounds.size.height-100, width, ([self.numsArr[i] intValue]/self.totalNum)*self.bounds.size.height );
+        // 正常柱状图
+        CGRect chartRect = CGRectMake(20+i*(margin+width),  ( 1 - ([self.numsArr[i] intValue]/self.totalNum) ) * (self.bounds.size.height-100), width, ([self.numsArr[i] intValue]/self.totalNum)*(self.bounds.size.height-100) );
+        CGContextAddRect(ctx, chartRect);
         
-        CGContextAddRect(ctx, CGRectMake(20, self.bounds.size.width-100, width, ([self.numsArr[i] intValue]/self.totalNum)*self.bounds.size.height));
+        NSLog(@"log--%d--输出比例:%f，输出高度:%f",i, [self.numsArr[i] intValue]/self.totalNum, ([self.numsArr[i] intValue]/self.totalNum)*self.bounds.size.height);
         
+        CGFloat randRed = arc4random_uniform(256)/255.0;
+        CGFloat randGreen = arc4random_uniform(256)/255.0;
+        CGFloat randBlue = arc4random_uniform(256)/255.0;
+        UIColor *randomColor = [UIColor colorWithRed:randRed green:randGreen blue:randBlue alpha:1];
+        CGContextSetFillColorWithColor(ctx, randomColor.CGColor);
+        CGContextFillPath(ctx);
         
     }
     
@@ -61,4 +67,9 @@
 
 
 
+
 @end
+
+
+
+

@@ -2,9 +2,9 @@
 //  DrawProgressView.h
 //  DrawGraph
 //
-//  Created by AHZX on 2019/1/21.
-//  Copyright © 2019 Dayao. All rights reserved.
-//
+
+// func: 进度条绘制 -- UIBezierPath
+
 
 #import <UIKit/UIKit.h>
 

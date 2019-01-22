@@ -1,8 +1,7 @@
 //
 //  ViewController.h
-//  QRCode
-
-
+//  ContactCallMessage
+//
 
 
 #import <UIKit/UIKit.h>

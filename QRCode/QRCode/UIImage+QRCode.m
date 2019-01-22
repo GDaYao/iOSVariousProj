@@ -1,10 +1,8 @@
 //
 //  UIImage+QRCode.m
-//  QRCodeDemo
+//  QRCode
 //
-//  Created by 张鹏 on 2017/12/14.
-//  Copyright © 2017年 zhangpeng. All rights reserved.
-//
+
 
 #import "UIImage+QRCode.h"
 #import <CoreImage/CoreImage.h>
@@ -235,7 +233,7 @@
     int pixelNumber = imageHeight * imageWidth;
     [self changeColorOnPixel:rgbImageBuf pixelNum:pixelNumber red:red green:green blue:blue];
     
-    CGDataProviderRef dataProvider = CGDataProviderCreateWithData(NULL, rgbImageBuf, bytesPerRow, ProviderReleaseData);
+    CGDataProviderRef dataProvider = CGDataProviderCreateWithData(NULL, rgbImageBuf, bytesPerRow, ProviderReleaseDataInBlackWhiteQRCode);
     
     CGImageRef imageRef = CGImageCreate(imageWidth, imageHeight, 8, 32, bytesPerRow, colorSpace, kCGImageAlphaLast | kCGBitmapByteOrder32Little, dataProvider, NULL, true, kCGRenderingIntentDefault);
     UIImage * resultImage = [UIImage imageWithCGImage: imageRef];
@@ -274,7 +272,7 @@
     }
 }
 
-void ProviderReleaseData(void * info, const void * data, size_t size) {
+void ProviderReleaseDataInBlackWhiteQRCode(void * info, const void * data, size_t size) {
     
     free((void *)data);
 }

@@ -3,12 +3,15 @@
 //  QRCode
 //
 
-// func: 二维码多个功能增加使用，参考链接: https://github.com/TheLevelUp/ZXingObjC
+// func: 二维码多个功能增加使用
 
 
 #import "ViewController.h"
 
+// 黑白二维码生成
 #import "UIImage+QRCode.h"
+// 彩色二维码生成
+#import "QRCodeImage.h"
 
 @interface ViewController () <UITextFieldDelegate,UITextViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
@@ -22,6 +25,28 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self createColorfulQRCode];
+    
+    [self createBlackAndWhiteQRCode];
+    
+}
+
+#pragma mark - 彩色二维码生成
+- (void)createColorfulQRCode{
+    
+    QRCodeImage *qrCodeImage = [QRCodeImage codeImageWithString:@"www.baidu.com"
+                                                           size:200
+                                                          color:[UIColor orangeColor]
+                                ];
+    UIImageView *qrImageView = [[UIImageView alloc]initWithImage:qrCodeImage];
+    qrImageView.center = self.view.center;
+    [self.view addSubview:qrImageView];
+    
+}
+
+#pragma mark - craete 黑白二维码生成
+- (void)createBlackAndWhiteQRCode{
     
     //无logo
     //    self.imageView.image = [UIImage qrImgForString:@"http://blog.zhangpeng.site" size:CGSizeMake(100, 100) waterImg:nil];
