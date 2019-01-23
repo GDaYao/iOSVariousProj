@@ -13,6 +13,9 @@
 		0FC778E721F71E98004D7D4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FC778E621F71E98004D7D4B /* Assets.xcassets */; };
 		0FC778EA21F71E98004D7D4B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FC778E821F71E98004D7D4B /* LaunchScreen.storyboard */; };
 		0FC778ED21F71E98004D7D4B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC778EC21F71E98004D7D4B /* main.m */; };
+		0FC89BCA21F7F48B00C4BD41 /* ContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC89BC921F7F48B00C4BD41 /* ContactViewController.m */; };
+		0FC89BCD21F7F5BD00C4BD41 /* CallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC89BCC21F7F5BD00C4BD41 /* CallViewController.m */; };
+		0FC89BD021F7F5F100C4BD41 /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC89BCF21F7F5F100C4BD41 /* MessageViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,12 @@
 		0FC778E921F71E98004D7D4B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0FC778EB21F71E98004D7D4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0FC778EC21F71E98004D7D4B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		0FC89BC821F7F48B00C4BD41 /* ContactViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContactViewController.h; sourceTree = "<group>"; };
+		0FC89BC921F7F48B00C4BD41 /* ContactViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContactViewController.m; sourceTree = "<group>"; };
+		0FC89BCB21F7F5BD00C4BD41 /* CallViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CallViewController.h; sourceTree = "<group>"; };
+		0FC89BCC21F7F5BD00C4BD41 /* CallViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CallViewController.m; sourceTree = "<group>"; };
+		0FC89BCE21F7F5F100C4BD41 /* MessageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageViewController.h; sourceTree = "<group>"; };
+		0FC89BCF21F7F5F100C4BD41 /* MessageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +71,12 @@
 				0FC778DE21F71E97004D7D4B /* AppDelegate.m */,
 				0FC778E021F71E97004D7D4B /* ViewController.h */,
 				0FC778E121F71E97004D7D4B /* ViewController.m */,
+				0FC89BC821F7F48B00C4BD41 /* ContactViewController.h */,
+				0FC89BC921F7F48B00C4BD41 /* ContactViewController.m */,
+				0FC89BCB21F7F5BD00C4BD41 /* CallViewController.h */,
+				0FC89BCC21F7F5BD00C4BD41 /* CallViewController.m */,
+				0FC89BCE21F7F5F100C4BD41 /* MessageViewController.h */,
+				0FC89BCF21F7F5F100C4BD41 /* MessageViewController.m */,
 				0FC778E321F71E97004D7D4B /* Main.storyboard */,
 				0FC778E621F71E98004D7D4B /* Assets.xcassets */,
 				0FC778E821F71E98004D7D4B /* LaunchScreen.storyboard */,
@@ -141,7 +156,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FC89BD021F7F5F100C4BD41 /* MessageViewController.m in Sources */,
+				0FC89BCD21F7F5BD00C4BD41 /* CallViewController.m in Sources */,
 				0FC778E221F71E97004D7D4B /* ViewController.m in Sources */,
+				0FC89BCA21F7F48B00C4BD41 /* ContactViewController.m in Sources */,
 				0FC778ED21F71E98004D7D4B /* main.m in Sources */,
 				0FC778DF21F71E97004D7D4B /* AppDelegate.m in Sources */,
 			);
@@ -220,7 +238,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -273,7 +291,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -286,6 +304,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LT57D5LDNZ;
 				INFOPLIST_FILE = ContactCallMessage/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -302,6 +321,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LT57D5LDNZ;
 				INFOPLIST_FILE = ContactCallMessage/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

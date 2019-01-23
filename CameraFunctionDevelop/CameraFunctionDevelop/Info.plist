@@ -41,7 +41,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>NSContactsUsageDescription</key>
-	<string>App需要您的同意，才能访问你的通讯录</string>
+	<key>NSCameraUsageDescription</key>
+	<string>App需要经过你的同意才能访问相机!</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>App需要经过你的同意才能访问相册!</string>
 </dict>
 </plist>

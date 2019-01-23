@@ -11,7 +11,7 @@
 #import "DrawProgressViewController.h"
 #import "DrawPieChartView.h"
 #import "BarChartView.h"
-
+#import "DrawLineChart/DrawLineChartViewController.h"
 
 
 @interface DrawGraphViewController ()
@@ -75,6 +75,15 @@
     [barChartBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     barChartBtn.layer.borderColor = [UIColor blackColor].CGColor;
     barChartBtn.layer.borderWidth = 2.0f;
+
+    
+    UIButton *lineChartBtn = [UIButton buttonWithType:(UIButtonTypeCustom)];
+    [self.view addSubview:lineChartBtn];
+    lineChartBtn.frame = CGRectMake(50, 480, 350, 50);
+    [lineChartBtn setTitle:@"绘制折线图" forState:UIControlStateNormal];
+    [lineChartBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    lineChartBtn.layer.borderColor = [UIColor blackColor].CGColor;
+    lineChartBtn.layer.borderWidth = 2.0f;
     
     
     [CGBtn addTarget:self action:@selector(createDrawWithCG) forControlEvents:UIControlEventTouchUpInside];
@@ -82,6 +91,8 @@
     [progressBtn addTarget:self action:@selector(createProgress) forControlEvents:UIControlEventTouchUpInside];
     [pieChartBtn addTarget:self action:@selector(drawPieChart) forControlEvents:UIControlEventTouchUpInside];
     [barChartBtn addTarget:self action:@selector(drawBarChart) forControlEvents:UIControlEventTouchUpInside];
+    [lineChartBtn addTarget:self action:@selector(drawLineChart) forControlEvents:UIControlEventTouchUpInside];
+    
 }
 
 
@@ -104,7 +115,6 @@
 - (void)createProgress{
     DrawProgressViewController *vc = [[DrawProgressViewController alloc]init];
     [self presentViewController:vc animated:YES completion:nil];
-
 }
 
 - (void)drawPieChart{
@@ -118,6 +128,18 @@
     barChartV.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:barChartV];
 }
+- (void)drawLineChart{
+    DrawLineChartViewController *lineChartVC = [[DrawLineChartViewController alloc]init];
+    [self presentViewController:lineChartVC animated:YES completion:nil];
+    
+}
+
+
+
+
+
+
+
 
 
 
@@ -134,6 +156,11 @@
 
 
 
+
+
+
 @end
+
+
 
 

@@ -22,6 +22,8 @@
 		0F882B5021F15FBB0039E9F0 /* DrawBoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F882B4F21F15FBB0039E9F0 /* DrawBoardViewController.m */; };
 		0F882B5321F16F840039E9F0 /* DrawBoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F882B5221F16F830039E9F0 /* DrawBoardView.m */; };
 		0F882B5621F1D1E60039E9F0 /* DrawGraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F882B5521F1D1E60039E9F0 /* DrawGraphViewController.m */; };
+		0FC89BD521F81D0E00C4BD41 /* DrawLineChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC89BD421F81D0E00C4BD41 /* DrawLineChartViewController.m */; };
+		0FC89BD821F81E4A00C4BD41 /* DrawLineChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC89BD721F81E4A00C4BD41 /* DrawLineChartView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +55,10 @@
 		0F882B5221F16F830039E9F0 /* DrawBoardView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrawBoardView.m; sourceTree = "<group>"; };
 		0F882B5421F1D1E60039E9F0 /* DrawGraphViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrawGraphViewController.h; sourceTree = "<group>"; };
 		0F882B5521F1D1E60039E9F0 /* DrawGraphViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrawGraphViewController.m; sourceTree = "<group>"; };
+		0FC89BD321F81D0E00C4BD41 /* DrawLineChartViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrawLineChartViewController.h; sourceTree = "<group>"; };
+		0FC89BD421F81D0E00C4BD41 /* DrawLineChartViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrawLineChartViewController.m; sourceTree = "<group>"; };
+		0FC89BD621F81E4A00C4BD41 /* DrawLineChartView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrawLineChartView.h; sourceTree = "<group>"; };
+		0FC89BD721F81E4A00C4BD41 /* DrawLineChartView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrawLineChartView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,16 +126,36 @@
 				0F62EFD121F556A10096B39F /* DrawGraphView.m */,
 				0F62EFD321F569100096B39F /* DrawGraphBezierPathView.h */,
 				0F62EFD421F569100096B39F /* DrawGraphBezierPathView.m */,
-				0F62EFD921F5A4CB0096B39F /* DrawProgressViewController.h */,
-				0F62EFDA21F5A4CB0096B39F /* DrawProgressViewController.m */,
-				0F62EFD621F5A3630096B39F /* DrawProgressView.h */,
-				0F62EFD721F5A3630096B39F /* DrawProgressView.m */,
 				0F62EFDC21F5AE550096B39F /* DrawPieChartView.h */,
 				0F62EFDD21F5AE550096B39F /* DrawPieChartView.m */,
 				0F62EFDF21F5C2730096B39F /* BarChartView.h */,
 				0F62EFE021F5C2730096B39F /* BarChartView.m */,
+				0FC89BD221F81B7500C4BD41 /* DrawLineChart */,
+				0FC89BD121F81B6300C4BD41 /* DrawProgress */,
 			);
 			path = DrawGraph;
+			sourceTree = "<group>";
+		};
+		0FC89BD121F81B6300C4BD41 /* DrawProgress */ = {
+			isa = PBXGroup;
+			children = (
+				0F62EFD921F5A4CB0096B39F /* DrawProgressViewController.h */,
+				0F62EFDA21F5A4CB0096B39F /* DrawProgressViewController.m */,
+				0F62EFD621F5A3630096B39F /* DrawProgressView.h */,
+				0F62EFD721F5A3630096B39F /* DrawProgressView.m */,
+			);
+			path = DrawProgress;
+			sourceTree = "<group>";
+		};
+		0FC89BD221F81B7500C4BD41 /* DrawLineChart */ = {
+			isa = PBXGroup;
+			children = (
+				0FC89BD321F81D0E00C4BD41 /* DrawLineChartViewController.h */,
+				0FC89BD421F81D0E00C4BD41 /* DrawLineChartViewController.m */,
+				0FC89BD621F81E4A00C4BD41 /* DrawLineChartView.h */,
+				0FC89BD721F81E4A00C4BD41 /* DrawLineChartView.m */,
+			);
+			path = DrawLineChart;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,6 +228,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FC89BD521F81D0E00C4BD41 /* DrawLineChartViewController.m in Sources */,
+				0FC89BD821F81E4A00C4BD41 /* DrawLineChartView.m in Sources */,
 				0F4D9F2121EF0AE700029E28 /* ViewController.m in Sources */,
 				0F882B5021F15FBB0039E9F0 /* DrawBoardViewController.m in Sources */,
 				0F4D9F2C21EF0AE800029E28 /* main.m in Sources */,

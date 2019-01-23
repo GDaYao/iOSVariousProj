@@ -1,6 +1,6 @@
 //
 //  ViewController.m
-//  ContactCallMessage
+//  CameraFunctionDevelop
 //
 
 
@@ -17,7 +17,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
     
     [self createUI];
     
@@ -27,13 +26,13 @@
 
 - (NSArray *)dataArr{
     if (!_dataArr) {
-        _dataArr = @[@"通讯录获取",@"打电话",@"发信息"];
+        _dataArr = @[@"普通相机调用",@"美颜相机"];
     }
     return _dataArr;
 }
 - (NSArray *)vcArr{
     if (!_vcArr) {
-        _vcArr = @[@"ContactViewController",@"CallViewController",@"MessageViewController"];
+        _vcArr = @[@"NormalViewController",@"BeautyCameraViewController"];
     }
     return _vcArr;
 }
@@ -47,7 +46,6 @@
     tv.tableFooterView = [UIView new];
     
 }
-
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
@@ -77,7 +75,6 @@
     UIViewController *vc = [[class alloc]init];
     [self presentViewController:vc animated:YES completion:nil];
 }
-
 
 
 
