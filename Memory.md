@@ -57,7 +57,7 @@ FFmpeg介绍: https://www.jianshu.com/p/ecfbebadbe55
 
 密码学学习: http://www.cocoachina.com/blockchain/20190111/26109.html
 学习Mac开发: https://www.jianshu.com/p/feadeb1ae7ae
-iOS博客学习: https://blog.csdn.net/u012265444 --- github: https://github.com/EmyWong?tab=followers 手势解锁。
+iOS博客学习: https://blog.csdn.net/u012265444 --- github: https://github.com/EmyWong?tab=followers 手势解锁 。
 
 
 
@@ -71,17 +71,25 @@ iOS博客学习: https://blog.csdn.net/u012265444 --- github: https://github.com
 后面主要任务就是研究处理GPUImage+相机+视频+直播类技术相关（渐而学习多线程以及网络编程做一个大项目）
 
 #### 1.23 周三 + 1.24 周四
-* GPUImage库查看学习使用
-* 相机调用并处理/相册
-* 视频直播
-* 相机使用的问题处理 + 扫描二维码实现+ 美颜相机的实现
+
+学习GPUImage流程:
+
+1. 查看GPUImage官方框架和教程。 学习好
+2. 查看简书，相对应GPUImage内容 -- 简书GPUImage学习:  https://www.jianshu.com/c/1f71fb708595
+3. 制作滤镜相机和其它美颜相机以及市面上的相机效果 ---> 转到 `CameraFunctionDevelop` 项目上。进行相对应项目制作。
+4. 实时直播实现
+5. 人脸识别。
 
 
 
-#### 1.24 周四
+
+-   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -  -   
+
+
+
+
 
 * 环信聊天接触了解 + 仿QQ实现
-* 人脸识别 
 
 
 
@@ -91,12 +99,6 @@ iOS博客学习: https://blog.csdn.net/u012265444 --- github: https://github.com
 // 视频播放器功能制作进行封存后续进行慢慢处理操作
 1. 边下边播功能实现 -->  https://www.jianshu.com/p/93ce1748ea57
 2. 视频 标清、高清 功能实现
-3. 视频直播功能
-
-
-### 1.28 周一
-
-* 参考各个大型App，实现各个市面大部分App功能。
 
 
 
