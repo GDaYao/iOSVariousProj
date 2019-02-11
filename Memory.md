@@ -34,8 +34,7 @@ HACK net website: http://www.weixianmanbu.com/page_2.html
 
 -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -  -   
 
-Interview question:
-http://blog.cocoachina.com/article/73184
+
 
 
 ** leave: **
