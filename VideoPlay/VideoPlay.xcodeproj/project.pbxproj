@@ -21,6 +21,8 @@
 		0FDD4D5021B52DCC00F93BD7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FDD4D4E21B52DCC00F93BD7 /* LaunchScreen.storyboard */; };
 		0FDD4D5321B52DCC00F93BD7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FDD4D5221B52DCC00F93BD7 /* main.m */; };
 		0FF1FDE921C0AB6A00E72B2B /* AVPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FF1FDE821C0AB6A00E72B2B /* AVPlayerView.m */; };
+		82B4A93922858B650045C43C /* Demo-test.mov in Resources */ = {isa = PBXBuildFile; fileRef = 82B4A93822858B650045C43C /* Demo-test.mov */; };
+		82FC2E5422890CAE00FF378C /* Demo-big.mov in Resources */ = {isa = PBXBuildFile; fileRef = 82FC2E5322890CAE00FF378C /* Demo-big.mov */; };
 		EE0F3D039FEAA385439F0E27 /* libPods-VideoPlay.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9512D6C02ED4BB38611C007A /* libPods-VideoPlay.a */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +53,8 @@
 		0FF1FDE721C0AB6A00E72B2B /* AVPlayerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AVPlayerView.h; sourceTree = "<group>"; };
 		0FF1FDE821C0AB6A00E72B2B /* AVPlayerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AVPlayerView.m; sourceTree = "<group>"; };
 		3B98F68692B78513564DD1BF /* Pods-VideoPlay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VideoPlay.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VideoPlay/Pods-VideoPlay.debug.xcconfig"; sourceTree = "<group>"; };
+		82B4A93822858B650045C43C /* Demo-test.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "Demo-test.mov"; sourceTree = "<group>"; };
+		82FC2E5322890CAE00FF378C /* Demo-big.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "Demo-big.mov"; sourceTree = "<group>"; };
 		9512D6C02ED4BB38611C007A /* libPods-VideoPlay.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VideoPlay.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF938A165BB49F3B6D400F67 /* Pods-VideoPlay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VideoPlay.release.xcconfig"; path = "Pods/Target Support Files/Pods-VideoPlay/Pods-VideoPlay.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -129,6 +133,8 @@
 				0FD9A2EB21E4AA5200DAAB25 /* FreeStreamer */,
 				0FDD4D4921B52DC500F93BD7 /* Main.storyboard */,
 				0FDD4D4C21B52DCC00F93BD7 /* Assets.xcassets */,
+				82B4A93822858B650045C43C /* Demo-test.mov */,
+				82FC2E5322890CAE00FF378C /* Demo-big.mov */,
 				0FDD4D4E21B52DCC00F93BD7 /* LaunchScreen.storyboard */,
 				0FDD4D5121B52DCC00F93BD7 /* Info.plist */,
 				0FDD4D5221B52DCC00F93BD7 /* main.m */,
@@ -230,8 +236,10 @@
 			files = (
 				0FAA12B521B7AEE700B33C81 /* play.mp4 in Resources */,
 				0FDD4D5021B52DCC00F93BD7 /* LaunchScreen.storyboard in Resources */,
+				82FC2E5422890CAE00FF378C /* Demo-big.mov in Resources */,
 				0FDD4D4D21B52DCC00F93BD7 /* Assets.xcassets in Resources */,
 				0FDD4D4B21B52DC500F93BD7 /* Main.storyboard in Resources */,
+				82B4A93922858B650045C43C /* Demo-test.mov in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

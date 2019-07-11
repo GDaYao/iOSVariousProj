@@ -62,7 +62,7 @@ int page2=0;
     [self setUpTimer2];
 }
 
-- (void)layoutSubviews{
+- (void)layoutSubviews {
     self.scrollView2.frame=CGRectMake(self.bounds.origin.x, self.bounds.origin.y, self.bounds.size.width, self.bounds.size.height);
     self.scrollView2.contentSize=CGSizeMake(self.scrollView2.bounds.size.width *([self.pages2 count]), self.bounds.size.height);
     self.scrollView2.contentOffset=CGPointMake(self.pageControl2.currentPage*self.scrollView2.bounds.size.width, 0.0f);

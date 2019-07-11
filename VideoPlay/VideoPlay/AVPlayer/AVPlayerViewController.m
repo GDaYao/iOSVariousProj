@@ -125,7 +125,7 @@
     
     [self.avPlayerV.playItem addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:nil];
     [self.avPlayerV.playItem addObserver:self forKeyPath:@"loadedTimeRanges" options:NSKeyValueObservingOptionOld|NSKeyValueObservingOptionNew context:nil]; // 缓冲加载情况
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(avPlayFinisn) name:AVPlayerItemDidPlayToEndTimeNotification object:self.avPlayerV.playItem]; //监控播放完成通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(avPlayFinish) name:AVPlayerItemDidPlayToEndTimeNotification object:self.avPlayerV.playItem]; //监控播放完成通知
     // 监控播放进度
     [self observePlayerTimeChange];
 }
@@ -235,7 +235,7 @@
 }
 
 // play finish --para:AVPlayerItem
-- (void)avPlayFinisn{
+- (void)avPlayFinish{
     NSLog(@"log--play finish");
     [self playBtnAction:self.avPlayerV.playBtn];
 }
