@@ -31,6 +31,18 @@ NS_ASSUME_NONNULL_BEGIN
 /** lineColor */
 @property (nonatomic, strong) UIColor* lineColor;
 
+#pragma mark - init
+/**
+ init method.
+
+ @param frame frame.
+ @param titles array titles.
+ @param viewControllers array viewControllers.
+ @param selectedIndex selected index.
+ @return return self.
+ */
+- (instancetype)initWithFrame:(CGRect)frame vcTitles:(NSArray <NSString *>*)titles viewControllers:(NSArray <UIViewController *>*)viewControllers selectIndex:(NSInteger)selectedIndex;
+
 /**
  添加到控制器上作为子控制器 | 添加到view上显示。
 

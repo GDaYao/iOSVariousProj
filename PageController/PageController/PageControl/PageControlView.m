@@ -30,7 +30,7 @@ static const CGFloat SegmentHeight = 40.0f;
 
 
 #pragma mark - init
-- (instancetype)initWithFrame:(CGRect)frame vcTitles:(NSArray <NSString *>*)titles viewControllers:(NSArray <UIViewController *>*)viewControllers selectIndex:(NSInteger)selectedIndex{
+- (instancetype)initWithFrame:(CGRect)frame vcTitles:(NSArray <NSString *>*)titles viewControllers:(NSArray <UIViewController *>*)viewControllers selectIndex:(NSInteger)selectedIndex {
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor=[UIColor whiteColor];
