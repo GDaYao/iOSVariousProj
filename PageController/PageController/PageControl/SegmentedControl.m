@@ -3,7 +3,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import <math.h>
 
-@interface HMScrollView : UIScrollView
+@interface ScrollView : UIScrollView
 @end
 
 @interface SegmentedControl ()
@@ -13,11 +13,11 @@
 @property (nonatomic, strong) CALayer *selectionIndicatorArrowLayer;
 @property (nonatomic, readwrite) CGFloat segmentWidth;
 @property (nonatomic, readwrite) NSArray<NSNumber *> *segmentWidthsArray;
-@property (nonatomic, strong) HMScrollView *scrollView;
+@property (nonatomic, strong) ScrollView *scrollView;
 
 @end
 
-@implementation HMScrollView
+@implementation ScrollView
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     if (!self.dragging) {
@@ -116,7 +116,7 @@
 }
 
 - (void)commonInit {
-    self.scrollView = [[HMScrollView alloc] init];
+    self.scrollView = [[ScrollView alloc] init];
     self.scrollView.scrollsToTop = NO;
     self.scrollView.showsVerticalScrollIndicator = NO;
     self.scrollView.showsHorizontalScrollIndicator = NO;
