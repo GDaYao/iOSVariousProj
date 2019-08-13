@@ -10,7 +10,7 @@
 
 
 // set common segment height 40.0,after you can customize.
-static const CGFloat SegmentHeight = 40.0f;
+static const CGFloat segmentHeight = 40.0f;
 
 
 @interface PageControlView () <UIPageViewControllerDelegate,UIPageViewControllerDataSource>
@@ -22,23 +22,26 @@ static const CGFloat SegmentHeight = 40.0f;
 @property (nonatomic, strong)SegmentedControl *segmentedControl;
 @property (nonatomic, strong)UIPageViewController *pageViewController;
 
-
+@property (nonatomic,assign)CGFloat segmentHeight;
 
 @end
 
 @implementation PageControlView
 
 
+
 #pragma mark - init
-- (instancetype)initWithFrame:(CGRect)frame vcTitles:(NSArray <NSString *>*)titles viewControllers:(NSArray <UIViewController *>*)viewControllers selectIndex:(NSInteger)selectedIndex {
+- (instancetype)initWithFrame:(CGRect)frame vcTitles:(NSArray <NSString *>*)titles viewControllers:(NSArray <UIViewController *>*)viewControllers selectIndex:(NSInteger)selectedIndex segmentHeight:(CGFloat)segmentHeight {
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor=[UIColor whiteColor];
         
-        [self createUI];
         self.titles = titles;
         self.viewControllers = viewControllers;
         self.selectedIndex = selectedIndex;
+        self.segmentHeight = segmentHeight;
+        
+        [self createUI];
         
     }
     
@@ -143,11 +146,18 @@ static const CGFloat SegmentHeight = 40.0f;
 }
 
 #pragma mark - getter
+- (CGFloat)segmentHeight {
+    if (!_segmentHeight) {
+        _segmentHeight = segmentHeight;
+    }
+    return _segmentHeight;
+}
+
 - (SegmentedControl *)segmentedControl {
     if (!_segmentedControl) {
         CGFloat viewWidth = CGRectGetWidth(self.frame);
         _segmentedControl= [[SegmentedControl alloc] initWithSectionTitles:self.titles];
-        _segmentedControl.frame = CGRectMake(0, 0, viewWidth, SegmentHeight);
+        _segmentedControl.frame = CGRectMake(0, 0, viewWidth, self.segmentHeight);
         _segmentedControl.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleWidth;
         //indicator和文本等宽（含inset）、和segment一样宽，背景大方块，箭头
         _segmentedControl.selectionStyle = HMSegmentedControlSelectionStyleTextWidthStripe;
@@ -176,22 +186,12 @@ static const CGFloat SegmentHeight = 40.0f;
 - (UIPageViewController *)pageViewController {
     if (!_pageViewController) {
         _pageViewController = [[UIPageViewController alloc]initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
-        _pageViewController.view.frame = CGRectMake(0, SegmentHeight, self.bounds.size.width, self.bounds.size.height - SegmentHeight);
+        _pageViewController.view.frame = CGRectMake(0, self.segmentHeight, self.bounds.size.width, self.bounds.size.height - self.segmentHeight);
         _pageViewController.delegate = self;
         _pageViewController.dataSource = self;
     }
     return _pageViewController;
 }
-
-
-
-
-
-
-
-
-
-
 
 
 
