@@ -36,12 +36,13 @@ static const CGFloat segmentHeight = 40.0f;
     if (self) {
         self.backgroundColor=[UIColor whiteColor];
         
-        self.titles = titles;
-        self.viewControllers = viewControllers;
-        self.selectedIndex = selectedIndex;
         self.segmentHeight = segmentHeight;
         
         [self createUI];
+        
+        self.titles = titles;
+        self.viewControllers = viewControllers;
+        self.selectedIndex = selectedIndex;
         
     }
     
