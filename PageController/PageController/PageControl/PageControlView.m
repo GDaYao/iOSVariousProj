@@ -161,9 +161,9 @@ static const CGFloat segmentHeight = 40.0f;
         _segmentedControl.frame = CGRectMake(0, 0, viewWidth, self.segmentHeight);
         _segmentedControl.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleWidth;
         //indicator和文本等宽（含inset）、和segment一样宽，背景大方块，箭头
-        _segmentedControl.selectionStyle = HMSegmentedControlSelectionStyleTextWidthStripe;
+        _segmentedControl.selectionStyle = SegmentedControlSelectionStyleTextWidthStripe;
         //indicator位置
-        _segmentedControl.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown;
+        _segmentedControl.selectionIndicatorLocation = SegmentedControlSelectionIndicatorLocationDown;
         //选中indicator
         _segmentedControl.selectionIndicatorColor = UIColorFromHexInPageControlView(0xf2c22c);
         _segmentedControl.selectionIndicatorHeight = 2.0f;
