@@ -36,7 +36,7 @@ int page=0;
     if(self){
         self.backgroundColor=[UIColor lightGrayColor];
         [self createSubviews];
-        self.pages=@[self.firstView,self.secondView,self.thirdView,self.fourthView];
+        self.pages = @[self.firstView,self.secondView,self.thirdView,self.fourthView];
     }
     return self;
 }

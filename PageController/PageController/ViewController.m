@@ -5,6 +5,11 @@
 //  Copyright © 2019 pagecontroller. All rights reserved.
 //
 
+
+/** UIPageController 保存使用。
+ */
+
+
 #import "ViewController.h"
 
 #import "PageControlView.h"
