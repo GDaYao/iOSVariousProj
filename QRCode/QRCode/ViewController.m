@@ -46,7 +46,7 @@
 }
 
 #pragma mark - craete 黑白二维码生成
-- (void)createBlackAndWhiteQRCode{
+- (void)createBlackAndWhiteQRCode {
     
     //无logo
     //    self.imageView.image = [UIImage qrImgForString:@"http://blog.zhangpeng.site" size:CGSizeMake(100, 100) waterImg:nil];

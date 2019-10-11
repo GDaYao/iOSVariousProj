@@ -152,7 +152,7 @@
 }
 -(void)longPressAction:(UILongPressGestureRecognizer *)longPress
 {
-    //对于长安有开始和 结束状态
+    //对于长按有开始和 结束状态
     if (longPress.state == UIGestureRecognizerStateBegan) {
         NSLog(@"长按开始");
         //将图片保存到相册
