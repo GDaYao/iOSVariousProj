@@ -29,13 +29,13 @@
 #pragma mark - lazy load
 - (NSArray *)dataArr{
     if (!_dataArr) {
-        _dataArr = @[@"仿探探卡片滑动效果",@"上下滑动折叠动画",@"左右滑动动画"];
+        _dataArr = @[@"仿探探卡片滑动效果",@"上下滑动折叠动画",@"左右滑动动画",@"圆弧动画"];
     }
     return _dataArr;
 }
 - (NSArray *)vcArr{
     if (!_vcArr) {
-        _vcArr = @[@"ImtationTantanViewController",@"SlideUpDownViewController",@"SlideLeftRightViewController"];
+        _vcArr = @[@"ImtationTantanViewController",@"SlideUpDownViewController",@"SlideLeftRightViewController",@"CircleAnimationViewController"];
     }
     return _vcArr;
 }
@@ -84,6 +84,9 @@
     NSString *vcStr = self.vcArr[indexPath.row];
     Class class = NSClassFromString(vcStr);
     UIViewController *vc = [[class alloc]init];
+    if (@available(iOS 13.0,*)) {
+        vc.modalPresentationStyle =  UIModalPresentationFullScreen;
+    }
     [self presentViewController:vc animated:YES completion:nil];
     
 }

@@ -20,6 +20,8 @@
 		0F6AADBD21F06C2F00824113 /* SlideUpDownViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F6AADBC21F06C2F00824113 /* SlideUpDownViewController.m */; };
 		0F6AADC821F070CB00824113 /* SMSwipeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F6AADC721F070CB00824113 /* SMSwipeView.m */; };
 		0F6AADCB21F0712500824113 /* SlideLeftRightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F6AADCA21F0712500824113 /* SlideLeftRightViewController.m */; };
+		82DBA230236AC1AC000B3516 /* CircleAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82DBA22F236AC1AC000B3516 /* CircleAnimationViewController.m */; };
+		82DBA233236AC297000B3516 /* CircleAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 82DBA232236AC297000B3516 /* CircleAnimationView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +47,10 @@
 		0F6AADC721F070CB00824113 /* SMSwipeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMSwipeView.m; sourceTree = "<group>"; };
 		0F6AADC921F0712500824113 /* SlideLeftRightViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SlideLeftRightViewController.h; sourceTree = "<group>"; };
 		0F6AADCA21F0712500824113 /* SlideLeftRightViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SlideLeftRightViewController.m; sourceTree = "<group>"; };
+		82DBA22E236AC1AC000B3516 /* CircleAnimationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CircleAnimationViewController.h; sourceTree = "<group>"; };
+		82DBA22F236AC1AC000B3516 /* CircleAnimationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CircleAnimationViewController.m; sourceTree = "<group>"; };
+		82DBA231236AC297000B3516 /* CircleAnimationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CircleAnimationView.h; sourceTree = "<group>"; };
+		82DBA232236AC297000B3516 /* CircleAnimationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CircleAnimationView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +87,7 @@
 				0F4D9EFB21EF094600029E28 /* AppDelegate.m */,
 				0F4D9EFD21EF094600029E28 /* ViewController.h */,
 				0F4D9EFE21EF094600029E28 /* ViewController.m */,
+				82DBA22D236AC18F000B3516 /* CircleAnimation */,
 				0F6AADB721F06A9900824113 /* OtherAnimation */,
 				0F4D9F3221EF197B00029E28 /* ImtationTanTanAnimation */,
 				0F4D9F0021EF094600029E28 /* Main.storyboard */,
@@ -116,6 +123,17 @@
 				0F6AADC721F070CB00824113 /* SMSwipeView.m */,
 			);
 			path = OtherAnimation;
+			sourceTree = "<group>";
+		};
+		82DBA22D236AC18F000B3516 /* CircleAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				82DBA22E236AC1AC000B3516 /* CircleAnimationViewController.h */,
+				82DBA22F236AC1AC000B3516 /* CircleAnimationViewController.m */,
+				82DBA231236AC297000B3516 /* CircleAnimationView.h */,
+				82DBA232236AC297000B3516 /* CircleAnimationView.m */,
+			);
+			path = CircleAnimation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,8 +212,10 @@
 				0F4D9EFF21EF094600029E28 /* ViewController.m in Sources */,
 				0F4D9F0A21EF095900029E28 /* main.m in Sources */,
 				0F4D9EFC21EF094600029E28 /* AppDelegate.m in Sources */,
+				82DBA230236AC1AC000B3516 /* CircleAnimationViewController.m in Sources */,
 				0F4D9F3821EF1B9900029E28 /* TanTanAnimationView.m in Sources */,
 				0F4D9F3521EF19D000029E28 /* ImtationTantanViewController.m in Sources */,
+				82DBA233236AC297000B3516 /* CircleAnimationView.m in Sources */,
 				0F6AADCB21F0712500824113 /* SlideLeftRightViewController.m in Sources */,
 				0F6AADBD21F06C2F00824113 /* SlideUpDownViewController.m in Sources */,
 			);
