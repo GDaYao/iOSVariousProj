@@ -23,8 +23,8 @@
  @param index 传入的取值下标
  @return id类型的数据
  */
-- (id)arrayObjectAtIndexVerify:(NSUInteger)index;
-- (id)arrayObjectAtIndexedSubscriptVerify:(NSUInteger)idx;
+- (id)safetyArrayObjectAtIndexVerify:(NSUInteger)index;
+- (id)safetyArrayObjectAtIndexedSubscriptVerify:(NSUInteger)idx;
 
 
 

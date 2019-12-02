@@ -21,13 +21,13 @@ NS_ASSUME_NONNULL_BEGIN
  @param object 数据
  @param index 下标
  */
-- (void)mutableArrInsertObjectVerify:(id)object atIndex:(NSInteger)index;
+- (void)safetyMutableArrInsertObjectVerify:(id)object atIndex:(NSInteger)index;
 /**
  数组中添加数据
 
  @param object 数据
  */
-- (void)mutableArrAddObjectVerify:(id)object;
+- (void)safetyMutableArrAddObjectVerify:(id)object;
 
 
 @end

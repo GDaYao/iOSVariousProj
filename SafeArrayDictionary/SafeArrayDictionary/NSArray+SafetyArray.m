@@ -50,7 +50,7 @@
 /**
  *  防止数组越界
  */
-- (id)arrayObjectAtIndexVerify:(NSUInteger)index{
+- (id)safetyArrayObjectAtIndexVerify:(NSUInteger)index{
     if (index < self.count) {
         return [self objectAtIndex:index];
     }else{
@@ -60,7 +60,7 @@
 /**
  *  防止数组越界
  */
-- (id)arrayObjectAtIndexedSubscriptVerify:(NSUInteger)idx{
+- (id)safetyArrayObjectAtIndexedSubscriptVerify:(NSUInteger)idx{
     if (idx < self.count) {
         return [self objectAtIndexedSubscript:idx];
     }else{
