@@ -59,6 +59,7 @@
 }
 /**
  *  防止数组越界
+ *  objectAtIndexedSubscript <==> 等价于arr[idx]形式
  */
 - (id)safetyArrayObjectAtIndexedSubscriptVerify:(NSUInteger)idx{
     if (idx < self.count) {
