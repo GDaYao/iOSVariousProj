@@ -71,7 +71,8 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - 隐藏
 //隐藏
 + (void)hideHUD;
-
+// set hidden customize view
++ (void)hiddenHUDForView:(UIView *)currentView animated:(BOOL)isAnimated;
 
 @end
 

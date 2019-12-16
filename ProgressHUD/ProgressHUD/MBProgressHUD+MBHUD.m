@@ -128,6 +128,13 @@
     [self hideHUDForView:[self currentUIViewController].view animated:YES];
 }
 
+// set hidden customize view
++ (void)hiddenHUDForView:(UIView *)currentView animated:(BOOL)isAnimated {
+    [MBProgressHUD hideHUDForView:currentView animated:isAnimated];
+}
+
+
+
 #pragma mark - Private
 /**
  加载动态图片
