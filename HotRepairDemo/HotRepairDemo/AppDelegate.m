@@ -6,6 +6,8 @@
 //
 
 #import "AppDelegate.h"
+#import "HotTestViewController.h"
+
 
 @interface AppDelegate ()
 
@@ -16,8 +18,19 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    
+    HotTestViewController *testVC = [[HotTestViewController alloc]init];
+    
+    self.window.rootViewController = testVC;
+    
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
+
+
 
 
 

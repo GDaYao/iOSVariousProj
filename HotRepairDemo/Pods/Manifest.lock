@@ -1,0 +1,28 @@
+PODS:
+  - Masonry (1.1.0)
+  - wax (1.2.1)
+
+DEPENDENCIES:
+  - Masonry
+  - wax (from `https://github.com/alibaba/wax.git`)
+
+SPEC REPOS:
+  trunk:
+    - Masonry
+
+EXTERNAL SOURCES:
+  wax:
+    :git: https://github.com/alibaba/wax.git
+
+CHECKOUT OPTIONS:
+  wax:
+    :commit: 0267d9f895fb605e91a7086b7eb746087b682103
+    :git: https://github.com/alibaba/wax.git
+
+SPEC CHECKSUMS:
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  wax: 85f4b93dbbfa123ee592c458a0ce289d561e4704
+
+PODFILE CHECKSUM: 37cb5b7500e96ab3dfce8ffe2957cec3073af2c4
+
+COCOAPODS: 1.9.1

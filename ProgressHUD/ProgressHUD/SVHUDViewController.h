@@ -5,6 +5,12 @@
 //  Copyright © 2019 Dayao. All rights reserved.
 //
 
+/** func:  SVProgressHUD 调用。
+*
+*/
+
+
+
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN

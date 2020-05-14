@@ -20,6 +20,15 @@
     [SVProgressHUD showWithStatus:statusStr];
 }
 
+// TODO: 文字延时提示信息--time后隐藏
++ (void)svprogressHUDShowWithMsg:(NSString *)message  minTime:(NSTimeInterval)minTime maxTime:(NSTimeInterval)maxTime  {
+    [SVProgressHUD setMinimumDismissTimeInterval:minTime]; // 1.0
+    [SVProgressHUD setMaximumDismissTimeInterval:maxTime]; // 1.5
+    [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
+    [SVProgressHUD showImage:[UIImage imageNamed:@""] status:message];
+}
+
+
 
 //  进度展示--可多次调用
 + (void)showLoadingProgressUseSVProgressWithFloat:(float)progressFloat {

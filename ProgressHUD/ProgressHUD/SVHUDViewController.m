@@ -31,7 +31,7 @@
 }
 
 - (NSArray *)titleArray {
-    return @[@"直接展示加载",@"带文字加载展示",@"进度展示-可多次调用",@"带文字进度展示",@"加载完成动画",@"移除loading加载",@"延迟移除loading加载"];
+    return @[@"直接展示加载",@"带文字延时展示",@"带文字加载展示",@"进度展示-可多次调用",@"带文字进度展示",@"加载完成动画",@"移除loading加载",@"延迟移除loading加载"];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -59,16 +59,18 @@
             [SVProgressHUD showLoadingUseSVProgress];
             break;
         case 1:
-            [SVProgressHUD showLoadingUseSVProgressWithStatus:@"带文字加载展示"];
+            [SVProgressHUD svprogressHUDShowWithMsg:@"文字延时展示" minTime:1.0 maxTime:1.5];
         case 2:
-            [SVProgressHUD showLoadingProgressUseSVProgressWithFloat:100];
+            [SVProgressHUD showLoadingUseSVProgressWithStatus:@"带文字加载展示"];
         case 3:
-            [SVProgressHUD showLoadingProgressUseSVProgressWithFloat:100 status:@"进度展示"];
+            [SVProgressHUD showLoadingProgressUseSVProgressWithFloat:100];
         case 4:
-            [SVProgressHUD showCompletionInSVProgresssWithHint:@"加载完成动画"];
+            [SVProgressHUD showLoadingProgressUseSVProgressWithFloat:100 status:@"进度展示"];
         case 5:
-            [SVProgressHUD hiddenLoadingUseSVProgress];
+            [SVProgressHUD showCompletionInSVProgresssWithHint:@"加载完成动画"];
         case 6:
+            [SVProgressHUD hiddenLoadingUseSVProgress];
+        case 7:
             [SVProgressHUD hiddenLoadingUseSVProgressWithDelay:3.0];
             
         default:
@@ -80,6 +82,8 @@
 - (void)hide {
     [SVProgressHUD hiddenLoadingUseSVProgress];
 }
+
+
 
 
 

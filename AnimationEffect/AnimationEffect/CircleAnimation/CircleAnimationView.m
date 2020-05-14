@@ -40,7 +40,7 @@
         
         [self createCAShapeLayer];
         
-        //[self createSecondLayerAnimation];
+        [self createSecondLayerAnimation];
         
     }
     return self;
