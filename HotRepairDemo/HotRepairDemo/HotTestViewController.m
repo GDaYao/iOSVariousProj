@@ -7,7 +7,22 @@
 
 #import "HotTestViewController.h"
 
+
+#import <wax/wax.h>
+
+
+
+// To add wax with extensions,use this line instead.
+#import <wax/wax_http.h>
+#import <wax/wax_json.h>
+#import <wax/wax_filesystem.h>
+
+
+
+
 @interface HotTestViewController ()
+
+
 
 @end
 
@@ -22,14 +37,40 @@
     [self createUIInVC];
 }
 
+
+
+
 #pragma mark - createUIInVC
 - (void)createUIInVC {
     
+
+    [self addWaxCodeTest];
+    
+}
+
+
+
+
+#pragma mark - add wax file test
+- (void)addWaxCodeTest {
+    
+    // TODO:start
+    wax_start("init.lua", nil);
+    
+    wax_runLuaString("print('hello wax')");
     
     
+    //
+    
+    
+    
+    
+    
+    NSLog(@"log-调用-%s",__func__);
     
     
 }
+
 
 
 
@@ -43,5 +84,7 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
 
 @end
