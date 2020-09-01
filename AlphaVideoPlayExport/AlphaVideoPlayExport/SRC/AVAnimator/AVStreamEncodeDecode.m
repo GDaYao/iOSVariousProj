@@ -115,7 +115,7 @@
 
 // Streaming delta + compress encoding operation that reads 16, 24, 32 BPP pixels
 // and writes data to an output mutable data that contains encoded bytes
-
+// 流式增量+压缩编码操作，可读取16、24、32 BPP像素并将数据写入包含编码字节的输出可变数据。
 + (BOOL) streamDeltaAndCompress:(NSData*)inputData
                     encodedData:(NSMutableData*)encodedData
                             bpp:(int)bpp

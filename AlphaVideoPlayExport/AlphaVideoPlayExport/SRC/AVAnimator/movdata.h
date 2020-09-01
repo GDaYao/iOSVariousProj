@@ -26,7 +26,7 @@
 
 extern const uint8_t* const extern_alphaTablesPtr;
 
-void premultiply_init();
+void premultiply_init(void);
 
 // Execute premultiply logic on RGBA components split into componenets.
 // For example, a pixel RGB (128, 0, 0) with A = 128

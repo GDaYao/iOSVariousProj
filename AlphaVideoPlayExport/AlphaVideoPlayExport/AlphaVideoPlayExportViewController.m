@@ -86,7 +86,7 @@
     [self.view addSubview:self.marioView];
     self.marioView.hidden = TRUE;
     
-    self.marioMedia = [AVAnimatorMedia aVAnimatorMedia];
+    // 加载资源素材
     [self prepareMedia];
     
     [self showMarioViewToPlay];
@@ -134,8 +134,10 @@
     // 放在应用退出时操作删除
 #warning 临时文件移除，因为占用大量内存容量。
     
+    // Create Media object and link it to the animatorView
     AVAnimatorMedia *media = [AVAnimatorMedia aVAnimatorMedia];
     self.marioMedia = media;
+    
     
     // 1. This loader will join 2 H.264 videos together into a single 32BPP .mvid
     AVAssetJoinAlphaResourceLoader *resLoader = [AVAssetJoinAlphaResourceLoader aVAssetJoinAlphaResourceLoader];
@@ -156,7 +158,6 @@
      resLoader.outPath = [AVFileUtil getTmpDirPath:@"bass_iPad.mvid"];
      media.resourceLoader = resLoader;
     */
-    
     
     
     //
@@ -207,19 +208,16 @@
     //        self.marioView.image = [UIImage imageNamed:@"X"];
     //    }
     
-    
-    
 }
 
 
 #pragma mark AVAnimator play status
 - (void)animatorPreviousNotification {
     // 提前隐藏加载动画
+    NSLog(@"log-animatorPreviousNotification");
 }
 - (void)animatorStartNotification:(NSNotification*)notification {
     NSLog( @"log-animatorStartNotification" );
-    
-    
     
 }
 

@@ -5,6 +5,12 @@
 //
 //  License terms defined in License.txt.
 
+/** func:
+ 帧 buffer 数据
+ 
+ */
+
+
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import <CoreGraphics/CoreGraphics.h>

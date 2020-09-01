@@ -12,6 +12,18 @@
 //  memory is configured on page bounds and word bounds for maximum efficiency
 //  at the cost of a little on disk space.
 
+
+/** func:
+    此模块实现，处理写入 .mvid 文件中的实现细节。
+    此文件类型是经过特殊优化的像素数据二进制布局，可用于动画和一般视频。
+    .mvid文件中的像素经过了优化，以便可以将区域尽快加载到内存。
+    另外，在页边界和字边界上配置了内存，以最大程度地提高效率，但只占用少量磁盘空间。
+
+ 
+ */
+
+
+
 #import <Foundation/Foundation.h>
 
 #import <QuartzCore/QuartzCore.h>

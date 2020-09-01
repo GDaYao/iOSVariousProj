@@ -156,7 +156,7 @@
   return [obj autorelease];
 #endif // objc_arc
 }
-
+// 判断是否可以写入 帧 到 .mvid文件中
 - (BOOL) open
 {
   NSAssert(isOpen == FALSE, @"isOpen");
@@ -497,7 +497,7 @@
     return TRUE;
   }
 }
-
+//
 - (BOOL) rewriteHeader
 {
   NSAssert(self.movieSize.width > 0, @"width");

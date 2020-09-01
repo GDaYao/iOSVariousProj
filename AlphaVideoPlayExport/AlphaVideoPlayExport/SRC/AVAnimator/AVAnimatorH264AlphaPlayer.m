@@ -1469,7 +1469,7 @@ enum {
   // Note that frame duration is 1/60 but the interval is 2 so 1/30 a second refresh rate
   
   if (debugDisplayLink) {
-    CFTimeInterval effectiveDuration = displayLink.duration * displayLink.frameInterval;
+    CFTimeInterval effectiveDuration = displayLink.duration * displayLink.preferredFramesPerSecond;
     NSLog(@"displayLinkCallback with timestamp %0.4f and frame duration %0.4f (interval %0.4f)", displayLink.timestamp, effectiveDuration, displayLink.duration);
   }
   
@@ -1589,7 +1589,7 @@ enum {
     [displayLink removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
   }
   displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(displayLinkCallback:)];
-  displayLink.frameInterval = 2; // 30 FPS
+  displayLink.preferredFramesPerSecond = 2; // 30 FPS
   // FIXME : NSDefaultRunLoopMode vs common mode?
   [displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
   self.displayLink = displayLink;

@@ -121,10 +121,10 @@ typedef struct DataRefTableEntry
 static inline char *
 moviedata_fcc_tostring(MovData *movData, uint32_t num)
 {
-  movData->fccbuffer[0] = ((char) (num & 0xFF)),
-  movData->fccbuffer[1] = ((char) ((num >> 8) & 0xFF)),
-  movData->fccbuffer[2] = ((char) ((num >> 16) & 0xFF)),
-  movData->fccbuffer[3] = ((char) ((num >> 24) & 0xFF)),
+    (void)(movData->fccbuffer[0] = ((char) (num & 0xFF))),
+    (void)(movData->fccbuffer[1] = ((char) ((num >> 8) & 0xFF))),
+    (void)(movData->fccbuffer[2] = ((char) ((num >> 16) & 0xFF))),
+    (void)(movData->fccbuffer[3] = ((char) ((num >> 24) & 0xFF))),
   movData->fccbuffer[4] = '\0';
   return movData->fccbuffer;  
 }
@@ -217,7 +217,7 @@ read_fixed32(FILE *fp, float *ptr)
 }
 
 static
-void init_alphaTables();
+void init_alphaTables(void);
 
 // recurse into atoms and process them. Return 0 on success
 // otherwise non-zero to indicate an error.

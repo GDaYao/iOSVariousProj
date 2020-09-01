@@ -11,6 +11,14 @@
 // dir, it can be opened and read like and other file, so no
 // intermediate tmp files are needed.
 
+/** func:
+ 
+ AVAppResourceLoader 类从iOS项目的已编译应用程序资源中实现动画数据的加载。
+应用程序资源文件不需要复制到tmp目录中，可以像其他文件一样打开和读取，因此不需要中间的tmp文件。
+ 
+ */
+
+
 #import <Foundation/Foundation.h>
 
 #import "AVResourceLoader.h"

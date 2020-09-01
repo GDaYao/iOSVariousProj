@@ -116,7 +116,7 @@ typedef enum
 
 // This utility method will setup the asset so that it is opened and ready
 // to decode frames of video data.
-
+// 此工具方法将设立资源以便打开和准备解码视频帧。
 - (BOOL) setupAsset
 {
   NSAssert(self.assetURL, @"assetURL");
@@ -287,7 +287,7 @@ typedef enum
 // Return TRUE if starting to read from the asset file is successful, FALSE otherwise.
 // Normally, reading from a H264 asset is successful as long as the file exists and it
 // contains properly formatted H264 data.
-
+// 把给定的2个资源文件转换为AVAsset后，此方法负责判断是否可读取。
 - (BOOL) startReadingAsset
 {
   BOOL worked;
@@ -730,7 +730,7 @@ typedef enum
   
   self.assetURL = [NSURL fileURLWithPath:assetPath];
     
-  worked = [self setupAsset];
+  worked = [self setupAsset];  // 通过加载的两个资源文件解码成需要的AVAsset使用。
   if (worked == FALSE) {
     return FALSE;
   }
@@ -741,7 +741,7 @@ typedef enum
   if (TRUE) {
     // Start reading from asset, this is only done when the first frame is read.
     // FIXME: it might be better to move this logic into the allocateDecodeResources method
-    
+    // 可能把这个逻辑移动到 allocateDecodeResources 方法中更好
     
     worked = [self startReadingAsset];
     if (worked == FALSE) {

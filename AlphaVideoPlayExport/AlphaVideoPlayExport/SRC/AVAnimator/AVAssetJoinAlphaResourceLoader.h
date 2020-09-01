@@ -11,6 +11,16 @@
 // stored as grayscale. Typically, the h264 video should be encoded with
 // ffmpeg+x264 and it would be stored in a .m4v file.
 
+/** func:
+ 该加载程序将解压缩具有完整Alpha通道的视频，并将其存储为一对h264编码的视频。
+ 第一个视频包含RGB值并且第二个视频包含透明通道存储其灰度值。
+ 通常，h264视频应使用ffmpeg+x264进行编码，并将其存储在.m4v文件中。
+ 
+ 
+ */
+
+
+
 @class AVAsset2MvidResourceLoader;
 
 #import <Foundation/Foundation.h>

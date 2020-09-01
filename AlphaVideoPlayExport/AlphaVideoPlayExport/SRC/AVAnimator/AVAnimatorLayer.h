@@ -12,6 +12,13 @@
 // and pass the CALayer ref that will be the target
 // of the rendering operation.
 
+
+/** func: `AVAnimatorLayer` 类提供渲染媒体帧到CALayer对象上的方法。
+ 媒体帧全部或部分透明是被自动支持的。可以分配一个AVAnimatorLayer并传递将成为渲染操作目标的CALayer ref.
+ 
+ */
+
+
 #import <UIKit/UIKit.h>
 
 #import "AVAnimatorMediaRendererProtocol.h"

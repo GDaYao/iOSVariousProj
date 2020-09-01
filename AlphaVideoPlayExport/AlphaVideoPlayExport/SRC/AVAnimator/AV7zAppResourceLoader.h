@@ -11,6 +11,16 @@
 // a second thread. The caller must define the archiveFilename, movieFilename, and
 // outPath properties. The outPath is a .mvid file path.
 
+/** func:
+ 扩展 `AVAppResourceLoader` 去支持加载7zip类型的压缩资源文件。
+ 例如，一个资源文件名 "2x2_black_blue_16BPP.mvid.7z"能够被解压成 "2x2_black_blue_16BPP.mvid"
+ 此文件被解压到 tmp临时文件夹在另一个线程中，调用者必须定义 打包文件名，视频文件名和输出文件属性。并且输出文件名要以 .mvid 后缀名结尾的路径名称。
+ 
+ */
+
+
+
+
 #import <Foundation/Foundation.h>
 
 #import "AVAppResourceLoader.h"

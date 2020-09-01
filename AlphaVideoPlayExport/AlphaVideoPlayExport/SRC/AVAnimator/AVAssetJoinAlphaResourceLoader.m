@@ -127,7 +127,7 @@
   } else {
     startedLoading = TRUE;
   }
-  
+  // 确保线程安全
   premultiply_init(); // ensure thread safe init of premultiply table
   
   NSAssert(self.movieRGBFilename, @"movieRGBFilename");
@@ -175,7 +175,7 @@
 //
 // Implement logic to join pixels from RGB video and Alpha video back into single .mvid
 // with an alpha channel.
-
+#pragma mark - 实施逻辑以将RGB视频和Alpha视频中的像素连接回单个.mvid
 + (BOOL) joinRGBAndAlpha:(NSString*)joinedMvidPath
                  rgbPath:(NSString*)rgbPath
                alphaPath:(NSString*)alphaPath
@@ -183,12 +183,12 @@
             isCompressed:(BOOL)isCompressed
 {
   // Open both the rgb and alpha mvid files for reading
-  
+  // 打开rgb和透明 mvid文件读取
   AVAssetFrameDecoder *frameDecoderRGB = [AVAssetFrameDecoder aVAssetFrameDecoder];
   AVAssetFrameDecoder *frameDecoderAlpha = [AVAssetFrameDecoder aVAssetFrameDecoder];
   
   BOOL worked;
-  worked = [frameDecoderRGB openForReading:rgbPath];
+  worked = [frameDecoderRGB openForReading:rgbPath]; // 判断当前视频资源文件是否可以被AVAsset转换并读取操作。
   
   if (worked == FALSE) {
     NSLog(@"error: cannot open RGB mvid filename \"%@\"", rgbPath);
@@ -220,8 +220,8 @@
 
   // framerate
   
-  NSTimeInterval frameRate = frameDecoderRGB.frameDuration;
-  NSTimeInterval frameRateAlpha = frameDecoderAlpha.frameDuration;
+  NSTimeInterval frameRate = frameDecoderRGB.frameDuration;      // 获得RGB资源帧速率
+  NSTimeInterval frameRateAlpha = frameDecoderAlpha.frameDuration; // 获取alpha资源帧速率
   if (frameRate != frameRateAlpha) {
     NSLog(@"error: RGB movie fps %.4f does not match alpha movie fps %.4f",
           1.0f/(float)frameRate, 1.0f/(float)frameRateAlpha);
@@ -258,7 +258,7 @@
   }
   
   // Create output file writer object
-  
+  // TODO: 此类中包含实现生成.mvid文件细节
   AVMvidFileWriter *fileWriter = [AVMvidFileWriter aVMvidFileWriter];
   NSAssert(fileWriter, @"fileWriter");
   
@@ -283,15 +283,15 @@
   fileWriter.movieSize = size;
   
   CGFrameBuffer *combinedFrameBuffer = [CGFrameBuffer cGFrameBufferWithBppDimensions:32 width:width height:height];
-
+    // 像素转储用于将预期结果与iOS解码器硬件产生的实际结果进行比较
   // Pixel dump used to compare exected results to actual results produced by iOS decoder hardware
   //NSString *tmpFilename = [NSString stringWithFormat:@"%@%@", joinedMvidPath, @".adump"];
   //char *utf8Str = (char*) [tmpFilename UTF8String];
   //NSLog(@"Writing %s", utf8Str);
   //FILE *fp = fopen(utf8Str, "w");
   //assert(fp);
-  
-  for (NSUInteger frameIndex = 0; frameIndex < numFrames; frameIndex++) @autoreleasepool {
+
+    for (NSUInteger frameIndex = 0; frameIndex < numFrames; frameIndex++) @autoreleasepool {
 #ifdef LOGGING
     NSLog(@"reading frame %d", frameIndex);
 #endif // LOGGING
@@ -321,7 +321,7 @@
       [data writeToFile:tmpPNGPath atomically:YES];
       NSLog(@"wrote %@", tmpPNGPath);
     }
-    
+    // 在框架内释放UIImage ref，因为我们将直接对图像数据进行操作。
     // Release the UIImage ref inside the frame since we will operate on the image data directly.
     frameRGB.image = nil;
     frameAlpha.image = nil;
@@ -427,7 +427,7 @@
 // Join the RGB and Alpha components of two input framebuffers
 // so that the final output result contains native premultiplied
 // 32 BPP pixels.
-
+// 连接两个输入帧缓冲区的RGB和Alpha分量，以便最终输出结果包含本机预乘的32 BPP像素。
 + (void) combineRGBAndAlphaPixels:(uint32_t)numPixels
                    combinedPixels:(uint32_t*)combinedPixels
                         rgbPixels:(uint32_t*)rgbPixels
@@ -564,7 +564,7 @@
   
   return;
 }
-
+#pragma mark - 此方法功能，解码给定的两个资源文件，然后合并成为一个单独的mvid带alpha透明通道的文件。
 // This method is invoked in the secondary thread to decode the contents of the
 // two resource asset files and combine them back together into a single
 // mvid with an alpha channel.
@@ -595,7 +595,7 @@
   // Check to see if the output file already exists. If the resource exists at this
   // point, then there is no reason to kick off another decode operation. For example,
   // in the serial loading case, a previous load could have loaded the resource.
-  
+  // 判断mvid文件是否存在，存在就需要在解码生层新的mvid文件了。
   BOOL fileExists = [AVFileUtil fileExists:outPath];
   
   if (fileExists) {

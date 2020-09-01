@@ -11,6 +11,11 @@
 //  purpose code can safely pass around a reference to a AVFrame without platform
 //  specific concerns.
 
+/** func:
+  此类定义了平台特定的“框架”对象，该对象“包含”动画或电影中一个特定框架的视觉信息。 仅在一个平台上执行的代码可以访问平台特定的属性，但是通用代码可以安全地传递对AVFrame的引用，而无需平台特定的问题。
+ 
+ */
+
 #import <Foundation/Foundation.h>
 
 #if TARGET_OS_IPHONE

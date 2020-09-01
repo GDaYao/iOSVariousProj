@@ -14,6 +14,15 @@
 // exact method used to load the resource is defined by
 // a specific implementation.
 
+/** func:
+ 
+ 创建资源加载器并将其附加到媒体对象，以实现特定类型的资源加载。
+ 资源的类型可以是URL或文件，但是用于加载资源的确切方法由特定的实现定义。
+ 
+ */
+
+
+
 @interface AVResourceLoader : NSObject {
 @private
   BOOL m_isReady;
@@ -34,7 +43,7 @@
 // flag provides a way to limit resource usage by loading
 // one resource at a time.
 
-@property (nonatomic, assign) BOOL serialLoading;
+@property (nonatomic, assign) BOOL serialLoading;   // 使用此flag，保持每个资源加载进入一个接一个。
 
 // Invoked to load resources, this call assumes that
 // isReady has been invoked to check if the resources

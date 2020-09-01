@@ -52,19 +52,19 @@
 // Invoked when audio player was interrupted, for example by
 // an incoming phone call.
 
-- (void)audioPlayerBeginInterruption:(AVAudioPlayer *)player
-{
-	// FIXME: pass reason for stop (loop, interrupt)
-  
-	[media pause];
-}
-
-- (void)audioPlayerEndInterruption:(AVAudioPlayer *)player
-{
-	// Resume playback of audio
-  
-	[media unpause];
-}
+//- (void)audioPlayerBeginInterruption:(AVAudioPlayer *)player
+//{
+//	// FIXME: pass reason for stop (loop, interrupt)
+//
+//	[media pause];
+//}
+//
+//- (void)audioPlayerEndInterruption:(AVAudioPlayer *)player
+//{
+//	// Resume playback of audio
+//
+//	[media unpause];
+//}
 
 - (void)audioPlayerDecodeErrorDidOccur:(AVAudioPlayer *)player error:(NSError *)error
 {
@@ -186,7 +186,7 @@
 
 // static ctor
 
-+ (AVAnimatorMedia*)aVAnimatorMedia
++ (AVAnimatorMedia*) aVAnimatorMedia
 {
   AVAnimatorMedia *obj = [[AVAnimatorMedia alloc] init];
 #if __has_feature(objc_arc)
@@ -291,7 +291,7 @@
 	BOOL isReady = [self.resourceLoader isReady];
   if (!isReady) {
     //NSLog(@"Not Yet Ready in _loadResources");
-    [self.resourceLoader load];
+    [self.resourceLoader load];     // 加载传入的RBG+alpha资源数据
     return FALSE;
   }
   
@@ -360,7 +360,7 @@
 
 // When a media item is ready to load resources needed for audio/video
 // playback, this method is invoked.
-
+// 当媒体资源准备加载资源时，需要音频或视频播放，此方法被调用
 - (void) _loadResourcesCallback:(NSTimer *)timer
 {
 #if defined(DEBUG)
@@ -386,6 +386,7 @@
 
   // Test to see if the all resources have been loaded. If they have, then
   // stop invoking the load callback and get ready to play.
+    // 测试以查看是否所有资源都已加载。 如果有，请停止调用load回调并准备播放。
   
   BOOL ready = [self _loadResources];
   if (!ready) {

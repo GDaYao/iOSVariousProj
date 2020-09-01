@@ -4,6 +4,11 @@
 //
 // This module defines logic that convert from an APNG to a memory mapped maxvid file.
 
+/** func:
+ 此模块定义了APNG转换为内存映射maxvid文件的逻辑。
+ */
+
+
 #include <stdio.h>
 #include <stdint.h>
 #include <string.h>
