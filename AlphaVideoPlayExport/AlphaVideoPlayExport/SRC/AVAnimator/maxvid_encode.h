@@ -4,6 +4,12 @@
 //
 // This module defines the encoder portion of the maxvid video codec for iOS.
 
+
+/** func:
+    该模块定义了用于iOS的maxvid视频编解码器的编码器部分。
+    
+ */
+
 #import "maxvid_decode.h"
 
 #import <Foundation/Foundation.h>

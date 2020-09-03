@@ -9,6 +9,14 @@
 // are mixed together. A video of this type must be encoded with the main
 // profile so that effective compression is retained.
 
+
+/** func:
+ 该加载器将解压缩RGB和Alpha帧混合在一起的“混合”视频。
+ 
+ 此类型的视频必须使用主配置文件编码，以便保留有效的压缩。
+ 
+ */
+
 @class AVAsset2MvidResourceLoader;
 
 #import <Foundation/Foundation.h>

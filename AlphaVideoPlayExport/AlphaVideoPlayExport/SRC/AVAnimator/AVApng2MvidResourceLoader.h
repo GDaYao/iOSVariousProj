@@ -28,6 +28,14 @@
 // In practice, one should be able to get 30 FPS performance for full screen 480x320
 // video that was decoded from a .apng file, even on an old iPhone 3g.
 
+
+/** func:
+ 此装载器转换APNG 资源.apng 到.mvid文件中。
+ 
+ 
+ */
+
+
 #import <Foundation/Foundation.h>
 
 #import "AV7zAppResourceLoader.h"

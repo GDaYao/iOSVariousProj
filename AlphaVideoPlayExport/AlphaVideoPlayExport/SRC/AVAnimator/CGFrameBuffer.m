@@ -91,120 +91,124 @@ void CGFrameBufferProviderReleaseData (void *info, const void *data, size_t size
 #endif // objc_arc
 }
 
+#pragma mark - 初始化此frame buffer
 - (id) initWithBppDimensions:(NSInteger)bitsPerPixel
                        width:(NSInteger)width
                       height:(NSInteger)height;
 {
-	// Ensure that memory is allocated in terms of whole words, the
-	// bitmap context won't make use of the extra half-word.
-
-	size_t numPixels = width * height;
-	size_t numPixelsToAllocate = numPixels;
-
-	if ((numPixels % 2) != 0) {
-		numPixelsToAllocate++;
-	}
-
-  // 16bpp -> 2 bytes per pixel, 24bpp and 32bpp -> 4 bytes per pixel
-  
-  size_t bytesPerPixel;
-  if (bitsPerPixel == 16) {
-    bytesPerPixel = 2;
-  } else if (bitsPerPixel == 24 || bitsPerPixel == 32) {
-    bytesPerPixel = 4;
-  } else {
-    bytesPerPixel = 0;
-    NSAssert(FALSE, @"bitsPerPixel is invalid");
-  }
-  
-	size_t inNumBytes = numPixelsToAllocate * bytesPerPixel;
-
-  // FIXME: if every frame is a key frame, then don't use the kernel memory interface
-  // since it would not help at all in terms of performance. Would be faster to
-  // just use different buffers.
-  
-  // FIXME: implement runtime switch for mode, so that code can be compiled once to
-  // test out both modes!
-
-	char* buffer;
-  size_t allocNumBytes;
-  
+    // Ensure that memory is allocated in terms of whole words, the
+    // bitmap context won't make use of the extra half-word.
+    
+    size_t numPixels = width * height;
+    size_t numPixelsToAllocate = numPixels;
+    
+    if ((numPixels % 2) != 0) {
+        numPixelsToAllocate++;
+    }
+    
+    // 16bpp -> 2 bytes per pixel, 24bpp and 32bpp -> 4 bytes per pixel
+    // RGBA，一个通道一个字节，一个像素包含4个通道。
+    
+    size_t bytesPerPixel;
+    if (bitsPerPixel == 16) {
+        bytesPerPixel = 2;
+    } else if (bitsPerPixel == 24 || bitsPerPixel == 32) {
+        bytesPerPixel = 4;
+    } else {
+        bytesPerPixel = 0;
+        NSAssert(FALSE, @"bitsPerPixel is invalid");
+    }
+    
+    // 所有的像素总和所占内存字节数
+    size_t inNumBytes = numPixelsToAllocate * bytesPerPixel;
+    
+    // FIXME: if every frame is a key frame, then don't use the kernel memory interface
+    // since it would not help at all in terms of performance. Would be faster to
+    // just use different buffers.
+    
+    // FIXME: implement runtime switch for mode, so that code can be compiled once to
+    // test out both modes!
+    
+    char* buffer;
+    size_t allocNumBytes; // 应该分配多大bytes字节数（分页数 * 每页bytes ）
+    
 #if defined(USE_MACH_VM_ALLOCATE)
-  size_t pagesize = (size_t)getpagesize();
-  size_t numpages = (inNumBytes / pagesize);
-  if (inNumBytes % pagesize) {
-    numpages++;
-  }
-  
-  vm_size_t m_size = (vm_size_t)(numpages * pagesize);
-  allocNumBytes = (size_t)m_size;
-  
-  kern_return_t ret = vm_allocate((vm_map_t) mach_task_self(), (vm_address_t*) &buffer, m_size, VM_FLAGS_ANYWHERE);
-  
-  if (ret != KERN_SUCCESS) {
-    buffer = NULL;
-  }
-  
-  // Note that the returned memory is not zeroed, the first frame is a keyframe, so it will completely
-  // fill the framebuffer. Additional frames will be created from a copy of the initial frame.
+    size_t pagesize = (size_t)getpagesize();
+    size_t numpages = (inNumBytes / pagesize);    // 分页大小
+    if (inNumBytes % pagesize) {
+        numpages++;
+    }
+    
+    vm_size_t m_size = (vm_size_t)(numpages * pagesize);
+    allocNumBytes = (size_t)m_size;
+    
+    // mac或iOS上申请内核内存方法。 -- 内核内存都是按页管理
+    kern_return_t ret = vm_allocate((vm_map_t) mach_task_self(), (vm_address_t*) &buffer, m_size, VM_FLAGS_ANYWHERE);
+    
+    if (ret != KERN_SUCCESS) {
+        buffer = NULL;
+    }
+    
+    // Note that the returned memory is not zeroed, the first frame is a keyframe, so it will completely
+    // fill the framebuffer. Additional frames will be created from a copy of the initial frame.
 #else
-  // Regular malloc(), or page aligned malloc()
+    // Regular malloc(), or page aligned malloc()
 # if defined(USE_ALIGNED_VALLOC)
-  size_t pagesize = getpagesize();
-  size_t numpages = (inNumBytes / pagesize);
-  if (inNumBytes % pagesize) {
-    numpages++;
-  }
-  allocNumBytes = numpages * pagesize;
-  buffer = (char*) valloc(allocNumBytes);
-  if (buffer) {
-    bzero(buffer, allocNumBytes);
-  }  
+    size_t pagesize = getpagesize();
+    size_t numpages = (inNumBytes / pagesize);
+    if (inNumBytes % pagesize) {
+        numpages++;
+    }
+    allocNumBytes = numpages * pagesize;
+    buffer = (char*) valloc(allocNumBytes);
+    if (buffer) {
+        bzero(buffer, allocNumBytes);
+    }
 # else
-  allocNumBytes = inNumBytes;
-  buffer = (char*) malloc(allocNumBytes);
-  if (buffer) {
-    bzero(buffer, allocNumBytes);
-  }  
+    allocNumBytes = inNumBytes;
+    buffer = (char*) malloc(allocNumBytes);
+    if (buffer) {
+        bzero(buffer, allocNumBytes);
+    }
 # endif // USE_ALIGNED_MALLOC
 #endif
-
-	if (buffer == NULL) {
-		return nil;
-  }
-
-  // Verify page alignemnt of the image buffer. The self.pixels pointer must be page
-  // aligned to properly support zero copy blit and whole page copy optimizations.
-
-  if (1) {
-    uint32_t i32val = (uint32_t)buffer;
-    uint32_t pagesize = getpagesize();
-    uint32_t mod = i32val % pagesize;
     
-    if (mod != 0) {
-      NSAssert(0, @"framebuffer is not page aligned : pagesize %d : ptr %p : ptr32 0x%08X : ptr32 mod pagesize %d",
-               pagesize,
-               buffer,
-               i32val,
-               mod);
-      // Just in case NSAssert() was disabled in opt mode
-      assert(0);
+    if (buffer == NULL) {
+        return nil;
     }
-  }
-  
-  if ((self = [super init])) {
-    self->m_bitsPerPixel = bitsPerPixel;
-    self->m_bytesPerPixel = bytesPerPixel;
-    self->m_pixels = buffer;
-    self->m_numBytes = inNumBytes;
-    self->m_numBytesAllocated = allocNumBytes;
-    self->m_width = width;
-    self->m_height = height;
-  } else {
-    free(buffer);
-  }
-
-	return self;
+    
+    // Verify page alignemnt of the image buffer. The self.pixels pointer must be page
+    // aligned to properly support zero copy blit and whole page copy optimizations.
+    
+    if (1) {
+        uint32_t i32val = (uint32_t)buffer;
+        uint32_t pagesize = getpagesize();
+        uint32_t mod = i32val % pagesize;
+        
+        if (mod != 0) {
+            NSAssert(0, @"framebuffer is not page aligned : pagesize %d : ptr %p : ptr32 0x%08X : ptr32 mod pagesize %d",
+                     pagesize,
+                     buffer,
+                     i32val,
+                     mod);
+            // Just in case NSAssert() was disabled in opt mode
+            assert(0);
+        }
+    }
+    
+    if ((self = [super init])) {
+        self->m_bitsPerPixel = bitsPerPixel;
+        self->m_bytesPerPixel = bytesPerPixel;
+        self->m_pixels = buffer;
+        self->m_numBytes = inNumBytes;
+        self->m_numBytesAllocated = allocNumBytes;
+        self->m_width = width;
+        self->m_height = height;
+    } else {
+        free(buffer);
+    }
+    
+    return self;
 }
 
 // Getter for the self.pixels property. Normally, this
@@ -437,70 +441,70 @@ void CGFrameBufferProviderReleaseData (void *info, const void *data, size_t size
 
 - (CGImageRef) createCGImageRef
 {
-	// Load pixel data as a core graphics image object.
-
-  NSAssert(self.width > 0 && self.height > 0, @"width or height is zero");
-
-  size_t bitsPerComponent = 0;
-  size_t numComponents = 0;
-  size_t bitsPerPixel = 0;
-  size_t bytesPerRow = 0;
-  
-  if (self.bitsPerPixel == 16) {
-    bitsPerComponent = 5;
-//    numComponents = 3;
-    bitsPerPixel = 16;
-    bytesPerRow = self.width * (bitsPerPixel / 8);    
-  } else if (self.bitsPerPixel == 24 || self.bitsPerPixel == 32) {
-    bitsPerComponent = 8;
-    numComponents = 4;
-    bitsPerPixel = bitsPerComponent * numComponents;
-    bytesPerRow = self.width * (bitsPerPixel / 8);
-  } else {
-    NSAssert(FALSE, @"unmatched bitsPerPixel");
-  }  
-
-	CGBitmapInfo bitmapInfo = [self getBitmapInfo];
-
-	CGDataProviderReleaseDataCallback releaseData = CGFrameBufferProviderReleaseData;
-
-  void *pixelsPtr = self.pixels; // Will return zero copy pointer in zero copy mode. Otherwise self.pixels
-  
-	CGDataProviderRef dataProviderRef = CGDataProviderCreateWithData(
+    // Load pixel data as a core graphics image object.
+    // 加载像素数据作为核心图形图像对象。
+    NSAssert(self.width > 0 && self.height > 0, @"width or height is zero");
+    
+    size_t bitsPerComponent = 0;
+    size_t numComponents = 0;
+    size_t bitsPerPixel = 0;
+    size_t bytesPerRow = 0;
+    
+    if (self.bitsPerPixel == 16) {
+        bitsPerComponent = 5;
+        //    numComponents = 3;
+        bitsPerPixel = 16;
+        bytesPerRow = self.width * (bitsPerPixel / 8);
+    } else if (self.bitsPerPixel == 24 || self.bitsPerPixel == 32) {
+        bitsPerComponent = 8;
+        numComponents = 4;
+        bitsPerPixel = bitsPerComponent * numComponents;
+        bytesPerRow = self.width * (bitsPerPixel / 8);
+    } else {
+        NSAssert(FALSE, @"unmatched bitsPerPixel");
+    }
+    
+    CGBitmapInfo bitmapInfo = [self getBitmapInfo];
+    
+    CGDataProviderReleaseDataCallback releaseData = CGFrameBufferProviderReleaseData;
+    
+    void *pixelsPtr = self.pixels; // Will return zero copy pointer in zero copy mode. Otherwise self.pixels
+    
+    CGDataProviderRef dataProviderRef = CGDataProviderCreateWithData(
 #if __has_feature(objc_arc)
-																	 (__bridge void *)self,
+                                                                     (__bridge void *)self,
 #else
-																	 self,
+                                                                     self,
 #endif // objc_arc
-																	 pixelsPtr,
-																	 self.width * self.height * (bitsPerPixel / 8),
-																	 releaseData);
-
-	BOOL shouldInterpolate = FALSE; // images at exact size already
-
-	CGColorRenderingIntent renderIntent = kCGRenderingIntentDefault;
-
-  CGColorSpaceRef colorSpace = self.colorspace;
-  if (colorSpace) {
-    CGColorSpaceRetain(colorSpace);
-  } else {
-    colorSpace = CGColorSpaceCreateDeviceRGB();
-  }
-
-	CGImageRef inImageRef = CGImageCreate(self.width, self.height, bitsPerComponent, bitsPerPixel, bytesPerRow,
-										  colorSpace, bitmapInfo, dataProviderRef, NULL,
-										  shouldInterpolate, renderIntent);
-
-	CGDataProviderRelease(dataProviderRef);
-
-	CGColorSpaceRelease(colorSpace);
-
-	if (inImageRef != NULL) {
-		self.isLockedByDataProvider = TRUE;
-		self->m_lockedByImageRef = inImageRef; // Don't retain, just save pointer
-	}
-
-	return inImageRef;
+                                                                     pixelsPtr,
+                                                                     self.width * self.height * (bitsPerPixel / 8),
+                                                                     releaseData);
+    
+    BOOL shouldInterpolate = FALSE; // images at exact size already
+    
+    CGColorRenderingIntent renderIntent = kCGRenderingIntentDefault;
+    
+    CGColorSpaceRef colorSpace = self.colorspace;
+    if (colorSpace) {
+        CGColorSpaceRetain(colorSpace);
+    } else {
+        colorSpace = CGColorSpaceCreateDeviceRGB();
+    }
+    
+    CGImageRef inImageRef = CGImageCreate(self.width, self.height, bitsPerComponent, bitsPerPixel, bytesPerRow,
+                                          colorSpace, bitmapInfo, dataProviderRef, NULL,
+                                          shouldInterpolate, renderIntent);
+    
+    CGDataProviderRelease(dataProviderRef);
+    
+    CGColorSpaceRelease(colorSpace);
+    
+    if (inImageRef != NULL) {
+        self.isLockedByDataProvider = TRUE;
+        self->m_lockedByImageRef = inImageRef; // Don't retain, just save pointer
+    }
+    
+    return inImageRef;
 }
 
 - (BOOL) isLockedByImageRef:(CGImageRef)cgImageRef

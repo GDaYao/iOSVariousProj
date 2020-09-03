@@ -10,7 +10,10 @@
 
 #import "AlphaVideoPlayExportViewController.h"
 
-@interface ViewController ()
+@interface ViewController () <UIImagePickerControllerDelegate>
+
+
+@property (nonatomic,strong)UIImage *bgCoverImg;
 
 @end
 
@@ -53,21 +56,65 @@
 
 
 #pragma mark - action
+- (void)twotapNextBtnAction {
+    [self selectAlbum];
+    
+}
+
+#pragma mark - select Album + Delegate
+- (void)selectAlbum {
+    UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+    imagePickerController.delegate = self;
+    imagePickerController.allowsEditing = YES; //  allowsEditing属性⼀一定要设置成yes，表示照⽚片可编辑，会出现矩形图⽚片选择框
+    imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    
+    if (@available(iOS 13.0,*)) {
+        imagePickerController.modalPresentationStyle =  UIModalPresentationFullScreen;
+    }
+    [self presentViewController:imagePickerController animated:YES completion:nil];
+    
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
+
+    //退出相册
+    [picker dismissViewControllerAnimated:YES completion:^{
+        
+        // 使用 - 原图
+        UIImage *originalImage = [info objectForKey:UIImagePickerControllerOriginalImage];
+        
+        // 使⽤- 用户选择区域图⽚
+        UIImage *editImage = [info objectForKey:UIImagePickerControllerEditedImage];
+        
+        // 得到图片后操作使用
+        self.bgCoverImg = editImage;
+        
+        NSString *tmpDir = NSTemporaryDirectory();
+        NSString *disPNGPath = [tmpDir stringByAppendingFormat:@"tmp-1.jpg"];
+        //NSData *data = [NSData dataWithData:UIImagePNGRepresentation(editImage)];
+        NSData *data = [NSData dataWithData:UIImageJPEGRepresentation(editImage, 0.5)];
+        [data writeToFile:disPNGPath atomically:YES];
+        
+    }];
+}
+
+
+//
 - (void)tapNextBtnAction {
 
     
     AlphaVideoPlayExportViewController *nextAlphaPlayVC = [[AlphaVideoPlayExportViewController alloc]init];
 
+    nextAlphaPlayVC.bgCoverImg = self.bgCoverImg;
     
     NSString *srcPath = [[NSBundle mainBundle]bundlePath];
     
     // 资源路径
     nextAlphaPlayVC.unzipVideoPath  = srcPath;  // ~/Documents/TempleDes/xxxx
-//    nextAlphaPlayVC.mvColorStr = [srcPath stringByAppendingPathComponent:kVideoColorStr];
-//    nextAlphaPlayVC.mvMaskStr = [srcPath stringByAppendingPathComponent:kVideoMaskStr];
-//    nextAlphaPlayVC.mvJsonPath = [srcPath stringByAppendingPathComponent:kVideoJsonStr];
+    
     nextAlphaPlayVC.mvColorStr = [[NSBundle mainBundle]pathForResource:kVideoColorStr ofType:@""];
     nextAlphaPlayVC.mvMaskStr = [[NSBundle mainBundle]pathForResource:kVideoMaskStr ofType:@""];
+    
     nextAlphaPlayVC.mvJsonPath = [[NSBundle mainBundle]pathForResource:kVideoJsonStr ofType:@""];
     
     nextAlphaPlayVC.fileName = @"chunnuanhuakai";

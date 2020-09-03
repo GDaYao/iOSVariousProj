@@ -4,6 +4,12 @@
 //
 // This module defines the format and logic to read and write a maxvid file.
 
+
+/** func:
+ 此模块定义了读写 maxvid 文件的格式和逻辑。
+ */
+
+
 #include "maxvid_decode.h"
 
 // If this define is set to 1, then support for the experimental "deltas"
@@ -58,6 +64,14 @@
 // generating a maxvid file based on an intermediate format that can be validated.
 // Instead of validating on data access on the embedded device, we validate on write
 // typically done on the desktop.
+
+/*
+ maxvid文件是视频数据的“在内存中”表示写入文件。 数据始终为本地字节序格式。
+ 数据结构的大小适合有效执行，而不是最小的空间使用或便携性。 数据是maxvid文件，未经验证，因此输入数据不能无效。
+ 该假设基于以下事实：大多数用法将涉及根据可以验证的中间格式生成maxvid文件。
+ 我们不对嵌入式设备上的数据访问进行验证，而是对写入进行验证通常在桌面上完成。
+ 
+ */
 
 typedef struct {
   uint32_t magic;

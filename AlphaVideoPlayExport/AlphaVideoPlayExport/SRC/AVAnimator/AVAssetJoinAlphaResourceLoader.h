@@ -17,12 +17,15 @@
  通常，h264视频应使用ffmpeg+x264进行编码，并将其存储在.m4v文件中。
  
  
+ *** 处理rgb+alpha素材核心代码 ***
+ 
  */
 
 
 
 @class AVAsset2MvidResourceLoader;
 
+#import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 
 #import "AVAppResourceLoader.h"
@@ -41,6 +44,10 @@
   BOOL m_compressed;
 #endif // HAS_LIB_COMPRESSION_API
 }
+
+// 后面背景图
+@property (nonatomic,strong)UIImage *bgCoverImg;
+
 
 // The name of the RGB portion of the movie should be saved in the
 // "movieRGBFilename" property.

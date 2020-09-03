@@ -27,6 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface AlphaVideoPlayExportViewController : UIViewController
 
 
+@property (nonatomic,strong)UIImage *bgCoverImg;
 
 
 // 素材名称

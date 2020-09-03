@@ -2357,6 +2357,7 @@ alphaTables[PREMULT_TABLEMAX*PREMULT_TABLEMAX] = {
 };
 
 // Read only pointer to read only memory, defined statically
+// 只读指针指向只读存储器，静态定义
 const uint8_t* const extern_alphaTablesPtr = &alphaTables[0];
 
 #define READ_AND_PREMULTIPLY(result, ptr) \

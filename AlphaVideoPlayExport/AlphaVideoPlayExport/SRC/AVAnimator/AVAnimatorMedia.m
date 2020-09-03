@@ -387,7 +387,7 @@
   // Test to see if the all resources have been loaded. If they have, then
   // stop invoking the load callback and get ready to play.
     // 测试以查看是否所有资源都已加载。 如果有，请停止调用load回调并准备播放。
-  
+  // TODO: 从这里进入 AlphaResourceLoader loader中，调用load方法。
   BOOL ready = [self _loadResources];
   if (!ready) {
     // Not ready yet, continue with callbacks. Note that we don't cancel

@@ -5,6 +5,12 @@
 //
 //  License terms defined in License.txt.
 
+/** func:
+ 需要定义使用的宏定义 define 使用
+ 
+ */
+
+
 #import <Foundation/Foundation.h>
 
 #if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_4_1 // iOS 4.1 or newer (iOS Deployment Target)
@@ -30,5 +36,6 @@
 // on these two frameworks is AVAnimatorOpenGLView
 
 #define HAS_LIB_COMPRESSION_API
+
 
 #endif // iOS 9.0 or newer

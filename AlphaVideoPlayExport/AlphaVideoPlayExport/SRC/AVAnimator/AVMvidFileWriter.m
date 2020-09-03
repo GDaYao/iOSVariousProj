@@ -47,7 +47,7 @@
 // Emit zero length words up to the next page bound after the keyframe data.
 // Pass in the current offset, function returns the new offset.
 // This method will emit zero words of padding if exactly on the page bound already.
-
+// 在关键帧数据之后的下一页发射零长度的单词，传入当前偏移量，函数将返回新的偏移量。 如果恰好在页面绑定上，则此方法将发出零填充字。
 - (off_t) paddingAfterKeyframe:(FILE*)outFile offset:(off_t)_offset
 {
 #if defined(DEBUG)
@@ -147,6 +147,7 @@
 #endif // objc_arc
 }
 
+#pragma mark - mvid file write init
 + (AVMvidFileWriter*) aVMvidFileWriter
 {
   AVMvidFileWriter *obj = [[AVMvidFileWriter alloc] init];
@@ -159,6 +160,7 @@
 // 判断是否可以写入 帧 到 .mvid文件中
 - (BOOL) open
 {
+  // NSAssert 满足条件返回真值，程序继续运行，否则返回假值，程序抛出异常并可自定义异常。
   NSAssert(isOpen == FALSE, @"isOpen");
   NSAssert(self.totalNumFrames > 0, @"totalNumFrames > 0");
   NSAssert(self.frameDuration != 0, @"frameDuration != 0");
@@ -173,31 +175,39 @@
     self.genAdler = TRUE;
   }
   
-  char *mvidStr = (char*)[self.mvidPath UTF8String];
+    char *mvidStr = (char*)[self.mvidPath UTF8String];
   
-  maxvidOutFile = fopen(mvidStr, "wb");
+    // fopen-函数用来打开一个文件，其调用的一般形式为: 文件指针名(FILE类型指针变量) = fopen(文件名, 使用文件方式);
+    // 文件指针名: FILE类型指针变量。
+    // 文件名: 被打开的文件名，是字符串常量或字符串数组，要求是全路径。
+    // 使用文件方式: 是指文件的类型和操作要求。wb(write binary),只写打开或建立一个二进制文件，只允许写数据。
+    maxvidOutFile = fopen(mvidStr, "wb");
+    if (maxvidOutFile == NULL) {
+        return FALSE;
+    }
   
-  if (maxvidOutFile == NULL) {
-    return FALSE;
-  }
-  
-  mvHeader = malloc(sizeof(MVFileHeader));
-  if (mvHeader == NULL) {
-    return FALSE;
-  }
-  memset(mvHeader, 0, sizeof(MVFileHeader));
+    mvHeader = malloc(sizeof(MVFileHeader));     // 计算出 MVFileHeader  数据空间的字节数，并分配。
+    if (mvHeader == NULL) {
+        return FALSE;
+    }
+    
+    // 作用是在一段内存块中填充某个给定的值，它是对较大的结构体或清零进行清零操作的一种最快方法，也很适合用来初始化。
+    memset(mvHeader, 0, sizeof(MVFileHeader));
 
   // Write zeroed file header
   
   int numWritten = 0;
   
-  numWritten = (int) fwrite(mvHeader, sizeof(MVFileHeader), 1, maxvidOutFile);
-  if (numWritten != 1) {
-    return FALSE;
-  }
+    // fwite/fread 二进制文件的输入输出
+    // 把mvHeader(所指内存)中的size * nmemb个字节写到文件stream(流)中 ==> 把mvHeader内存中所存放的sizeof(MVFileHeader)*1个字节，写到输出mvid文件中。
+    numWritten = (int) fwrite(mvHeader, sizeof(MVFileHeader), 1, maxvidOutFile);
+    
+    NSLog(@"log-numWritten:%d",numWritten);
+    if (numWritten != 1) {
+        return FALSE;
+    }
   
   // Write zeroed frames header
-  
   int numOutputFrames = self.totalNumFrames;
   
   if (self.genV3) {
@@ -211,13 +221,18 @@
     return FALSE;
   }
   memset(mvFramesArray, 0, numBytes);
+    // 把mvFramesArray内存中所存放的numBytes*1 个字节，写到输出mvid文件中。
   numWritten = (int) fwrite(mvFramesArray, numBytes, 1, maxvidOutFile);
   if (numWritten != 1) {
     return FALSE;
   }
   
-  // Store the offset immediately after writing the header
-  
+    /** 前面写入了mvid
+     1. mvHeader - 结构体
+     2. mvFramesArray - 数据
+     
+     */
+  // Store the offset immediately after writing the header - -写入表头后立即存储偏移量
   [self saveOffset];
   
   self->isOpen = TRUE;
@@ -351,10 +366,10 @@
 }
 
 // Store the current file offset
-
+// 存储当前文件的偏移量
 - (void) saveOffset
 {
-  offset = ftello(maxvidOutFile);
+  offset = ftello(maxvidOutFile); // 获取偏移量
   NSAssert(offset != -1, @"ftello returned -1");
   
   if (self.genV3) {
@@ -373,7 +388,8 @@
 // Advance the file offset to the start of the next page in memory.
 // This method assumes that the offset was saved with an earlier call
 // to saveOffset
-
+// 将文件偏移量移至内存中下一页的开头。
+// 此方法假定偏移量是通过先前调用 saveOffset 来保存的
 - (void) skipToNextPageBound
 {
   offset = [self paddingAfterKeyframe:maxvidOutFile offset:offset];
@@ -417,86 +433,89 @@
   return [self writeKeyframe:ptr bufferSize:bufferSize adler:0 isCompressed:FALSE];
 }
 
+
+// 调用写入关键帧。
 - (BOOL) writeKeyframe:(char*)ptr bufferSize:(int)bufferSize adler:(uint32_t)adler isCompressed:(BOOL)isCompressed
 {
 #ifdef LOGGING
-  NSLog(@"writeKeyframe %d : bufferSize %d : adler %08X", frameNum, bufferSize, adler);
+    NSLog(@"writeKeyframe %d : bufferSize %d : adler %08X", frameNum, bufferSize, adler);
 #endif // LOGGING
-  
-  [self skipToNextPageBound];
-  
-  int numWritten = (int) fwrite(ptr, bufferSize, 1, maxvidOutFile);
-  
-  if (numWritten != 1) {
-    return FALSE;
-  } else {
-    // Finish emitting frame data
     
-    uint32_t length = [self validateFileOffset:TRUE];
+    [self skipToNextPageBound];
+    
+    int numWritten = (int) fwrite(ptr, bufferSize, 1, maxvidOutFile);
+    
+    if (numWritten != 1) {
+        return FALSE;
+    } else {
+        // Finish emitting frame data
         
-    NSAssert(frameNum < self.totalNumFrames, @"totalNumFrames");
-    
-    NSAssert(length == bufferSize, @"length");
-    
+        uint32_t length = [self validateFileOffset:TRUE];
+        
+        NSAssert(frameNum < self.totalNumFrames, @"totalNumFrames");
+        
+        NSAssert(length == bufferSize, @"length");
+        
 #ifdef LOGGING
-    NSLog(@"writeKeyframe %d : bufferSize %d will be written as %d num bytes", frameNum, bufferSize, bufferSize);
+        NSLog(@"writeKeyframe %d : bufferSize %d will be written as %d num bytes", frameNum, bufferSize, bufferSize);
 #endif // LOGGING
-    
-    if (self.genV3) {
-      MVV3Frame *mvFrame = &(((MVV3Frame*)mvFramesArray)[frameNum]);
-      maxvid_v3_frame_setlength(mvFrame, length);
-      
-      if (isCompressed) {
-        maxvid_v3_frame_setcompressed(mvFrame);
-      }
-    } else {
-      MVFrame *mvFrame = &(((MVFrame*)mvFramesArray)[frameNum]);
-      maxvid_frame_setlength(mvFrame, length);
-    }
-    
-    // Generate adler32 for pixel data and save into frame data
-    
-    uint32_t calcAdler;
-    
-    if (self.genAdler) {
-      if (adler == 0) {
-        calcAdler = maxvid_adler32(0, (unsigned char*)ptr, bufferSize);
-      } else {
-        calcAdler = adler;
-      }
-      assert(calcAdler != 0);
-      
-      // Set adler in frame
-      
-      if (self.genV3) {
-        MVV3Frame *mvFrame = &(((MVV3Frame*)mvFramesArray)[frameNum]);
-        mvFrame->adler = calcAdler;
-      } else {
-        MVFrame *mvFrame = &(((MVFrame*)mvFramesArray)[frameNum]);
-        mvFrame->adler = calcAdler;
-      }
-    }
-    
-    // zero pad to next page bound
-    
-    offset = [self paddingAfterKeyframe:maxvidOutFile offset:offset];
-    assert(offset > 0); // silence compiler/analyzer warning
-    
+        
+        if (self.genV3) {
+            MVV3Frame *mvFrame = &(((MVV3Frame*)mvFramesArray)[frameNum]);
+            maxvid_v3_frame_setlength(mvFrame, length);
+            
+            if (isCompressed) {
+                maxvid_v3_frame_setcompressed(mvFrame);
+            }
+        } else {
+            MVFrame *mvFrame = &(((MVFrame*)mvFramesArray)[frameNum]);
+            maxvid_frame_setlength(mvFrame, length);
+        }
+        
+        // Generate adler32 for pixel data and save into frame data
+        
+        uint32_t calcAdler;
+        
+        if (self.genAdler) {
+            if (adler == 0) {
+                calcAdler = maxvid_adler32(0, (unsigned char*)ptr, bufferSize);
+            } else {
+                calcAdler = adler;
+            }
+            assert(calcAdler != 0);
+            
+            // Set adler in frame
+            
+            if (self.genV3) {
+                MVV3Frame *mvFrame = &(((MVV3Frame*)mvFramesArray)[frameNum]);
+                mvFrame->adler = calcAdler;
+            } else {
+                MVFrame *mvFrame = &(((MVFrame*)mvFramesArray)[frameNum]);
+                mvFrame->adler = calcAdler;
+            }
+        }
+        
+        // zero pad to next page bound
+        
+        offset = [self paddingAfterKeyframe:maxvidOutFile offset:offset];
+        assert(offset > 0); // silence compiler/analyzer warning
+        
 #ifdef LOGGING
-    if (self.genV3) {
-      MVV3Frame *mvFrame = &(((MVV3Frame*)mvFramesArray)[frameNum]);
-      NSLog(@"frame[%d] : offset %llu : length %u : adler %u", frameNum, maxvid_v3_frame_offset(mvFrame), maxvid_v3_frame_length(mvFrame),  mvFrame->adler);
-    } else {
-      MVFrame *mvFrame = &(((MVFrame*)mvFramesArray)[frameNum]);
-      NSLog(@"frame[%d] : offset %u : length %u : adler %u", frameNum, maxvid_frame_offset(mvFrame), maxvid_frame_length(mvFrame),  mvFrame->adler);
-    }
+        if (self.genV3) {
+            MVV3Frame *mvFrame = &(((MVV3Frame*)mvFramesArray)[frameNum]);
+            NSLog(@"frame[%d] : offset %llu : length %u : adler %u", frameNum, maxvid_v3_frame_offset(mvFrame), maxvid_v3_frame_length(mvFrame),  mvFrame->adler);
+        } else {
+            MVFrame *mvFrame = &(((MVFrame*)mvFramesArray)[frameNum]);
+            NSLog(@"frame[%d] : offset %u : length %u : adler %u", frameNum, maxvid_frame_offset(mvFrame), maxvid_frame_length(mvFrame),  mvFrame->adler);
+        }
 #endif // LOGGING
-    
-    frameNum++;
-    
-    return TRUE;
-  }
+        
+        frameNum++;
+        
+        return TRUE;
+    }
 }
+
 //
 - (BOOL) rewriteHeader
 {

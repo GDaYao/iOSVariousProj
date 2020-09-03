@@ -40,6 +40,7 @@
 #endif // objc_arc
 }
 
+#pragma mark  使用framebuffer 生成image图像
 - (void) makeImageFromFramebuffer
 {
   // Release previous image if there was one created from this frame buffer

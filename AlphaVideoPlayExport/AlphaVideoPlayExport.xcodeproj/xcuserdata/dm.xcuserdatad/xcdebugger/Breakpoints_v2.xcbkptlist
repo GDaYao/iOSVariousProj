@@ -7,38 +7,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "BA3C178E-AE1C-415D-9C18-4678C939B41F"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "AlphaVideoPlayExport/SRC/AVAnimator/AVResourceLoader.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
-            landmarkName = "-load"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "893BE7B3-AD73-4B3C-9DC5-B04DDD43DD5E"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "AlphaVideoPlayExport/AlphaVideoPlayExportViewController.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "143"
-            endingLineNumber = "143"
-            landmarkName = "-prepareMedia"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "2D1A3FEB-7E39-4603-B867-83EB24DEB1CC"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -49,22 +17,6 @@
             startingLineNumber = "1899"
             endingLineNumber = "1899"
             landmarkName = "-_prepareToAnimateTimer:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "1D048915-B102-4E6B-8B12-4C97F276F80F"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "AlphaVideoPlayExport/SRC/AVAnimator/AVAnimatorMedia.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "446"
-            endingLineNumber = "446"
-            landmarkName = "-_loadResourcesCallback:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -87,143 +39,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "895442B7-5EA6-4111-8D65-BAFB4DEE6EC9"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "AlphaVideoPlayExport/SRC/AVAnimator/AVAssetJoinAlphaResourceLoader.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
-            landmarkName = "-_detachNewThread:rgbAssetPath:alphaAssetPath:phonyOutPath:outPath:isCompressed:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "21F3D10B-0619-4457-A908-77A638A99D4E"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "AlphaVideoPlayExport/SRC/AVAnimator/AVAssetJoinAlphaResourceLoader.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "574"
-            endingLineNumber = "574"
-            landmarkName = "+decodeThreadEntryPoint:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "11F1B6C5-E0C4-4D09-889F-F3171130984A"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "AlphaVideoPlayExport/SRC/AVAnimator/AVAssetJoinAlphaResourceLoader.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "614"
-            endingLineNumber = "614"
-            landmarkName = "+decodeThreadEntryPoint:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "0CE018DE-6A5F-4884-A43C-A937F2EE9969"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "AlphaVideoPlayExport/SRC/AVAnimator/AVAssetJoinAlphaResourceLoader.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "262"
-            endingLineNumber = "262"
-            landmarkName = "+joinRGBAndAlpha:rgbPath:alphaPath:genAdler:isCompressed:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "2F1E6045-E877-41FE-BEB3-CED443B12275"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "AlphaVideoPlayExport/SRC/AVAnimator/AVMvidFileWriter.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "162"
-            endingLineNumber = "162"
-            landmarkName = "-open"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "2F1E6045-E877-41FE-BEB3-CED443B12275 - f82a7b386bf5ae4b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[AVMvidFileWriter open]"
-                  moduleName = "&#x900f;&#x660e;&#x64ad;&#x653e;&#x5e76;&#x5bfc;&#x51fa;&#x5b9e;&#x73b0;"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/dm/Desktop/Dayao/otherFile/MyFile/git-github/iOSVariousProj/AlphaVideoPlayExport/AlphaVideoPlayExport/SRC/AVAnimator/AVMvidFileWriter.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "162"
-                  endingLineNumber = "162"
-                  offsetFromSymbolStart = "24">
-               </Location>
-               <Location
-                  uuid = "2F1E6045-E877-41FE-BEB3-CED443B12275 - f82a7b386bf5ae4b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[AVMvidFileWriter open]"
-                  moduleName = "&#x900f;&#x660e;&#x64ad;&#x653e;&#x5e76;&#x5bfc;&#x51fa;&#x5b9e;&#x73b0;"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/dm/Desktop/Dayao/otherFile/MyFile/git-github/iOSVariousProj/AlphaVideoPlayExport/AlphaVideoPlayExport/SRC/AVAnimator/AVMvidFileWriter.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "162"
-                  endingLineNumber = "162"
-                  offsetFromSymbolStart = "61">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "77E59A97-C711-4C51-8460-E1F1D997AE35"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "AlphaVideoPlayExport/SRC/AVAnimator/AVAssetJoinAlphaResourceLoader.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "406"
-            endingLineNumber = "406"
-            landmarkName = "+joinRGBAndAlpha:rgbPath:alphaPath:genAdler:isCompressed:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "3BFEF1BA-A027-4EC5-B3B5-0EBA61938DFD"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AlphaVideoPlayExport/SRC/AVAnimator/AVMvidFileWriter.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "503"
-            endingLineNumber = "503"
+            startingLineNumber = "522"
+            endingLineNumber = "522"
             landmarkName = "-rewriteHeader"
             landmarkType = "7">
             <Locations>
@@ -238,8 +62,8 @@
                   urlString = "file:///Users/dm/Desktop/Dayao/otherFile/MyFile/git-github/iOSVariousProj/AlphaVideoPlayExport/AlphaVideoPlayExport/SRC/AVAnimator/AVMvidFileWriter.m"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "503"
-                  endingLineNumber = "503"
+                  startingLineNumber = "522"
+                  endingLineNumber = "522"
                   offsetFromSymbolStart = "20">
                </Location>
                <Location
@@ -253,8 +77,8 @@
                   urlString = "file:///Users/dm/Desktop/Dayao/otherFile/MyFile/git-github/iOSVariousProj/AlphaVideoPlayExport/AlphaVideoPlayExport/SRC/AVAnimator/AVMvidFileWriter.m"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "503"
-                  endingLineNumber = "503"
+                  startingLineNumber = "522"
+                  endingLineNumber = "522"
                   offsetFromSymbolStart = "87">
                </Location>
             </Locations>
@@ -263,16 +87,144 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "2AB6A0B2-D39B-47AE-A42E-C249EE53AE24"
+            uuid = "5F78E70E-0345-4B9A-8559-A6045F876E69"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AlphaVideoPlayExport/SRC/AVAnimator/AVStreamEncodeDecode.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "273"
+            endingLineNumber = "273"
+            landmarkName = "+streamDeltaAndCompress:encodedData:bpp:algorithm:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B62CDE52-D4AF-4EB3-8F71-9A50D4B138AE"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AlphaVideoPlayExport/SRC/AVAnimator/AVAssetFrameDecoder.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1090"
+            endingLineNumber = "1090"
+            landmarkName = "-advanceToFrame:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3052D2F4-3B83-4B96-8E2B-B0D1152794A5"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AlphaVideoPlayExport/SRC/AVAnimator/AVFrame.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "-makeImageFromFramebuffer"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8FAAC48F-D0DC-4575-872E-FFC9A91E7E2E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AlphaVideoPlayExport/SRC/AVAnimator/AVAssetFrameDecoder.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1118"
+            endingLineNumber = "1118"
+            landmarkName = "-advanceToFrame:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "078E53BB-18A8-4F4D-AE66-728BA040E964"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "AlphaVideoPlayExport/SRC/AVAnimator/AVAnimatorMedia.m"
+            filePath = "AlphaVideoPlayExport/SRC/AVAnimator/AVImageFrameDecoder.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "585"
-            endingLineNumber = "585"
-            landmarkName = "-startAnimator"
+            startingLineNumber = "137"
+            endingLineNumber = "137"
+            landmarkName = "-advanceToFrame:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "078E53BB-18A8-4F4D-AE66-728BA040E964 - 3087d9edd6cf2a3b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[AVImageFrameDecoder advanceToFrame:]"
+                  moduleName = "&#x900f;&#x660e;&#x64ad;&#x653e;&#x5e76;&#x5bfc;&#x51fa;&#x5b9e;&#x73b0;"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dm/Desktop/Dayao/otherFile/MyFile/git-github/iOSVariousProj/AlphaVideoPlayExport/AlphaVideoPlayExport/SRC/AVAnimator/AVImageFrameDecoder.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "137"
+                  endingLineNumber = "137"
+                  offsetFromSymbolStart = "24">
+               </Location>
+               <Location
+                  uuid = "078E53BB-18A8-4F4D-AE66-728BA040E964 - 3087d9edd6cf2a3b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[AVImageFrameDecoder advanceToFrame:]"
+                  moduleName = "&#x900f;&#x660e;&#x64ad;&#x653e;&#x5e76;&#x5bfc;&#x51fa;&#x5b9e;&#x73b0;"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dm/Desktop/Dayao/otherFile/MyFile/git-github/iOSVariousProj/AlphaVideoPlayExport/AlphaVideoPlayExport/SRC/AVAnimator/AVImageFrameDecoder.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "137"
+                  endingLineNumber = "137"
+                  offsetFromSymbolStart = "185">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "153D84FD-9614-4966-8D41-B386C9399E74"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AlphaVideoPlayExport/SRC/AVAnimator/AVAssetJoinAlphaResourceLoader.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "303"
+            endingLineNumber = "303"
+            landmarkName = "+joinRGBAndAlpha:rgbPath:alphaPath:genAdler:isCompressed:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3705F630-9B29-4034-9688-495950799749"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AlphaVideoPlayExport/SRC/AVAnimator/AVAssetMixAlphaResourceLoader.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "204"
+            endingLineNumber = "204"
+            landmarkName = "+unmixRGBAndAlpha:mixPath:genAdler:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

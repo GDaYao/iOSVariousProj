@@ -31,7 +31,8 @@ void premultiply_init(void);
 // Execute premultiply logic on RGBA components split into componenets.
 // For example, a pixel RGB (128, 0, 0) with A = 128
 // would return (255, 0, 0) with A = 128
-
+// 对拆分为多个分量的RGB分量执行预乘逻辑。
+// 例如，A = 128的像素RGB（128，0，0）将返回A = 128的（255，0，0）
 static
 inline
 uint32_t premultiply_bgra_inline(uint32_t red, uint32_t green, uint32_t blue, uint32_t alpha)

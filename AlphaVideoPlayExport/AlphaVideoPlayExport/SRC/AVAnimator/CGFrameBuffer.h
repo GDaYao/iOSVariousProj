@@ -6,7 +6,10 @@
 //  License terms defined in License.txt.
 
 /** func:
- 帧 buffer 数据
+    帧 buffer 数据
+ 
+    存储所有的buffer数据
+ 
  
  */
 

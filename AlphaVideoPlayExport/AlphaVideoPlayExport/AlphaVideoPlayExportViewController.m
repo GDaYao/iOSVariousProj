@@ -13,7 +13,12 @@
 #import "AVMvidFrameDecoder.h"
 #import "AVAssetJoinAlphaResourceLoader.h"
 #import "AVAssetMixAlphaResourceLoader.h"
+#import "AVAsset2MvidResourceLoader.h"
 #import "AVFileUtil.h"
+
+
+//  AVAnimation
+#import "AVAssetAlphaJoinBgImgExportVideo.h"
 
 
 @interface AlphaVideoPlayExportViewController ()
@@ -38,30 +43,10 @@
 @implementation AlphaVideoPlayExportViewController
 
 
-// <<< 2. 观察通知方式
-//#ifdef DEBUG
-//        [self addInjectionIIIObserver];
-//#endif
-- (void)addInjectionIIIObserver {
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                                selector:@selector(didInject:)
-                                                    name:@"INJECTION_BUNDLE_NOTIFICATION"
-                                                  object:nil];
-}
-- (void)didInject:(NSNotification*)notification {
-    NSLog(@"log-didInject执行 -- Inject #1!");
-    
-    self.view.backgroundColor = [UIColor redColor];
-    
-}
-
 - (instancetype)init {
     self = [super init];
     if (self) {
-
-#ifdef DEBUG
-        [self addInjectionIIIObserver];
-#endif
+        
         
     }
     return self;
@@ -78,7 +63,17 @@
 }
 
 
-#pragma mark -
+#pragma mark - use AVAnimaton export
+- (void)exportAVAnimationVideo {
+    
+    AVAssetAlphaJoinBgImgExportVideo *exportVideoMgr = [[AVAssetAlphaJoinBgImgExportVideo alloc]init];
+    
+    
+    
+}
+
+
+#pragma mark - use AVAnimator
 - (void)createAVAnimatorView {
     
     // TODO: 开始播放透明视频 ==>  视频播放 + 处理后
@@ -147,7 +142,8 @@
     resLoader.alwaysGenerateAdler = TRUE;
     resLoader.serialLoading = YES;
     // 此方法已给出解决导致包过大的问题。
-    resLoader.compressed = YES;
+    resLoader.compressed = YES; // YES-416.1MB,NO-744.9MB
+    
     
     
     // 2.
@@ -159,6 +155,16 @@
      media.resourceLoader = resLoader;
     */
     
+    // 3.
+    /*
+    AVAssetMixAlphaResourceLoader *resLoader = [AVAssetMixAlphaResourceLoader aVAssetMixAlphaResourceLoader];
+    resLoader.movieFilename = [[NSBundle mainBundle]pathForResource:@"demo-green.mp4" ofType:@""];
+    resLoader.audioFilename = [[NSBundle mainBundle]pathForResource:@"demo-green.mp4" ofType:@""];
+    resLoader.outPath = rgbTmpMvidPath;
+    resLoader.serialLoading = YES;
+    resLoader.alwaysGenerateAdler = YES;
+    */
+    
     
     //
     AVMvidFrameDecoder *frameDecoder = [AVMvidFrameDecoder aVMvidFrameDecoder];
@@ -166,6 +172,7 @@
     media.resourceLoader = resLoader;
     media.frameDecoder = frameDecoder;
 
+    
     // audio -- 声音调用方法必须放在底下处理
     //resLoader.audioFilename = self.mvColorStr; // @"demo-rgbT.mp4"
 
@@ -246,6 +253,14 @@
     } else {
         [self.marioMedia startAnimator];
     }
+    
+}
+
+
+- (void)testMethod {
+    
+    
+    
     
 }
 

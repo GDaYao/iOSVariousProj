@@ -144,50 +144,50 @@
 - (AVFrame*) advanceToFrame:(NSUInteger)newFrameIndex
 {
 #ifdef LOGGING
-  NSLog(@"advanceToFrame : from %d to %d", (int)frameIndex, (int)newFrameIndex);
+    NSLog(@"advanceToFrame : from %d to %d", (int)newFrameIndex, (int)newFrameIndex);
 #endif // LOGGING
-
-  AVFrame *rgbFrame = [self.rgbAssetDecoder advanceToFrame:newFrameIndex];
-  AVFrame *alphaFrame = [self.alphaAssetDecoder advanceToFrame:newFrameIndex];
-
-  // Clear out previously held buffer ref
-  
-  self.currentFrame.image = nil;
-  self.currentFrame.cgFrameBuffer = nil;
-  self.currentFrame = nil;
-  
-  // Note that we do not release the frameBuffer because it is held as
-  // the self.currentFrameBuffer property
-  
-  // Get CGFrameBuffer out of each frame and combine RGB and Alpha pixels
-
-  CGFrameBuffer *rgbFrameBuffer = rgbFrame.cgFrameBuffer;
-  CGFrameBuffer *alphaFrameBuffer = alphaFrame.cgFrameBuffer;
-
-  CGFrameBuffer *combinedFrameBuffer = [CGFrameBuffer cGFrameBufferWithBppDimensions:32 width:rgbFrameBuffer.width height:rgbFrameBuffer.height];
-  
-  // Join RBB + Alpha pixels
-  
-  uint32_t numPixels = (int)rgbFrameBuffer.width * (int)rgbFrameBuffer.height;
-  uint32_t *combinedPixels = (uint32_t*)combinedFrameBuffer.pixels;
-  uint32_t *rgbPixels = (uint32_t*)rgbFrameBuffer.pixels;
-  uint32_t *alphaPixels = (uint32_t*)alphaFrameBuffer.pixels;
-  
-  [AVAssetJoinAlphaResourceLoader combineRGBAndAlphaPixels:numPixels
-                  combinedPixels:combinedPixels
-                       rgbPixels:rgbPixels
-                     alphaPixels:alphaPixels];
-  
-  AVFrame *retFrame = [AVFrame aVFrame];
-
-  retFrame.cgFrameBuffer = combinedFrameBuffer;
-  [retFrame makeImageFromFramebuffer];
-  // Drop ref to fraembuffer so that image contains the last ref
-  retFrame.cgFrameBuffer = nil;
-  
-  self.currentFrame = retFrame;
-  
-  return retFrame;
+    
+    AVFrame *rgbFrame = [self.rgbAssetDecoder advanceToFrame:newFrameIndex];
+    AVFrame *alphaFrame = [self.alphaAssetDecoder advanceToFrame:newFrameIndex];
+    
+    // Clear out previously held buffer ref
+    
+    self.currentFrame.image = nil;
+    self.currentFrame.cgFrameBuffer = nil;
+    self.currentFrame = nil;
+    
+    // Note that we do not release the frameBuffer because it is held as
+    // the self.currentFrameBuffer property
+    
+    // Get CGFrameBuffer out of each frame and combine RGB and Alpha pixels
+    
+    CGFrameBuffer *rgbFrameBuffer = rgbFrame.cgFrameBuffer;
+    CGFrameBuffer *alphaFrameBuffer = alphaFrame.cgFrameBuffer;
+    
+    CGFrameBuffer *combinedFrameBuffer = [CGFrameBuffer cGFrameBufferWithBppDimensions:32 width:rgbFrameBuffer.width height:rgbFrameBuffer.height];
+    
+    // Join RBB + Alpha pixels
+    
+    uint32_t numPixels = (int)rgbFrameBuffer.width * (int)rgbFrameBuffer.height;
+    uint32_t *combinedPixels = (uint32_t*)combinedFrameBuffer.pixels;
+    uint32_t *rgbPixels = (uint32_t*)rgbFrameBuffer.pixels;
+    uint32_t *alphaPixels = (uint32_t*)alphaFrameBuffer.pixels;
+    
+    [AVAssetJoinAlphaResourceLoader combineRGBAndAlphaPixels:numPixels
+                                              combinedPixels:combinedPixels
+                                                   rgbPixels:rgbPixels
+                                                 alphaPixels:alphaPixels];
+    
+    AVFrame *retFrame = [AVFrame aVFrame];
+    
+    retFrame.cgFrameBuffer = combinedFrameBuffer;
+    [retFrame makeImageFromFramebuffer];
+    // Drop ref to fraembuffer so that image contains the last ref
+    retFrame.cgFrameBuffer = nil;
+    
+    self.currentFrame = retFrame;
+    
+    return retFrame;
 }
 
 // nop, since opening the asset allocates resources

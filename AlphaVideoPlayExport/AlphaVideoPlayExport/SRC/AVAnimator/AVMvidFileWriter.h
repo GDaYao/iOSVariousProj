@@ -93,7 +93,7 @@
 - (void) close;
 
 // Write a single nop frame after a keyframe or a delta frame
-
+// 在关键帧或增量帧之后写入单个nop帧
 - (void) writeNopFrame;
 
 #if MV_ENABLE_DELTAS
@@ -102,7 +102,7 @@
 // the file. The weird special case bascially means that the
 // first frame is constructed by applying a frame delta to an
 // all black framebuffer.
-
+// 编写出现在开头的特殊情况的nop框架文件。 怪异的特殊情况基本上意味着第一帧是通过将帧增量应用于全黑帧缓冲区。
 - (void) writeInitialNopFrame;
 
 #endif // MV_ENABLE_DELTAS

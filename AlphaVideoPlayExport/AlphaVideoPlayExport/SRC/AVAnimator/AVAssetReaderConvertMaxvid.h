@@ -11,6 +11,13 @@
 //  But, the compression available in h264 saves a whole lot of space
 //  as compared to lossless compression.
 
+/** func:
+ 该模块实现了h264至MVID解码器，可用于将h264视频的原始位保存到文件中。
+ h264格式仅支持24 BPP模式，因此h264视频中不能出现任何Alpha通道。 但是，与无损压缩相比，h264中可用的压缩节省了大量空间。
+ 
+ */
+
+
 #include "AVAssetConvertCommon.h"
 
 #if defined(HAS_AVASSET_CONVERT_MAXVID)

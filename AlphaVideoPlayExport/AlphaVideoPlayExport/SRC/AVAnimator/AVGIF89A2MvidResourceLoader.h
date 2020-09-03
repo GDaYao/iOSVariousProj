@@ -14,6 +14,11 @@
 // that the superior memory usage of the MVID format and loader code
 // can selectively load specific keyframes as needed.
 
+/** func:
+ 此装载器 转换动画GIF89a 文件file 至 .mvid 文件。
+ 
+ */
+
 #import <Foundation/Foundation.h>
 
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= 40000 // iOS 4.0 or newer

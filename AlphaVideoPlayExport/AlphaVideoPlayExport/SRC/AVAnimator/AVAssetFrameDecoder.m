@@ -103,20 +103,20 @@ typedef enum
 
 + (AVAssetFrameDecoder*) aVAssetFrameDecoder
 {
-  AVAssetFrameDecoder *obj = [[AVAssetFrameDecoder alloc] init];
-  obj->frameIndex = -1;
-  obj.dropFrames = TRUE;
-  
+    AVAssetFrameDecoder *obj = [[AVAssetFrameDecoder alloc] init];
+    obj->frameIndex = -1;
+    obj.dropFrames = TRUE;
+    
 #if __has_feature(objc_arc)
-  return obj;
+    return obj;
 #else
-  return [obj autorelease];
+    return [obj autorelease];
 #endif // objc_arc
 }
 
+#pragma mark - 此工具方法将设立资源以便打开和准备解码视频帧。
 // This utility method will setup the asset so that it is opened and ready
 // to decode frames of video data.
-// 此工具方法将设立资源以便打开和准备解码视频帧。
 - (BOOL) setupAsset
 {
   NSAssert(self.assetURL, @"assetURL");
@@ -208,6 +208,9 @@ typedef enum
   float nominalFrameRate = videoTrack.nominalFrameRate;
   
   CMTime minFrameDuration = videoTrack.minFrameDuration;
+    
+    // 获得帧速率
+    self.frameTime = CMTimeMakeWithSeconds(duration, timeRange.duration.timescale);
   
   float frameDuration;
   
@@ -239,7 +242,7 @@ typedef enum
   float durationTenPercent = frameDuration * 0.10;
   
 #ifdef LOGGING
-  NSLog(@"frame rate = %0.2f FPS", nominalFrameRate);
+  NSLog(@"frame rate = %0.2f FPS", nominalFrameRate);  // 1秒钟25帧
   NSLog(@"frame duration = %0.4f FPS", frameDuration);
   NSLog(@"duration = %0.2f S", duration);
   NSLog(@"numFrames = %0.4f -> %d", numFramesFloat, numFrames);
@@ -280,7 +283,8 @@ typedef enum
   [self.aVAssetReader addOutput:aVAssetReaderOutput];
   
   self.aVAssetReaderOutput = aVAssetReaderOutput;
-  
+    
+    
   return TRUE;
 }
 
@@ -311,229 +315,231 @@ typedef enum
 
 // Restart the decoder. Sadly, the asset reader API only seems to want to read data once.
 // As soon as it is finished playing, it is dead.
-
+// 重启解码器，不幸的是，资产读取似乎想要读取数据一次。
+// 播放完毕，即销毁。
 - (BOOL) restart
 {
 #ifdef LOGGING
-  NSLog(@"restart");
+    NSLog(@"restart");
 #endif // LOGGING
-
-  [self close];
-  
-  BOOL worked;
-
-  worked = [self openForReading:[self.assetURL path]];
-
-  if (worked == FALSE) {
-    return FALSE;
-  }
-  
-  return TRUE;
+    
+    [self close];
+    
+    BOOL worked;
+    
+    worked = [self openForReading:[self.assetURL path]];
+    
+    if (worked == FALSE) {
+        return FALSE;
+    }
+    
+    return TRUE;
 }
 
 // Verify width/height of frame being read from asset
 
 - (void) blockingDecodeVerifySize:(CGFrameBuffer*)frameBuffer
 {
-  size_t width = frameBuffer.width;
-  size_t height = frameBuffer.height;
-  
-  NSAssert(width > 0, @"width");
-  NSAssert(height > 0, @"height");
-  
-  if (detectedMovieSize.width == 0) {
-    detectedMovieSize = CGSizeMake(width, height);
-  } else {
-    NSAssert(CGSizeEqualToSize(detectedMovieSize, CGSizeMake(width, height)), @"size");
-  }
+    size_t width = frameBuffer.width;
+    size_t height = frameBuffer.height;
+    
+    NSAssert(width > 0, @"width");
+    NSAssert(height > 0, @"height");
+    
+    if (detectedMovieSize.width == 0) {
+        detectedMovieSize = CGSizeMake(width, height);
+    } else {
+        NSAssert(CGSizeEqualToSize(detectedMovieSize, CGSizeMake(width, height)), @"size");
+    }
 }
 
+#pragma mark - 读取下一帧缓冲区和状态码，去表示发生了什么。 invoke -2
 // Attempt to read next frame and return a status code to inidcate what
 // happened.
-
 - (FrameReadStatus) blockingDecodeReadFrame:(CGFrameBuffer**)frameBufferPtr
                              cvBufferRefPtr:(CVImageBufferRef*)cvBufferRefPtr
 {
-  BOOL worked;
-  
-  AVAssetReader *aVAssetReader = self.aVAssetReader;
-  
-//  AVAssetReaderStatus status = aVAssetReader.status;
-//  
-//  if ((status == AVAssetReaderStatusCompleted) && (frameIndex == -1)) {
-//    // Previous round of decoding got to the end of the asset, it should be
-//    // possible to start asset decoding over now.
-//    
-//#ifdef LOGGING
-//    NSLog(@"RESTART condition found with frameIndex %d", self.frameIndex);
-//#endif // LOGGING
-//    
-//    [self restart];
-//  }
-  
-  float frameDurationTooEarly = (self.frameDuration * 0.90);
-  
-  int frameNum = (int)self.frameIndex + 1;
-  
+    BOOL worked;
+    
+    AVAssetReader *aVAssetReader = self.aVAssetReader;
+    
+    //  AVAssetReaderStatus status = aVAssetReader.status;
+    //
+    //  if ((status == AVAssetReaderStatusCompleted) && (frameIndex == -1)) {
+    //    // Previous round of decoding got to the end of the asset, it should be
+    //    // possible to start asset decoding over now.
+    //
+    //#ifdef LOGGING
+    //    NSLog(@"RESTART condition found with frameIndex %d", self.frameIndex);
+    //#endif // LOGGING
+    //
+    //    [self restart];
+    //  }
+    
+    float frameDurationTooEarly = (self.frameDuration * 0.90);
+    
+    int frameNum = (int)self.frameIndex + 1;
+    
 #ifdef LOGGING
-  NSLog(@"READING frame %d", frameNum);
+    NSLog(@"READING frame %d", frameNum);
 #endif // LOGGING
-  
-  // This logic supports "reading" nop frames that appear after an actual frame.
-  
-  if (numTrailingNopFrames) {
-    numTrailingNopFrames--;
-    return FrameReadStatusDup;
-  }
-  
-  // This logic used to be stop the frame reading loop as soon as the asset
-  // was no longer in a reading state. Commented out because it no longer
-  // appears to be needed, but left here just in case.
-  
-  //if ([aVAssetReader status] != AVAssetReaderStatusReading) {
-  //  return FrameReadStatusDone;
-  //}
-  
-  CMSampleBufferRef sampleBuffer = NULL;
-  sampleBuffer = [self.aVAssetReaderOutput copyNextSampleBuffer];
-  
-  if (sampleBuffer) {
-    if (self.produceCoreVideoPixelBuffers) {
-      assert(cvBufferRefPtr);
-      
-      // Extract CoreVideo generic buffere ref (it is typically a CVPixelBufferRef)
-      CVImageBufferRef imageBufferRef = CMSampleBufferGetImageBuffer(sampleBuffer);
-      assert(imageBufferRef);
-      // This code must retain a ref to the CVImageBufferRef (actually a CVPixelBuffer)
-      // so that it can be returned to the caller.
-      CFRetain(imageBufferRef);
-      *cvBufferRefPtr = imageBufferRef;
+    
+    // This logic supports "reading" nop frames that appear after an actual frame.
+    
+    if (numTrailingNopFrames) {
+        numTrailingNopFrames--;
+        return FrameReadStatusDup;
+    }
+    
+    // This logic used to be stop the frame reading loop as soon as the asset
+    // was no longer in a reading state. Commented out because it no longer
+    // appears to be needed, but left here just in case.
+    
+    //if ([aVAssetReader status] != AVAssetReaderStatusReading) {
+    //  return FrameReadStatusDone;
+    //}
+    
+    CMSampleBufferRef sampleBuffer = NULL;
+    sampleBuffer = [self.aVAssetReaderOutput copyNextSampleBuffer];
+    
+    if (sampleBuffer) {
+        if (self.produceCoreVideoPixelBuffers) {
+            assert(cvBufferRefPtr);
+            
+            // Extract CoreVideo generic buffere ref (it is typically a CVPixelBufferRef)
+            CVImageBufferRef imageBufferRef = CMSampleBufferGetImageBuffer(sampleBuffer);
+            assert(imageBufferRef);
+            // This code must retain a ref to the CVImageBufferRef (actually a CVPixelBuffer)
+            // so that it can be returned to the caller.
+            CFRetain(imageBufferRef);
+            *cvBufferRefPtr = imageBufferRef;
+        } else {
+            worked = [self renderCMSampleBufferRefIntoFramebuffer:sampleBuffer frameBuffer:frameBufferPtr];
+            NSAssert(worked, @"renderIntoFramebuffer worked");
+        }
+        
+        // If the delay between the previous frame and the current frame is more
+        // than would be needed for one frame, then emit nop frames.
+        
+        // If a sample would be displayed for one frame, then the next one should
+        // be displayed right away. But, in the case where a sample duration is
+        // longer than one frame, emit repeated frames as no-op frames.
+        
+        CMTime presentationTimeStamp = CMSampleBufferGetPresentationTimeStamp(sampleBuffer);
+        
+        CFRelease(sampleBuffer);
+        
+        float frameDisplayTime = (float) CMTimeGetSeconds(presentationTimeStamp);
+        
+        float expectedFrameDisplayTime = frameNum * self.frameDuration;
+        
+#ifdef LOGGING
+        NSLog(@"frame presentation time = %0.4f", frameDisplayTime);
+        NSLog(@"expected frame presentation time = %0.4f", expectedFrameDisplayTime);
+        NSLog(@"prev frame presentation time = %0.4f", prevFrameDisplayTime);
+#endif // LOGGING
+        
+        // Check for display time clock drift. This is caused by a frame that has
+        // a frame display time that is so early that it is almost a whole frame
+        // early. The decoder can't deal with this case because we have to maintain
+        // an absolute display delta between frames. To fix the problem, we have
+        // to drop a frame to let actual display time catch up to the expected
+        // frame display time. We have already calculated the total number of frames
+        // based on the reported duration of the whole movie, so this logic has the
+        // effect of keeping the total duration consistent once the data is stored
+        // in equally spaced frames.
+        
+        float frameDisplayEarly = 0.0;
+        if (frameDisplayTime < expectedFrameDisplayTime) {
+            frameDisplayEarly = expectedFrameDisplayTime - frameDisplayTime;
+        }
+        if (self.dropFrames && (frameDisplayEarly > frameDurationTooEarly)) {
+            // The actual presentation time has drifted too far from the expected presentation time
+            
+#ifdef LOGGING
+            NSLog(@"frame presentation drifted too early = %0.4f", frameDisplayEarly);
+#endif // LOGGING
+            
+            // Drop the frame, meaning we do not write it to the .mvid file. Instead, let
+            // processing continue with the next frame which will display at about the
+            // right expected time. The frame number stays the same since no output
+            // buffer was written. Note that we need to reset the prevFrameDisplayTime so
+            // that no trailing nop frame is emitted in the normal case.
+            
+            prevFrameDisplayTime = expectedFrameDisplayTime;
+            return FrameReadStatusTooEarly;
+        }
+        
+        float delta = frameDisplayTime - prevFrameDisplayTime;
+        
+#ifdef LOGGING
+        NSLog(@"frame display delta %0.4f", delta);
+#endif // LOGGING
+        
+        prevFrameDisplayTime = frameDisplayTime;
+        
+        // Store the number of trailing frames that appear after this frame
+        
+        Class cl = AVMvidFileWriter.class;
+        numTrailingNopFrames = [cl countTrailingNopFrames:delta frameDuration:self.frameDuration];
+        
+#ifdef LOGGING
+        if (numTrailingNopFrames > 0) {
+            NSLog(@"Found %d trailing NOP frames after frame %d", numTrailingNopFrames, (frameNum - 1));
+        }
+#endif // LOGGING
+        
+#ifdef LOGGING
+        NSLog(@"DONE READING frame %d", frameNum);
+#endif // LOGGING
+        
+        // Note that the frameBuffer object is explicitly retained so that it can
+        // be used in each loop iteration.
+        
+        if (self.produceCoreVideoPixelBuffers == FALSE) {
+            [self blockingDecodeVerifySize:*frameBufferPtr];
+        }
+        
+        return FrameReadStatusNextFrame;
+    } else if ([aVAssetReader status] == AVAssetReaderStatusReading) {
+        AVAssetReaderStatus status = aVAssetReader.status;
+        NSError *error = aVAssetReader.error;
+        
+        NSLog(@"AVAssetReaderStatusReading");
+        NSLog(@"status = %d", (int)status);
+        NSLog(@"error = %@", [error description]);
     } else {
-      worked = [self renderCMSampleBufferRefIntoFramebuffer:sampleBuffer frameBuffer:frameBufferPtr];
-      NSAssert(worked, @"renderIntoFramebuffer worked");
+        // The copyNextSampleBuffer returned nil, so we seem to be done reading from
+        // the asset. Check for the special case where a previous frame was displayed
+        // at a specific time, but now there are no more frames after that frame.
+        // Need to detect the case where 1 to N trailing nop frames appear after
+        // the last frame we decoded. There does not apear to be a way to detect the
+        // duration of a frame until the next one is decoded, so this is needed
+        // to properly handle assets that end with nop frames. Also, it is unclear how
+        // a H264 video that include a dup frame like this can be generated, so
+        // this code appears to be untested.
+        
+        float finalFrameExpectedTime = self.numFrames * self.frameDuration;
+        float delta = finalFrameExpectedTime - prevFrameDisplayTime;
+        
+        // Store the number of trailing frames that appear after this frame
+        
+        Class cl = AVMvidFileWriter.class;
+        numTrailingNopFrames = [cl countTrailingNopFrames:delta frameDuration:self.frameDuration];
+        
+        if (numTrailingNopFrames > 0) {
+            return FrameReadStatusDup;
+        }
+        
+        // FIXME: should [self close] be called in this case ? Or can we at least mark the asset reader with cancelReading ?
+        
+        return FrameReadStatusDone;
     }
     
-    // If the delay between the previous frame and the current frame is more
-    // than would be needed for one frame, then emit nop frames.
-    
-    // If a sample would be displayed for one frame, then the next one should
-    // be displayed right away. But, in the case where a sample duration is
-    // longer than one frame, emit repeated frames as no-op frames.
-    
-    CMTime presentationTimeStamp = CMSampleBufferGetPresentationTimeStamp(sampleBuffer);
-    
-    CFRelease(sampleBuffer);
-    
-    float frameDisplayTime = (float) CMTimeGetSeconds(presentationTimeStamp);
-    
-    float expectedFrameDisplayTime = frameNum * self.frameDuration;
-    
-#ifdef LOGGING
-    NSLog(@"frame presentation time = %0.4f", frameDisplayTime);
-    NSLog(@"expected frame presentation time = %0.4f", expectedFrameDisplayTime);
-    NSLog(@"prev frame presentation time = %0.4f", prevFrameDisplayTime);
-#endif // LOGGING
-    
-    // Check for display time clock drift. This is caused by a frame that has
-    // a frame display time that is so early that it is almost a whole frame
-    // early. The decoder can't deal with this case because we have to maintain
-    // an absolute display delta between frames. To fix the problem, we have
-    // to drop a frame to let actual display time catch up to the expected
-    // frame display time. We have already calculated the total number of frames
-    // based on the reported duration of the whole movie, so this logic has the
-    // effect of keeping the total duration consistent once the data is stored
-    // in equally spaced frames.
-    
-    float frameDisplayEarly = 0.0;
-    if (frameDisplayTime < expectedFrameDisplayTime) {
-      frameDisplayEarly = expectedFrameDisplayTime - frameDisplayTime;
-    }
-    if (self.dropFrames && (frameDisplayEarly > frameDurationTooEarly)) {
-      // The actual presentation time has drifted too far from the expected presentation time
-      
-#ifdef LOGGING
-      NSLog(@"frame presentation drifted too early = %0.4f", frameDisplayEarly);
-#endif // LOGGING
-      
-      // Drop the frame, meaning we do not write it to the .mvid file. Instead, let
-      // processing continue with the next frame which will display at about the
-      // right expected time. The frame number stays the same since no output
-      // buffer was written. Note that we need to reset the prevFrameDisplayTime so
-      // that no trailing nop frame is emitted in the normal case.
-      
-      prevFrameDisplayTime = expectedFrameDisplayTime;
-      return FrameReadStatusTooEarly;
-    }
-    
-    float delta = frameDisplayTime - prevFrameDisplayTime;
-    
-#ifdef LOGGING
-    NSLog(@"frame display delta %0.4f", delta);
-#endif // LOGGING
-    
-    prevFrameDisplayTime = frameDisplayTime;
-    
-    // Store the number of trailing frames that appear after this frame
-    
-    Class cl = AVMvidFileWriter.class;
-    numTrailingNopFrames = [cl countTrailingNopFrames:delta frameDuration:self.frameDuration];
-    
-#ifdef LOGGING
-    if (numTrailingNopFrames > 0) {
-      NSLog(@"Found %d trailing NOP frames after frame %d", numTrailingNopFrames, (frameNum - 1));
-    }
-#endif // LOGGING
-    
-#ifdef LOGGING
-    NSLog(@"DONE READING frame %d", frameNum);
-#endif // LOGGING
-    
-    // Note that the frameBuffer object is explicitly retained so that it can
-    // be used in each loop iteration.
-    
-    if (self.produceCoreVideoPixelBuffers == FALSE) {
-      [self blockingDecodeVerifySize:*frameBufferPtr];
-    }
-    
-    return FrameReadStatusNextFrame;
-  } else if ([aVAssetReader status] == AVAssetReaderStatusReading) {
-    AVAssetReaderStatus status = aVAssetReader.status;
-    NSError *error = aVAssetReader.error;
-    
-    NSLog(@"AVAssetReaderStatusReading");
-    NSLog(@"status = %d", (int)status);
-    NSLog(@"error = %@", [error description]);
-  } else {
-    // The copyNextSampleBuffer returned nil, so we seem to be done reading from
-    // the asset. Check for the special case where a previous frame was displayed
-    // at a specific time, but now there are no more frames after that frame.
-    // Need to detect the case where 1 to N trailing nop frames appear after
-    // the last frame we decoded. There does not apear to be a way to detect the
-    // duration of a frame until the next one is decoded, so this is needed
-    // to properly handle assets that end with nop frames. Also, it is unclear how
-    // a H264 video that include a dup frame like this can be generated, so
-    // this code appears to be untested.
-    
-    float finalFrameExpectedTime = self.numFrames * self.frameDuration;
-    float delta = finalFrameExpectedTime - prevFrameDisplayTime;
-    
-    // Store the number of trailing frames that appear after this frame
-    
-    Class cl = AVMvidFileWriter.class;
-    numTrailingNopFrames = [cl countTrailingNopFrames:delta frameDuration:self.frameDuration];
-
-    if (numTrailingNopFrames > 0) {
-      return FrameReadStatusDup;
-    }
-   
-    // FIXME: should [self close] be called in this case ? Or can we at least mark the asset reader with cancelReading ?
-    
-    return FrameReadStatusDone;
-  }
-  
-  return FrameReadStatusNotReady;
+    return FrameReadStatusNotReady;
 }
 
+#pragma mark -  渲染sample buffer到平面的CGFrameBuffer - invoke 3
 // Render sample buffer into flat CGFrameBuffer. We can't read the samples
 // directly out of the CVImageBufferRef because the rows of the image
 // have some funky padding going on, likely "planar" data from YUV colorspace.
@@ -549,9 +555,10 @@ typedef enum
   return [self renderCVImageBufferRefIntoFramebuffer:imageBuffer frameBuffer:frameBufferPtr];
 }
 
+#pragma mark -  决定是否需要转换 - invoke 4
 // This method will determine if a CoreVideo image buffer contains YUV or BGRX video data and
 // convert from YUV to BGRX if needed.
-
+// 此方法决定如果需要CoreVideo 图像缓冲区包含YUV 或 RGBA 视频数据和从YUV转换为RGBA
 - (BOOL) renderCVImageBufferRefIntoFramebuffer:(CVImageBufferRef)imageBuffer frameBuffer:(CGFrameBuffer**)frameBufferPtr
 {
   int numPlanes = (int) CVPixelBufferGetPlaneCount(imageBuffer);
@@ -607,8 +614,9 @@ typedef enum
 #endif // TARGET_IPHONE_SIMULATOR
 }
 
+#pragma mark -  赋值给currentFrameBuffer后面使用生成image - invoke 5
 // Render BGRA pixels in a CoreVideo image buffer as a flat BGRA framebuffer
-
+// 在CoreVideo核心框架图像缓冲区，渲染RGBA像素，作为平面的RGBA缓冲区。
 - (BOOL) renderCVBGRAImageBufferRefIntoFramebuffer:(CVImageBufferRef)imageBuffer frameBuffer:(CGFrameBuffer**)frameBufferPtr
 {
   CGFrameBuffer *frameBuffer = *frameBufferPtr;
@@ -681,7 +689,8 @@ typedef enum
     NSAssert(frameBuffer, @"frameBuffer");
     *frameBufferPtr = frameBuffer;
 
-    // Also save allocated framebuffer as a property in the object
+    // Also save allocated framebuffer as a property in the object - 还将分配的帧缓冲区另存为对象中的属性
+      // TODO: 赋值当前frameBuffer
     self.currentFrameBuffer = frameBuffer;
     
     // Use sRGB by default on iOS. Explicitly set sRGB as colorspace on MacOSX.
@@ -703,7 +712,9 @@ typedef enum
   // to validate the input pixel layout vs the expected layout to determine
   // if we could just memcopy directly and if that would be faster than
   // addressing the data with CG render logic.
-  
+  /**
+   帧缓冲区的布局是alpha帧解码时间的98％，因此优化需要从此处开始。 只需不必复制缓冲区或调用CG渲染常规程序就可以节省大部分执行时间。 需要验证输入像素的布局与预期的布局，以确定我们是否仅可以直接进行内存复制，以及是否比使用CG渲染逻辑处理数据更快。
+   */
   [frameBuffer renderCGImage:cgImageRef];
   
   CGImageRelease(cgImageRef);
@@ -713,11 +724,11 @@ typedef enum
   return TRUE;
 }
 
-// Implementing the methods defined in AVFrameDecoder
+// Implementing the methods defined in AVFrameDecoder -- 实现了在 AVFrameDecoder中定义的方法。
 
 // This openForReading method provides a standard API for openeing an asset
 // given a file path.
-
+// 读取asset
 - (BOOL) openForReading:(NSString*)assetPath
 {
   BOOL worked;
@@ -790,326 +801,339 @@ typedef enum
   [self restart];
 }
 
+// TODO: 取所有帧的index帧出来 - invoke 1
 - (AVFrame*) advanceToFrame:(NSUInteger)newFrameIndex
 {
 #ifdef LOGGING
-  NSLog(@"advanceToFrame : from %d to %d", (int)frameIndex, (int)newFrameIndex);
-#endif // LOGGING
-  
-  // Check for case of restarting the decoder after it decoded all frames (looping)
-
-#ifdef LOGGING
-  AVAssetReaderStatus status = self.aVAssetReader.status;
-  switch (status) {
-    case AVAssetReaderStatusUnknown:
-      NSLog(@"AVAssetReaderStatusUnknown");
-      break;
-    case AVAssetReaderStatusReading:
-      NSLog(@"AVAssetReaderStatusReading");
-      break;
-    case AVAssetReaderStatusCompleted:
-      NSLog(@"AVAssetReaderStatusCompleted");
-      break;
-    case AVAssetReaderStatusFailed:
-      NSLog(@"AVAssetReaderStatusFailed");
-      break;
-    case AVAssetReaderStatusCancelled:
-      NSLog(@"AVAssetReaderStatusCancelled");
-      break;
-    default:
-      break;
-  }
-#endif // LOGGING
-
-#ifdef LOGGING
-  NSLog(@"testing restart condition, frameIndex %d, readingFinished %d", frameIndex, m_readingFinished);
-#endif // LOGGING
-  
-  //if ((status == AVAssetReaderStatusCompleted) && (frameIndex == -1))
-
-  if ((frameIndex == -1) && self->m_readingFinished) {
-    // Previous round of decoding got to the end of the asset, it should be
-    // possible to start asset decoding over now.
-    
-#ifdef LOGGING
-    NSLog(@"RESTART condition when reading was finished found with frameIndex %d", (int)self.frameIndex);
+    NSLog(@"advanceToFrame : from %d to %d", (int)frameIndex, (int)newFrameIndex);
 #endif // LOGGING
     
-    [self restart];
-  }
-  
-  // Query the asset reader object again because it could have been changed
-  // by a restart above.
-  
-  AVAssetReader *aVAssetReader = self.aVAssetReader;
-  NSAssert(aVAssetReader, @"asset should be open already");
-
-  NSAssert(m_isReading == TRUE, @"asset should be reading already");
-  
-//  NSLog(@"advanceToFrame : current %d, new %d", (frameIndex + 1), newFrameIndex);
-  
-  // Examine the frame number we should advance to. Currently, the implementation
-  // is limited to advancing to the next frame only.
-  
-  if ((frameIndex != -1) && (newFrameIndex == frameIndex)) {
-    NSAssert(FALSE, @"cannot advance to same frame");
-  } else if ((frameIndex != -1) && (newFrameIndex < frameIndex)) {
-    // movie frame index can only go forward via advanceToFrame
-    NSAssert(FALSE, @"%@: %d -> %d",
-             @"can't advance to frame before current frameIndex",
-             frameIndex,
-             (int)newFrameIndex);
-  }
-  
-  BOOL skippingAhead = (frameIndex + 1) < newFrameIndex;
-  int skippingOverNumFrames = (int)(newFrameIndex - (frameIndex + 1));
-  if (skippingAhead) {
+    // Check for case of restarting the decoder after it decoded all frames (looping)
+    // 检查所有帧,解码后重新启动解码器的情况（循环）
+    
 #ifdef LOGGING
-    NSLog(@"skipping ahead : current %d, new %d, skip %d", (int)(frameIndex + 1), (int)newFrameIndex, (int)skippingOverNumFrames);
+    AVAssetReaderStatus status = self.aVAssetReader.status;
+    switch (status) {
+        case AVAssetReaderStatusUnknown:
+            NSLog(@"AVAssetReaderStatusUnknown");
+            break;
+        case AVAssetReaderStatusReading:
+            NSLog(@"AVAssetReaderStatusReading");
+            break;
+        case AVAssetReaderStatusCompleted:
+            NSLog(@"AVAssetReaderStatusCompleted");
+            break;
+        case AVAssetReaderStatusFailed:
+            NSLog(@"AVAssetReaderStatusFailed");
+            break;
+        case AVAssetReaderStatusCancelled:
+            NSLog(@"AVAssetReaderStatusCancelled");
+            break;
+        default:
+            break;
+    }
+#endif // LOGGING
+    
+#ifdef LOGGING
+    NSLog(@"testing restart condition, frameIndex %d, readingFinished %d", frameIndex, m_readingFinished);
+#endif // LOGGING
+    
+    //if ((status == AVAssetReaderStatusCompleted) && (frameIndex == -1))
+    
+    if ((frameIndex == -1) && self->m_readingFinished) {
+        // Previous round of decoding got to the end of the asset, it should be
+        // possible to start asset decoding over now.
+        
+#ifdef LOGGING
+        NSLog(@"RESTART condition when reading was finished found with frameIndex %d", (int)self.frameIndex);
+#endif // LOGGING
+        
+        [self restart];
+    }
+    
+    // Query the asset reader object again because it could have been changed
+    // by a restart above.
+    
+    AVAssetReader *aVAssetReader = self.aVAssetReader;
+    NSAssert(aVAssetReader, @"asset should be open already");
+    
+    NSAssert(m_isReading == TRUE, @"asset should be reading already");
+    
+    //  NSLog(@"advanceToFrame : current %d, new %d", (frameIndex + 1), newFrameIndex);
+    
+    // Examine the frame number we should advance to. Currently, the implementation
+    // is limited to advancing to the next frame only.
+    
+    if ((frameIndex != -1) && (newFrameIndex == frameIndex)) {
+        NSAssert(FALSE, @"cannot advance to same frame");
+    } else if ((frameIndex != -1) && (newFrameIndex < frameIndex)) {
+        // movie frame index can only go forward via advanceToFrame
+        // 视频帧索引只能通过advanceToFrame前进
+        NSAssert(FALSE, @"%@: %d -> %d",
+                 @"can't advance to frame before current frameIndex",
+                 frameIndex,
+                 (int)newFrameIndex);
+    }
+    
+    // 跳过头部的帧
+    BOOL skippingAhead = (frameIndex + 1) < newFrameIndex;
+    int skippingOverNumFrames = (int)(newFrameIndex - (frameIndex + 1));
+    if (skippingAhead) {
+#ifdef LOGGING
+        NSLog(@"skipping ahead : current %d, new %d, skip %d", (int)(frameIndex + 1), (int)newFrameIndex, (int)skippingOverNumFrames);
 #endif
-  }
-  
-  // Make sure we do not advance past the last frame
-  
-  int numFrames = (int) [self numFrames];
-  
-  if (newFrameIndex >= numFrames) {
-    NSAssert(FALSE, @"%@: %d", @"can't advance past last frame", (int)newFrameIndex);
-  }
-  
-  // Decode the frame into a framebuffer.
-  
-  BOOL changeFrameData = FALSE;
-  //BOOL writeFailed = FALSE;
-  BOOL doneReadingFrames = FALSE;
-  
-  //const int newFrameIndexSigned = (int) newFrameIndex;
-  
-  // Note that this asset frame decoder assumes that only one framebuffer
-  // will be in use at any one time, so this logic always drops the ref
-  // to the previous frame object which should drop the ref to the image.
-  // Also note that this logic does not drop a ref to a cvBuffer ref
-  // because it is possible that the optimized execution path could
-  // result in an OpenGL renderer that is holding on to a texture
-  // via the cvBufferRef.
-  
-  self.lastFrame.image = nil;
-  self.lastFrame.cgFrameBuffer = nil;
-  //self.lastFrame.cvBufferRef = NULL;
-  self.lastFrame = nil;
-  
-  // This framebuffer object will be the destination of a render operation
-  // for a given frame. Multiple frames must always be the same size,
-  // so a common render buffer will be allocated.
-  
-  CGFrameBuffer *frameBuffer;
-  CVImageBufferRef cvBufferRef = NULL;
-  
-  if (self.produceCoreVideoPixelBuffers) {
-    frameBuffer = nil;
-  } else {
-    frameBuffer = self.currentFrameBuffer;
-  }
-  
-  CVImageBufferRef skipAheadLastGoodBufferRef = NULL;
-  
-  while (doneReadingFrames == FALSE) @autoreleasepool {
-    FrameReadStatus frameReadStatus;
-    
-    if (cvBufferRef) {
-      // Previous loop returned a buffer ref, release it before decoding the next one
-      CFRelease(cvBufferRef);
-      cvBufferRef = NULL;
-    }
-    frameReadStatus = [self blockingDecodeReadFrame:&frameBuffer cvBufferRefPtr:&cvBufferRef];
-    
-    if (frameReadStatus == FrameReadStatusNextFrame) {
-      // Read the next frame of data, return as
-      
-#ifdef LOGGING
-      NSLog(@"FrameReadStatusNextFrame");
-#endif // LOGGING
-      
-      if (self.produceCoreVideoPixelBuffers) {
-        NSAssert(cvBufferRef, @"cvBufferRef must be returned with FrameReadStatusNextFrame status");
-      }
-      
-      frameIndex++;
-      changeFrameData = TRUE;
-      doneReadingFrames = TRUE;
-      
-      if (skippingAhead) {
-        // Skipping over frames means that the frame is decoded but then we
-        // ignore it. The asset frame decoder does not provide a way to advance
-        // to a specific time, so this kind of hackey way to skip ahead is
-        // required.
-        
-#ifdef LOGGING
-        NSLog(@"skip over frame condition found for frame %d", frameIndex);
-#endif // LOGGING
-        
-        // A really weird case comes up with skip ahead where the decoder tries to
-        // skip ahead but then the last frame comes back as done. In this edge case
-        // the decoder needs to hold on to the previous buffer in case skipping
-        // ahead returns done.
-
-        if (skipAheadLastGoodBufferRef) {
-          CFRelease(skipAheadLastGoodBufferRef);
-          skipAheadLastGoodBufferRef = NULL;
-        }
-        if (skippingAhead) {
-          skipAheadLastGoodBufferRef = cvBufferRef;
-          if (skipAheadLastGoodBufferRef) {
-            CFRetain(skipAheadLastGoodBufferRef);
-          }
-        }
-        
-        doneReadingFrames = FALSE;
-        
-        skippingOverNumFrames -= 1;
-        if (skippingOverNumFrames == 0) {
-          skippingAhead = FALSE;
-        }
-      }
-    } else if (frameReadStatus == FrameReadStatusDup) {
-#ifdef LOGGING
-      NSLog(@"FrameReadStatusDup");
-#endif // LOGGING
-      
-      frameIndex++;
-      changeFrameData = FALSE;
-      doneReadingFrames = TRUE;
-    } else if (frameReadStatus == FrameReadStatusTooEarly) {
-      // Skip writing of frame that would be displayed too early
-      
-#ifdef LOGGING
-      NSLog(@"FrameReadStatusTooEarly");
-#endif // LOGGING
-    } else if (frameReadStatus == FrameReadStatusNotReady) {
-      // Input was not ready at this point, continue to read
-      
-#ifdef LOGGING
-      NSLog(@"FrameReadStatusNotReady");
-#endif // LOGGING
-    } else if (frameReadStatus == FrameReadStatusDone) {
-      // Reader has returned a status code indicating that no more
-      // frames are available.
-#ifdef LOGGING
-      NSLog(@"FrameReadStatusDone");
-#endif // LOGGING
-      
-      doneReadingFrames = TRUE;
-      m_readingFinished = TRUE;
-      
-#ifdef LOGGING
-      NSLog(@"done status : %p : %p", skipAheadLastGoodBufferRef, cvBufferRef);
-#endif // LOGGING
-      
-      if (skipAheadLastGoodBufferRef && (cvBufferRef == nil)) {
-        // Skipped over a frame, but then the next frame returned DONE
-        cvBufferRef = skipAheadLastGoodBufferRef;
-        skipAheadLastGoodBufferRef = NULL;
-      }
-    } else {
-      NSAssert(FALSE, @"unmatched frame status %d", frameReadStatus);
-    }
-  }
-  
-  if (m_readingFinished == FALSE) {
-    NSAssert(frameIndex == newFrameIndex, @"frameIndex != newFrameIndex, %d != %d", frameIndex, (int)newFrameIndex);
-  }
-  
-  if ((m_readingFinished == FALSE) && (newFrameIndex == (numFrames - 1))) {
-#ifdef LOGGING
-    NSLog(@"advanced normally to last frame %d", (numFrames - 1));
-#endif // LOGGING
-
-    self->m_readingFinished = TRUE;
-  }
-  
-  if (skipAheadLastGoodBufferRef) {
-#ifdef LOGGING
-    NSLog(@"cleaned up skipAheadLastGoodBufferRef from skip ahead case");
-#endif // LOGGING
-    
-    CFRelease(skipAheadLastGoodBufferRef);
-    skipAheadLastGoodBufferRef = NULL;
-  }
-  
-  // Note that we do not release the frameBuffer because it is held as
-  // the self.currentFrameBuffer property
-
-  AVFrame *retFrame = nil;
-  
-  if (!changeFrameData) {
-#ifdef LOGGING
-    NSLog(@"no change in frame data");
-#endif // LOGGING
-    
-    // When no change from previous frame is found, return a new AVFrame object
-    // but make sure to return the same image object as was returned in the last frame.
-    
-    retFrame = [AVFrame aVFrame];
-    NSAssert(retFrame, @"AVFrame is nil");
-    
-    // The image from the previous rendered frame is returned. Note that it is possible
-    // that memory resources could not be mapped and in that case the previous frame
-    // could be nil. Return either the last image or nil in this case.
-    
-    if (self.produceCoreVideoPixelBuffers) {
-      // In the case of a duplicate frame in the optimized path, report the dup with
-      // an AVFrame object but there is no ref to a CoreVideo path. The optimal path
-      // should simply return instead of rendering into the view in this case so that
-      // the previous contents of the view would continue to be shown.
-    } else {
-      // Copy image and cgFrameBuffer from prev frame
-      id lastFrameImage = self.lastFrame.image;
-      retFrame.image = lastFrameImage;
-      
-      CGFrameBuffer *cgFrameBuffer = self.currentFrameBuffer;
-      retFrame.cgFrameBuffer = cgFrameBuffer;
     }
     
-    retFrame.isDuplicate = TRUE;
-  } else {
-#ifdef LOGGING
-    NSLog(@"change in frame data, sending updated AVFame");
-#endif // LOGGING
+    // Make sure we do not advance past the last frame
+    // 确保我们不超过最后一帧
     
-    // Delete ref to previous frame to be sure that image ref to framebuffer
-    // is dropped before a new one is created.
+    int numFrames = (int) [self numFrames];
     
+    if (newFrameIndex >= numFrames) {
+        NSAssert(FALSE, @"%@: %d", @"can't advance past last frame", (int)newFrameIndex);
+    }
+    
+    // Decode the frame into a framebuffer. -- 解码帧图像到frameBuffer中。
+    
+    BOOL changeFrameData = FALSE;
+    //BOOL writeFailed = FALSE;
+    BOOL doneReadingFrames = FALSE;
+    
+    //const int newFrameIndexSigned = (int) newFrameIndex;
+    
+//     Note that this asset frame decoder assumes that only one framebuffer
+//     will be in use at any one time, so this logic always drops the ref
+//     to the previous frame object which should drop the ref to the image.
+//     Also note that this logic does not drop a ref to a cvBuffer ref
+//     because it is possible that the optimized execution path could
+//     result in an OpenGL renderer that is holding on to a texture
+//     via the cvBufferRef.
+    /*
+     请注意，此资产帧解码器假定在任何时候都只使用一个帧缓冲区，因此此逻辑始终将ref丢弃到前一帧对象，而前一帧对象应将ref丢弃到图像。
+     另请注意，此逻辑不会将ref丢弃到cvBuffer ref，因为优化的执行路径可能会导致OpenGL渲染器通过cvBufferRef保留纹理。
+     */
+    
+    self.lastFrame.image = nil;
+    self.lastFrame.cgFrameBuffer = nil;
+    //self.lastFrame.cvBufferRef = NULL;
     self.lastFrame = nil;
     
-    retFrame = [AVFrame aVFrame];
-    NSAssert(retFrame, @"AVFrame is nil");
+    // This framebuffer object will be the destination of a render operation
+    // for a given frame. Multiple frames must always be the same size,
+    // so a common render buffer will be allocated.
+    // 该帧缓冲区对象将成为给定帧的渲染操作的目标,多个帧必须总是设定为同一尺寸，所以普通的渲染缓冲区将被释放。
+    
+    
+    CGFrameBuffer *frameBuffer;
+    CVImageBufferRef cvBufferRef = NULL;
     
     if (self.produceCoreVideoPixelBuffers) {
-      NSAssert(cvBufferRef, @"cvBufferRef is NULL");
-      retFrame.cvBufferRef = cvBufferRef;
+        frameBuffer = nil;
     } else {
-      // Return a CGImage wrapped in a AVFrame
-      CGFrameBuffer *cgFrameBuffer = self.currentFrameBuffer;
-      retFrame.cgFrameBuffer = cgFrameBuffer;
-      [retFrame makeImageFromFramebuffer];
+        frameBuffer = self.currentFrameBuffer;
     }
     
-    self.lastFrame = retFrame;
-  }
-  
-  if (cvBufferRef) {
-    CFRelease(cvBufferRef);
-  }
-  
-  // It should not be possible for both cgFrameBuffer and cvBufferRef to be nil
-  
-  if (retFrame.isDuplicate == FALSE) {
-    if ((retFrame.cgFrameBuffer == nil) && (retFrame.cvBufferRef == NULL)) {
-      NSAssert(FALSE, @"both buffer refs are nil");
+    // 图像缓冲区
+    CVImageBufferRef skipAheadLastGoodBufferRef = NULL;
+    
+    while (doneReadingFrames == FALSE) @autoreleasepool {
+        FrameReadStatus frameReadStatus;
+        
+        if (cvBufferRef) {
+            // Previous loop returned a buffer ref, release it before decoding the next one
+            CFRelease(cvBufferRef);
+            cvBufferRef = NULL;
+        }
+        frameReadStatus = [self blockingDecodeReadFrame:&frameBuffer cvBufferRefPtr:&cvBufferRef];
+        
+        if (frameReadStatus == FrameReadStatusNextFrame) {
+            // Read the next frame of data, return as
+            
+#ifdef LOGGING
+            NSLog(@"FrameReadStatusNextFrame");
+#endif // LOGGING
+            
+            if (self.produceCoreVideoPixelBuffers) {
+                NSAssert(cvBufferRef, @"cvBufferRef must be returned with FrameReadStatusNextFrame status");
+            }
+            
+            frameIndex++;
+            changeFrameData = TRUE;
+            doneReadingFrames = TRUE;
+            
+            if (skippingAhead) {
+                // Skipping over frames means that the frame is decoded but then we
+                // ignore it. The asset frame decoder does not provide a way to advance
+                // to a specific time, so this kind of hackey way to skip ahead is
+                // required.
+                
+#ifdef LOGGING
+                NSLog(@"skip over frame condition found for frame %d", frameIndex);
+#endif // LOGGING
+                
+                // A really weird case comes up with skip ahead where the decoder tries to
+                // skip ahead but then the last frame comes back as done. In this edge case
+                // the decoder needs to hold on to the previous buffer in case skipping
+                // ahead returns done.
+                
+                if (skipAheadLastGoodBufferRef) {
+                    CFRelease(skipAheadLastGoodBufferRef);
+                    skipAheadLastGoodBufferRef = NULL;
+                }
+                if (skippingAhead) {
+                    skipAheadLastGoodBufferRef = cvBufferRef;
+                    if (skipAheadLastGoodBufferRef) {
+                        CFRetain(skipAheadLastGoodBufferRef);
+                    }
+                }
+                
+                doneReadingFrames = FALSE;
+                
+                skippingOverNumFrames -= 1;
+                if (skippingOverNumFrames == 0) {
+                    skippingAhead = FALSE;
+                }
+            }
+        } else if (frameReadStatus == FrameReadStatusDup) {
+#ifdef LOGGING
+            NSLog(@"FrameReadStatusDup");
+#endif // LOGGING
+            
+            frameIndex++;
+            changeFrameData = FALSE;
+            doneReadingFrames = TRUE;
+        } else if (frameReadStatus == FrameReadStatusTooEarly) {
+            // Skip writing of frame that would be displayed too early
+            
+#ifdef LOGGING
+            NSLog(@"FrameReadStatusTooEarly");
+#endif // LOGGING
+        } else if (frameReadStatus == FrameReadStatusNotReady) {
+            // Input was not ready at this point, continue to read
+            
+#ifdef LOGGING
+            NSLog(@"FrameReadStatusNotReady");
+#endif // LOGGING
+        } else if (frameReadStatus == FrameReadStatusDone) {
+            // Reader has returned a status code indicating that no more
+            // frames are available.
+#ifdef LOGGING
+            NSLog(@"FrameReadStatusDone");
+#endif // LOGGING
+            
+            doneReadingFrames = TRUE;
+            m_readingFinished = TRUE;
+            
+#ifdef LOGGING
+            NSLog(@"done status : %p : %p", skipAheadLastGoodBufferRef, cvBufferRef);
+#endif // LOGGING
+            
+            if (skipAheadLastGoodBufferRef && (cvBufferRef == nil)) {
+                // Skipped over a frame, but then the next frame returned DONE
+                cvBufferRef = skipAheadLastGoodBufferRef;
+                skipAheadLastGoodBufferRef = NULL;
+            }
+        } else {
+            NSAssert(FALSE, @"unmatched frame status %d", frameReadStatus);
+        }
     }
-  }
-  
-  return retFrame;
+    
+    if (m_readingFinished == FALSE) {
+        NSAssert(frameIndex == newFrameIndex, @"frameIndex != newFrameIndex, %d != %d", frameIndex, (int)newFrameIndex);
+    }
+    
+    if ((m_readingFinished == FALSE) && (newFrameIndex == (numFrames - 1))) {
+#ifdef LOGGING
+        NSLog(@"advanced normally to last frame %d", (numFrames - 1));
+#endif // LOGGING
+        
+        self->m_readingFinished = TRUE;
+    }
+    
+    if (skipAheadLastGoodBufferRef) {
+#ifdef LOGGING
+        NSLog(@"cleaned up skipAheadLastGoodBufferRef from skip ahead case");
+#endif // LOGGING
+        
+        CFRelease(skipAheadLastGoodBufferRef);
+        skipAheadLastGoodBufferRef = NULL;
+    }
+    
+    // Note that we do not release the frameBuffer because it is held as
+    // the self.currentFrameBuffer property
+    
+    AVFrame *retFrame = nil;
+    
+    if (!changeFrameData) {
+#ifdef LOGGING
+        NSLog(@"no change in frame data");
+#endif // LOGGING
+        
+        // When no change from previous frame is found, return a new AVFrame object
+        // but make sure to return the same image object as was returned in the last frame.
+        
+        retFrame = [AVFrame aVFrame];
+        NSAssert(retFrame, @"AVFrame is nil");
+        
+        // The image from the previous rendered frame is returned. Note that it is possible
+        // that memory resources could not be mapped and in that case the previous frame
+        // could be nil. Return either the last image or nil in this case.
+        
+        if (self.produceCoreVideoPixelBuffers) {
+            // In the case of a duplicate frame in the optimized path, report the dup with
+            // an AVFrame object but there is no ref to a CoreVideo path. The optimal path
+            // should simply return instead of rendering into the view in this case so that
+            // the previous contents of the view would continue to be shown.
+        } else {
+            // Copy image and cgFrameBuffer from prev frame
+            id lastFrameImage = self.lastFrame.image;
+            retFrame.image = lastFrameImage;
+            
+            CGFrameBuffer *cgFrameBuffer = self.currentFrameBuffer;
+            retFrame.cgFrameBuffer = cgFrameBuffer;
+        }
+        
+        retFrame.isDuplicate = TRUE;
+    } else {
+#ifdef LOGGING
+        NSLog(@"change in frame data, sending updated AVFame");
+#endif // LOGGING
+        
+        // Delete ref to previous frame to be sure that image ref to framebuffer
+        // is dropped before a new one is created.
+        
+        self.lastFrame = nil;
+        
+        retFrame = [AVFrame aVFrame];
+        NSAssert(retFrame, @"AVFrame is nil");
+        
+        if (self.produceCoreVideoPixelBuffers) {
+            NSAssert(cvBufferRef, @"cvBufferRef is NULL");
+            retFrame.cvBufferRef = cvBufferRef;
+        } else {
+            // Return a CGImage wrapped in a AVFrame
+            CGFrameBuffer *cgFrameBuffer = self.currentFrameBuffer;
+            retFrame.cgFrameBuffer = cgFrameBuffer;
+            // TODO: 使用AVFrame，传入frame buffer，转成image。
+            [retFrame makeImageFromFramebuffer];
+        }
+        
+        self.lastFrame = retFrame;
+    }
+    
+    if (cvBufferRef) {
+        CFRelease(cvBufferRef);
+    }
+    
+    // It should not be possible for both cgFrameBuffer and cvBufferRef to be nil
+    
+    if (retFrame.isDuplicate == FALSE) {
+        if ((retFrame.cgFrameBuffer == nil) && (retFrame.cvBufferRef == NULL)) {
+            NSAssert(FALSE, @"both buffer refs are nil");
+        }
+    }
+    
+    return retFrame;
 }
 
 // nop, since opening the asset allocates resources
@@ -1137,7 +1161,9 @@ typedef enum
 // where the view is disconnected from the media playback layer but the visual
 // representation should remain in the view. For example, when the app is put
 // into the background with an animation.
-
+// 重复当前帧方法
+// `duplicateCurrentFrame` 方法被调用作为正常使用的一部分，其中视图与媒体播放层断开连接，但视觉表示应保留在视图中。
+// 例如，将应用程序与动画一起置于背景中时。
 - (AVFrame*) duplicateCurrentFrame
 {
   AVFrame *frame = [AVFrame aVFrame];

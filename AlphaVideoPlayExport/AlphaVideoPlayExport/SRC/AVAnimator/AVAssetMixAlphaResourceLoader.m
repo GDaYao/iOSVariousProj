@@ -306,6 +306,10 @@
     frame = [frameDecoder advanceToFrame:frameIndex];
     assert(frame);
     
+      
+      BOOL isHasAlphaFrameRGBA = [self hasAlphaWithCurrentImg:frame.image];
+      NSLog(@"log-是否含有透明通道:rgb:%d",isHasAlphaFrameRGBA);
+      
     if (FALSE) @autoreleasepool {
       // Write image as PNG
       
@@ -398,6 +402,15 @@
   
   return TRUE;
 }
+
+
+// 判断是否有透明通道
++ (BOOL)hasAlphaWithCurrentImg:(UIImage *)img {
+    CGImageAlphaInfo alpha = CGImageGetAlphaInfo(img.CGImage);
+    return (alpha==kCGImageAlphaFirst || alpha == kCGImageAlphaLast || alpha == kCGImageAlphaPremultipliedFirst || alpha == kCGImageAlphaPremultipliedLast);
+}
+
+
 
 // This method is invoked in the secondary thread to decode the contents of the archive entry
 // and write it to an output file (typically in the tmp dir).

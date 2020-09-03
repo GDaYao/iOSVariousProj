@@ -73,6 +73,12 @@
 		826FCD3324FE3E300057C74C /* AVOfflineComposition.m in Sources */ = {isa = PBXBuildFile; fileRef = 826FCCFA24FE3E300057C74C /* AVOfflineComposition.m */; };
 		826FCD3424FE3E300057C74C /* AVAssetWriterConvertFromMaxvid.m in Sources */ = {isa = PBXBuildFile; fileRef = 826FCCFB24FE3E300057C74C /* AVAssetWriterConvertFromMaxvid.m */; };
 		826FCD3524FE3E300057C74C /* ApngConvertMaxvid.m in Sources */ = {isa = PBXBuildFile; fileRef = 826FCCFE24FE3E300057C74C /* ApngConvertMaxvid.m */; };
+		826FCD3724FFC5E10057C74C /* Demo-big.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 826FCD3624FFC5E10057C74C /* Demo-big.m4v */; };
+		826FCD3924FFC7280057C74C /* demo-green.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 826FCD3824FFC7280057C74C /* demo-green.mp4 */; };
+		826FCD3B24FFE6FA0057C74C /* testImg.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 826FCD3A24FFE6F90057C74C /* testImg.JPG */; };
+		826FCD3D250095210057C74C /* tmp-1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 826FCD3C250095210057C74C /* tmp-1.jpg */; };
+		826FCD402500990E0057C74C /* ImageMakeToMovie.m in Sources */ = {isa = PBXBuildFile; fileRef = 826FCD3E2500990E0057C74C /* ImageMakeToMovie.m */; };
+		826FCD472500F1590057C74C /* AVAssetAlphaJoinBgImgExportVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = 826FCD462500F1590057C74C /* AVAssetAlphaJoinBgImgExportVideo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -207,6 +213,14 @@
 		826FCCFC24FE3E300057C74C /* movdata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = movdata.h; sourceTree = "<group>"; };
 		826FCCFD24FE3E300057C74C /* AVAnimatorMedia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVAnimatorMedia.h; sourceTree = "<group>"; };
 		826FCCFE24FE3E300057C74C /* ApngConvertMaxvid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApngConvertMaxvid.m; sourceTree = "<group>"; };
+		826FCD3624FFC5E10057C74C /* Demo-big.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Demo-big.m4v"; sourceTree = "<group>"; };
+		826FCD3824FFC7280057C74C /* demo-green.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "demo-green.mp4"; sourceTree = "<group>"; };
+		826FCD3A24FFE6F90057C74C /* testImg.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = testImg.JPG; sourceTree = "<group>"; };
+		826FCD3C250095210057C74C /* tmp-1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "tmp-1.jpg"; sourceTree = "<group>"; };
+		826FCD3E2500990E0057C74C /* ImageMakeToMovie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageMakeToMovie.m; sourceTree = "<group>"; };
+		826FCD3F2500990E0057C74C /* ImageMakeToMovie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageMakeToMovie.h; sourceTree = "<group>"; };
+		826FCD452500F1590057C74C /* AVAssetAlphaJoinBgImgExportVideo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AVAssetAlphaJoinBgImgExportVideo.h; sourceTree = "<group>"; };
+		826FCD462500F1590057C74C /* AVAssetAlphaJoinBgImgExportVideo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AVAssetAlphaJoinBgImgExportVideo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -260,6 +274,9 @@
 		8249537124F8F0A40044267B /* SRC */ = {
 			isa = PBXGroup;
 			children = (
+				826FCD412500F02C0057C74C /* AVAnimationExportVideo */,
+				826FCD3F2500990E0057C74C /* ImageMakeToMovie.h */,
+				826FCD3E2500990E0057C74C /* ImageMakeToMovie.m */,
 				826FCCAF24FE3E2F0057C74C /* AVAnimator */,
 				826FCC8924FE3E2F0057C74C /* LZMASDK */,
 				8249541F24F8F9070044267B /* Video */,
@@ -270,9 +287,13 @@
 		8249541F24F8F9070044267B /* Video */ = {
 			isa = PBXGroup;
 			children = (
+				826FCD3C250095210057C74C /* tmp-1.jpg */,
+				826FCD3A24FFE6F90057C74C /* testImg.JPG */,
 				8249542124F8F9130044267B /* mvAlpha.mp4 */,
 				8249542024F8F9130044267B /* mvJson.json */,
 				8249542224F8F9130044267B /* mvRGB.mp4 */,
+				826FCD3624FFC5E10057C74C /* Demo-big.m4v */,
+				826FCD3824FFC7280057C74C /* demo-green.mp4 */,
 			);
 			path = Video;
 			sourceTree = "<group>";
@@ -409,16 +430,25 @@
 				826FCCDE24FE3E300057C74C /* maxvid_deltas.m */,
 				826FCCB024FE3E2F0057C74C /* maxvid_encode.h */,
 				826FCCE624FE3E300057C74C /* maxvid_encode.m */,
-				826FCCC524FE3E300057C74C /* maxvid_file.c */,
 				826FCCF524FE3E300057C74C /* maxvid_file.h */,
-				826FCCD124FE3E300057C74C /* movdata.c */,
+				826FCCC524FE3E300057C74C /* maxvid_file.c */,
 				826FCCFC24FE3E300057C74C /* movdata.h */,
+				826FCCD124FE3E300057C74C /* movdata.c */,
 				826FCCCA24FE3E300057C74C /* MutableAttrString.h */,
 				826FCCEE24FE3E300057C74C /* MutableAttrString.m */,
 				826FCCD324FE3E300057C74C /* SegmentedMappedData.h */,
 				826FCCF924FE3E300057C74C /* SegmentedMappedData.m */,
 			);
 			path = AVAnimator;
+			sourceTree = "<group>";
+		};
+		826FCD412500F02C0057C74C /* AVAnimationExportVideo */ = {
+			isa = PBXGroup;
+			children = (
+				826FCD452500F1590057C74C /* AVAssetAlphaJoinBgImgExportVideo.h */,
+				826FCD462500F1590057C74C /* AVAssetAlphaJoinBgImgExportVideo.m */,
+			);
+			path = AVAnimationExportVideo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -448,7 +478,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 1160;
-				ORGANIZATIONNAME = dayao;
+				ORGANIZATIONNAME = AlphaVideoPlayExport;
 				TargetAttributes = {
 					8249535124F8E74D0044267B = {
 						CreatedOnToolsVersion = 11.6;
@@ -478,7 +508,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				826FCD3924FFC7280057C74C /* demo-green.mp4 in Resources */,
 				8249542324F8F9130044267B /* mvJson.json in Resources */,
+				826FCD3724FFC5E10057C74C /* Demo-big.m4v in Resources */,
+				826FCD3D250095210057C74C /* tmp-1.jpg in Resources */,
+				826FCD3B24FFE6FA0057C74C /* testImg.JPG in Resources */,
 				8249536524F8E7540044267B /* LaunchScreen.storyboard in Resources */,
 				8249542524F8F9130044267B /* mvRGB.mp4 in Resources */,
 				8249542424F8F9130044267B /* mvAlpha.mp4 in Resources */,
@@ -495,6 +529,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				826FCD0424FE3E300057C74C /* 7zIn.c in Sources */,
+				826FCD402500990E0057C74C /* ImageMakeToMovie.m in Sources */,
 				826FCD1B24FE3E300057C74C /* libapng.c in Sources */,
 				826FCD3524FE3E300057C74C /* ApngConvertMaxvid.m in Sources */,
 				826FCD2524FE3E300057C74C /* AVAssetJoinAlphaResourceLoader.m in Sources */,
@@ -507,6 +542,7 @@
 				826FCD1E24FE3E300057C74C /* maxvid_decode_arm.s in Sources */,
 				826FCD2C24FE3E300057C74C /* AVAssetFrameDecoder.m in Sources */,
 				826FCD0D24FE3E300057C74C /* 7zFile.c in Sources */,
+				826FCD472500F1590057C74C /* AVAssetAlphaJoinBgImgExportVideo.m in Sources */,
 				826FCD2D24FE3E300057C74C /* MutableAttrString.m in Sources */,
 				826FCD1124FE3E300057C74C /* AVFrameDecoder.m in Sources */,
 				826FCCFF24FE3E300057C74C /* Lzma2Dec.c in Sources */,
@@ -694,6 +730,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = J4U8Y8824X;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = AlphaVideoPlayExport/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -711,6 +752,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = J4U8Y8824X;
 				INFOPLIST_FILE = AlphaVideoPlayExport/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -13,6 +13,18 @@
 // The segment objets support and explicit mapSegment/unmapSegment API
 // that is used to map the segment into memory before use of the data.
 
+
+/** func: 分段映射数据
+ 分段的映射数据对象扩展了NSData，因此可以将一组映射文件段的生存期作为一组对象进行管理。
+ 
+ 如果容器SegmentedMappedData被释放，则假定没有其他活动引用，则每个包含它的分段映射都将其释放。
+ 
+ 与普通映射文件不同，SegmentedMappedData将推迟创建特定映射，直到需要特定段的数据为止。 分段对象支持和显式的mapSegment / unmapSegment API，该API用于在使用数据之前将分段映射到内存中。
+ 
+ */
+
+
+
 #import <Foundation/Foundation.h>
 
 @class RefCountedFD;

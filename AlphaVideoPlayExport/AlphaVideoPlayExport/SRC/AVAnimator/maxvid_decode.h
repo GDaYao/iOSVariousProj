@@ -4,6 +4,11 @@
 //
 // This module defines a runtime execution speed optimized video decoder library for iOS.
 
+/** func:
+    此模块为iOS定义了运行时执行速度优化的视频解码器库。
+ 
+ */
+
 #include <stdio.h>
 #include <stdint.h>
 #include <string.h>

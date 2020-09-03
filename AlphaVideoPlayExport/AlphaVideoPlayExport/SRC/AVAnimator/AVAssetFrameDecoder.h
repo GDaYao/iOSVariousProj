@@ -18,6 +18,7 @@
 //  decoder should not be used with a AVAnimatorMedia object, it should only
 //  be used to read frames from an asset is a non-realtime blocking usage.
 
+
 /** func: 实现扩展AVFrameDecoder
  主要功能是读取rgb和alpha文件合并到mvid文件中。
  
@@ -28,7 +29,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreGraphics/CoreGraphics.h>
-
+#import <AVFoundation/AVFoundation.h>
 #import "AVAssetConvertCommon.h"
 
 #import "AVFrameDecoder.h"
@@ -60,6 +61,9 @@
   BOOL m_produceYUV420Buffers;
   BOOL m_dropFrames;
 }
+
+
+@property (nonatomic,assign) CMTime frameTime;
 
 @property (nonatomic, readonly) NSUInteger  numFrames;
 

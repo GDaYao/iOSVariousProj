@@ -9,6 +9,11 @@
 //  a class that implements frame decoding logic. A frame is 2D image decoded from
 //  video data from a file or other resource.
 
+
+/** func:
+ 这个抽象超类定义了需要由实现帧解码逻辑的类实现的接口。 帧是从文件或其他资源的视频数据解码得到的2D图像。
+ */
+
 #import <Foundation/Foundation.h>
 
 @class AVFrame;
