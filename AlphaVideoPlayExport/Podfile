@@ -1,0 +1,11 @@
+
+platform :ios, '9.0'
+
+
+target 'AlphaVideoPlayExport' do
+
+pod 'iOSCompanySDK/AVAnimationSDK',:git=>'/Users/dm/Desktop/Dayao/otherFile/MyFile/git-github/iOSCompanySDK'
+
+
+
+end

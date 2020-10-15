@@ -1,0 +1,21 @@
+PODS:
+  - iOSCompanySDK/AVAnimationSDK (1.0.3)
+
+DEPENDENCIES:
+  - iOSCompanySDK/AVAnimationSDK (from `/Users/dm/Desktop/Dayao/otherFile/MyFile/git-github/iOSCompanySDK`)
+
+EXTERNAL SOURCES:
+  iOSCompanySDK:
+    :git: "/Users/dm/Desktop/Dayao/otherFile/MyFile/git-github/iOSCompanySDK"
+
+CHECKOUT OPTIONS:
+  iOSCompanySDK:
+    :commit: a4216722217610d1c959a71e572d49be2748f04f
+    :git: "/Users/dm/Desktop/Dayao/otherFile/MyFile/git-github/iOSCompanySDK"
+
+SPEC CHECKSUMS:
+  iOSCompanySDK: 24f885bcc4f805b2429e18b1bdc63a4d2fd67c86
+
+PODFILE CHECKSUM: 991c22ca43bff655bd4274a0c19a3c4f86469720
+
+COCOAPODS: 1.9.1

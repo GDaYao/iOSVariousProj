@@ -162,38 +162,6 @@
             endingLineNumber = "137"
             landmarkName = "-advanceToFrame:"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "078E53BB-18A8-4F4D-AE66-728BA040E964 - 3087d9edd6cf2a3b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[AVImageFrameDecoder advanceToFrame:]"
-                  moduleName = "&#x900f;&#x660e;&#x64ad;&#x653e;&#x5e76;&#x5bfc;&#x51fa;&#x5b9e;&#x73b0;"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/dm/Desktop/Dayao/otherFile/MyFile/git-github/iOSVariousProj/AlphaVideoPlayExport/AlphaVideoPlayExport/SRC/AVAnimator/AVImageFrameDecoder.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "137"
-                  endingLineNumber = "137"
-                  offsetFromSymbolStart = "24">
-               </Location>
-               <Location
-                  uuid = "078E53BB-18A8-4F4D-AE66-728BA040E964 - 3087d9edd6cf2a3b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[AVImageFrameDecoder advanceToFrame:]"
-                  moduleName = "&#x900f;&#x660e;&#x64ad;&#x653e;&#x5e76;&#x5bfc;&#x51fa;&#x5b9e;&#x73b0;"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/dm/Desktop/Dayao/otherFile/MyFile/git-github/iOSVariousProj/AlphaVideoPlayExport/AlphaVideoPlayExport/SRC/AVAnimator/AVImageFrameDecoder.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "137"
-                  endingLineNumber = "137"
-                  offsetFromSymbolStart = "185">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

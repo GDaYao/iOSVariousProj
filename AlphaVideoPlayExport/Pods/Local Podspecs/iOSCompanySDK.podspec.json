@@ -1,0 +1,151 @@
+{
+  "name": "iOSCompanySDK",
+  "version": "1.0.3",
+  "summary": "iOSCompanySDK in use company all project from SDK --- iOSCompanySDK是用于添加公共各个项目的方法",
+  "description": "TODO: 用于公司的各个项目添加公共方法使用；每个项目都会建立一个文件夹用于区分项目.--iOSCompanySDK in use company all project from GDYSDK --- iOSCompanySDK是用于添加公共各个项目的方法.",
+  "homepage": "https://github.com/GDaYao/iOSCompanySDK",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Dayao": "jaeda1418154979@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/GDaYao/iOSCompanySDK.git",
+    "tag": "1.0.3"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "frameworks": "UIKit",
+  "subspecs": [
+    {
+      "name": "NewWallpapersFull",
+      "libraries": "sqlite3",
+      "source_files": "iOSCompanySDK/Classes/NewWallpapersFull/**/*",
+      "public_header_files": "iOSCompanySDK/Classes/NewWallpapersFull/**/*.h",
+      "dependencies": {
+        "AFNetworking": [
+          "3.2.1"
+        ]
+      },
+      "xcconfig": {
+        "FRAMEWORK_SEARCH_PATHS": "$(inherited)",
+        "LIBRARY_SEARCH_PATHS": "$(inherited)",
+        "HEADER_SEARCH_PATHS": "$(inherited)",
+        "OTHER_CFLAGS": "$(inherited)",
+        "OTHER_LDFLAGS": "$(inherited)",
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited)"
+      }
+    },
+    {
+      "name": "CreativeWallpapers",
+      "libraries": "sqlite3",
+      "source_files": "iOSCompanySDK/Classes/CreativeWallpapers/**/*",
+      "public_header_files": "iOSCompanySDK/Classes/CreativeWallpapers/**/*.h",
+      "dependencies": {
+        "AFNetworking": [
+
+        ]
+      },
+      "xcconfig": {
+        "FRAMEWORK_SEARCH_PATHS": "$(inherited)",
+        "LIBRARY_SEARCH_PATHS": "$(inherited)",
+        "HEADER_SEARCH_PATHS": "$(inherited)",
+        "OTHER_CFLAGS": "$(inherited)",
+        "OTHER_LDFLAGS": "$(inherited)",
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited)"
+      }
+    },
+    {
+      "name": "NewPhotoTranslation",
+      "libraries": "sqlite3",
+      "source_files": "iOSCompanySDK/Classes/NewPhotoTranslation/**/*",
+      "public_header_files": "iOSCompanySDK/Classes/NewPhotoTranslation/**/*.h",
+      "dependencies": {
+        "AFNetworking": [
+
+        ]
+      },
+      "xcconfig": {
+        "FRAMEWORK_SEARCH_PATHS": "$(inherited)",
+        "LIBRARY_SEARCH_PATHS": "$(inherited)",
+        "HEADER_SEARCH_PATHS": "$(inherited)",
+        "OTHER_CFLAGS": "$(inherited)",
+        "OTHER_LDFLAGS": "$(inherited)",
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited)"
+      }
+    },
+    {
+      "name": "VideoPlayerClip",
+      "libraries": "sqlite3",
+      "source_files": "iOSCompanySDK/Classes/VideoPlayerClip/**/*",
+      "public_header_files": "iOSCompanySDK/Classes/VideoPlayerClip/**/*.h",
+      "dependencies": {
+        "AFNetworking": [
+          "3.2.1"
+        ]
+      },
+      "xcconfig": {
+        "FRAMEWORK_SEARCH_PATHS": "$(inherited)",
+        "LIBRARY_SEARCH_PATHS": "$(inherited)",
+        "HEADER_SEARCH_PATHS": "$(inherited)",
+        "OTHER_CFLAGS": "$(inherited)",
+        "OTHER_LDFLAGS": "$(inherited)",
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited)"
+      }
+    },
+    {
+      "name": "RemoteControl",
+      "libraries": "sqlite3",
+      "source_files": "iOSCompanySDK/Classes/RemoteControl/**/*",
+      "public_header_files": "iOSCompanySDK/Classes/RemoteControl/**/*.h",
+      "dependencies": {
+        "AFNetworking": [
+          "3.2.1"
+        ]
+      },
+      "xcconfig": {
+        "FRAMEWORK_SEARCH_PATHS": "$(inherited)",
+        "LIBRARY_SEARCH_PATHS": "$(inherited)",
+        "HEADER_SEARCH_PATHS": "$(inherited)",
+        "OTHER_CFLAGS": "$(inherited)",
+        "OTHER_LDFLAGS": "$(inherited)",
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited)"
+      }
+    },
+    {
+      "name": "VoiceRecoder",
+      "libraries": "sqlite3",
+      "source_files": "iOSCompanySDK/Classes/VoiceRecoder/**/*",
+      "public_header_files": "iOSCompanySDK/Classes/VoiceRecoder/**/*.h",
+      "dependencies": {
+        "AFNetworking": [
+          "3.2.1"
+        ]
+      },
+      "xcconfig": {
+        "FRAMEWORK_SEARCH_PATHS": "$(inherited)",
+        "LIBRARY_SEARCH_PATHS": "$(inherited)",
+        "HEADER_SEARCH_PATHS": "$(inherited)",
+        "OTHER_CFLAGS": "$(inherited)",
+        "OTHER_LDFLAGS": "$(inherited)",
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited)"
+      }
+    },
+    {
+      "name": "AVAnimationSDK",
+      "source_files": "iOSCompanySDK/Classes/AVAnimationSDK/**/*",
+      "public_header_files": "iOSCompanySDK/Classes/AVAnimationSDK/**/*.h",
+      "xcconfig": {
+        "FRAMEWORK_SEARCH_PATHS": "$(inherited)",
+        "LIBRARY_SEARCH_PATHS": "$(inherited)",
+        "HEADER_SEARCH_PATHS": "$(inherited)",
+        "OTHER_CFLAGS": "$(inherited)",
+        "OTHER_LDFLAGS": "$(inherited)",
+        "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited)"
+      }
+    }
+  ]
+}

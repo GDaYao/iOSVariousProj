@@ -7,13 +7,11 @@
 
 #import "ViewController.h"
 
-
-#import "AlphaVideoPlayExportViewController.h"
-
-@interface ViewController () <UIImagePickerControllerDelegate>
+#import <iOSCompanySDK/AVSDKAssetAlphaJoinBgImgExportVideo.h>
 
 
-@property (nonatomic,strong)UIImage *bgCoverImg;
+@interface ViewController () <UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+
 
 @end
 
@@ -26,7 +24,7 @@
     self.view.backgroundColor = [UIColor blackColor];
     
     
-    
+    //
     UIButton *nextBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [nextBtn setTitle:@"点击" forState:UIControlStateNormal];
     [nextBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
@@ -35,7 +33,6 @@
     [self.view addSubview:nextBtn];
     nextBtn.frame = CGRectMake(50, 100, 80, 80);
     [nextBtn addTarget:self action:@selector(tapNextBtnAction) forControlEvents:UIControlEventTouchUpInside];
-    
     
 }
 
@@ -56,12 +53,25 @@
 
 
 #pragma mark - action
-- (void)twotapNextBtnAction {
-    [self selectAlbum];
+- (void)tapNextBtnAction {
+    int i = 1;
+    if (i == 1) {
+        [self selectAlbum];
+    }else{
+        [self tapDirectlyNextBtnAction];
+    }
     
 }
 
-#pragma mark - select Album + Delegate
+- (void)exportVideoGetNotification {
+    
+    self.view.backgroundColor = [UIColor redColor];
+    
+    
+}
+
+#pragma mark - 方法1
+// select Album + Delegate
 - (void)selectAlbum {
     UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
     imagePickerController.delegate = self;
@@ -86,44 +96,35 @@
         // 使⽤- 用户选择区域图⽚
         UIImage *editImage = [info objectForKey:UIImagePickerControllerEditedImage];
         
-        // 得到图片后操作使用
-        self.bgCoverImg = editImage;
         
-        NSString *tmpDir = NSTemporaryDirectory();
-        NSString *disPNGPath = [tmpDir stringByAppendingFormat:@"tmp-1.jpg"];
-        //NSData *data = [NSData dataWithData:UIImagePNGRepresentation(editImage)];
-        NSData *data = [NSData dataWithData:UIImageJPEGRepresentation(editImage, 0.5)];
-        [data writeToFile:disPNGPath atomically:YES];
+        NSString *rgbFilePath = [[NSBundle mainBundle]pathForResource:kVideoColorStr ofType:@""];
+        NSString *alphaFilePath = [[NSBundle mainBundle]pathForResource:kVideoMaskStr ofType:@""];
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *documentsDirectory = [paths firstObject];
+        NSString *tmpOutPath = [documentsDirectory stringByAppendingFormat:@"/tmpOut.mp4"];
+        NSFileManager *fm = [NSFileManager defaultManager];
+        if ([fm fileExistsAtPath:tmpOutPath]) {
+            [fm removeItemAtPath:tmpOutPath error:nil];
+        }
+        
+        [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(exportVideoGetNotification) name:kAlphaVideoCombineImgFinishNotification object:nil];
+        
+        AVSDKAssetAlphaJoinBgImgExportVideo *exportMgr= [AVSDKAssetAlphaJoinBgImgExportVideo aVSDKAssetAlphaJoinBgImgExportVideo];
+        
+        [exportMgr loadAVAnimationResourcesWithMovieRGBFilePath:rgbFilePath movieAlphaFilePath:alphaFilePath outPath:tmpOutPath bgCoverImg:editImage bgCoverImgPoint:CGPointMake(0,301) needCoverImgSize:CGSizeMake(540,568)];
         
     }];
 }
 
 
-//
-- (void)tapNextBtnAction {
+#pragma mark - 方法二
+- (void)tapDirectlyNextBtnAction {
 
-    
-    AlphaVideoPlayExportViewController *nextAlphaPlayVC = [[AlphaVideoPlayExportViewController alloc]init];
-
-    nextAlphaPlayVC.bgCoverImg = self.bgCoverImg;
-    
-    NSString *srcPath = [[NSBundle mainBundle]bundlePath];
-    
-    // 资源路径
-    nextAlphaPlayVC.unzipVideoPath  = srcPath;  // ~/Documents/TempleDes/xxxx
-    
-    nextAlphaPlayVC.mvColorStr = [[NSBundle mainBundle]pathForResource:kVideoColorStr ofType:@""];
-    nextAlphaPlayVC.mvMaskStr = [[NSBundle mainBundle]pathForResource:kVideoMaskStr ofType:@""];
-    
-    nextAlphaPlayVC.mvJsonPath = [[NSBundle mainBundle]pathForResource:kVideoJsonStr ofType:@""];
-    
-    nextAlphaPlayVC.fileName = @"chunnuanhuakai";
-    
-    
-    
-    [self.navigationController pushViewController:nextAlphaPlayVC animated:YES];
+//    [self.navigationController pushViewController:nextAlphaPlayVC animated:YES];
     
 }
+
+
 
 
 #pragma mark - --- path ---
@@ -134,4 +135,7 @@
 
 
 
+
 @end
+
+
