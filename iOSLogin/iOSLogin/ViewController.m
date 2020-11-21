@@ -27,13 +27,13 @@
 
 - (NSArray *)dataArr{
     if (!_dataArr) {
-        _dataArr = @[@"微信登录",@"QQ登录",@"微博登录"];
+        _dataArr = @[@"微信登录",@"QQ登录",@"微博登录",@"Apple 登录"];
     }
     return _dataArr;
 }
 - (NSArray *)vcArr{
     if (!_vcArr) {
-        _vcArr = @[@"WechatViewController",@"QQViewController",@"WeiboViewController"];
+        _vcArr = @[@"WechatViewController",@"QQViewController",@"WeiboViewController",@"AppleViewController"];
     }
     return _vcArr;
 }

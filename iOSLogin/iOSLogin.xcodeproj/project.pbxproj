@@ -52,6 +52,10 @@
 		0FD7241C21D205AA00D57F9D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FD7241B21D205AA00D57F9D /* CoreGraphics.framework */; };
 		0FD7241E21D2089800D57F9D /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FD7241D21D2089800D57F9D /* Photos.framework */; };
 		0FD7242121D21FDD00D57F9D /* WeiboSDKVCDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD7242021D21FDD00D57F9D /* WeiboSDKVCDelegate.m */; };
+		8203306F25690FCC00D4DA1D /* AppleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8203306E25690FCC00D4DA1D /* AppleViewController.m */; };
+		820330742569168000D4DA1D /* appleid_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 820330722569168000D4DA1D /* appleid_button@2x.png */; };
+		820330752569168000D4DA1D /* appleid_button@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 820330732569168000D4DA1D /* appleid_button@3x.png */; };
+		820330782569178F00D4DA1D /* AuthenticationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 820330772569178F00D4DA1D /* AuthenticationServices.framework */; };
 		E781A3C2381049AD094E47A3 /* libPods-iOSLogin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B1F007FFFD01118BCAFF160 /* libPods-iOSLogin.a */; };
 /* End PBXBuildFile section */
 
@@ -118,6 +122,11 @@
 		0FD7241F21D21FDD00D57F9D /* WeiboSDKVCDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeiboSDKVCDelegate.h; sourceTree = "<group>"; };
 		0FD7242021D21FDD00D57F9D /* WeiboSDKVCDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeiboSDKVCDelegate.m; sourceTree = "<group>"; };
 		4B1F007FFFD01118BCAFF160 /* libPods-iOSLogin.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iOSLogin.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8203306D25690FCC00D4DA1D /* AppleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppleViewController.h; sourceTree = "<group>"; };
+		8203306E25690FCC00D4DA1D /* AppleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppleViewController.m; sourceTree = "<group>"; };
+		820330722569168000D4DA1D /* appleid_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "appleid_button@2x.png"; sourceTree = "<group>"; };
+		820330732569168000D4DA1D /* appleid_button@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "appleid_button@3x.png"; sourceTree = "<group>"; };
+		820330772569178F00D4DA1D /* AuthenticationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AuthenticationServices.framework; path = System/Library/Frameworks/AuthenticationServices.framework; sourceTree = SDKROOT; };
 		D1D90966A86EAD6ED5907F88 /* Pods-iOSLogin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSLogin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOSLogin/Pods-iOSLogin.debug.xcconfig"; sourceTree = "<group>"; };
 		DEB3D8CE36B21F55AA89699D /* Pods-iOSLogin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSLogin.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOSLogin/Pods-iOSLogin.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -144,6 +153,7 @@
 				0FD7240121D1C74000D57F9D /* libsqlite3.0.tbd in Frameworks */,
 				0FD723FF21D1C72A00D57F9D /* libz.tbd in Frameworks */,
 				0F79521621D091CE005E58C5 /* SystemConfiguration.framework in Frameworks */,
+				820330782569178F00D4DA1D /* AuthenticationServices.framework in Frameworks */,
 				E781A3C2381049AD094E47A3 /* libPods-iOSLogin.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -176,6 +186,7 @@
 				0F7951F421D06C3C005E58C5 /* AppDelegate.m */,
 				0F7951F621D06C3C005E58C5 /* ViewController.h */,
 				0F7951F721D06C3C005E58C5 /* ViewController.m */,
+				8203306C25690FA700D4DA1D /* Apple */,
 				0F79521D21D0B7AD005E58C5 /* Wechat */,
 				0F79521E21D0B7BB005E58C5 /* QQ */,
 				0F79521F21D0B7C9005E58C5 /* Weibo */,
@@ -198,6 +209,7 @@
 		0F79521421D091CD005E58C5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				820330772569178F00D4DA1D /* AuthenticationServices.framework */,
 				0FD7241D21D2089800D57F9D /* Photos.framework */,
 				0FD7241B21D205AA00D57F9D /* CoreGraphics.framework */,
 				0FD7241921D2059900D57F9D /* Foundation.framework */,
@@ -293,6 +305,17 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		8203306C25690FA700D4DA1D /* Apple */ = {
+			isa = PBXGroup;
+			children = (
+				8203306D25690FCC00D4DA1D /* AppleViewController.h */,
+				8203306E25690FCC00D4DA1D /* AppleViewController.m */,
+				820330722569168000D4DA1D /* appleid_button@2x.png */,
+				820330732569168000D4DA1D /* appleid_button@3x.png */,
+			);
+			path = Apple;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -363,10 +386,12 @@
 				0FB9EB1D21D5D17400D3E871 /* res7.jpg in Resources */,
 				0F7951FD21D06C46005E58C5 /* Assets.xcassets in Resources */,
 				0F6A685921D37CC600A555DF /* apm.mov in Resources */,
+				820330742569168000D4DA1D /* appleid_button@2x.png in Resources */,
 				0F7951FB21D06C3C005E58C5 /* Main.storyboard in Resources */,
 				0F6A685621D37CAA00A555DF /* image_1.jpg in Resources */,
 				0FB9EB2321D5D19C00D3E871 /* res6.gif in Resources */,
 				0FB9EB1521D5D0D500D3E871 /* res5thumb.png in Resources */,
+				820330752569168000D4DA1D /* appleid_button@3x.png in Resources */,
 				0FB9EB2121D5D19300D3E871 /* res6thumb.png in Resources */,
 				0FB9EB1F21D5D17F00D3E871 /* res4.jpg in Resources */,
 			);
@@ -406,6 +431,7 @@
 			files = (
 				0F52DC2421D468D600EE5182 /* LinkToWeiboViewController.m in Sources */,
 				0F79520B21D0758B005E58C5 /* WechatViewController.m in Sources */,
+				8203306F25690FCC00D4DA1D /* AppleViewController.m in Sources */,
 				0F7951F821D06C3C005E58C5 /* ViewController.m in Sources */,
 				0F79520E21D07592005E58C5 /* QQViewController.m in Sources */,
 				0F52DC2721D4B7F300EE5182 /* WeChatHandleURLDelegate.m in Sources */,
@@ -557,7 +583,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LT57D5LDNZ;
+				DEVELOPMENT_TEAM = J4U8Y8824X;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/iOSLogin",
@@ -577,7 +603,7 @@
 					"-Objc",
 					"-all_load",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.xin.SDKSample;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tencentlogin.SDKSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -589,7 +615,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LT57D5LDNZ;
+				DEVELOPMENT_TEAM = J4U8Y8824X;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/iOSLogin",
@@ -609,7 +635,7 @@
 					"-Objc",
 					"-all_load",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.xin.SDKSample;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tencentlogin.SDKSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

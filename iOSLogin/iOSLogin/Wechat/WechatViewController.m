@@ -47,6 +47,13 @@
     int width = [[UIScreen mainScreen] bounds].size.width;
     int height = [[UIScreen mainScreen] bounds].size.height;
     
+    UIButton *authorizedLoginBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [authorizedLoginBtn setTitle:@"授权登录" forState:UIControlStateNormal];
+    [authorizedLoginBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    authorizedLoginBtn.frame = CGRectMake(0, 0, 200, 50.0);
+    [self.view addSubview:authorizedLoginBtn];
+    
+    
     UIView *headView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, width, 135)];
     [headView setBackgroundColor:RGBCOLOR(0xe1, 0xe0, 0xde)];
 //
@@ -198,6 +205,8 @@
     [btn9 setFrame:CGRectMake(10, 230, 145, 40)];
     [footView addSubview:btn9];
     [self.view addSubview:footView];
+    
+    [authorizedLoginBtn addTarget:self action:@selector(weChatLogin) forControlEvents:UIControlEventTouchUpInside];
 
     [btn_x addTarget:self action:@selector(onSelectSessionScene:) forControlEvents:UIControlEventTouchUpInside];
     [btn_y addTarget:self action:@selector(onSelectSessionScene:) forControlEvents:UIControlEventTouchUpInside];
@@ -232,9 +241,11 @@
 #pragma mark - weChat login
 - (void)weChatLogin{
     if ([WXApi isWXAppInstalled]) {
+        // //构造SendAuthReq结构体
         SendAuthReq *req = [[SendAuthReq alloc] init];
         req.scope = @"snsapi_userinfo";
-        req.state = @"App";
+        req.state = @"iOS Login App";
+        // 第三方向微信终端发送一个SendAuthReq消息结构
         [WXApi sendReq:req];
     }
     else {

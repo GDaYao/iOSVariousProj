@@ -101,7 +101,8 @@
 //    self.avPlayerV.layer.borderColor = [UIColor redColor].CGColor;
 //    self.avPlayerV.layer.borderWidth = 1.0f;
     
-    NSString *audioPath = [[NSBundle mainBundle]pathForResource:@"play" ofType:@".mp4"];
+    //NSString *audioPath = [[NSBundle mainBundle]pathForResource:@"play" ofType:@".mp4"];
+    NSString *audioPath = [[NSBundle mainBundle]pathForResource:@"不能预览视频.mp4" ofType:@""];
     NSURL *url = [NSURL fileURLWithPath:audioPath];
     self.avPlayerV.videoURL = url;
     self.avPlayerV.viewFrame = CGRectMake(0, 0, kScreenW, 300);

@@ -21,6 +21,12 @@
 #import "WeChatHandleURLDelegate.h"
 
 
+
+/*  Apple    */
+//#import "AppleViewController.h"
+
+
+
 #define kSinaweiboAppKey @"596217426" // App secret: 5a58656b9c7d38f684cecfb00f282976
 //#define kSinaweiboAppKey @"2045436852"  //weibo Demo 测试
 
@@ -37,23 +43,23 @@
     // Override point for customization after application launch.
 
     
-    /*   register  weibo   */
+    /*   TODO:  register  weibo   */
     [WeiboSDK enableDebugMode:YES];
     [WeiboSDK registerApp:kSinaweiboAppKey];
     
-    /*   register  wechat   */
+    /*  TODO:  register  wechat   */
     [WXApi registerApp:@"wxd930ea5d5a258f4f"];
     
     
     return YES;
 }
 
-#pragma mark - QQ 登录
+#pragma mark - QQ 登录 + 微信登录 + 微博登录 ---> 其他应用授权回调回来后调用。
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options{
     NSLog(@"log-- xxx openURL:xxx");
     
     /*  微信登录和分享    */
-    if ([WXApi handleOpenURL:url delegate:[[WeChatHandleURLDelegate alloc]init]]) {
+    if ( [WXApi handleOpenURL:url delegate:[[WeChatHandleURLDelegate alloc]init]] ) {
         return YES;
     }
     

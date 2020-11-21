@@ -17,7 +17,7 @@
 /**
  *  是微信终端向第三方程序发起请求，要求第三方程序响应。第三方程序响应完后必须调用sendRsp返回。在调用sendRsp返回时，会切回到微信终端程序界面。
  */
--(void) onReq:(BaseReq*)req{
+- (void)onReq:(BaseReq*)req{
     NSLog(@"log--%@--onReq:%@",self,req);
     
     if([req isKindOfClass:[GetMessageFromWXReq class]])
@@ -60,7 +60,7 @@
 /**
  *  如果第三方程序向微信发送了sendReq的请求，那么onResp会被回调
  */
--(void) onResp:(BaseResp*)resp{
+-(void)onResp:(BaseResp*)resp{
     NSLog(@"log--%@--onReq:%@",self,resp);
     
     // 回调在发送成功和取消发送时都会调用
