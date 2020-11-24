@@ -55,22 +55,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "DEE7DA31-9331-4913-B4BE-4FEDE2A1BBD2"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "iOSLogin/Apple/AppleViewController.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "126"
-            endingLineNumber = "126"
-            landmarkName = "-authorizationController:didCompleteWithError:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "373DAA6B-8E6B-413C-BDFF-B034D15BA902"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -81,6 +65,22 @@
             startingLineNumber = "183"
             endingLineNumber = "183"
             landmarkName = "-monitorSignInWithAppleState"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5905A0B3-CAA5-4C69-B731-D8D5DD85CA76"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iOSLogin/Apple/AppleViewController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
+            landmarkName = "-authorizationController:didCompleteWithError:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

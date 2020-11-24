@@ -121,7 +121,7 @@
 }
 
 #pragma mark - 授权回调失败
-- (void)authorizationController:(ASAuthorizationController *)controller didCompleteWithError:(NSError *)error  API_AVAILABLE(ios(13.0)){
+- (void)authorizationController:(ASAuthorizationController *)controller didCompleteWithError:(NSError *)error  API_AVAILABLE(ios(13.0)) {
     
      NSLog(@"错误信息：%@", error);
      NSString *errorMsg;
