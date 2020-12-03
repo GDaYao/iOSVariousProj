@@ -8,8 +8,9 @@
 #import "HotTestViewController.h"
 
 
-#import <wax/wax.h>
 
+// TODO: wax-lua
+#import <wax/wax.h>
 
 
 // To add wax with extensions,use this line instead.
@@ -39,7 +40,6 @@
 
 
 
-
 #pragma mark - createUIInVC
 - (void)createUIInVC {
     
@@ -55,7 +55,12 @@
 - (void)addWaxCodeTest {
     
     // TODO:start
-    wax_start("init.lua", nil);
+//    wax_start("init.lua", nil);
+//    // blow two line code to debug.
+//    extern void luaopen_mobdebug_scripts(void *L);
+//    luaopen_mobdebug_scripts(wax_currentLuaState());
+    
+    
     
     wax_runLuaString("print('hello wax')");
     
@@ -71,6 +76,17 @@
     
 }
 
+
+#pragma mark - run lua file scripts -- 使用wax_runLuaFile执行脚本
+- (void)runLuaFileScript {
+    
+    NSString *path = [[NSBundle mainBundle]pathForResource:@"HotTestViewControllerLuaWax.lua" ofType:@""];
+    
+    int i = wax_runLuaFile(path.UTF8String);
+    if (i) {
+        NSLog(@"log-error=%s",lua_tostring(wax_currentLuaState(), -1));
+    }
+}
 
 
 
