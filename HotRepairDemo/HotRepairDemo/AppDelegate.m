@@ -8,11 +8,13 @@
 #import "AppDelegate.h"
 #import "HotTestViewController.h"
 
-// lua-wax use
+
+//  TODO: lua-wax use
 #import <wax/wax.h>
 
 
 @interface AppDelegate ()
+
 
 @end
 
@@ -22,7 +24,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    //
+    // TODO: use wax hot repair
     wax_start("nil", nil);
     // blow two line code to debug.
     extern void luaopen_mobdebug_scripts(void *L);
@@ -30,7 +32,7 @@
     
     
     
-    //
+    // TODO: main window
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     
     HotTestViewController *testVC = [[HotTestViewController alloc]init];

@@ -47,6 +47,17 @@ THE SOFTWARE.</string>
 			<key>License</key>
 			<string>Copyright</string>
 			<key>Title</key>
+			<string>mobdebug</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
+			<string>MIT License
+</string>
+			<key>License</key>
+			<string>Copyright</string>
+			<key>Title</key>
 			<string>wax</string>
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>

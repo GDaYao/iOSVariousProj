@@ -1,0 +1,26 @@
+{
+  "name": "mobdebug",
+  "version": "1.0.0",
+  "summary": "mobdebug",
+  "description": "Lua remote debug",
+  "homepage": "https://github.com/alibaba/wax",
+  "license": {
+    "type": "Copyright",
+    "text": "           MIT License\n"
+  },
+  "authors": {
+    "junzhan": "junzhan.yzw@taobao.com"
+  },
+  "source": {
+    "git": "https://github.com/alibaba/wax.git",
+    "tag": "1.0.0"
+  },
+  "platforms": {
+    "ios": "4.3"
+  },
+  "source_files": [
+    "mobdebug/*.{h,m,c}",
+    "mobdebug/luasocket/*.{h,m,c}"
+  ],
+  "requires_arc": false
+}

@@ -1,6 +1,6 @@
 --require('mobdebug').start()
 
-waxClass("ViewController")
+waxClass("HotTestViewController")
 
 
 function viewDidLoad(self)
@@ -10,7 +10,7 @@ end
 
 
 function executeLuascript(self)
-    self:label():setText("This is setted by local luaascipt")
+    print("wax print test.")
 end
 
 

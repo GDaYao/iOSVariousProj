@@ -44,7 +44,9 @@
 - (void)createUIInVC {
     
 
-    [self addWaxCodeTest];
+    //[self addWaxCodeTest];
+    
+    [self runLuaFileScript];
     
 }
 
@@ -63,12 +65,6 @@
     
     
     wax_runLuaString("print('hello wax')");
-    
-    
-    //
-    
-    
-    
     
     
     NSLog(@"log-调用-%s",__func__);
@@ -91,15 +87,6 @@
 
 
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 
 

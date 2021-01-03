@@ -1,9 +1,11 @@
 PODS:
   - Masonry (1.1.0)
+  - mobdebug (1.0.0)
   - wax (1.2.1)
 
 DEPENDENCIES:
   - Masonry
+  - mobdebug (from `tools/mobdebug`)
   - wax (from `https://github.com/alibaba/wax.git`)
 
 SPEC REPOS:
@@ -11,6 +13,8 @@ SPEC REPOS:
     - Masonry
 
 EXTERNAL SOURCES:
+  mobdebug:
+    :path: tools/mobdebug
   wax:
     :git: https://github.com/alibaba/wax.git
 
@@ -21,8 +25,9 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  mobdebug: a22dfbd79323efd9a91ba8770225f6eade308ba1
   wax: 85f4b93dbbfa123ee592c458a0ce289d561e4704
 
-PODFILE CHECKSUM: 37cb5b7500e96ab3dfce8ffe2957cec3073af2c4
+PODFILE CHECKSUM: 6b60be16096de1c8661d5b9658c5f927a6159210
 
 COCOAPODS: 1.9.1
