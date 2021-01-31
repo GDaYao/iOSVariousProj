@@ -24,7 +24,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    // TODO: use wax hot repair
+    // TODO: wax-use wax hot repair
     wax_start("nil", nil);
     // blow two line code to debug.
     extern void luaopen_mobdebug_scripts(void *L);

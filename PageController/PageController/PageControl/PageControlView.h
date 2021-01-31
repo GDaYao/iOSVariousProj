@@ -1,6 +1,9 @@
 
 /** func: customize page view.
  * provide customize page view method,so you can operate depend on this by yourself.
+ * 使用 `UIPageController` 作为page控制器，会出现快速滑动崩溃问题，为UIPageController系统问题。
+ * 最好改为采用 `UIScrollView` 加载各个UIViewController.
+ *
  *
  */
 
