@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		16F69A76395362EF9B360EA3 /* libPods-HotRepairDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19CB2F0E884367C60B353C16 /* libPods-HotRepairDemo.a */; };
 		821722B6246D74F200E2CC57 /* HotTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 821722B5246D74F200E2CC57 /* HotTestViewController.m */; };
+		82468C7D25E52C9300287937 /* HotPatchTest.lua in Resources */ = {isa = PBXBuildFile; fileRef = 82468C7C25E52C9300287937 /* HotPatchTest.lua */; };
 		824D787123CB2D1B003A7DDE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 824D787023CB2D1B003A7DDE /* AppDelegate.m */; };
 		824D787423CB2D1B003A7DDE /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 824D787323CB2D1B003A7DDE /* SceneDelegate.m */; };
 		824D787723CB2D1B003A7DDE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 824D787623CB2D1B003A7DDE /* ViewController.m */; };
@@ -25,6 +26,7 @@
 		24C566EB498D23467686ADC0 /* Pods-HotRepairDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HotRepairDemo.release.xcconfig"; path = "Target Support Files/Pods-HotRepairDemo/Pods-HotRepairDemo.release.xcconfig"; sourceTree = "<group>"; };
 		821722B4246D74F200E2CC57 /* HotTestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HotTestViewController.h; sourceTree = "<group>"; };
 		821722B5246D74F200E2CC57 /* HotTestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HotTestViewController.m; sourceTree = "<group>"; };
+		82468C7C25E52C9300287937 /* HotPatchTest.lua */ = {isa = PBXFileReference; lastKnownFileType = text; path = HotPatchTest.lua; sourceTree = "<group>"; };
 		824D786C23CB2D1B003A7DDE /* HotRepairDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HotRepairDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		824D786F23CB2D1B003A7DDE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		824D787023CB2D1B003A7DDE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				821722B4246D74F200E2CC57 /* HotTestViewController.h */,
 				821722B5246D74F200E2CC57 /* HotTestViewController.m */,
 				828E29AF25792525000F2B95 /* HotTestViewControllerLuaWax.lua */,
+				82468C7C25E52C9300287937 /* HotPatchTest.lua */,
 			);
 			path = "Lua-wax";
 			sourceTree = "<group>";
@@ -178,6 +181,7 @@
 				824D787C23CB2D1C003A7DDE /* Assets.xcassets in Resources */,
 				824D787A23CB2D1B003A7DDE /* Main.storyboard in Resources */,
 				828E29B025792525000F2B95 /* HotTestViewControllerLuaWax.lua in Resources */,
+				82468C7D25E52C9300287937 /* HotPatchTest.lua in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

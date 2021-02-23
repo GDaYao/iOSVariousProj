@@ -1,6 +1,6 @@
 --require('mobdebug').start()
 
-waxClass("HotTestViewController")
+waxClass{"HotTestViewController"}
 
 
 function viewDidLoad(self)

@@ -8,10 +8,7 @@
 #import "AppDelegate.h"
 #import "HotTestViewController.h"
 
-
-//  TODO: lua-wax use
 #import <wax/wax.h>
-
 
 @interface AppDelegate ()
 
@@ -23,27 +20,39 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    
-    // TODO: wax-use wax hot repair
-    wax_start("nil", nil);
-    // blow two line code to debug.
-    extern void luaopen_mobdebug_scripts(void *L);
-    //luaopen_mobdebug_scripts(wax_currentLuaState());
-    
-    
+
     
     // TODO: main window
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     
-    HotTestViewController *testVC = [[HotTestViewController alloc]init];
     
+    // TODO: init lua wax
+    [self initLuaWax];
+    
+    HotTestViewController *testVC = [[HotTestViewController alloc]init];
     self.window.rootViewController = testVC;
     
     [self.window makeKeyAndVisible];
     
+    
     return YES;
 }
 
+
+#pragma mark - lua-wax
+- (void)initLuaWax {
+    
+    wax_start(nil, nil);
+    
+    //
+    NSString *path = [[NSBundle mainBundle]pathForResource:@"HotPatchTest" ofType:@"lua"];
+    int result = wax_runLuaFile([path UTF8String]);
+    NSLog(@"log-result-%d",result);
+    if (result) {
+        NSLog(@"log-error=%s",lua_tostring(wax_currentLuaState(), -1));
+    }
+    
+}
 
 
 

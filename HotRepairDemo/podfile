@@ -10,6 +10,8 @@ pod 'Masonry'
 # wax+lua
 pod 'wax',:git=>'https://github.com/alibaba/wax.git' #,:tag=>'1.1.0' #不用添加tag
 
+
+# 会多出一个 development pods
 pod 'mobdebug',:path=>'tools/mobdebug'
 
 

@@ -32,8 +32,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
-    
+
+
+    [self setUpUi];
     
     [self createUIInVC];
 }
@@ -42,27 +43,43 @@
 
 #pragma mark - createUIInVC
 - (void)createUIInVC {
-    
 
+    //[self initWax];
+    
     //[self addWaxCodeTest];
     
-    [self runLuaFileScript];
+    //[self runLuaFileScript];
+
+}
+
+#pragma mark - set up ui
+- (void)setUpUi {
+    self.view.backgroundColor = [UIColor redColor];
     
 }
 
 
+#pragma mark -
+#pragma mark - init wax
+- (void)initWax {
+    
+    wax_start(nil, nil);
+    
+    //
+    //
+    
+    // blow two line code to debug.
+    extern void luaopen_mobdebug_scripts(void *L);
+    //luaopen_mobdebug_scripts(wax_currentLuaState());
+}
 
-
-#pragma mark - add wax file test
+#pragma mark wax add wax file test
 - (void)addWaxCodeTest {
     
-    // TODO:start
 //    wax_start("init.lua", nil);
 //    // blow two line code to debug.
 //    extern void luaopen_mobdebug_scripts(void *L);
 //    luaopen_mobdebug_scripts(wax_currentLuaState());
-    
-    
     
     wax_runLuaString("print('hello wax')");
     
@@ -72,8 +89,7 @@
     
 }
 
-
-#pragma mark - run lua file scripts -- 使用wax_runLuaFile执行脚本
+#pragma mark run lua file scripts -- 使用wax_runLuaFile执行脚本
 - (void)runLuaFileScript {
     
     NSString *path = [[NSBundle mainBundle]pathForResource:@"HotTestViewControllerLuaWax.lua" ofType:@""];
