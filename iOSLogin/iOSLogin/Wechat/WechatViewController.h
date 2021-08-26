@@ -16,6 +16,12 @@
  
  * 参考链接: http://www.cnblogs.com/sunfuyou/p/7843612.html
  *
+ *
+ *  需要校验并填写Universal Link: 如: https://<xxx>/app/
+ *
+ *  https://<xxxxx>/.well-known/apple-app-site-association
+ *
+ *
  */
 
 

@@ -7,11 +7,18 @@
 #import "QQViewController.h"
 
 
+/*
+ 最新版本引入头文件
+ #import <TencentOpenAPI/TencentOAuth.h>这个头文件不能调用，
+ 使用 #import <TencentOpenAPI/TencentOpenApiUmbrellaHeader.h>
+ */
 /* QQ 登录 */
 #import <TencentOpenAPI/TencentOAuth.h> // must
 
 #import <TencentOpenAPI/QQApiInterfaceObject.h> // 分享使用
 #import <TencentOpenAPI/QQApiInterface.h>
+
+
 
 
 @interface QQViewController () <TencentSessionDelegate>

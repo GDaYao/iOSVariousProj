@@ -21,6 +21,7 @@
 		0FDD4D5021B52DCC00F93BD7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FDD4D4E21B52DCC00F93BD7 /* LaunchScreen.storyboard */; };
 		0FDD4D5321B52DCC00F93BD7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FDD4D5221B52DCC00F93BD7 /* main.m */; };
 		0FF1FDE921C0AB6A00E72B2B /* AVPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FF1FDE821C0AB6A00E72B2B /* AVPlayerView.m */; };
+		822DE14326D78AB4003555F6 /* AVPlayerMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = 822DE14226D78AB4003555F6 /* AVPlayerMgr.m */; };
 		82B4A93922858B650045C43C /* Demo-test.mov in Resources */ = {isa = PBXBuildFile; fileRef = 82B4A93822858B650045C43C /* Demo-test.mov */; };
 		82FC2E5422890CAE00FF378C /* Demo-big.mov in Resources */ = {isa = PBXBuildFile; fileRef = 82FC2E5322890CAE00FF378C /* Demo-big.mov */; };
 		EE0F3D039FEAA385439F0E27 /* libPods-VideoPlay.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9512D6C02ED4BB38611C007A /* libPods-VideoPlay.a */; };
@@ -53,6 +54,8 @@
 		0FF1FDE721C0AB6A00E72B2B /* AVPlayerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AVPlayerView.h; sourceTree = "<group>"; };
 		0FF1FDE821C0AB6A00E72B2B /* AVPlayerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AVPlayerView.m; sourceTree = "<group>"; };
 		3B98F68692B78513564DD1BF /* Pods-VideoPlay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VideoPlay.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VideoPlay/Pods-VideoPlay.debug.xcconfig"; sourceTree = "<group>"; };
+		822DE14126D78AB4003555F6 /* AVPlayerMgr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AVPlayerMgr.h; sourceTree = "<group>"; };
+		822DE14226D78AB4003555F6 /* AVPlayerMgr.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AVPlayerMgr.m; sourceTree = "<group>"; };
 		82B4A93822858B650045C43C /* Demo-test.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "Demo-test.mov"; sourceTree = "<group>"; };
 		82FC2E5322890CAE00FF378C /* Demo-big.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "Demo-big.mov"; sourceTree = "<group>"; };
 		9512D6C02ED4BB38611C007A /* libPods-VideoPlay.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VideoPlay.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -150,6 +153,8 @@
 				0FAA12B721B7AF7E00B33C81 /* AVPlayerViewController.m */,
 				0FF1FDE721C0AB6A00E72B2B /* AVPlayerView.h */,
 				0FF1FDE821C0AB6A00E72B2B /* AVPlayerView.m */,
+				822DE14126D78AB4003555F6 /* AVPlayerMgr.h */,
+				822DE14226D78AB4003555F6 /* AVPlayerMgr.m */,
 			);
 			path = AVPlayer;
 			sourceTree = "<group>";
@@ -279,6 +284,7 @@
 				0FDD4D4821B52DC500F93BD7 /* ViewController.m in Sources */,
 				0FDD4D5321B52DCC00F93BD7 /* main.m in Sources */,
 				0F4259D621E740B500516BDF /* CustomVideoViewController.m in Sources */,
+				822DE14326D78AB4003555F6 /* AVPlayerMgr.m in Sources */,
 				0F4259CF21E6EA4700516BDF /* MusicSliderView.m in Sources */,
 				0FAA12B821B7AF7E00B33C81 /* AVPlayerViewController.m in Sources */,
 				0FDD4D4521B52DC500F93BD7 /* AppDelegate.m in Sources */,
