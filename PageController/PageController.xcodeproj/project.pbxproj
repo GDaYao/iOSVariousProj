@@ -13,8 +13,8 @@
 		82424BDB230108BB003C1D77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82424BDA230108BB003C1D77 /* Assets.xcassets */; };
 		82424BDE230108BB003C1D77 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82424BDC230108BB003C1D77 /* LaunchScreen.storyboard */; };
 		82424BE1230108BB003C1D77 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 82424BE0230108BB003C1D77 /* main.m */; };
-		82424BE923011530003C1D77 /* PageControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 82424BE823011530003C1D77 /* PageControlView.m */; };
-		82424BEC23014301003C1D77 /* SegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 82424BEB23014301003C1D77 /* SegmentedControl.m */; };
+		8259416B282E4D4C008DE048 /* PageControlSuperView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8259416A282E4D4C008DE048 /* PageControlSuperView.m */; };
+		82594171282E62D4008DE048 /* TestSubPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 82594170282E62D4008DE048 /* TestSubPageView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,10 +28,10 @@
 		82424BDD230108BB003C1D77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		82424BDF230108BB003C1D77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		82424BE0230108BB003C1D77 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		82424BE723011530003C1D77 /* PageControlView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PageControlView.h; sourceTree = "<group>"; };
-		82424BE823011530003C1D77 /* PageControlView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PageControlView.m; sourceTree = "<group>"; };
-		82424BEA23014301003C1D77 /* SegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegmentedControl.h; sourceTree = "<group>"; };
-		82424BEB23014301003C1D77 /* SegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SegmentedControl.m; sourceTree = "<group>"; };
+		82594169282E4D4C008DE048 /* PageControlSuperView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PageControlSuperView.h; sourceTree = "<group>"; };
+		8259416A282E4D4C008DE048 /* PageControlSuperView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PageControlSuperView.m; sourceTree = "<group>"; };
+		8259416F282E62D4008DE048 /* TestSubPageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestSubPageView.h; sourceTree = "<group>"; };
+		82594170282E62D4008DE048 /* TestSubPageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestSubPageView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +68,8 @@
 				82424BD2230108B9003C1D77 /* AppDelegate.m */,
 				82424BD4230108B9003C1D77 /* ViewController.h */,
 				82424BD5230108B9003C1D77 /* ViewController.m */,
+				8259416F282E62D4008DE048 /* TestSubPageView.h */,
+				82594170282E62D4008DE048 /* TestSubPageView.m */,
 				82424BED230145A9003C1D77 /* PageControl */,
 				82424BD7230108B9003C1D77 /* Main.storyboard */,
 				82424BDA230108BB003C1D77 /* Assets.xcassets */,
@@ -81,10 +83,8 @@
 		82424BED230145A9003C1D77 /* PageControl */ = {
 			isa = PBXGroup;
 			children = (
-				82424BE723011530003C1D77 /* PageControlView.h */,
-				82424BE823011530003C1D77 /* PageControlView.m */,
-				82424BEA23014301003C1D77 /* SegmentedControl.h */,
-				82424BEB23014301003C1D77 /* SegmentedControl.m */,
+				82594169282E4D4C008DE048 /* PageControlSuperView.h */,
+				8259416A282E4D4C008DE048 /* PageControlSuperView.m */,
 			);
 			path = PageControl;
 			sourceTree = "<group>";
@@ -159,11 +159,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82594171282E62D4008DE048 /* TestSubPageView.m in Sources */,
 				82424BD6230108B9003C1D77 /* ViewController.m in Sources */,
-				82424BE923011530003C1D77 /* PageControlView.m in Sources */,
+				8259416B282E4D4C008DE048 /* PageControlSuperView.m in Sources */,
 				82424BE1230108BB003C1D77 /* main.m in Sources */,
 				82424BD3230108B9003C1D77 /* AppDelegate.m in Sources */,
-				82424BEC23014301003C1D77 /* SegmentedControl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
